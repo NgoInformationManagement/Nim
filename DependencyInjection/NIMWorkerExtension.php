@@ -2,6 +2,7 @@
 
 namespace NIM\WorkerBundle\DependencyInjection;
 
+use NIM\WorkerBundle\NIMWorkerBundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
@@ -23,6 +24,18 @@ class NIMWorkerExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+
+        $driver = 'doctrine/orm'; // todo
+
+        if (!in_array($driver, NIMWorkerBundle::getSupportedDrivers())) {
+            throw new \InvalidArgumentException(sprintf('Driver "%s" is unsupported by NIMWorkerBundle.', $driver));
+        }
+
+        //$loader->load(sprintf('driver/%s.xml', $driver));
+
+        $container->setParameter('nim_worker.driver', $driver);
+        $container->setParameter('nim_worker.driver.'.$driver, true);
+
         $loader->load('services.xml');
     }
 }
