@@ -2,6 +2,8 @@
 
 namespace NIM\MissionBundle\DependencyInjection;
 
+use NIM\MissionBundle\NIMMissionBundle;
+use Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
@@ -23,6 +25,18 @@ class NIMMissionExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+
+        $driver = 'doctrine/orm'; // todo
+
+        if (!in_array($driver, NIMMissionBundle::getSupportedDrivers())) {
+            throw new \InvalidArgumentException(sprintf('Driver "%s" is unsupported by NIMMissionBundle.', $driver));
+        }
+
+        //$loader->load(sprintf('driver/%s.xml', $driver));
+
+        $container->setParameter('nim_mission.driver', $driver);
+        $container->setParameter('nim_mission.driver.'.$driver, true);
+
         $loader->load('services.xml');
     }
 }
