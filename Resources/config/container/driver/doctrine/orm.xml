@@ -15,7 +15,7 @@ file that was distributed with this source code.
 http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="sylius.repository.mission.class">Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository</parameter>
+        <parameter key="nim.repository.mission.class">Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository</parameter>
     </parameters>
 
     <services>
