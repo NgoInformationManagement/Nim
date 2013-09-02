@@ -48,7 +48,7 @@ class NIMMissionBundle extends Bundle
     /**
      * {@inheritdoc}
      */
-    protected function getRelativeEntityPath()
+    protected function getEntityPath()
     {
         return 'Model';
     }
