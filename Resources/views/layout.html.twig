@@ -1,0 +1,128 @@
+<html>
+    <head>
+    <title>
+        {% block title %}
+            {{ 'layout.title'|trans }}
+        {% endblock %}
+    </title>
+    <meta charset="UTF-8">
+    {# stylesheets... #}
+    {% block stylesheets %}
+        {% stylesheets output='assets/compiled/nim.css' filter='cssrewrite'
+            'bundles/nimweb/css/bootstrap.css'
+            'bundles/nimweb/css/font-awesome.css'
+            'bundles/nimweb/css/theme.css'
+            'bundles/nimweb/css/layout.css'
+        %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+        {% endstylesheets %}
+    {% endblock %}
+    </head>
+    <body class="wide mini-sidebar">
+        <div id="wrap">
+
+            <div id="top">
+                <!-- .navbar -->
+                <nav class="navbar navbar-inverse navbar-static-top">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    {% block top_menu %}
+                    <header class="navbar-header">
+                        <a class="navbar-brand" href="index.html">
+                            <img alt="" src="{# TODO #}">
+                            {{ 'layout.name'|trans }}
+                        </a>
+                    </header>
+                    {% endblock top_menu %}
+
+                    <div class="topnav">
+                        <div class="btn-toolbar">
+                            <div class="btn-group">
+                                <a class="btn btn-metis-1 btn-sm"
+                                   href="{# TODO #}">
+                                    <i class="icon-off"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <!-- /.navbar -->
+
+
+                <!-- header.head -->
+                <header class="head">
+                    <!-- ."main-bar -->
+                    <div class="main-bar">
+                        <h3>
+                            {% block page_name %}
+                                <i class="icon-dashboard"></i>
+                                {{ 'layout.page.name'|trans }}
+                            {% endblock page_name %}
+
+                            {% block page_action %}
+
+                            {% endblock page_action %}
+                        </h3>
+                    </div>
+                    <!-- /.main-bar -->
+                </header>
+                <!-- end header.head -->
+            </div>
+
+
+            <div id="left">
+                <!-- #menu -->
+                <ul class="accordion collapse" id="menu">
+                    {% block left_menu %}
+                    {#<li class="nav-header">Menu</li>#}
+                    {#<li class="nav-divider"></li>#}
+                    <li>
+                        <a href="">
+                            <i class="icon-rocket"></i>
+                            {{ 'menu.mission' | trans }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="icon-male"></i>
+                            {{ 'menu.worker' | trans }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="icon-beaker"></i>
+                            {{ 'menu.vaccin' | trans }}
+                        </a>
+                    </li>
+                    {% endblock left_menu %}
+                </ul>
+
+                <!-- /#menu -->
+            </div>
+            <!-- /#left -->
+
+            <div id="content">
+                <div class="outer">
+                    <div class="inner">
+                    {% block content %}
+                    {% endblock content %}
+                    </div>
+                </div>
+                <!-- end .outer -->
+            </div>
+            <!-- end #content -->
+        </div>
+        <!-- /#wrap -->
+
+
+        <div id="footer">
+            <p>2013 &copy; {{ 'layout.footer'|trans }}</p>
+        </div>
+
+        {# javascripts... #}
+        {% block javascripts %}
+            {% javascripts output='assets/compiled/nim.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
+    </body>
+</html>
