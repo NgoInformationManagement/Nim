@@ -1,0 +1,41 @@
+nim_mission_index:
+    pattern: /
+    methods: [GET]
+    defaults:
+        _controller: nim.controller.mission:indexAction
+        _sylius:
+            template: NIMWebBundle:Mission:index.html.twig
+
+nim_mission_create:
+    pattern: /new
+    methods: [GET, POST]
+    defaults:
+        _controller: nim.controller.mission:indexAction
+        _sylius:
+            template: NIMWebBundle:Mission:index.html.twig
+            redirect: nim_mission_show
+
+nim_mission_update:
+    pattern: /{id}/edit
+    methods: [PUT, POST]
+    defaults:
+        _controller: nim.controller.mission:indexAction
+        _sylius:
+            template: NIMWebBundle:Mission:index.html.twig
+            redirect: nim_mission_show
+
+nim_mission_show:
+    pattern: /{id}
+    methods: [GET]
+    defaults:
+        _controller: nim.controller.mission:showAction
+        _sylius:
+            template: NIMWebBundle:Mission:show.html.twig
+
+nim_mission_delete:
+    pattern: /{id}
+    methods: [DELETE]
+    defaults:
+        _controller: nim.controller.mission:deleteAction
+        _sylius:
+            redirect: nim_mission_index

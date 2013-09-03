@@ -9,7 +9,6 @@
  * file that was distributed with this source code.
  */
 
-
 namespace NIM\MissionBundle\DependencyInjection;
 
 use NIM\MissionBundle\NIMMissionBundle;
