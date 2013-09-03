@@ -10,18 +10,18 @@ nim_mission_create:
     pattern: /new
     methods: [GET, POST]
     defaults:
-        _controller: nim.controller.mission:indexAction
+        _controller: nim.controller.mission:createAction
         _sylius:
-            template: NIMWebBundle:Mission:index.html.twig
+            template: NIMWebBundle:Mission:create.html.twig
             redirect: nim_mission_show
 
 nim_mission_update:
     pattern: /{id}/edit
     methods: [PUT, POST]
     defaults:
-        _controller: nim.controller.mission:indexAction
+        _controller: nim.controller.mission:updateAction
         _sylius:
-            template: NIMWebBundle:Mission:index.html.twig
+            template: NIMWebBundle:Mission:update.html.twig
             redirect: nim_mission_show
 
 nim_mission_show:
