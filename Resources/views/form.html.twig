@@ -1,0 +1,72 @@
+{% use 'form_div_layout.html.twig' %}
+
+{# Form label #}
+{% block form_label %}
+    {% set label_attr = label_attr | merge({'class' : 'col-lg-2 control-label'}) %}
+    {{ parent() }}
+{% endblock form_label %}
+
+{# Form widget #}
+{% block form_widget %}
+    {% set attr = attr | merge({'class' : 'form-control'}) %}
+    {{ parent() }}
+{% endblock form_widget %}
+
+{# Textarea widget #}
+{% block textarea_widget %}
+    {% set attr = attr | merge({'class' : 'form-control'}) %}
+    {{ parent() }}
+{% endblock textarea_widget %}
+
+{# Choice widget #}
+{% block choice_widget %}
+    {% set attr = attr | merge({'class' : 'form-control'}) %}
+    {{ parent() }}
+{% endblock choice_widget %}
+
+{# Form row #}
+{% block form_row %}
+    {% spaceless %}
+        <div class="form-group {% if errors|length %}has-error{% endif %}">
+            {{ form_label(form) }}
+            <div class="col-lg-10">
+                {{ form_widget(form) }}
+                {{ form_errors(form) }}
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock form_row %}
+
+{# Form error #}
+{% block form_errors %}
+{% spaceless %}
+    {% if errors|length > 0 %}
+        <ul class="error text-error">
+            {% for error in errors %}
+                <li>{{ error.message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endspaceless %}
+{% endblock form_errors %}
+
+{# Collection widget #}
+{% block collection_widget %}
+    {% spaceless %}
+        {% set attr = attr|merge({'class': 'controls'}) %}
+        <div {% if prototype is defined %}data-prototype="{{ form_rest(prototype) | e }}"{% endif %}
+                {{ block('widget_container_attributes') }}>
+            {% for child in form %}
+                {{ form_widget(child) }}
+            {% endfor %}
+        </div>
+    {% endspaceless %}
+{% endblock collection_widget %}
+
+{#{% block form_row_controls_attributes %}#}
+    {#{% spaceless %}#}
+        {#{% for attrname, attrvalue in controls_attr %}#}
+            {#{{ attrname }}="{{ attrvalue }}"#}
+        {#{% endfor %}#}
+    {#{% endspaceless %}#}
+{#{% endblock form_row_controls_attributes %}#}
