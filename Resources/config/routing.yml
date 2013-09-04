@@ -1,0 +1,3 @@
+nim_mision:
+    resource: @NIMMissionBundle/Resources/config/routing/mission.yml
+    prefix: /mission
