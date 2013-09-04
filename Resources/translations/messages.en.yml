@@ -1,0 +1,32 @@
+layout:
+    header:
+        title: Ngo Information Management
+    footer: Arnaud Langlade
+    page:
+        title: Ngo Information Management
+
+button:
+    create: Create
+    update: Update
+    delete: Delete
+    show: Detail
+    back: Back
+
+menu:
+    agency: Agencies
+    mission: Missions
+    worker: Workers
+    vaccine: Vaccines
+
+mission:
+    title:
+        create: New mission
+        update: Update
+        index: Missions
+    field:
+        title:
+            label: Title
+        description:
+            label: Description
+        country:
+            label: Country
