@@ -1,0 +1,19 @@
+{% extends 'NIMWebBundle::layout.html.twig' %}
+
+{% import 'NIMWebBundle:Macro:button.html.twig' as buttons %}
+{% from 'NIMWebBundle:Mission:macro.html.twig' import list %}
+
+{% block page_name %}
+    <i class="icon-rocket"></i>
+    {{ 'mission.title.index'|trans }}
+{% endblock page_name %}
+
+
+{% block page_action %}
+    {{ buttons.new(path('nim_mission_create'), 'button.create') }}
+{% endblock page_action %}
+
+
+{% block content %}
+    {{ list(missions) }}
+{% endblock %}

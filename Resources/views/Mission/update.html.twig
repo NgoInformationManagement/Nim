@@ -1,0 +1,26 @@
+{% extends 'NIMWebBundle::layout.html.twig' %}
+
+{% import 'NIMWebBundle:Macro:button.html.twig' as buttons %}
+
+{% block page_name %}
+    <i class="icon-rocket"></i>
+    {{ 'mission.title.update'|trans }}
+{% endblock page_name %}
+
+
+{% block page_action %}
+    {{ buttons.back(path('nim_mission_index'), 'button.back') }}
+    {{ buttons.update(path('nim_mission_index'), 'button.update', 'missionUpdateForm') }}
+{% endblock page_action %}
+
+
+{% block content %}
+    <form action="{{ path('nim_mission_update', {'id': mission.id}) }}"
+          method="post"
+          class="form-horizontal"
+          role="form"
+          id="missionUpdateForm"
+          novalidate>
+        {% include 'NIMWebBundle:Mission:_form.html.twig' %}
+    </form>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'NIMWebBundle::layout.html.twig' %}
+
+{% import 'NIMWebBundle:Macro:button.html.twig' as buttons %}
+
+{% block page_name %}
+    <i class="icon-rocket"></i>
+    {{ 'mission.title.show'|trans }}
+{% endblock page_name %}
+
+
+{% block page_action %}
+    {{ buttons.back(path('nim_mission_index'), 'button.back') }}
+{% endblock page_action %}
+
+
+{% block content %}
+    TODO
+{% endblock %}
