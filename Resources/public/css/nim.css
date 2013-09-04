@@ -1,0 +1,25 @@
+.head .main-bar h3 .actionTitle {
+    margin-top: 5px;
+}
+
+.head .main-bar h3 {
+    margin-bottom: 7px;
+    margin-top: 0;
+}
+
+#top .topnav {
+    margin: 10px;
+}
+
+.navbar-header {
+    margin: 15px;
+}
+
+.navbar-brand {
+    font-size: 22px;
+}
+
+.inner {
+    border: none;
+    padding: 10px;
+}
