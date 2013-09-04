@@ -1,0 +1,59 @@
+{% macro show(url, message) %}
+<a href="{{ url }}" class="btn btn-default">
+    <i class="icon-book"></i>
+    {{ message|default|trans }}
+</a>
+{% endmacro %}
+
+{% macro create(url, message, formId) %}
+<a href="{{ url }}" class="btn btn-primary" data-submit-form="#{{ formId }}">
+    <i class="icon-plus-sign"></i>
+    {{ message|trans }}
+</a>
+{% endmacro %}
+
+{% macro new(url, message) %}
+<a href="{{ url }}" class="btn btn-primary">
+    <i class="icon-plus-sign"></i>
+    {{ message|default|trans }}
+</a>
+{% endmacro %}
+
+{% macro update(url, message, formId) %}
+<a href="{{ url }}" class="btn btn-primary" data-submit-form="#{{ formId }}">
+    <i class="icon-edit"></i>
+    {{ message|trans }}
+</a>
+{% endmacro %}
+
+{% macro edit(url, message) %}
+<a href="{{ url }}" class="btn btn-default">
+    <i class="icon-edit"></i>
+    {{ message|default|trans }}
+</a>
+{% endmacro %}
+
+{% macro delete(url, message) %}
+<form action="{{ url }}" method="post" style="display: inline;">
+    <input type="hidden" name="_method" value="DELETE">
+    <button class="btn btn-danger">
+        <i class="icon-trash"></i>
+        {{ message|default|trans }}
+    </button>
+</form>
+{% endmacro %}
+
+{% macro back(url, message) %}
+    <a href="{{ url }}" class="btn btn-default">
+        <i class="icon-arrow-left"></i>
+        {{ message|default|trans }}
+    </a>
+{% endmacro %}
+
+{% macro listActionButton(routePrefix, id) %}
+    {% import 'NIMWebBundle:Macro:button.html.twig' as buttons %}
+
+    {{ buttons.show(path(routePrefix ~ '_show', {'id': id})) }}
+    {{ buttons.edit(path(routePrefix ~ '_update', {'id': id})) }}
+    {{ buttons.delete(path(routePrefix ~ '_delete', {'id': id})) }}
+{% endmacro %}
