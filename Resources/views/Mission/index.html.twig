@@ -1,6 +1,7 @@
 {% extends 'NIMWebBundle::layout.html.twig' %}
 
 {% import 'NIMWebBundle:Macro:button.html.twig' as buttons %}
+{% from 'NIMWebBundle:Macro:misc.html.twig' import pagination %}
 {% from 'NIMWebBundle:Mission:macro.html.twig' import list %}
 
 {% block page_name %}
@@ -15,5 +16,7 @@
 
 
 {% block content %}
+    {{ pagination(missions) }}
     {{ list(missions) }}
+    {{ pagination(missions) }}
 {% endblock %}

@@ -12,6 +12,9 @@ button:
     show: Detail
     back: Back
 
+pager:
+    displayBy: Display by
+
 menu:
     agency: Agencies
     mission: Missions
