@@ -4,30 +4,32 @@
     {#{% import 'NIMWebBundle:Macros:alert.html.twig' as alerts %}#}
 
     {% if missions|length > 0 %}
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th>{{ sylius_resource_sort('title', 'mission.field.title.label'|trans) }}</th>
-                <th>{{ sylius_resource_sort('country', 'mission.field.country.label'|trans) }}</th>
-                <th>{{ 'mission.field.description.label'|trans }}</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for mission in missions %}
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
                 <tr>
-                    <td>{{ mission.title }}</td>
-                    <td>{{ mission.country }}</td>
-                    <td>{{ mission.description }}</td>
-                    <td>
-                        <div class="pull-right">
-                            {{ listActionButton('nim_mission', mission.id)  }}
-                        </div>
-                    </td>
+                    <th>{{ sylius_resource_sort('title', 'mission.field.title.label'|trans) }}</th>
+                    <th>{{ sylius_resource_sort('country', 'mission.field.country.label'|trans) }}</th>
+                    <th>{{ 'mission.field.description.label'|trans }}</th>
+                    <th></th>
                 </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                {% for mission in missions %}
+                    <tr>
+                        <td>{{ mission.title }}</td>
+                        <td>{{ mission.country }}</td>
+                        <td>{{ mission.description }}</td>
+                        <td>
+                            <div class="pull-right">
+                                {{ listActionButton('nim_mission', mission.id)  }}
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     {% else %}
         {#{{ alerts.info(''|trans) }}#}
     {% endif %}
