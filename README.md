@@ -1,7 +1,7 @@
 NIMWebBundle
 ==============
 
-This bundle is part of the Ngo Imformation Management (NiM) and licensed under the MIT License.
+This bundle is part of the Ngo Information Management (NiM) and licensed under the MIT License.
 
 Bug tracking
 ------------
