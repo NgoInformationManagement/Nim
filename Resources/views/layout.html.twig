@@ -22,6 +22,7 @@
         {% endblock %}
     </head>
     <body class="wide mini-sidebar">
+        {% block body %}
         <div id="wrap">
 
             <div id="top" class="navbar-fixed-top">
@@ -41,11 +42,11 @@
                         <div class="btn-toolbar">
                             <div class="btn-group">
                                 <a class="btn btn-sm btn-default"
-                                   href="{# TODO #}">
+                                   href="{{ path('fos_user_profile_show') }}">
                                     <i class="icon-wrench"></i>
                                 </a>
                                 <a class="btn btn-metis-1 btn-sm"
-                                   href="{# TODO #}">
+                                   href="{{ path('fos_user_security_logout') }}">
                                     <i class="icon-off"></i>
                                 </a>
                             </div>
@@ -85,6 +86,7 @@
                     {% block left_menu %}
                     {#<li class="nav-header">Menu</li>#}
                     {#<li class="nav-divider"></li>#}
+
                     <li>
                         <a href="">
                             <i class="icon-rocket"></i>
@@ -140,5 +142,7 @@
             <script type="text/javascript" src="{{ asset_url }}"></script>
             {% endjavascripts %}
         {% endblock %}
+
+        {% endblock body %}
     </body>
 </html>
