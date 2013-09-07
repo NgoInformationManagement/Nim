@@ -21,6 +21,10 @@ menu:
     worker: Workers
     vaccine: Vaccines
 
+dashboard:
+    title:
+        index: Dashboard
+
 mission:
     title:
         create: New mission

@@ -21,6 +21,10 @@ menu:
     worker: Travailleur
     vaccine: Vaccins
 
+dashboard:
+    title:
+        index: Dashboard
+
 mission:
     title:
         create: Nouvelle mission
