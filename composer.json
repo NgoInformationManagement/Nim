@@ -1,0 +1,30 @@
+{
+    "name": "nim/core-bundle",
+    "type": "symfony-bundle",
+    "description": "",
+    "keywords": [],
+    "homepage": "https://github.com/NgoInformationManagement/CoreBundle",
+    "license": "MIT",
+
+    "authors": [
+        {
+            "name": "aRn0D",
+            "homepage": "https://github.com/aRn0D"
+        }
+    ],
+
+    "minimum-stability": "dev",
+
+    "target-dir": "nim/core-bundle",
+
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": "~2.3"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "NIM\\CoreBundle": ""
+        }
+    }
+}
