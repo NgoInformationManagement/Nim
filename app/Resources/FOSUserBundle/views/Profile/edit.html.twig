@@ -1,0 +1,25 @@
+{% extends "NIMWebBundle::layout.html.twig" %}
+
+{% import 'NIMWebBundle:Macro:button.html.twig' as buttons %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block page_action %}
+    {{ buttons.create(path('nim_mission_index'), 'button.update', 'userCreateForm') }}
+{% endblock page_action %}
+
+{% block content %}
+    <form action="{{ path('fos_user_profile_edit') }}"
+          method="post"
+          role="form"
+          id="userCreateForm"
+          class="form-horizontal"
+          {{ form_enctype(form) }}
+          novalidate>
+
+        {{ form_rest(form) }}
+        <div>
+            <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+        </div>
+    </form>
+{% endblock content %}

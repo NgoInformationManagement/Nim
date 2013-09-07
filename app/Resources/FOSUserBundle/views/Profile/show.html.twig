@@ -1,0 +1,31 @@
+{% extends "NIMWebBundle::layout.html.twig" %}
+
+{% import 'NIMWebBundle:Macro:button.html.twig' as buttons %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block page_action %}
+    {{ buttons.create(path('fos_user_profile_edit'), 'button.update') }}
+{% endblock page_action %}
+
+{% block content %}
+<div class="form-horizontal">
+    <div class="form-group">
+        <label class="col-lg-2 control-label">
+            {{ 'profile.show.username'|trans }}
+        </label>
+        <div class="col-lg-10">
+            <p class="form-control-static">{{ user.username }}</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-lg-2 control-label">
+            {{ 'profile.show.email'|trans }}
+        </label>
+        <div class="col-lg-10">
+            <p class="form-control-static">{{ user.email }}</p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
