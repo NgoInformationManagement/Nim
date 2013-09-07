@@ -17,7 +17,7 @@ nim_mission_create:
 
 nim_mission_update:
     pattern: /{id}/edit
-    methods: [PUT, POST]
+    methods: [GET, POST]
     defaults:
         _controller: nim.controller.mission:updateAction
         _sylius:
