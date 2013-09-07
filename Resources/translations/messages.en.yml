@@ -16,6 +16,7 @@ pager:
     displayBy: Display by
 
 menu:
+    dashbord: Dashboard
     agency: Agencies
     mission: Missions
     worker: Workers
