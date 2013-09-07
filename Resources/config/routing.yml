@@ -1,5 +1,5 @@
 nim_dashboard:
-    pattern: /dashboard
+    pattern: /
     defaults: { _controller: NIMWebBundle:Dashboard:index }
 
 nim_mision:
