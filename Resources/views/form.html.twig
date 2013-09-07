@@ -7,10 +7,10 @@
 {% endblock form_label %}
 
 {# Form widget #}
-{% block form_widget %}
+{% block form_widget_simple %}
     {% set attr = attr | merge({'class' : 'form-control'}) %}
     {{ parent() }}
-{% endblock form_widget %}
+{% endblock form_widget_simple %}
 
 {# Textarea widget #}
 {% block textarea_widget %}
