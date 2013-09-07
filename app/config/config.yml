@@ -88,10 +88,20 @@ stof_doctrine_extensions:
             softdeleteable: true
             translatable: true
 
+# FOS user configuration
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: NIM\CoreBundle\Model\User
+
 # NiM mission configuration
 nim_mission:
     driver: doctrine/orm
 
 # NiM worker configuration
 nim_worker:
+    driver: doctrine/orm
+
+# NiM core configuration
+nim_core:
     driver: doctrine/orm
