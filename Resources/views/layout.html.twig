@@ -143,10 +143,11 @@
 
         {# javascripts... #}
         {% block javascripts %}
-            {% javascripts output='assets/compiled/nim.js'
-                'bundles/nimweb/js/jquery.min.js'
-                'bundles/nimweb/js/bootstrap.min.js'
-                'bundles/nimweb/js/knockout.min.js'
+            {% javascripts
+                'bundles/nimweb/js/lib/jquery.min.js'
+                'bundles/nimweb/js/lib/bootstrap.min.js'
+                'bundles/nimweb/js/lib/knockout.min.js'
+                'bundles/nimweb/js/layout.js'
             %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
             {% endjavascripts %}
