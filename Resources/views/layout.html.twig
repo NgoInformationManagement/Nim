@@ -126,8 +126,9 @@
             <div id="content">
                 <div class="outer">
                     <div class="inner">
-                    {% block content %}
-                    {% endblock content %}
+                        {% include "NIMWebBundle::flash.html.twig" %}
+                        {% block content %}
+                        {% endblock content %}
                     </div>
                 </div>
                 <!-- end .outer -->
