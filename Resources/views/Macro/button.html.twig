@@ -5,7 +5,7 @@
 </a>
 {% endmacro %}
 
-{% macro create(url, message, formId) %}
+{% macro create(message, formId) %}
 <button class="btn btn-primary" data-bind="click: submitForm.bind($data, '#{{ formId }}')">
     <i class="icon-plus-sign"></i>
     {{ message|trans }}
@@ -19,11 +19,11 @@
 </a>
 {% endmacro %}
 
-{% macro update(url, message, formId) %}
-<a href="{{ url }}" class="btn btn-primary" data-submit-form="#{{ formId }}">
+{% macro update(message, formId) %}
+<button class="btn btn-primary" data-bind="click: submitForm.bind($data, '#{{ formId }}')">
     <i class="icon-edit"></i>
     {{ message|trans }}
-</a>
+</button>
 {% endmacro %}
 
 {% macro edit(url, message) %}
