@@ -11,6 +11,7 @@
 
 namespace NIM\MissionBundle\Model;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use \Gedmo\Translatable\Translatable;
 
 class Mission implements Translatable
@@ -20,8 +21,13 @@ class Mission implements Translatable
     protected $description;
     protected $country;
     protected $workers;
+    protected $translations;
     protected $locale;
 
+    public function __construct()
+    {
+        $this->translations = new ArrayCollection();
+    }
     /**
      * @param mixed $id
      */
@@ -100,6 +106,32 @@ class Mission implements Translatable
     public function getLocale()
     {
         return $this->locale;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getTranslations()
+    {
+        return $this->translations;
+    }
+
+    /**
+     * @param MissionTranslation $t
+     */
+    public function addTranslation(MissionTranslation $t)
+    {
+        if (!$this->translations->contains($t)) {
+            $this->translations[] = $t;
+            $t->setObject($this);
+        }
+    }
+
+    public function removeTranslation(MissionTranslation $t)
+    {
+        if ($this->translations->contains($t)) {
+            $this->translations->removeElement($t);
+        }
     }
 
     /**

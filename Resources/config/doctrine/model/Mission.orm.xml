@@ -32,6 +32,14 @@ file that was distributed with this source code.
 
         <field name="country" />
 
+        <one-to-many field="translations" target-entity="NIM\MissionBundle\Model\MissionTranslation" mapped-by="object">
+            <cascade>
+                <cascade-all />
+            </cascade>
+        </one-to-many>
+
+        <gedmo:translation entity="NIM\MissionBundle\Model\MissionTranslation" locale="locale"/>
+
         <!--<many-to-many field="workers" mapped-by="missions" target-entity="NIM\WorkerBundle\Model\Worker"/>-->
     </entity>
 </doctrine-mapping>

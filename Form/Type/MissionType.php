@@ -22,11 +22,18 @@ class MissionType extends NIMType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', 'text', array(
-                'label' => 'mission.field.title.label'
-            ))
-            ->add('description', 'textarea', array(
-                'label' => 'mission.field.description.label'
+            ->add('translations', 'a2lix_translations_gedmo', array(
+                'label' => 'internationalization.label',
+                'translatable_class' => 'NIM\MissionBundle\Model\Mission',
+                'fields' => array(
+                    'title' => array(
+                        'label' => 'mission.field.title.label',
+                    ),
+                    'description' => array(
+                        'label' => 'mission.field.description.label',
+                        'type' => 'textarea',
+                    ),
+                )
             ))
             ->add('country', 'country', array(
                 'label' => 'mission.field.country.label'
