@@ -8,8 +8,9 @@ layout:
 button:
     create: Ajouter
     update: Mettre à jour
+    edit: Editer
     delete: Supprimer
-    show: Détail
+    show: Détails
     back: Retour en Arrière
 
 internationalization:
@@ -21,7 +22,7 @@ internationalization:
         es: Espagnol
 
 pager:
-    displayBy: Display by
+    displayBy: Afficher par
 
 menu:
     dashbord: Dashboard

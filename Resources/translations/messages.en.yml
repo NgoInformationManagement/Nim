@@ -8,6 +8,7 @@ layout:
 button:
     create: Create
     update: Update
+    edit: Edit
     delete: Delete
     show: Detail
     back: Back
