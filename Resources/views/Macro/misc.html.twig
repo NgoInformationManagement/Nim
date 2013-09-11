@@ -6,6 +6,7 @@
             {% endif %}
         </div>
         <div class="col-md-2 text-right paginate">
+            {% if paginator | length %}
             {{ 'pager.displayBy' | trans }}
             {# TODO : rewrite it when the PR about the global conf will be merged.. #}
             <div class="btn-group">
@@ -13,7 +14,7 @@
                 <a href="" class="btn btn-default">2</a>
                 <a href="" class="btn btn-default">3</a>
             </div>
-
+            {% endif %}
         </div>
     </div>
 {% endmacro %}
