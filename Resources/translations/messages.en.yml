@@ -40,6 +40,8 @@ mission:
         create: New mission
         update: Update
         index: Missions
+    message:
+        empty: There are no mission to display.
     field:
         title:
             label: Title
