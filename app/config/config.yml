@@ -82,6 +82,7 @@ swiftmailer:
 
 # Stof doctrine extension configuration
 stof_doctrine_extensions:
+    default_locale: %locale%
     orm:
         default:
             timestampable: true
@@ -93,6 +94,11 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: NIM\CoreBundle\Model\User
+
+# A2lix Translation Form configuration
+a2lix_translation_form:
+    locales: [fr, es, en]
+    templating: NIMWebBundle::form.html.twig
 
 # NiM mission configuration
 nim_mission:

@@ -23,6 +23,7 @@ class AppKernel extends Kernel
 //            new Sylius\Bundle\AddressingBundle\SyliusAddressingBundle(),
             new Sylius\Bundle\ResourceBundle\SyliusResourceBundle(),
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
+            new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
 
             new NIM\MissionBundle\NIMMissionBundle(),
             new NIM\WorkerBundle\NIMWorkerBundle(),
