@@ -12,6 +12,14 @@ button:
     show: Détail
     back: Retour en Arrière
 
+internationalization:
+    label: Traductions
+    locale:
+        default: Défaut
+        fr: Français
+        en: Anglais
+        es: Espagnol
+
 pager:
     displayBy: Display by
 
