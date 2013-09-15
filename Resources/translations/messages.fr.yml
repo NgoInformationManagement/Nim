@@ -12,6 +12,7 @@ button:
     delete: Supprimer
     show: Détails
     back: Retour en Arrière
+    backToList: Retour à la liste
 
 internationalization:
     label: Traductions
@@ -39,7 +40,8 @@ mission:
     title:
         create: Nouvelle mission
         update: Mis à jour
-        index: Missions
+        index: Vos missions
+        show: Détails sr votre mission
     message:
         empty: Il n'y a pas de mission à afficher.
     field:

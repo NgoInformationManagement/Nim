@@ -10,7 +10,7 @@
 
 
 {% block page_action %}
-    {{ buttons.back(path('nim_mission_index'), 'button.back') }}
+    {{ buttons.back(path('nim_mission_index'), 'button.backToList') }}
     {{ buttons.edit(path('nim_mission_update', {'id' : mission.id}), 'button.edit') }}
     {{ buttons.delete(path('nim_mission_delete', {'id' : mission.id}), 'button.delete') }}
 {% endblock page_action %}
