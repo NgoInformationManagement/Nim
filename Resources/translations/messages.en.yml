@@ -14,6 +14,11 @@ button:
     back: Back
     backToList: Back to the list
 
+tooltip:
+    show: Details
+    edit: Edit
+    delete: Delete
+
 internationalization:
     label: Translations
     locale:

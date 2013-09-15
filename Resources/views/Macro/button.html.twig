@@ -1,5 +1,11 @@
-{% macro show(url, message) %}
-<a href="{{ url }}" class="btn btn-default">
+{% macro show(url, message, title) %}
+<a href="{{ url }}"
+   class="btn btn-default"
+   {% if title is not null %}
+   data-toggle="tooltip"
+   data-placement="left"
+   title="{{ title|default|trans }}">
+   {% endif %}
     <i class="icon-book"></i>
     {{ message|default|trans }}
 </a>
@@ -13,30 +19,43 @@
 {% endmacro %}
 
 {% macro new(url, message) %}
-<a href="{{ url }}" class="btn btn-primary">
+<a href="{{ url }}"
+   class="btn btn-primary">
     <i class="icon-plus-sign"></i>
     {{ message|default|trans }}
 </a>
 {% endmacro %}
 
 {% macro update(message, formId) %}
-<button class="btn btn-primary" data-bind="click: submitForm.bind($data, '#{{ formId }}')">
+<button class="btn btn-primary"
+        data-bind="click: submitForm.bind($data, '#{{ formId }}')">
     <i class="icon-edit"></i>
     {{ message|trans }}
 </button>
 {% endmacro %}
 
-{% macro edit(url, message) %}
-    <a href="{{ url }}" class="btn {% if message is null %}btn-default{% else %}btn-primary{% endif %}">
+{% macro edit(url, message, title) %}
+    <a href="{{ url }}"
+       {% if title is not null %}
+       data-toggle="tooltip"
+       data-placement="left"
+       title="{{ title|default|trans }}"
+       {% endif %}
+       class="btn {% if message is null %}btn-default{% else %}btn-primary{% endif %}">
     <i class="icon-edit"></i>
     {{ message|default|trans }}
 </a>
 {% endmacro %}
 
-{% macro delete(url, message) %}
+{% macro delete(url, message, title) %}
 <form action="{{ url }}" method="post" style="display: inline;">
     <input type="hidden" name="_method" value="DELETE">
-    <button class="btn btn-danger">
+    <button class="btn btn-danger"
+            {% if title is not null %}
+            data-toggle="tooltip"
+            data-placement="left"
+            title="{{ title|default|trans }}"
+            {% endif %}>
         <i class="icon-trash"></i>
         {{ message|default|trans }}
     </button>
@@ -53,7 +72,7 @@
 {% macro listActionButton(routePrefix, id) %}
     {% import 'NIMWebBundle:Macro:button.html.twig' as buttons %}
 
-    {{ buttons.show(path(routePrefix ~ '_show', {'id': id})) }}
-    {{ buttons.edit(path(routePrefix ~ '_update', {'id': id})) }}
-    {{ buttons.delete(path(routePrefix ~ '_delete', {'id': id})) }}
+    {{ buttons.show(path(routePrefix ~ '_show', {'id': id}), null, 'tooltip.show') }}
+    {{ buttons.edit(path(routePrefix ~ '_update', {'id': id}), null, 'tooltip.edit') }}
+    {{ buttons.delete(path(routePrefix ~ '_delete', {'id': id}), null, 'tooltip.delete') }}
 {% endmacro %}
