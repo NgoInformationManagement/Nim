@@ -27,7 +27,7 @@
 {% endmacro %}
 
 {% macro edit(url, message) %}
-<a href="{{ url }}" class="btn btn-default">
+    <a href="{{ url }}" class="btn {% if message is null %}btn-default{% else %}btn-primary{% endif %}">
     <i class="icon-edit"></i>
     {{ message|default|trans }}
 </a>
