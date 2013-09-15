@@ -1,6 +1,7 @@
 {% extends 'NIMWebBundle::layout.html.twig' %}
 
 {% import 'NIMWebBundle:Macro:button.html.twig' as buttons %}
+{% from 'NIMWebBundle:Macro:misc.html.twig' import displayedField %}
 
 {% block page_name %}
     <i class="icon-rocket"></i>
@@ -10,9 +11,14 @@
 
 {% block page_action %}
     {{ buttons.back(path('nim_mission_index'), 'button.back') }}
+    {{ buttons.edit(path('nim_mission_update', {'id' : mission.id}), 'button.edit') }}
+    {{ buttons.delete(path('nim_mission_delete', {'id' : mission.id}), 'button.delete') }}
 {% endblock page_action %}
 
 
 {% block content %}
-    TODO
+<div class="form-horizontal">
+    {{ nim_translation(mission) }}
+    {{ displayedField('country', mission.country, 'mission') }}
+</div>
 {% endblock %}

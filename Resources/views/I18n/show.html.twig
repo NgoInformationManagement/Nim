@@ -1,0 +1,23 @@
+{% from 'NIMWebBundle:Macro:misc.html.twig' import displayedField %}
+<div class="a2lix_translations tabbable">
+    <ul class="a2lix_translationsLocales nav nav-tabs">
+        {% for locale in locales %}
+            <li {% if (app.request.locale == locale) %}class="active"{% endif %}>
+                <a href=".a2lix_translationsFields-{{ locale }}" data-toggle="tab">
+                    {{ ('internationalization.locale.' ~ locale)|trans }}
+                    {% if locale == defaultLocale %}[{{ 'internationalization.locale.default' | trans }}]{% endif %}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <div class="a2lix_translationsFields tab-content">
+        {% for locale, translation in translations %}
+            <div class="a2lix_translationsFields-{{ locale }} form-horizontal tab-pane {% if (app.request.locale == locale) %}active{% endif %}">
+                {% for field, content in translation %}
+                    {{ displayedField(field, content, 'mission') }}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
