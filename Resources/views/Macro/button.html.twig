@@ -1,6 +1,6 @@
 {% macro show(url, message, title) %}
 <a href="{{ url }}"
-   class="btn btn-default"
+   class="btn btn-default behat-details"
    {% if title is not null %}
    data-toggle="tooltip"
    data-placement="left"
@@ -41,7 +41,7 @@
        data-placement="left"
        title="{{ title|default|trans }}"
        {% endif %}
-       class="btn {% if message is null %}btn-default{% else %}btn-primary{% endif %}">
+       class="btn behat-edition {% if message is null %}btn-default{% else %}btn-primary{% endif %}">
     <i class="icon-edit"></i>
     {{ message|default|trans }}
 </a>
@@ -50,7 +50,7 @@
 {% macro delete(url, message, title) %}
 <form action="{{ url }}" method="post" style="display: inline;">
     <input type="hidden" name="_method" value="DELETE">
-    <button class="btn btn-danger"
+    <button class="btn btn-danger behat-deletion"
             {% if title is not null %}
             data-toggle="tooltip"
             data-placement="left"

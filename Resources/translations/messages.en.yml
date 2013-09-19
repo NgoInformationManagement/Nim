@@ -47,6 +47,8 @@ mission:
         update: Update
         index: Yours missions
         show: Details about your mission
+    button:
+        new: New Mission
     message:
         empty: There are no mission to display.
     field:
