@@ -39,3 +39,8 @@ ul.pagination {
     margin:10px 0
 }
 
+.topnav .welcome {
+    padding-top: 5px;
+    margin-right: 10px;
+    color: #FFFFFF;
+}

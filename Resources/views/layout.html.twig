@@ -39,7 +39,10 @@
                     {% endblock top_menu %}
 
                     <div class="topnav">
-                        <div class="btn-toolbar">
+                        <div class="pull-left welcome">
+                            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                        </div>
+                        <div class="btn-toolbar pull-left">
                             <div class="btn-group">
                                 <a class="btn btn-sm btn-default"
                                    href="{{ path('fos_user_profile_show') }}">
