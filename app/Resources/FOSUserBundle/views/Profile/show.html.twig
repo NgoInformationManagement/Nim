@@ -5,7 +5,7 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block page_action %}
-    {{ buttons.create(path('fos_user_profile_edit'), 'button.update') }}
+    {{ buttons.edit(path('fos_user_profile_edit'), 'account.button.edit') }}
 {% endblock page_action %}
 
 {% block content %}
