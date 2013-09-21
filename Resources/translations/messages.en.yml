@@ -41,6 +41,10 @@ dashboard:
     title:
         index: Dashboard
 
+account:
+    button:
+        edit: Edit profil
+
 mission:
     title:
         create: New mission

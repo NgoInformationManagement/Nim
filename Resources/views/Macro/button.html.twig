@@ -12,7 +12,8 @@
 {% endmacro %}
 
 {% macro create(message, formId) %}
-<button class="btn btn-primary" data-bind="click: submitForm.bind($data, '#{{ formId }}')">
+<button class="btn btn-primary"
+        data-bind="click: submitForm.bind($data, '#{{ formId }}')">
     <i class="icon-plus-sign"></i>
     {{ message|trans }}
 </button>

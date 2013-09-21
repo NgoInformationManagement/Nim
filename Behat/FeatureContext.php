@@ -17,6 +17,7 @@ use Behat\MinkExtension\Context\MinkDictionary;
 use Behat\Symfony2Extension\Context\KernelDictionary;
 use NIM\WebBundle\Behat\DataContext\BaseDataContext;
 use NIM\WebBundle\Behat\DataContext\MissionDataContext;
+use NIM\WebBundle\Behat\UserContext\AccountUserContext;
 use NIM\WebBundle\Behat\UserContext\BaseUserContext;
 use NIM\WebBundle\Behat\UserContext\MissionUserContext;
 
@@ -26,7 +27,8 @@ class FeatureContext extends BehatContext
         KernelDictionary,
         BaseDataContext,
         BaseUserContext,
-        MissionDataContext;
+        MissionDataContext,
+        AccountUserContext;
 
     /**
      * Faker.
