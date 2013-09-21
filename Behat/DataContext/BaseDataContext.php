@@ -136,4 +136,10 @@ trait BaseDataContext
         $this->getEntityManager()->persist($entity);
         $this->getEntityManager()->flush();
     }
+
+    private function findResourceBy($resourceName, $criteria)
+    {
+        return $this->getRepository($resourceName)
+            ->findOneBy($criteria);
+    }
 }

@@ -26,8 +26,7 @@ class FeatureContext extends BehatContext
         KernelDictionary,
         BaseDataContext,
         BaseUserContext,
-        MissionDataContext,
-        MissionUserContext;
+        MissionDataContext;
 
     /**
      * Faker.
