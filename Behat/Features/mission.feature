@@ -1,6 +1,6 @@
 Feature: Missions
     In order to create mission
-    As a administrator
+    As a store administrator
     I want to be able to manage mission
 
     Background:
@@ -88,6 +88,8 @@ Feature: Missions
         Then I should be on the page of mission which has "Earthquake in Indonesia" as title
          And I should see "Earthquake in Indonesia"
          And I should see "Earthquake in Indonesia in 2006"
-        When I f "French"
+         And I should see "Indonesia"
+        When I click "French"
         Then I should see "Tremblement de terre en Indonesie"
          And I should see "Tremblement de terre en Indonesie en 2006"
+         And I should see "Indonesie"

@@ -19,6 +19,6 @@
 {% block content %}
 <div class="form-horizontal">
     {{ nim_translation(mission) }}
-    {{ displayedField('country', mission.country, 'mission') }}
+    {{ displayedField('country', mission.country|country, 'mission') }}
 </div>
 {% endblock %}
