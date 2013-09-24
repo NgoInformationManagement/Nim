@@ -180,7 +180,7 @@ trait BaseUserContext
     {
         $resource = $this->findResourceBy($resourceName, array($field => $value));
 
-        $this->iAmOnResourcePage($resource, 'update');
+        $this->iShouldBeOnResourcePage($resource, 'update');
     }
 
     /**
@@ -215,6 +215,16 @@ trait BaseUserContext
     public function iShouldBeOnTheResourceIndexPage($resourceName)
     {
         $this->iShouldBeOnPage('nim_'.$resourceName.'_index');
+    }
+
+    /**
+     * @Then /^I should see "([^"]*)" field error$/
+     */
+    public function iShouldSeeFieldError($field)
+    {
+        $this->assertSession()->elementExists('xpath', sprintf(
+            "//div[contains(@class, 'error')]//label[text()[contains(., '%s')]]", ucfirst($field)
+        ));
     }
 
     /**

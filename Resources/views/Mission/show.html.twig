@@ -20,5 +20,7 @@
 <div class="form-horizontal">
     {{ nim_translation(mission) }}
     {{ displayedField('country', mission.country|country, 'mission') }}
+    {{ displayedField('startedAt', mission.startedAt|localizeddate('full', 'none'), 'mission') }}
+    {{ displayedField('endedAt', mission.endedAt|localizeddate('full', 'none'), 'mission') }}
 </div>
 {% endblock %}

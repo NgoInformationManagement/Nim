@@ -44,3 +44,12 @@ ul.pagination {
     margin-right: 10px;
     color: #FFFFFF;
 }
+
+/** Form */
+ul.form-type-errors {
+    margin-bottom: 0px;
+}
+
+ul.form-type-errors li p {
+    margin-bottom: 0px;
+}

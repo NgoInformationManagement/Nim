@@ -66,6 +66,7 @@ trait MissionDataContext
         $this->thereIsMission($title, array(
             'description' => 'description',
             'country' => 'NI',
+            'startedAt' => '2006-03-06'
         ));
     }
 

@@ -60,3 +60,7 @@ mission:
             label: Description
         country:
             label: Pays
+        startedAt:
+            label: Commence le
+        endedAt:
+            label: Fini le

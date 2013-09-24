@@ -62,3 +62,7 @@ mission:
             label: Description
         country:
             label: Country
+        startedAt:
+            label: Started at
+        endedAt:
+            label: Ended at
