@@ -20,6 +20,8 @@ class Mission implements Translatable
     protected $title;
     protected $description;
     protected $country;
+    protected $startedAt;
+    protected $endedAt;
     protected $workers;
     protected $translations;
     protected $locale;
@@ -90,6 +92,38 @@ class Mission implements Translatable
     public function getTitle()
     {
         return $this->title;
+    }
+
+    /**
+     * @param mixed $endedAt
+     */
+    public function setEndedAt($endedAt)
+    {
+        $this->endedAt = $endedAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEndedAt()
+    {
+        return $this->endedAt;
+    }
+
+    /**
+     * @param mixed $startedAt
+     */
+    public function setStartedAt($startedAt)
+    {
+        $this->startedAt = $startedAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStartedAt()
+    {
+        return $this->startedAt;
     }
 
     /**

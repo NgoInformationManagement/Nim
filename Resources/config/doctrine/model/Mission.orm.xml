@@ -26,11 +26,15 @@ file that was distributed with this source code.
             <gedmo:translatable/>
         </field>
 
-        <field name="description">
+        <field name="description" nullable="true">
             <gedmo:translatable/>
         </field>
 
         <field name="country" />
+
+        <field name="startedAt" />
+
+        <field name="endedAt" nullable="true"/>
 
         <one-to-many field="translations" target-entity="NIM\MissionBundle\Model\MissionTranslation" mapped-by="object">
             <cascade>
