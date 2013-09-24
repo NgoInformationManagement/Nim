@@ -54,6 +54,8 @@ mission:
     message:
         empty: Il n'y a pas de mission à afficher.
     field:
+        translation:
+            label: Traductions
         title:
             label: Titre
         description:
