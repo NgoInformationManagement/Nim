@@ -30,13 +30,6 @@ class Mission implements Translatable
     {
         $this->translations = new ArrayCollection();
     }
-    /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
 
     /**
      * @return mixed
