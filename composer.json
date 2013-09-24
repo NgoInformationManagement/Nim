@@ -1,8 +1,8 @@
 {
     "name": "nim/mission-bundle",
     "type": "symfony-bundle",
-    "description": "",
-    "keywords": [],
+    "description": "Manage your data about your humanitarians missions",
+    "keywords": ["nim", "mission", "humanitarians"],
     "homepage": "https://github.com/NgoInformationManagement/MissionBundle",
     "license": "MIT",
 
@@ -15,11 +15,31 @@
 
     "minimum-stability": "dev",
 
-    "target-dir": "nim/mission-bundle",
+    "target-dir": "NIM/MissionBundle",
 
     "require": {
         "php": ">=5.3.3",
-        "symfony/framework-bundle": "~2.3"
+        "symfony/framework-bundle": "~2.3",
+        "a2lix/translation-form-bundle": "dev-master",
+        "sylius/resource-bundle": "0.3.*",
+        "stof/doctrine-extensions-bundle": "~1.1@dev",
+        "nim/nim-component": "dev-master"
+    },
+
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:NgoInformationManagement/NimComponent.git"
+        }
+    ],
+
+    "require-dev": {
+        "phpspec/phpspec": "2.0.*@dev",
+        "symfony/form": "~2.3"
+    },
+
+    "config": {
+        "bin-dir": "bin"
     },
 
     "autoload": {
