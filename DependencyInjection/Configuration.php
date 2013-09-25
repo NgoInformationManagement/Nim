@@ -33,8 +33,47 @@ class Configuration implements ConfigurationInterface
         ;
         
         $this->addClassesSection( $rootNode);
+        $this->addValidationGroupsSection($rootNode);
 
         return $treeBuilder;
+    }
+
+    /**
+     * Adds `validation_groups` section.
+     *
+     * @param ArrayNodeDefinition $node
+     */
+    private function addValidationGroupsSection(ArrayNodeDefinition $node)
+    {
+        $node
+            ->children()
+                ->arrayNode('validation_groups')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->arrayNode('worker')
+                            ->prototype('scalar')->end()
+                            ->defaultValue(array('nim'))
+                        ->end()
+                        ->arrayNode('visa')
+                            ->prototype('scalar')->end()
+                            ->defaultValue(array('nim'))
+                        ->end()
+                        ->arrayNode('passport')
+                            ->prototype('scalar')->end()
+                            ->defaultValue(array('nim'))
+                        ->end()
+                        ->arrayNode('contact')
+                            ->prototype('scalar')->end()
+                            ->defaultValue(array('nim'))
+                        ->end()
+                        ->arrayNode('agency')
+                            ->prototype('scalar')->end()
+                            ->defaultValue(array('nim'))
+                        ->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
     }
 
     /**
@@ -52,49 +91,49 @@ class Configuration implements ConfigurationInterface
                         ->arrayNode('worker')
                             ->addDefaultsIfNotSet()
                             ->children()
-                                ->scalarNode('model')->defaultValue('NIM\\NIMWorkerBundle\\Model\\Worker')->end()
-                                ->scalarNode('controller')->defaultValue('NIM\\NIMWorkerBundle\\Controller\\WorkerController')->end()
+                                ->scalarNode('model')->defaultValue('NIM\\WorkerBundle\\Model\\Worker')->end()
+                                ->scalarNode('controller')->defaultValue('NIM\\WorkerBundle\\Controller\\WorkerController')->end()
                                 ->scalarNode('repository')->cannotBeEmpty()->end()
-                                ->scalarNode('form')->defaultValue('NIM\\NIMWorkerBundle\\Form\\Type\\WorkerType')->end()
+                                ->scalarNode('form')->defaultValue('NIM\\WorkerBundle\\Form\\Type\\WorkerType')->end()
                             ->end()
                         ->end()
                         ->arrayNode('agency')
                             ->addDefaultsIfNotSet()
                             ->children()
-                                ->scalarNode('model')->defaultValue('NIM\\NIMWorkerBundle\\Model\\Agency')->end()
-                                ->scalarNode('controller')->defaultValue('NIM\\NIMWorkerBundle\\Controller\\AgencyController')->end()
+                                ->scalarNode('model')->defaultValue('NIM\\WorkerBundle\\Model\\Agency')->end()
+                                ->scalarNode('controller')->defaultValue('NIM\\WorkerBundle\\Controller\\AgencyController')->end()
                                 ->scalarNode('repository')->cannotBeEmpty()->end()
-                                ->scalarNode('form')->defaultValue('NIM\\NIMWorkerBundle\\Form\\Type\\AgencyType')->end()
+                                ->scalarNode('form')->defaultValue('NIM\\WorkerBundle\\Form\\Type\\AgencyType')->end()
                             ->end()
                         ->end()
 
                         ->arrayNode('visa')
                             ->addDefaultsIfNotSet()
                             ->children()
-                                ->scalarNode('model')->defaultValue('NIM\\NIMWorkerBundle\\Model\\Visa')->end()
-                                ->scalarNode('controller')->defaultValue('NIM\\NIMWorkerBundle\\Controller\\VisaController')->end()
+                                ->scalarNode('model')->defaultValue('NIM\\WorkerBundle\\Model\\Visa')->end()
+                                ->scalarNode('controller')->defaultValue('NIM\\WorkerBundle\\Controller\\VisaController')->end()
                                 ->scalarNode('repository')->cannotBeEmpty()->end()
-                                ->scalarNode('form')->defaultValue('NIM\\NIMWorkerBundle\\Form\\Type\\VisaType')->end()
+                                ->scalarNode('form')->defaultValue('NIM\\WorkerBundle\\Form\\Type\\VisaType')->end()
                             ->end()
                         ->end()
 
                         ->arrayNode('passport')
                             ->addDefaultsIfNotSet()
                             ->children()
-                                ->scalarNode('model')->defaultValue('NIM\\NIMWorkerBundle\\Model\\Passport')->end()
-                                ->scalarNode('controller')->defaultValue('NIM\\NIMWorkerBundle\\Controller\\PassportController')->end()
+                                ->scalarNode('model')->defaultValue('NIM\\WorkerBundle\\Model\\Passport')->end()
+                                ->scalarNode('controller')->defaultValue('NIM\\WorkerBundle\\Controller\\PassportController')->end()
                                 ->scalarNode('repository')->cannotBeEmpty()->end()
-                                ->scalarNode('form')->defaultValue('NIM\\NIMWorkerBundle\\\Form\\Type\\PassportType')->end()
+                                ->scalarNode('form')->defaultValue('NIM\\WorkerBundle\\Form\\Type\\PassportType')->end()
                             ->end()
                         ->end()
 
                         ->arrayNode('contact')
                             ->addDefaultsIfNotSet()
                             ->children()
-                                ->scalarNode('model')->defaultValue('NIM\\NIMWorkerBundle\\Model\\Contact')->end()
-                                ->scalarNode('controller')->defaultValue('NIM\\NIMWorkerBundle\\Controller\\ContactController')->end()
+                                ->scalarNode('model')->defaultValue('NIM\\WorkerBundle\\Model\\Contact')->end()
+                                ->scalarNode('controller')->defaultValue('NIM\\WorkerBundle\\Controller\\ContactController')->end()
                                 ->scalarNode('repository')->cannotBeEmpty()->end()
-                                ->scalarNode('form')->defaultValue('NIM\\NIMWorkerBundle\\\Form\\Type\\ContactType')->end()
+                                ->scalarNode('form')->defaultValue('NIM\\WorkerBundle\\Form\\Type\\ContactType')->end()
                             ->end()
                         ->end()
                     ->end()

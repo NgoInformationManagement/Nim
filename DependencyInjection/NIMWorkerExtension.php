@@ -9,17 +9,16 @@
  * file that was distributed with this source code.
  */
 
-
 namespace NIM\WorkerBundle\DependencyInjection;
 
+use NIM\Component\DependencyInjection\NIMExtension;
 use NIM\WorkerBundle\NIMWorkerBundle;
+use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
-use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 
-class NIMWorkerExtension extends Extension /*implements PrependExtensionInterface*/
+class NIMWorkerExtension extends NIMExtension
 {
     /**
      * {@inheritDoc}
@@ -29,48 +28,36 @@ class NIMWorkerExtension extends Extension /*implements PrependExtensionInterfac
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config/container'));
+        $driver = $config['driver'];
 
-        $driver = 'doctrine/orm'; // todo
+        $this->mapClassParameters($config['classes'], $container);
+        $this->mapValidationGroupParameters($config['validation_groups'], $container);
+        $this->loadDriver($driver, $loader);
 
+        $container->setParameter('nim_worker.driver', $driver);
+        $container->setParameter('nim_worker.driver.'.$driver, true);
+    }
+
+    /**
+     * Load bundle driver.
+     *
+     * @param string $driver
+     * @param XmlFileLoader $loader
+     *
+     * @throws \InvalidArgumentException
+     */
+    protected function loadDriver($driver, XmlFileLoader $loader)
+    {
         if (!in_array($driver, NIMWorkerBundle::getSupportedDrivers())) {
             throw new \InvalidArgumentException(sprintf('Driver "%s" is unsupported by NIMWorkerBundle.', $driver));
         }
 
-        //$loader->load(sprintf('driver/%s.xml', $driver));
-
-        $container->setParameter('nim_worker.driver', $driver);
-        $container->setParameter('nim_worker.driver.'.$driver, true);
-
-        $loader->load('services.xml');
-    }
-
-    /**
-     * Remap class parameters.
-     *
-     * @param array $classes
-     * @param ContainerBuilder $container
-     */
-    protected function mapClassParameters(array $classes, ContainerBuilder $container)
-    {
-        foreach ($classes as $model => $serviceClasses) {
-            foreach ($serviceClasses as $service => $class) {
-                $service = $service === 'form' ? 'form.type' : $service;
-                $container->setParameter(sprintf('sylius.%s.%s.class', $service, $model), $class);
-            }
-        }
-    }
-
-    /**
-     * Remap validation group parameters.
-     *
-     * @param array $classes
-     * @param ContainerBuilder $container
-     */
-    protected function mapValidationGroupParameters(array $validationGroups, ContainerBuilder $container)
-    {
-        foreach ($validationGroups as $model => $groups) {
-            $container->setParameter(sprintf('sylius.validation_group.%s', $model), $groups);
-        }
+        $loader->load(sprintf('driver/%s.xml', $driver));
+        $loader->load('worker.xml');
+        $loader->load('agency.xml');
+        $loader->load('passport.xml');
+        $loader->load('visa.xml');
+        $loader->load('contact.xml');
     }
 }

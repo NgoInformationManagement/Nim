@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+This file is part of the NIM package.
+
+(c) Langlade Arnaud
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+-->
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+
+
+    <services>
+        <!-- Mission ressource -->
+        <service id="nim.controller.visa" class="%nim.controller.visa.class%">
+            <argument>nim</argument>
+            <argument>visa</argument>
+            <argument>NIMMissionBundle:Mission</argument>
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+
+        <!-- Mission Form -->
+        <service id="nim.form.type.visa" class="%nim.form.type.visa.class%">
+            <argument>%nim.model.visa.class%</argument>
+            <argument>%nim.validation_group.visa%</argument>
+            <tag name="form.type" alias="nim_visa" />
+        </service>
+    </services>
+</container>
