@@ -109,7 +109,7 @@ Feature: Missions
         When I press "Delete"
         Then I should be on the mission index page
          And I should see "Mission has been successfully deleted."
-         But I should not see country with name "Earthquake in Indonesia" in the list
+         But I should not see mission with name "Earthquake in Indonesia" in the list
 
     @javascript
     Scenario: Accessing mission details via the list
