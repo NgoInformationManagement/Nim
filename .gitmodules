@@ -1,0 +1,3 @@
+[submodule "src/NIM/Component"]
+	path = src/NIM/Component
+	url = git@github.com:aRn0D/NimComponent.git

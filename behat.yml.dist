@@ -1,0 +1,14 @@
+# This file is part of the NIM package.
+# (c) Arnaud Langlade
+
+default:
+    context:
+        class: NIM\WebBundle\Behat\FeatureContext
+    extensions:
+        Behat\MinkExtension\Extension:
+            base_url: "http://nim.dev/app_test.php"
+            default_session: symfony2
+            selenium2: ~
+        Behat\Symfony2Extension\Extension:
+            mink_driver: true
+

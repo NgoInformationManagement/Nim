@@ -1,0 +1,34 @@
+{% extends "NIMWebBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block stylesheets %}
+    {% stylesheets output='assets/compiled/nim_login.css' filter='cssrewrite'
+        'bundles/nimweb/css/bootstrap.css'
+        'bundles/nimweb/css/metics-login.css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="text-center">
+        <img alt="{#TODO#}" src="{#TODO#}">
+    </div>
+    <div class="tab-content">
+        <div class="tab-pane active" id="login">
+            <form class="form-signin" action="index.html">
+                <p class="text-muted text-center">
+                    {#TODO#}
+                    Enter your username and password
+                </p>
+                <input type="text" class="form-control" placeholder="{{ 'security.login.username'|trans }}">
+                <input type="password" class="form-control" placeholder="{{ 'security.login.password'|trans }}">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                <button type="submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}
