@@ -5,3 +5,7 @@ nim_dashboard:
 nim_mision:
     resource: @NIMMissionBundle/Resources/config/routing/mission.yml
     prefix: /mission
+
+nim_agency:
+    resource: @NIMWorkerBundle/Resources/config/routing/agency.yml
+    prefix: /agency

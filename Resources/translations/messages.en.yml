@@ -68,3 +68,31 @@ mission:
             label: Started at
         endedAt:
             label: Ended at
+
+agency:
+    title:
+        create: New agency
+        update: Update
+        index: Yours agencies
+        show: Details about your agency
+    button:
+        new: New Agency
+    message:
+        empty: There are no agency to display.
+    field:
+        name:
+            label: Name
+        street:
+            label: Street
+        city:
+            label: City
+        postcode:
+            label: Postcode
+        country:
+            label: Country
+        phoneNumber:
+            label: Phone Number
+        fax:
+            label: Fax
+        email:
+            label: Email

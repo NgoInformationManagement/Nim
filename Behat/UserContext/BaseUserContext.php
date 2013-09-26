@@ -12,6 +12,7 @@
 namespace NIM\WebBundle\Behat\UserContext;
 
 use Behat\Mink\Driver\Selenium2Driver;
+use Behat\Mink\Exception\ExpectationException;
 
 trait BaseUserContext
 {

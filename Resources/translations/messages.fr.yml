@@ -48,9 +48,9 @@ account:
 mission:
     title:
         create: Nouvelle mission
-        update: Mis à jour
+        update: Mise à jour
         index: Vos missions
-        show: Détails sr votre mission
+        show: Détails sur votre mission
     message:
         empty: Il n'y a pas de mission à afficher.
     field:
@@ -66,3 +66,31 @@ mission:
             label: Commence le
         endedAt:
             label: Fini le
+
+agency:
+    title:
+        create: Nouvelle agence
+        update: Mise à jour
+        index: Vos agences
+        show: Détails sur votre agence
+    button:
+        new: Nouvelle agence
+    message:
+        empty: Il n'y a pas d'agence à afficher.
+    field:
+        name:
+            label: Nom
+        street:
+            label: Rue
+        city:
+            label: Ville
+        postcode:
+            label: Code postal
+        country:
+            label: Pays
+        phoneNumber:
+            label: Numero de téléphone
+        fax:
+            label: Fax
+        email:
+            label: Email

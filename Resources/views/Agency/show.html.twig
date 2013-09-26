@@ -1,0 +1,30 @@
+{% extends 'NIMWebBundle::layout.html.twig' %}
+
+{% import 'NIMWebBundle:Macro:button.html.twig' as buttons %}
+{% from 'NIMWebBundle:Macro:misc.html.twig' import displayedField %}
+
+{% block page_name %}
+    <i class="icon-rocket"></i>
+    {{ 'agency.title.show'|trans }}
+{% endblock page_name %}
+
+
+{% block page_action %}
+    {{ buttons.back(path('nim_agency_index'), 'button.backToList') }}
+    {{ buttons.edit(path('nim_agency_update', {'id' : agency.id}), 'button.edit') }}
+    {{ buttons.delete(path('nim_agency_delete', {'id' : agency.id}), 'button.delete') }}
+{% endblock page_action %}
+
+
+{% block content %}
+<div class="form-horizontal">
+    {{ displayedField('name', agency.name, 'agency') }}
+    {{ displayedField('street', agency.street, 'agency') }}
+    {{ displayedField('postcode', agency.postcode, 'agency') }}
+    {{ displayedField('city', agency.city, 'agency') }}
+    {{ displayedField('country', agency.country|country, 'agency') }}
+    {{ displayedField('phoneNumber', agency.phoneNumber, 'agency') }}
+    {{ displayedField('fax', agency.fax, 'agency') }}
+    {{ displayedField('email', agency.email, 'agency') }}
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'NIMWebBundle::layout.html.twig' %}
+
+{% import 'NIMWebBundle:Macro:button.html.twig' as buttons %}
+
+{% block page_name %}
+    <i class="icon-rocket"></i>
+    {{ 'agency.title.update'|trans }}
+{% endblock page_name %}
+
+
+{% block page_action %}
+    {{ buttons.back(path('nim_agency_index'), 'button.backToList') }}
+    {{ buttons.update('button.update', 'agencyUpdateForm') }}
+{% endblock page_action %}
+
+
+{% block content %}
+    <form action="{{ path('nim_agency_update', {'id': agency.id}) }}"
+          method="post"
+          class="form-horizontal"
+          role="form"
+          id="agencyUpdateForm"
+          novalidate>
+        {% include 'NIMWebBundle:Agency:_form.html.twig' %}
+    </form>
+{% endblock %}

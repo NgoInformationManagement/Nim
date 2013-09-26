@@ -1,0 +1,46 @@
+{% macro list(agencies) %}
+
+    {% from 'NIMWebBundle:Macro:button.html.twig' import listActionButton %}
+    {% from 'NIMWebBundle:Macro:alert.html.twig' import info %}
+
+    {% if agencies|length > 0 %}
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>{{ sylius_resource_sort('name', 'agency.field.name.label'|trans) }}</th>
+                    <th>{{ sylius_resource_sort('street', 'agency.field.street.label'|trans) }}</th>
+                    <th>{{ sylius_resource_sort('postcode', 'agency.field.postcode.label'|trans) }}</th>
+                    <th>{{ sylius_resource_sort('city', 'agency.field.city.label'|trans) }}</th>
+                    <th>{{ sylius_resource_sort('country', 'agency.field.country.label'|trans) }}</th>
+                    <th>{{ sylius_resource_sort('phoneNumber', 'agency.field.phoneNumber.label'|trans) }}</th>
+                    <th>{{ sylius_resource_sort('fax', 'agency.field.fax.label'|trans) }}</th>
+                    <th>{{ sylius_resource_sort('email', 'agency.field.email.label'|trans) }}</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for agency in agencies %}
+                    <tr>
+                        <td>{{ agency.name }}</td>
+                        <td>{{ agency.street }}</td>
+                        <td>{{ agency.postcode }}</td>
+                        <td>{{ agency.city }}</td>
+                        <td>{{ agency.country|country }}</td>
+                        <td>{{ agency.phoneNumber }}</td>
+                        <td>{{ agency.fax }}</td>
+                        <td>{{ agency.email }}</td>
+                        <td>
+                            <div class="pull-right">
+                                {{ listActionButton('nim_agency', agency.id)  }}
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        {{ info('agency.message.empty'|trans) }}
+    {% endif %}
+{% endmacro %}
