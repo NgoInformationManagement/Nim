@@ -17,18 +17,18 @@ file that was distributed with this source code.
 >
 
     <entity name="NIM\WorkerBundle\Model\Agency" table="nim_agency">
-
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO"/>
         </id>
 
-        <field name="name" type="string" column="name" length="255">
-            <gedmo:translatable/>
-        </field>
-
-        <field name="description" column="description" type="text">
-            <gedmo:translatable/>
-        </field>
+        <field name="name" type="string" column="name" length="255" />
+        <field name="street" type="string" column="street" length="255" nullable="true" />
+        <field name="postcode" type="string" column="postcode" length="255" nullable="true" />
+        <field name="city" type="string" column="city" length="255" nullable="true" />
+        <field name="country" type="string" column="country" length="255" nullable="true" />
+        <field name="phoneNumber" type="string" column="phone" length="255" nullable="true" />
+        <field name="fax" type="string" column="fax" length="255" nullable="true" />
+        <field name="email" type="string" column="email" length="255" nullable="true" />
 
         <field name="createdAt" column="created_at" type="datetime">
             <gedmo:timestampable on="create"/>
@@ -37,10 +37,5 @@ file that was distributed with this source code.
         <field name="updatedAt" column="updated_at" type="datetime">
             <gedmo:timestampable on="update"/>
         </field>
-
-        <field name="address"></field>
-
-        <gedmo:translation entity="Gedmo\Translatable\Entity\Translation" locale="locale"/>
-
     </entity>
 </doctrine-mapping>

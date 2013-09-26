@@ -11,25 +11,21 @@
 
 namespace NIM\WorkerBundle\Model;
 
-use \Gedmo\Translatable\Translatable;
+use Sylius\Bundle\AddressingBundle\Model\AddressInterface;
 
-class Agency implements Translatable
+class Agency
 {
     protected $id;
     protected $name;
-    protected $description;
+    protected $street;
+    protected $postcode;
+    protected $city;
+    protected $country;
+    protected $phoneNumber;
+    protected $fax;
+    protected $email;
     protected $createdAt;
     protected $updatedAt;
-    protected $address;
-    protected $locale;
-
-    /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
 
     /**
      * @return mixed
@@ -40,35 +36,131 @@ class Agency implements Translatable
     }
 
     /**
-     * @param mixed $address
+     * @param mixed $name
      */
-    public function setAddress($address)
+    public function setName($name)
     {
-        $this->address = $address;
+        $this->name = $name;
     }
 
     /**
      * @return mixed
      */
-    public function getAddress()
+    public function getName()
     {
-        return $this->address;
+        return $this->name;
     }
 
     /**
-     * @param mixed $description
+     * @param mixed $city
      */
-    public function setDescription($description)
+    public function setCity($city)
     {
-        $this->description = $description;
+        $this->city = $city;
     }
 
     /**
      * @return mixed
      */
-    public function getDescription()
+    public function getCity()
     {
-        return $this->description;
+        return $this->city;
+    }
+
+    /**
+     * @param mixed $country
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * @param mixed $postcode
+     */
+    public function setPostcode($postcode)
+    {
+        $this->postcode = $postcode;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPostcode()
+    {
+        return $this->postcode;
+    }
+
+    /**
+     * @param mixed $street
+     */
+    public function setStreet($street)
+    {
+        $this->street = $street;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStreet()
+    {
+        return $this->street;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $fax
+     */
+    public function setFax($fax)
+    {
+        $this->fax = $fax;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFax()
+    {
+        return $this->fax;
+    }
+
+    /**
+     * @param mixed $phoneNumber
+     */
+    public function setPhoneNumber($phoneNumber)
+    {
+        $this->phoneNumber = $phoneNumber;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPhoneNumber()
+    {
+        return $this->phoneNumber;
     }
 
     /**
@@ -101,45 +193,5 @@ class Agency implements Translatable
     public function getUpdatedAt()
     {
         return $this->updatedAt;
-    }
-
-    /**
-     * @param mixed $locale
-     */
-    public function setLocale($locale)
-    {
-        $this->locale = $locale;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLocale()
-    {
-        return $this->locale;
-    }
-
-    /**
-     * @param mixed $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param $locale
-     */
-    public function setTranslatableLocale($locale)
-    {
-        $this->locale = $locale;
     }
 }

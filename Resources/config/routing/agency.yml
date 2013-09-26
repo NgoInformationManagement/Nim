@@ -1,0 +1,41 @@
+nim_agency_index:
+    pattern: /
+    methods: [GET]
+    defaults:
+        _controller: nim.controller.agency:indexAction
+        _sylius:
+            template: NIMWebBundle:Agency:index.html.twig
+
+nim_agency_create:
+    pattern: /new
+    methods: [GET, POST]
+    defaults:
+        _controller: nim.controller.agency:createAction
+        _sylius:
+            template: NIMWebBundle:Agency:create.html.twig
+            redirect: nim_agency_show
+
+nim_agency_update:
+    pattern: /{id}/edit
+    methods: [GET, POST]
+    defaults:
+        _controller: nim.controller.agency:updateAction
+        _sylius:
+            template: NIMWebBundle:Agency:update.html.twig
+            redirect: nim_agency_show
+
+nim_agency_show:
+    pattern: /{id}
+    methods: [GET]
+    defaults:
+        _controller: nim.controller.agency:showAction
+        _sylius:
+            template: NIMWebBundle:Agency:show.html.twig
+
+nim_agency_delete:
+    pattern: /{id}
+    methods: [DELETE]
+    defaults:
+        _controller: nim.controller.agency:deleteAction
+        _sylius:
+            redirect: nim_agency_index
