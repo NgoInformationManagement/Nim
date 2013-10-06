@@ -26,9 +26,6 @@ file that was distributed with this source code.
         <field name="postcode" type="string" column="postcode" length="255" nullable="true" />
         <field name="city" type="string" column="city" length="255" nullable="true" />
         <field name="country" type="string" column="country" length="255" nullable="true" />
-        <field name="phoneNumber" type="string" column="phone" length="255" nullable="true" />
-        <field name="fax" type="string" column="fax" length="255" nullable="true" />
-        <field name="email" type="string" column="email" length="255" nullable="true" />
 
         <field name="createdAt" column="created_at" type="datetime">
             <gedmo:timestampable on="create"/>
@@ -37,5 +34,27 @@ file that was distributed with this source code.
         <field name="updatedAt" column="updated_at" type="datetime">
             <gedmo:timestampable on="update"/>
         </field>
+
+        <many-to-many field="emails" target-entity="NIM\WorkerBundle\Model\Email">
+            <join-table name="agency_email">
+                <join-columns>
+                    <join-column name="agency_id" referenced-column-name="id" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="email_id" referenced-column-name="id" unique="true" />
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
+
+        <many-to-many field="phones" target-entity="NIM\WorkerBundle\Model\Phone">
+            <join-table name="agency_phone">
+                <join-columns>
+                    <join-column name="agency_id" referenced-column-name="id" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="phone_id" referenced-column-name="id" unique="true" />
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
     </entity>
 </doctrine-mapping>

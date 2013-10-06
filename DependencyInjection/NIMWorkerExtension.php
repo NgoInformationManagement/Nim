@@ -54,6 +54,7 @@ class NIMWorkerExtension extends NIMExtension
         }
 
         $loader->load(sprintf('driver/%s.xml', $driver));
+        $loader->load('base.xml');
         $loader->load('worker.xml');
         $loader->load('agency.xml');
         $loader->load('passport.xml');

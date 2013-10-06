@@ -12,8 +12,9 @@
 namespace NIM\WorkerBundle\Model;
 
 use \Doctrine\Common\Collections\ArrayCollection;
+use NIM\WorkerBundle\Model\Entity\PersonAbstract;
 
-class Worker
+class Worker extends PersonAbstract
 {
     const TYPE_EMPLOYEE = 'employee';
     const TYPE_VOLUNTEER = 'volunteer';

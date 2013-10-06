@@ -17,17 +17,17 @@ http://symfony.com/schema/dic/services/services-1.0.xsd">
 
 
     <services>
-        <!-- Mission ressource -->
+        <!-- Agency ressource -->
         <service id="nim.controller.agency" class="%nim.controller.agency.class%">
             <argument>nim</argument>
             <argument>agency</argument>
-            <argument>NIMMissionBundle:Mission</argument>
+            <argument>NIMWorkerBundle:Agency</argument>
             <call method="setContainer">
                 <argument type="service" id="service_container" />
             </call>
         </service>
 
-        <!-- Mission Form -->
+        <!-- Agency Form -->
         <service id="nim.form.type.agency" class="%nim.form.type.agency.class%">
             <argument>%nim.model.agency.class%</argument>
             <argument>%nim.validation_group.agency%</argument>

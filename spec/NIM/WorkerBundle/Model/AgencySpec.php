@@ -11,6 +11,9 @@
 
 namespace spec\NIM\WorkerBundle\Model;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use NIM\WorkerBundle\Model\Email;
+use NIM\WorkerBundle\Model\Phone;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Sylius\Bundle\AddressingBundle\Model\AddressInterface;
@@ -56,8 +59,8 @@ class AgencySpec extends ObjectBehavior
 
     function its_country_is_mutable()
     {
-        $this->setCountry('FR');
-        $this->getCountry()->shouldReturn('FR');
+        $this->setCountry('country');
+        $this->getCountry()->shouldReturn('country');
     }
 
     function it_has_no_postcode_by_default()
@@ -67,8 +70,8 @@ class AgencySpec extends ObjectBehavior
 
     function its_postcode_is_mutable()
     {
-        $this->setPostcode('64000');
-        $this->getPostcode()->shouldReturn('64000');
+        $this->setPostcode('postcode');
+        $this->getPostcode()->shouldReturn('postcode');
     }
 
     function it_has_no_street_by_default()
@@ -82,37 +85,72 @@ class AgencySpec extends ObjectBehavior
         $this->getStreet()->shouldReturn('street');
     }
 
-    function its_fax_is_mutable()
-    {
-        $this->setFax('0545342312');
-        $this->getFax()->shouldReturn('0545342312');
-    }
-
-    function it_has_no_fax_by_default()
-    {
-        $this->getFax()->shouldReturn(null);
-    }
-
-    function its_phonenumber_is_mutable()
-    {
-        $this->setPhoneNumber('0545342312');
-        $this->getPhoneNumber()->shouldReturn('0545342312');
-    }
-
-    function it_has_no_phonenumber_by_default()
-    {
-        $this->getPhoneNumber()->shouldReturn(null);
-    }
-
-    function its_email_is_mutable()
-    {
-        $this->setEmail('email@email.fr');
-        $this->getEmail()->shouldReturn('email@email.fr');
-    }
-
     function it_has_no_email_by_default()
     {
-        $this->getEmail()->shouldReturn(null);
+        $this->getEmails()->shouldHaveType('Doctrine\Common\Collections\ArrayCollection');
+    }
+
+    function its_email_is_mutable(ArrayCollection $col)
+    {
+        $this->setEmails($col);
+        $this->getEmails()->shouldReturn($col);
+    }
+
+    function it_have_unique_emails(Email $email)
+    {
+        $this->addEmail($email);
+        $this->addEmail($email);
+        $this->getEmails()->shouldHaveCount(1);
+    }
+
+    function it_have_emails(Email $email1, Email $email2)
+    {
+        $this->addEmail($email1);
+        $this->addEmail($email2);
+        $this->getEmails()->shouldHaveCount(2);
+    }
+
+    function it_can_remove_emails(Email $email1, Email $email2)
+    {
+        $this->addEmail($email1);
+        $this->addEmail($email2);
+
+        $this->removeEmail($email2);
+        $this->getEmails()->shouldHaveCount(1);
+    }
+
+    function it_has_no_phone_by_default()
+    {
+        $this->getPhones()->shouldHaveType('Doctrine\Common\Collections\ArrayCollection');
+    }
+
+    function its_phone_is_mutable(ArrayCollection $col)
+    {
+        $this->setPhones($col);
+        $this->getPhones()->shouldReturn($col);
+    }
+
+    function it_have_unique_phones(Phone $phone)
+    {
+        $this->addPhone($phone);
+        $this->addPhone($phone);
+        $this->getPhones()->shouldHaveCount(1);
+    }
+
+    function it_have_phones(Phone $phone1, Phone $phone2)
+    {
+        $this->addPhone($phone1);
+        $this->addPhone($phone2);
+        $this->getPhones()->shouldHaveCount(2);
+    }
+
+    function it_can_remove_phones(Phone $phone1, Phone $phone2)
+    {
+        $this->addPhone($phone1);
+        $this->addPhone($phone2);
+
+        $this->removePhone($phone2);
+        $this->getPhones()->shouldHaveCount(1);
     }
 
     function it_has_no_createdat_by_default()
