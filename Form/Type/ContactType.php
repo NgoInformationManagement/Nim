@@ -14,7 +14,7 @@ namespace NIM\WorkerBundle\Form\Type;
 use NIM\Component\Form\Type\NIMType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class AgencyType extends NIMType
+class ContactType extends NIMType
 {
     /**
      * {@inheritdoc}
@@ -22,28 +22,31 @@ class AgencyType extends NIMType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', null, array(
-                'label' => 'agency.field.name.label',
+            ->add('firstname', null, array(
+                'label' => 'contact.field.fistname.label',
+            ))
+            ->add('lastname', null, array(
+                'label' => 'contact.field.lastname.label',
             ))
             ->add('street', null, array(
-                'label' => 'agency.field.street.label',
+                'label' => 'contact.field.street.label',
             ))
             ->add('city', null, array(
-                'label' => 'agency.field.city.label',
+                'label' => 'contact.field.city.label',
             ))
             ->add('postcode', null, array(
-                'label' => 'agency.field.postcode.label',
+                'label' => 'contact.field.postcode.label',
             ))
             ->add('country', 'country', array(
-                'label' => 'agency.field.country.label',
+                'label' => 'contact.field.country.label',
             ))
             ->add('emails', 'collection', array(
                 'type' => 'nim.form.type.contactable.email',
-                'label' => 'agency.field.email.label',
+                'label' => 'contact.field.email.label',
             ))
             ->add('phones', 'collection', array(
                 'type' => 'nim.form.type.contactable.phone',
-                'label' => 'agency.field.phone.label',
+                'label' => 'contact.field.phone.label',
             ))
         ;
     }
@@ -54,6 +57,6 @@ class AgencyType extends NIMType
      */
     public function getName()
     {
-        return 'nim_agency';
+        return 'nim_contact';
     }
 }

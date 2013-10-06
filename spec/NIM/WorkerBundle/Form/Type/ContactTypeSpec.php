@@ -16,22 +16,27 @@ use Prophecy\Argument;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class AgencyTypeSpec extends ObjectBehavior
+class ContactTypeSpec extends ObjectBehavior
 {
     function let()
     {
-        $this->beConstructedWith('agency', array('nim'));
+        $this->beConstructedWith('contact', array('nim'));
     }
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('NIM\WorkerBundle\Form\Type\AgencyType');
+        $this->shouldHaveType('NIM\WorkerBundle\Form\Type\ContactType');
     }
 
-    function it_should_build_agency_form(FormBuilderInterface $builder)
+    function it_should_build_contact_form(FormBuilderInterface $builder)
     {
         $builder
-            ->add('name', null,  Argument::any())
+            ->add('firstname', null,  Argument::any())
+            ->shouldBeCalled()
+            ->willReturn($builder)
+        ;
+        $builder
+            ->add('lastname', null,  Argument::any())
             ->shouldBeCalled()
             ->willReturn($builder)
         ;
@@ -78,7 +83,7 @@ class AgencyTypeSpec extends ObjectBehavior
     function it_should_define_assigned_data_class(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'agency',
+            'data_class' => 'contact',
             'validation_groups' => array('nim')
         ))->shouldBeCalled();
 
@@ -87,6 +92,6 @@ class AgencyTypeSpec extends ObjectBehavior
 
     function it_should_have_valid_name()
     {
-        $this->getName()->shouldReturn('nim_agency');
+        $this->getName()->shouldReturn('nim_contact');
     }
 }
