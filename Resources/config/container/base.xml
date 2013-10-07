@@ -15,7 +15,9 @@ file that was distributed with this source code.
                                http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="nim.validation_group.contactable">nim</parameter>
+        <parameter key="nim.validation_group.contactable" type="collection">
+            <parameter>nim</parameter>
+        </parameter>
         <parameter key="nim.form.type.contactable.email.class">NIM\WorkerBundle\Form\Type\Contactable\EmailType</parameter>
         <parameter key="nim.form.type.contactable.phone.class">NIM\WorkerBundle\Form\Type\Contactable\PhoneType</parameter>
         <parameter key="nim.model.contactable.email.class">NIM\WorkerBundle\Model\Email</parameter>
