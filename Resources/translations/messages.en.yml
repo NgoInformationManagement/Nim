@@ -90,9 +90,18 @@ agency:
             label: Postcode
         country:
             label: Country
-        phoneNumber:
+        phone:
             label: Phone Number
-        fax:
-            label: Fax
         email:
             label: Email
+
+contactable:
+    field:
+        label:
+            label: Label
+        address:
+            label: Email
+        type:
+            label: Type
+        number:
+            label: Number

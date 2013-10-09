@@ -88,9 +88,18 @@ agency:
             label: Code postal
         country:
             label: Pays
-        phoneNumber:
+        phone:
             label: Numero de téléphone
-        fax:
-            label: Fax
         email:
             label: Email
+
+contactable:
+    field:
+        label:
+            label: Label
+        address:
+            label: Email
+        type:
+            label: Type
+        number:
+            label: Numéro
