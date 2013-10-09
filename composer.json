@@ -1,0 +1,39 @@
+{
+    "name": "nim/form-bundle",
+    "type": "symfony-bundle",
+    "description": "Manage your symfony form simpler",
+    "keywords": ["nim", "form"],
+    "homepage": "https://github.com/NgoInformationManagement/FormBundle",
+    "license": "MIT",
+
+    "authors": [
+        {
+            "name": "aRn0D",
+            "homepage": "https://github.com/aRn0D"
+        }
+    ],
+
+    "minimum-stability": "dev",
+
+    "target-dir": "NIM/MissionBundle",
+
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": "~2.3"
+    },
+
+    "require-dev": {
+        "phpspec/phpspec": "2.0.*@dev",
+        "symfony/form": "~2.3"
+    },
+
+    "config": {
+        "bin-dir": "bin"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "NIM\\FormBundle": ""
+        }
+    }
+}

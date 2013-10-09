@@ -1,0 +1,46 @@
+{# Collection widget #}
+{% block collection_widget %}
+    {% spaceless %}
+        {% set attr = attr|merge({'class': 'controls'}) %}
+
+        <div data-form-type="collection"
+             {{ block('widget_container_attributes') }}
+             {% if prototype is defined %}data-prototype="<div data-form-collection='item'>{{ form_rest(prototype) | e }}</div>"{% endif %}>
+
+            {% if prototype is defined %}
+                <button href="#"
+                   class="btn"
+                   data-form-collection="add">
+                    <i class="icon-plus"></i>
+                    {{ 'form.collection.add' | trans }}
+                </button>
+            {% endif %}
+
+            <div data-form-collection="list">
+            {% for child in form %}
+                <div data-form-collection="item">
+                    {{ form_widget(child) }}
+                    <button class="btn btn-danger"
+                            data-form-collection="delete">
+                        <i class="icon-trash"></i>
+                        {{ 'form.collection.delete' | trans }}
+                    </button>
+                </div>
+            {% endfor %}
+             </div>
+        </div>
+    {% endspaceless %}
+{% endblock collection_widget %}
+
+{# Delete button widget #}
+{% block delete_widget %}
+    {% spaceless %}
+        {% if label is empty %}
+            {% set label = name|humanize %}
+        {% endif %}
+        <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>
+            <i class="icon-trash"></i>
+            {{ label|trans({}, translation_domain) }}
+        </button>
+    {% endspaceless %}
+{% endblock delete_widget %}
