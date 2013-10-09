@@ -36,6 +36,10 @@ file that was distributed with this source code.
         </field>
 
         <many-to-many field="emails" target-entity="NIM\WorkerBundle\Model\Email">
+            <cascade>
+                <cascade-persist/>
+                <cascade-remove/>
+            </cascade>
             <join-table name="agency_email">
                 <join-columns>
                     <join-column name="agency_id" referenced-column-name="id" />
@@ -47,6 +51,10 @@ file that was distributed with this source code.
         </many-to-many>
 
         <many-to-many field="phones" target-entity="NIM\WorkerBundle\Model\Phone">
+            <cascade>
+                <cascade-persist/>
+                <cascade-remove/>
+            </cascade>
             <join-table name="agency_phone">
                 <join-columns>
                     <join-column name="agency_id" referenced-column-name="id" />
