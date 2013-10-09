@@ -15,7 +15,7 @@
 
     "minimum-stability": "dev",
 
-    "target-dir": "nim/web-bundle",
+    "target-dir": "NIM/WebBundle",
 
     "require": {
         "php": ">=5.3.3",
@@ -24,7 +24,7 @@
 
     "autoload": {
         "psr-0": {
-            "NIM\\MissionBundle": ""
+            "NIM\\WebBundle": ""
         }
     }
 }
