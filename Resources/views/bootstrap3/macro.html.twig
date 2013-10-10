@@ -1,0 +1,19 @@
+{% macro displayedField(field, value, entityName) %}
+    {% set entityName = entityName|default('nim') %}
+    <div class="form-group">
+        <label class="col-lg-2 control-label">{{ (entityName ~ '.field.' ~ field ~ '.label')|trans }}</label>
+        <div class="col-lg-10">
+            <p class="form-control-static">{{ value|raw }}</p>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro displayedContantTranslatableField(field, value, entityName) %}
+    {% set entityName = entityName|default('nim') %}
+    <div class="form-group">
+        <label class="col-lg-2 control-label">{{ (entityName ~ '.field.' ~ field ~ '.label')|trans }}</label>
+        <div class="col-lg-10">
+            <p class="form-control-static">{{ (entityName ~ '.field.' ~ field ~ '.option.' ~ value)|trans }}</p>
+        </div>
+    </div>
+{% endmacro %}
