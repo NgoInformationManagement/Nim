@@ -28,6 +28,7 @@ twig:
     form:
         resources:
             - 'NIMWebBundle::form.html.twig'
+            - 'NIMFormBundle::form.html.twig'
 
 # Assetic Configuration
 assetic:
