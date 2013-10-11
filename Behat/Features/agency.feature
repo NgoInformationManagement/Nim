@@ -6,10 +6,18 @@ Feature: Agency
     Background:
         Given I am logged in as administrator
           And There are following agencies:
-             | name                             | street                                 | postcode | city    | country | phoneNumber | fax         | email          |
-             | TSF - INTERNATIONAL HEADQUARTERS | 19, rue Jean-Baptiste Carreau          | 64000    | PAU     | FR      | 0559844360  | 0559844358  | email@email.fr |
-             | TSF - LATIN AMERICA              | Del supermercado Pali, 1 cuadra arriba |          | Managua | NA      | 50522774843 | 50522774843 | email@email.fr |
-             | TSF - ASIA                       | 71 Phayathai Rd, Ratchathewi           | 10400    | Bangkok | TH      | 0845392103  |             | email@email.fr |
+             | name                             | street                                 | postcode | city    | country |
+             | TSF - INTERNATIONAL HEADQUARTERS | 19, rue Jean-Baptiste Carreau          | 64000    | PAU     | FR      |
+             | TSF - LATIN AMERICA              | Del supermercado Pali, 1 cuadra arriba |          | Managua | NA      |
+             | TSF - ASIA                       | 71 Phayathai Rd, Ratchathewi           | 10400    | Bangkok | TH      |
+        And Agency "TSF - INTERNATIONAL HEADQUARTERS" has following emails:
+            | label  | address         |
+            | email  | email@email.fr  |
+            | email2 | email2@email.fr |
+        And Agency "TSF - INTERNATIONAL HEADQUARTERS" has following phones:
+            | type  | number     |
+            | phone | 0212457812 |
+            | fax   | 2154875421 |
 
     Scenario: Seeing empty index of agency
        Given There are no agencies
@@ -36,13 +44,19 @@ Feature: Agency
          And I fill in "Postcode" with "54000"
          And I fill in "City" with "City"
          And I fill in "Country" with "FR"
-         And I fill in "Phone Number" with "0559595959"
-         And I fill in "Fax" with "0559595951"
+         And I click "Add" to add an item to "Email"
+         And I fill in "Label" with "Label"
          And I fill in "Email" with "email@email.fr"
+         And I click "Add" to add an item to "Email"
+         And I fill in "Label" with "Label"
+         And I fill in "Email" with "email@email.fr"
+         And I click "Add" to add an item to "Phone"
+         And I fill in "Type" with "Fax"
+         And I fill in "Number" with "05949838473"
          And I press "Create"
         Then I should be on the page of agency which has "New agency" as name
          And I should see "Agency has been successfully created."
-
+#
     @javascript
     Scenario: Creating a new agency with empties or wrongs fields
       Given I am on the agency creation page
@@ -50,13 +64,16 @@ Feature: Agency
         And I leave "Street" empty
         And I leave "Postcode" empty
         And I leave "Country" empty
-        And I leave "Phone Number" empty
-        And I leave "Fax" empty
-        And I fill in "Email" with "wrong@mail.fr"
+        And I click "Add" to add an item to "Email"
+        And I click "Add" to add an item to "Phone"
+        And I leave "Email" empty
         And I press "Create"
        Then I should be on the agency creation page
         And I should see "Name" field error
         And I should see "Email" field error
+        And I should see "Number" field error
+       When I fill in "Email" with "wrongMail"
+       Then I should see "Email" field error
 
     Scenario: Created agency appears in the list
        Given I created agency "New agency"
@@ -77,9 +94,10 @@ Feature: Agency
          And I fill in "Postcode" with "54000"
          And I fill in "City" with "City"
          And I fill in "Country" with "FR"
-         And I fill in "Phone Number" with "0559595959"
-         And I fill in "Fax" with "0559595951"
-         And I fill in "Email" with "email@email.fr"
+         And I fill in "Label" with "Label"
+         And I fill in "Email" with "new@email.com"
+         And I fill in "Type" with "Phone"
+         And I fill in "Number" with "0449494932"
          And I press "Update"
         Then I should be on the page of agency which has "New agency" as name
          And I should see "Agency has been successfully updated."
@@ -91,13 +109,9 @@ Feature: Agency
          And I leave "Street" empty
          And I leave "Postcode" empty
          And I leave "Country" empty
-         And I leave "Phone Number" empty
-         And I leave "Fax" empty
-         And I fill in "Email" with "wrong@mail.fr"
          And I press "Update"
         Then I should be editing agency which has "TSF - INTERNATIONAL HEADQUARTERS" as name
          And I should see "Name" field error
-         And I should see "Email" field error
 
     Scenario: Deleting agency via the list button
        Given I am on the agency index page
@@ -122,6 +136,11 @@ Feature: Agency
          And I should see "64000"
          And I should see "PAU"
          And I should see "France"
-         And I should see "0559844360"
-         And I should see "0559844358"
+         And I should see "Phone"
+         And I should see "0212457812"
+         And I should see "Fax"
+         And I should see "2154875421"
+         And I should see "email"
          And I should see "email@email.fr"
+         And I should see "email2"
+         And I should see "email2@email.fr"

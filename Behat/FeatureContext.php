@@ -20,7 +20,7 @@ use NIM\WebBundle\Behat\DataContext\BaseDataContext;
 use NIM\WebBundle\Behat\DataContext\MissionDataContext;
 use NIM\WebBundle\Behat\UserContext\AccountUserContext;
 use NIM\WebBundle\Behat\UserContext\BaseUserContext;
-use NIM\WebBundle\Behat\UserContext\MissionUserContext;
+use NIM\FormBundle\Behat\FormCollectionTrait;
 
 class FeatureContext extends BehatContext
 {
@@ -30,7 +30,8 @@ class FeatureContext extends BehatContext
         BaseUserContext,
         MissionDataContext,
         AccountUserContext,
-        AgencyDataContext;
+        AgencyDataContext,
+        FormCollectionTrait;
 
     /**
      * Faker.

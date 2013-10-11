@@ -1,7 +1,8 @@
 {% extends 'NIMWebBundle::layout.html.twig' %}
 
 {% import 'NIMWebBundle:Macro:button.html.twig' as buttons %}
-{% from 'NIMWebBundle:Macro:misc.html.twig' import displayedField %}
+{% from 'NIMFormBundle:bootstrap3:macro.html.twig' import displayedField %}
+{% from 'NIMFormBundle:bootstrap3:macro.html.twig' import displayedContantTranslatableField %}
 
 {% block page_name %}
     <i class="icon-rocket"></i>
@@ -23,8 +24,19 @@
     {{ displayedField('postcode', agency.postcode, 'agency') }}
     {{ displayedField('city', agency.city, 'agency') }}
     {{ displayedField('country', agency.country|country, 'agency') }}
-    {{ displayedField('phoneNumber', agency.phoneNumber, 'agency') }}
-    {{ displayedField('fax', agency.fax, 'agency') }}
-    {{ displayedField('email', agency.email, 'agency') }}
+    <fieldset>
+        <legend>{{ 'agency.field.email.label'|trans }}</legend>
+        {% for email in agency.emails %}
+            {{ displayedField('label', email.label, 'email') }}
+            {{ displayedField('address', email.address, 'email') }}
+        {% endfor %}
+    </fieldset>
+    <fieldset>
+        <legend>{{ 'agency.field.phone.label'|trans }}</legend>
+        {% for phone in agency.phones %}
+            {{ displayedContantTranslatableField('type', phone.type, 'phone') }}
+            {{ displayedField('number', phone.number, 'phone') }}
+        {% endfor %}
+    </fieldset>
 </div>
 {% endblock %}

@@ -13,6 +13,8 @@ namespace NIM\WebBundle\Behat\DataContext;
 
 use Behat\Gherkin\Node\TableNode;
 use NIM\WorkerBundle\Model\Agency;
+use NIM\WorkerBundle\Model\Email;
+use NIM\WorkerBundle\Model\Phone;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
 trait AgencyDataContext
@@ -25,6 +27,42 @@ trait AgencyDataContext
         foreach ($table->getHash() as $data) {
             $this->thereIsAgency($data['name'], $data);
         }
+    }
+
+    /**
+     * @Given /^Agency "([^"]*)" has following emails:$/
+     */
+    public function agencyHasFollowingEmail($name, TableNode $table)
+    {
+        $agency = $this->getAgencyByName($name);
+
+        foreach ($table->getHash() as $data) {
+            $email = new Email();
+            $this->setDataToObject($email, $data);
+            $this->persistAndFlush($email);
+
+            $agency->addEmail($email);
+        }
+
+        $this->persistAndFlush($agency);
+    }
+
+    /**
+     * @Given /^Agency "([^"]*)" has following phones:$/
+     */
+    public function agencyHasFollowingPhones($name, TableNode $table)
+    {
+        $agency = $this->getAgencyByName($name);
+
+        foreach ($table->getHash() as $data) {
+            $phone = new Phone();
+            $this->setDataToObject($phone, $data);
+            $this->persistAndFlush($phone);
+
+            $agency->addPhone($phone);
+        }
+
+        $this->persistAndFlush($agency);
     }
 
     /**
@@ -52,10 +90,7 @@ trait AgencyDataContext
             'street' => 'street',
             'city' => 'city',
             'postcode' => 'postcode',
-            'country' => 'country',
-            'phoneNumber' => 'phoneNumber',
-            'fax' => 'fax',
-            'email' => 'email@gmail.com'
+            'country' => 'country'
         ));
     }
 

@@ -1,3 +1,6 @@
+login:
+    welcome: Enter your login and password
+
 layout:
     header:
         title: Ngo Information Management
@@ -95,13 +98,19 @@ agency:
         email:
             label: Email
 
-contactable:
+email:
     field:
         label:
             label: Label
         address:
             label: Email
+phone:
+    field:
         type:
+            option:
+                cellphone: Cellphone
+                fax: Fax
+                phone: Phone
             label: Type
         number:
             label: Number

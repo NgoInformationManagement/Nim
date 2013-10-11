@@ -1,3 +1,6 @@
+login:
+    welcome: Entrer votre identifiant et mot de passe.
+
 layout:
     header:
         title: Ngo Information Management
@@ -102,4 +105,8 @@ contactable:
         type:
             label: Type
         number:
+            option:
+                cellphone: Cellphone
+                fax: Fax
+                phone: Phone
             label: Numéro
