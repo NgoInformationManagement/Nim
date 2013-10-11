@@ -23,14 +23,13 @@ class EmailType extends NIMType
     {
         $builder
             ->add('label', null, array(
-                'label' => 'contactable.field.label.label',
+                'label' => 'email.field.label.label',
             ))
             ->add('address', 'email', array(
-                'label' => 'contactable.field.address.label',
+                'label' => 'email.field.address.label',
             ))
         ;
     }
-
 
     /**
      * {@inheritdoc}

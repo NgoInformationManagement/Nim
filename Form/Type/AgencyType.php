@@ -52,7 +52,6 @@ class AgencyType extends NIMType
         ;
     }
 
-
     /**
      * {@inheritdoc}
      */

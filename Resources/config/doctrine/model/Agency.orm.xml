@@ -42,10 +42,10 @@ file that was distributed with this source code.
             </cascade>
             <join-table name="agency_email">
                 <join-columns>
-                    <join-column name="agency_id" referenced-column-name="id" />
+                    <join-column name="agency_id" referenced-column-name="id" on-delete="CASCADE" />
                 </join-columns>
                 <inverse-join-columns>
-                    <join-column name="email_id" referenced-column-name="id" unique="true" />
+                    <join-column name="email_id" referenced-column-name="id" unique="true" on-delete="CASCADE" />
                 </inverse-join-columns>
             </join-table>
         </many-to-many>
@@ -57,10 +57,10 @@ file that was distributed with this source code.
             </cascade>
             <join-table name="agency_phone">
                 <join-columns>
-                    <join-column name="agency_id" referenced-column-name="id" />
+                    <join-column name="agency_id" referenced-column-name="id" on-delete="CASCADE" />
                 </join-columns>
                 <inverse-join-columns>
-                    <join-column name="phone_id" referenced-column-name="id" unique="true" />
+                    <join-column name="phone_id" referenced-column-name="id" unique="true" on-delete="CASCADE" />
                 </inverse-join-columns>
             </join-table>
         </many-to-many>

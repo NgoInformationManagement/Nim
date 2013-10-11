@@ -31,10 +31,33 @@ file that was distributed with this source code.
             </constraint>
         </property>
 
-        <property name="email">
+        <property name="emails">
+            <constraint name="Valid"/>
+        </property>
+
+        <property name="phones">
+            <constraint name="Valid"></constraint>
+        </property>
+    </class>
+
+    <class name="NIM\WorkerBundle\Model\Email">
+        <property name="address">
+            <constraint name="NotBlank">
+                <option name="groups">nim</option>
+            </constraint>
             <constraint name="Email">
-                <option name="message">The email "{{ value }}" is not a valid email.</option>
-                <option name="checkMX">true</option>
+                <option name="groups">nim</option>
+            </constraint>
+        </property>
+    </class>
+    <class name="NIM\WorkerBundle\Model\Phone">
+        <property name="type">
+            <constraint name="NotBlank">
+                <option name="groups">nim</option>
+            </constraint>
+        </property>
+        <property name="number">
+            <constraint name="NotBlank">
                 <option name="groups">nim</option>
             </constraint>
         </property>

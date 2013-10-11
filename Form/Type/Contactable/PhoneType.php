@@ -12,7 +12,7 @@
 namespace NIM\WorkerBundle\Form\Type\Contactable;
 
 use NIM\Component\Form\Type\NIMType;
-use NIM\WorkerBundle\Model\Entity\EntityAbstract;
+use NIM\WorkerBundle\Model\Phone;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class PhoneType extends NIMType
@@ -24,15 +24,14 @@ class PhoneType extends NIMType
     {
         $builder
             ->add('type', 'choice', array(
-                'choices' => EntityAbstract::getPhoneTypes('contactable.field.type'),
-                'label' => 'contactable.field.type.label',
+                'choices' => Phone::getPhoneTypes('phone.field.type.option'),
+                'label' => 'phone.field.type.label',
             ))
             ->add('number', null, array(
-                'label' => 'contactable.field.number.label',
+                'label' => 'phone.field.number.label',
             ))
         ;
     }
-
 
     /**
      * {@inheritdoc}

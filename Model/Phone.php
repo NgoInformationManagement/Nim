@@ -17,6 +17,10 @@ class Phone
 {
     use EditableModelTrait;
 
+    const CELLPHONE = 'cellphone';
+    const FAX = 'fax';
+    const PHONE = 'phone';
+
     protected $id;
     protected $type;
     protected $number;
@@ -59,5 +63,20 @@ class Phone
     public function getType()
     {
         return $this->type;
+    }
+
+
+
+    /**
+     * @param null|string $transDomain
+     * @return array
+     */
+    public static function getPhoneTypes($transDomain = null)
+    {
+        return array (
+            self::CELLPHONE => $transDomain . '.' . self::CELLPHONE,
+            self::FAX => $transDomain . '.' . self::FAX,
+            self::PHONE => $transDomain . '.' . self::PHONE
+        );
     }
 }

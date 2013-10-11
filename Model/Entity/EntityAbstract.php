@@ -22,10 +22,6 @@ abstract class EntityAbstract
         AddressingTrait,
         EditableModelTrait;
 
-    const CELLPHONE = 'cellphone';
-    const FAX = 'fax';
-    const PHONE = 'phone';
-
     protected $id;
 
     /**
@@ -43,19 +39,5 @@ abstract class EntityAbstract
     public function getId()
     {
         return $this->id;
-    }
-
-
-    /**
-     * @param null|string $transDomain
-     * @return array
-     */
-    public static function getPhoneTypes($transDomain = null)
-    {
-        return array (
-            self::CELLPHONE => $transDomain . self::CELLPHONE,
-            self::FAX => $transDomain . self::FAX,
-            self::PHONE => $transDomain . self::PHONE
-        );
     }
 }
