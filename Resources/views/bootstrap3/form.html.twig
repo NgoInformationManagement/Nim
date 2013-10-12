@@ -1,3 +1,59 @@
+{% use 'form_div_layout.html.twig' %}
+
+{# Form label #}
+{% block form_label %}
+    {% set label_attr = label_attr | merge({'class' : 'col-lg-2 control-label'}) %}
+    {{ parent() }}
+{% endblock form_label %}
+
+{# Form widget #}
+{% block form_widget_simple %}
+    {% set attr = attr | merge({'class' : 'form-control'}) %}
+    {{ parent() }}
+{% endblock form_widget_simple %}
+
+{# Textarea widget #}
+{% block textarea_widget %}
+    {% set attr = attr | merge({'class' : 'form-control'}) %}
+    {{ parent() }}
+{% endblock textarea_widget %}
+
+{# Choice widget #}
+{% block choice_widget %}
+    {% set attr = attr | merge({'class' : 'form-control'}) %}
+    {{ parent() }}
+{% endblock choice_widget %}
+
+{# Form row #}
+{% block form_row %}
+    {% spaceless %}
+        <div class="form-group {% if errors|length %}has-error{% endif %}">
+            {{ form_label(form) }}
+            <div class="col-lg-10">
+                {{ form_widget(form) }}
+                {{ form_errors(form) }}
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock form_row %}
+
+{# Form error #}
+{% block form_errors %}
+    {% spaceless %}
+        {% if errors|length > 0 %}
+            <ul class="form-type-errors list-unstyled">
+                {% for error in errors %}
+                    <li>
+                        <p class="text-danger">
+                            {{ error.message }}
+                        </p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endspaceless %}
+{% endblock form_errors %}
+
 {# Collection widget #}
 {% block collection_widget %}
     {% spaceless %}
