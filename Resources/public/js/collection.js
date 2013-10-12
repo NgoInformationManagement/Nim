@@ -44,6 +44,10 @@
 
             this.$list.prepend(prototype);
             this.count = this.count + 1;
+
+            this.$list
+                .find('[data-form-type="collection"]')
+                .CollectionForm();
         },
 
         /**
@@ -89,7 +93,5 @@
     /* APPLY TO STANDARD SIMPLECOLLECTIONFORM ELEMENTS
      * =================================== */
 
-    $(function () {
-        $('[data-form-type="collection"]').CollectionForm();
-    });
+    $('[data-form-type="collection"]').CollectionForm();
 }(jQuery);
