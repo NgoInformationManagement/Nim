@@ -1,3 +1,12 @@
+/*
+ * This file is part of the NIM package.
+ *
+ * (c) Langlade Arnaud
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+*/
+
 !function($){
 
     "use strict"
@@ -5,7 +14,7 @@
     var CollectionForm = function (element, options) {
         this.$element = $(element);
         this.formPrototype = this.$element.data('prototype');
-        this.$list = this.$element.find('[data-form-collection="list"]')
+        this.$list = this.$element.find('[data-form-collection="list"]:first')
         this.count = this.$list.children().length;
 
         this.$element.find('[data-form-collection="add"]')
