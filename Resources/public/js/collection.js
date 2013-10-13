@@ -17,7 +17,7 @@
         this.$list = this.$element.find('[data-form-collection="list"]:first')
         this.count = this.$list.children().length;
 
-        this.$element.find('[data-form-collection="add"]')
+        this.$element.find('[data-form-collection="add"]:first')
             .on('click', $.proxy(this.addItem, this));
 
         $(document).on(
