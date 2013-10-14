@@ -1,3 +1,7 @@
+gender:
+    male: Male
+    female: Female
+
 form:
     collection:
         delete: Delete

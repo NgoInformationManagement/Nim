@@ -17,6 +17,7 @@ file that was distributed with this source code.
     <parameters>
         <parameter key="nim.form.extension.collection.class">NIM\FormBundle\Form\Extension\CollectionTypeExtension</parameter>
         <parameter key="nim.form.type.delete.class">NIM\FormBundle\Form\Type\DeleteType</parameter>
+        <parameter key="nim.form.type.gender.class">NIM\FormBundle\Form\Type\GenderType</parameter>
     </parameters>
 
     <services>
@@ -28,6 +29,11 @@ file that was distributed with this source code.
         <service id="nim.form.type.delete"
                  class="%nim.form.type.delete.class%">
             <tag name="form.type" alias="delete" />
+        </service>
+
+        <service id="nim.form.type.gender"
+                 class="%nim.form.type.gender.class%">
+            <tag name="form.type" alias="gender" />
         </service>
     </services>
 </container>
