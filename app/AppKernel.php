@@ -21,14 +21,12 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle($this),
-            //new Sylius\Bundle\AddressingBundle\SyliusAddressingBundle(),
             new Sylius\Bundle\ResourceBundle\SyliusResourceBundle(),
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
 
             new NIM\MissionBundle\NIMMissionBundle(),
             new NIM\WorkerBundle\NIMWorkerBundle(),
-            new NIM\VaccineBundle\NIMVaccineBundle(),
             new NIM\CoreBundle\NIMCoreBundle(),
             new NIM\FormBundle\NIMFormBundle(),
             new NIM\WebBundle\NIMWebBundle()
