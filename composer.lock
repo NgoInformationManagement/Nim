@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "3f451063879c605872a9649ffebf2ca9",
+    "hash": "ebb8fd169f4462eb2c7591cf86deb0ad",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
@@ -473,12 +473,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "a41322d452354ee1e01b1e0f25c4f2ae3ca77ed3"
+                "reference": "ef6c4381a1d182f78b83bc3890cfab0fa08a89f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/a41322d452354ee1e01b1e0f25c4f2ae3ca77ed3",
-                "reference": "a41322d452354ee1e01b1e0f25c4f2ae3ca77ed3",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/ef6c4381a1d182f78b83bc3890cfab0fa08a89f9",
+                "reference": "ef6c4381a1d182f78b83bc3890cfab0fa08a89f9",
                 "shasum": ""
             },
             "require": {
@@ -534,7 +534,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2013-09-18 11:44:15"
+            "time": "2013-10-12 16:02:36"
         },
         {
             "name": "doctrine/doctrine-fixtures-bundle",
@@ -1305,12 +1305,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/serializer.git",
-                "reference": "82ba81e1299a196f563763b22551e66b7594fe94"
+                "reference": "a53384ff91a383c8fc12ff47eb1dd49a249a0be7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/82ba81e1299a196f563763b22551e66b7594fe94",
-                "reference": "82ba81e1299a196f563763b22551e66b7594fe94",
+                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/a53384ff91a383c8fc12ff47eb1dd49a249a0be7",
+                "reference": "a53384ff91a383c8fc12ff47eb1dd49a249a0be7",
                 "shasum": ""
             },
             "require": {
@@ -1364,7 +1364,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2013-10-10 08:29:58"
+            "time": "2013-10-11 19:10:14"
         },
         {
             "name": "jms/serializer-bundle",
@@ -1513,12 +1513,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "79cafca80094f9a3718a0cf7dc979ca34ea14a8c"
+                "reference": "8e5a671eef6e1096d764e6f3524e6f732afa53b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/79cafca80094f9a3718a0cf7dc979ca34ea14a8c",
-                "reference": "79cafca80094f9a3718a0cf7dc979ca34ea14a8c",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/8e5a671eef6e1096d764e6f3524e6f732afa53b4",
+                "reference": "8e5a671eef6e1096d764e6f3524e6f732afa53b4",
                 "shasum": ""
             },
             "require": {
@@ -1568,7 +1568,305 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2013-10-11 03:31:42"
+            "time": "2013-10-11 16:18:40"
+        },
+        {
+            "name": "nim/core-bundle",
+            "version": "dev-master",
+            "target-dir": "NIM/CoreBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/NgoInformationManagement/CoreBundle.git",
+                "reference": "3556fd2f64c44ded0c66c67c56ca6179e89354dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/NgoInformationManagement/CoreBundle/zipball/3556fd2f64c44ded0c66c67c56ca6179e89354dc",
+                "reference": "3556fd2f64c44ded0c66c67c56ca6179e89354dc",
+                "shasum": ""
+            },
+            "require": {
+                "friendsofsymfony/user-bundle": "~2.0@dev",
+                "nim/nim-component": "dev-master",
+                "php": ">=5.3.3",
+                "symfony/framework-bundle": "~2.3"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "NIM\\CoreBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "aRn0D",
+                    "homepage": "https://github.com/aRn0D"
+                }
+            ],
+            "description": "Nim core bundle",
+            "homepage": "https://github.com/NgoInformationManagement/CoreBundle",
+            "keywords": [
+                "core",
+                "humanitarian",
+                "ngo",
+                "nim"
+            ],
+            "time": "2013-10-14 21:41:07"
+        },
+        {
+            "name": "nim/form-bundle",
+            "version": "dev-master",
+            "target-dir": "NIM/FormBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/NgoInformationManagement/FormBundle.git",
+                "reference": "dbf9b7e3eb573c85d7f9d1273d286cf788c8f165"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/NgoInformationManagement/FormBundle/zipball/dbf9b7e3eb573c85d7f9d1273d286cf788c8f165",
+                "reference": "dbf9b7e3eb573c85d7f9d1273d286cf788c8f165",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/framework-bundle": "~2.3"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "2.0.*@dev",
+                "symfony/form": "~2.3"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "NIM\\FormBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "aRn0D",
+                    "homepage": "https://github.com/aRn0D"
+                }
+            ],
+            "description": "Nim form bundle : Manage your symfony form simpler",
+            "homepage": "https://github.com/NgoInformationManagement/FormBundle",
+            "keywords": [
+                "form",
+                "humanitarian",
+                "ngo",
+                "nim"
+            ],
+            "time": "2013-10-14 21:41:07"
+        },
+        {
+            "name": "nim/mission-bundle",
+            "version": "dev-master",
+            "target-dir": "NIM/MissionBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/NgoInformationManagement/MissionBundle.git",
+                "reference": "271a1c6e8e03749d19278f42c67fbb8ccbc2aaf0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/NgoInformationManagement/MissionBundle/zipball/271a1c6e8e03749d19278f42c67fbb8ccbc2aaf0",
+                "reference": "271a1c6e8e03749d19278f42c67fbb8ccbc2aaf0",
+                "shasum": ""
+            },
+            "require": {
+                "a2lix/translation-form-bundle": "dev-master",
+                "nim/nim-component": "dev-master",
+                "php": ">=5.3.3",
+                "stof/doctrine-extensions-bundle": "~1.1@dev",
+                "sylius/resource-bundle": "1.0.*@dev",
+                "symfony/framework-bundle": "~2.3"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "2.0.*@dev",
+                "symfony/form": "~2.3"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "NIM\\MissionBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "aRn0D",
+                    "homepage": "https://github.com/aRn0D"
+                }
+            ],
+            "description": "Nim mission bundle : Manage your data about your humanitarians missions",
+            "homepage": "https://github.com/NgoInformationManagement/MissionBundle",
+            "keywords": [
+                "humanitarian",
+                "mission",
+                "ngo",
+                "nim"
+            ],
+            "time": "2013-10-14 21:41:07"
+        },
+        {
+            "name": "nim/nim-component",
+            "version": "dev-master",
+            "target-dir": "NIM/Component",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/NgoInformationManagement/NimComponent.git",
+                "reference": "42a20a698c719dc235173e39665ef922388c7e27"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/NgoInformationManagement/NimComponent/zipball/42a20a698c719dc235173e39665ef922388c7e27",
+                "reference": "42a20a698c719dc235173e39665ef922388c7e27",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/doctrine-bundle": "dev-master",
+                "php": ">=5.3.3",
+                "symfony/framework-bundle": "~2.3"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "2.0.*@dev",
+                "symfony/form": "~2.3",
+                "twig/twig": "~1.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "NIM\\Component": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "aRn0D",
+                    "homepage": "https://github.com/aRn0D"
+                }
+            ],
+            "description": "Nim component bundle",
+            "homepage": "https://github.com/NgoInformationManagement/NimComponent",
+            "keywords": [
+                "components",
+                "humanitarian",
+                "ngo",
+                "nim"
+            ],
+            "time": "2013-10-14 21:41:07"
+        },
+        {
+            "name": "nim/web-bundle",
+            "version": "dev-master",
+            "target-dir": "NIM/WebBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/NgoInformationManagement/WebBundle.git",
+                "reference": "5a33659af4be10e8dcccd432f27fc8a2e98a2a02"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/NgoInformationManagement/WebBundle/zipball/5a33659af4be10e8dcccd432f27fc8a2e98a2a02",
+                "reference": "5a33659af4be10e8dcccd432f27fc8a2e98a2a02",
+                "shasum": ""
+            },
+            "require": {
+                "nim/nim-component": "dev-master",
+                "php": ">=5.3.3",
+                "symfony/framework-bundle": "~2.3"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "NIM\\WebBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "aRn0D",
+                    "homepage": "https://github.com/aRn0D"
+                }
+            ],
+            "description": "Nim Web bundle",
+            "homepage": "https://github.com/NgoInformationManagement/WebBundle",
+            "keywords": [
+                "humanitarian",
+                "ngo",
+                "nim",
+                "web"
+            ],
+            "time": "2013-10-14 21:41:07"
+        },
+        {
+            "name": "nim/worker-bundle",
+            "version": "dev-master",
+            "target-dir": "NIM/WorkerBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/NgoInformationManagement/WorkerBundle.git",
+                "reference": "14938641bbc715adb03be6134809ebb3bfb1ac40"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/NgoInformationManagement/WorkerBundle/zipball/14938641bbc715adb03be6134809ebb3bfb1ac40",
+                "reference": "14938641bbc715adb03be6134809ebb3bfb1ac40",
+                "shasum": ""
+            },
+            "require": {
+                "nim/nim-component": "dev-master",
+                "php": ">=5.3.3",
+                "stof/doctrine-extensions-bundle": "~1.1@dev",
+                "sylius/resource-bundle": "1.0.*@dev",
+                "symfony/framework-bundle": "~2.3"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "2.0.*@dev",
+                "symfony/form": "~2.3"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "NIM\\WorkerBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "aRn0D",
+                    "homepage": "https://github.com/aRn0D"
+                }
+            ],
+            "description": "Nim worker bundle : Manage your data about your employees",
+            "homepage": "https://github.com/NgoInformationManagement/WorkerBundle",
+            "keywords": [
+                "agency",
+                "humanitarian",
+                "ngo",
+                "nim"
+            ],
+            "time": "2013-10-14 21:41:07"
         },
         {
             "name": "pagerfanta/pagerfanta",
@@ -1576,12 +1874,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/whiteoctober/Pagerfanta.git",
-                "reference": "9568187b789a39a3933c71e4e28b60fc2c26b70d"
+                "reference": "aec47bbf8a018e1b371ef58562cd02920e9ce149"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/whiteoctober/Pagerfanta/zipball/9568187b789a39a3933c71e4e28b60fc2c26b70d",
-                "reference": "9568187b789a39a3933c71e4e28b60fc2c26b70d",
+                "url": "https://api.github.com/repos/whiteoctober/Pagerfanta/zipball/aec47bbf8a018e1b371ef58562cd02920e9ce149",
+                "reference": "aec47bbf8a018e1b371ef58562cd02920e9ce149",
                 "shasum": ""
             },
             "require": {
@@ -1630,7 +1928,7 @@
                 "paginator",
                 "paging"
             ],
-            "time": "2013-09-23 08:06:55"
+            "time": "2013-10-11 14:31:41"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -1917,12 +2215,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/stof/StofDoctrineExtensionsBundle.git",
-                "reference": "6e8dc798687963ffc4e4e0dfa687b361699855a9"
+                "reference": "9da4489322c5442ff021c4cd3f28dd79b2a8df07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stof/StofDoctrineExtensionsBundle/zipball/6e8dc798687963ffc4e4e0dfa687b361699855a9",
-                "reference": "6e8dc798687963ffc4e4e0dfa687b361699855a9",
+                "url": "https://api.github.com/repos/stof/StofDoctrineExtensionsBundle/zipball/9da4489322c5442ff021c4cd3f28dd79b2a8df07",
+                "reference": "9da4489322c5442ff021c4cd3f28dd79b2a8df07",
                 "shasum": ""
             },
             "require": {
@@ -1970,7 +2268,7 @@
                 "translatable",
                 "tree"
             ],
-            "time": "2013-09-16 09:35:16"
+            "time": "2013-10-13 16:27:31"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2320,12 +2618,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "f3bd125aed5a78a6d06be588823e5e4feb636011"
+                "reference": "90b483aa440a0968d82ca7b84b13d4feac6be46b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/f3bd125aed5a78a6d06be588823e5e4feb636011",
-                "reference": "f3bd125aed5a78a6d06be588823e5e4feb636011",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/90b483aa440a0968d82ca7b84b13d4feac6be46b",
+                "reference": "90b483aa440a0968d82ca7b84b13d4feac6be46b",
                 "shasum": ""
             },
             "require": {
@@ -2420,7 +2718,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-10-10 14:16:40"
+            "time": "2013-10-13 06:32:10"
         },
         {
             "name": "twig/extensions",
@@ -3252,6 +3550,12 @@
         "a2lix/translation-form-bundle": 20,
         "white-october/pagerfanta-bundle": 20,
         "doctrine/doctrine-fixtures-bundle": 20,
+        "nim/worker-bundle": 20,
+        "nim/web-bundle": 20,
+        "nim/mission-bundle": 20,
+        "nim/form-bundle": 20,
+        "nim/nim-component": 20,
+        "nim/core-bundle": 20,
         "phpspec/phpspec": 20
     },
     "platform": {
