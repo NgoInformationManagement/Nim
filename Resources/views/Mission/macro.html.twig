@@ -1,7 +1,7 @@
 {% macro list(missions) %}
 
-    {% from 'NIMWebBundle:Macro:button.html.twig' import listActionButton %}
-    {% from 'NIMWebBundle:Macro:alert.html.twig' import info %}
+    {% from 'NIMFormBundle:bootstrap3:button.html.twig' import listActionButton %}
+    {% from 'NIMFormBundle:bootstrap3:alert.html.twig' import info %}
 
     {% if missions|length > 0 %}
         <div class="table-responsive">
