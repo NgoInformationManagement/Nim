@@ -45,7 +45,7 @@
                 {% for error in errors %}
                     <li>
                         <p class="text-danger">
-                            {{ error.message }}
+                            {{ error.message|trans(error.messageParameters) }}
                         </p>
                     </li>
                 {% endfor %}

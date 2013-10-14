@@ -10,6 +10,22 @@
     </div>
 {% endmacro %}
 
+{% macro errors(errors) %}
+    {% if errors|length > 0 %}
+    <div class="alert alert-danger">
+        <ul class="form-type-errors list-unstyled">
+            {% for error in errors %}
+                <li>
+                    <p class="text-danger">
+                        {{ error.message|trans(error.messageParameters) }}
+                    </p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+{% endmacro %}
+
 {% macro error(text) %}
     <div class="alert alert-danger">
         {{ text }}
@@ -21,3 +37,4 @@
         {{ text }}
     </div>
 {% endmacro %}
+
