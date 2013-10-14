@@ -168,10 +168,10 @@ class ContactSpec extends ObjectBehavior
         $this->getCreatedAt()->shouldReturn(null);
     }
 
-    function its_createdat_is_mutable()
+    function its_createdat_is_mutable(\DateTime $dateTime)
     {
-        $this->setCreatedAt('2001-01-01');
-        $this->getCreatedAt()->shouldReturn('2001-01-01');
+        $this->setCreatedAt($dateTime);
+        $this->getCreatedAt()->shouldReturn($dateTime);
     }
 
     function it_has_no_updatedat_by_default()
@@ -179,9 +179,9 @@ class ContactSpec extends ObjectBehavior
         $this->getUpdatedAt()->shouldReturn(null);
     }
 
-    function its_updatedat_is_mutable()
+    function its_updatedat_is_mutable(\DateTime $dateTime)
     {
-        $this->setUpdatedAt('2001-01-01');
-        $this->getUpdatedAt()->shouldReturn('2001-01-01');
+        $this->setUpdatedAt($dateTime);
+        $this->getUpdatedAt()->shouldReturn($dateTime);
     }
 }
