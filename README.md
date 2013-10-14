@@ -1,4 +1,4 @@
-NIMMisionBundle
+NIMMissionBundle
 ==============
 
 This bundle is part of the Ngo Information Management (NiM) and licensed under the MIT License.
