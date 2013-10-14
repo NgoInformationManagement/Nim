@@ -9,3 +9,7 @@ nim_mision:
 nim_agency:
     resource: @NIMWorkerBundle/Resources/config/routing/agency.yml
     prefix: /agency
+
+nim_worker:
+    resource: @NIMWorkerBundle/Resources/config/routing/worker.yml
+    prefix: /worker

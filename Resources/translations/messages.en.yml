@@ -73,6 +73,11 @@ mission:
             label: Ended at
 
 agency:
+    validation:
+        email:
+            count: You should define {{ limit }} email or more
+        phone:
+            count: You should define {{ limit }} phone or more
     title:
         create: New agency
         update: Update
@@ -98,13 +103,100 @@ agency:
         email:
             label: Email
 
+worker:
+    validation:
+        contact:
+            count: You should define {{ limit }} contact or more
+        email:
+            count: You should define {{ limit }} email or more
+        phone:
+            count: You should define {{ limit }} phone or more
+    message:
+        empty: There are no worker to display.
+    tab:
+        worker: Worker
+        contact : Contacts
+    title:
+        create: New worker
+        update: Update
+        index: Yours workers
+        show: Details about your worker
+    button:
+        new: New worker
+    message:
+        empty: There are no worker to display.
+    field:
+        gender:
+            label: Gender
+        firstname:
+            label: First name
+        lastname:
+            label: Last name
+        street:
+            label: Street
+        city:
+            label: City
+        postcode:
+            label: Postcode
+        country:
+            label: Country
+        email:
+            label: Emails
+        phone:
+            label: Phones
+        birthday:
+            label: Birthday
+        diploma:
+            label: Diploma
+        function:
+            label: Function
+        arrivedAt:
+            label: Arrived at
+        leftAt:
+            label: Left at
+        basedAt:
+            label: Based at
+        nationalities:
+            label: Nationalities
+        contact:
+            label: Contacts
+contact:
+    validation:
+        email:
+            count: You should define {{ limit }} email or more
+        phone:
+            count: You should define {{ limit }} phone or more
+    message:
+        empty: There are no contact to display
+    field:
+        firstname:
+            label: First name
+        lastname:
+            label: Last name
+        street:
+            label: Street
+        city:
+            label: City
+        postcode:
+            label: Postcode
+        country:
+            label: Country
+        email:
+            label: Emails
+        phone:
+            label: Phones
+
 email:
+    message:
+        empty: There are no email to display.
     field:
         label:
             label: Label
         address:
             label: Email
 phone:
+    message:
+        empty: There are no phone to display.
     field:
         type:
             option:
@@ -114,3 +206,10 @@ phone:
             label: Type
         number:
             label: Number
+
+validation:
+    contactable:
+        email:
+            count: You should define {{ limit }} email or more
+        phone:
+            count: You should define {{ limit }} phone or more

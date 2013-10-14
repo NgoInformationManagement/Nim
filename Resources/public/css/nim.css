@@ -45,6 +45,18 @@ ul.pagination {
     color: #FFFFFF;
 }
 
+/** Table */
+table td {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+table td:last-child {
+    width: 135px;
+}
+
 /** Form */
 ul.form-type-errors {
     margin-bottom: 0px;
@@ -52,4 +64,9 @@ ul.form-type-errors {
 
 ul.form-type-errors li p {
     margin-bottom: 0px;
+}
+
+/** Tab */
+.nav-tabs a.text-danger, .nav-tabs .active a.text-danger {
+    color: #B94A48;
 }
