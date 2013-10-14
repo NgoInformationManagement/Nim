@@ -1,8 +1,9 @@
 {% extends 'NIMWebBundle::layout.html.twig' %}
 
 {% import 'NIMWebBundle:Macro:button.html.twig' as buttons %}
-{% from 'NIMFormBundle:bootstrap3:macro.html.twig' import displayedField %}
-{% from 'NIMFormBundle:bootstrap3:macro.html.twig' import displayedContantTranslatableField %}
+{% import 'NIMWebBundle:Contactable:macro.html.twig' as contactable %}
+{% from 'NIMFormBundle:bootstrap3:show.html.twig' import displayedField %}
+{% from 'NIMFormBundle:bootstrap3:show.html.twig' import displayedContantTranslatableField %}
 
 {% block page_name %}
     <i class="icon-rocket"></i>
@@ -25,18 +26,12 @@
     {{ displayedField('city', agency.city, 'agency') }}
     {{ displayedField('country', agency.country|country, 'agency') }}
     <fieldset>
-        <legend>{{ 'agency.field.email.label'|trans }}</legend>
-        {% for email in agency.emails %}
-            {{ displayedField('label', email.label, 'email') }}
-            {{ displayedField('address', email.address, 'email') }}
-        {% endfor %}
+        <legend>{{ 'worker.field.email.label'|trans }}</legend>
+        {{ contactable.emailList(agency.emails) }}
     </fieldset>
     <fieldset>
-        <legend>{{ 'agency.field.phone.label'|trans }}</legend>
-        {% for phone in agency.phones %}
-            {{ displayedContantTranslatableField('type', phone.type, 'phone') }}
-            {{ displayedField('number', phone.number, 'phone') }}
-        {% endfor %}
+        <legend>{{ 'worker.field.phone.label'|trans }}</legend>
+        {{ contactable.phoneList(agency.phones) }}
     </fieldset>
 </div>
 {% endblock %}
