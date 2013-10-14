@@ -1,8 +1,8 @@
 {
     "name": "nim/worker-bundle",
     "type": "symfony-bundle",
-    "description": "Manage your data about your agencies",
-    "keywords": ["nim", "agency"],
+    "description": "Nim worker bundle : Manage your data about your employees",
+    "keywords": ["nim", "ngo", "humanitarian", "agency"],
     "homepage": "https://github.com/NgoInformationManagement/WorkerBundle",
     "license": "MIT",
 
@@ -20,8 +20,8 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/framework-bundle": "~2.3",
-        "sylius/resource-bundle": "0.3.*",
-        "sylius/addressing-bundle": "dev-master",
+        "sylius/resource-bundle": "1.0.*@dev",
+        "stof/doctrine-extensions-bundle": "~1.1@dev",
         "nim/nim-component": "dev-master"
     },
 
@@ -29,13 +29,6 @@
         "phpspec/phpspec": "2.0.*@dev",
         "symfony/form": "~2.3"
     },
-
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@github.com:NgoInformationManagement/NimComponent.git"
-        }
-    ],
 
     "config": {
         "bin-dir": "bin"
