@@ -42,7 +42,7 @@ file that was distributed with this source code.
                 <cascade-persist/>
                 <cascade-remove/>
             </cascade>
-            <join-table name="contact_email">
+            <join-table name="nim_contact_email">
                 <join-columns>
                     <join-column name="contact_id" referenced-column-name="id" />
                 </join-columns>
@@ -57,7 +57,7 @@ file that was distributed with this source code.
                 <cascade-persist/>
                 <cascade-remove/>
             </cascade>
-            <join-table name="contact_phone">
+            <join-table name="nim_contact_phone">
                 <join-columns>
                     <join-column name="contact_id" referenced-column-name="id" />
                 </join-columns>

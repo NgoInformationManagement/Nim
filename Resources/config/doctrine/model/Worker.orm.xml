@@ -58,7 +58,7 @@ file that was distributed with this source code.
                 <cascade-persist/>
                 <cascade-remove/>
             </cascade>
-            <join-table name="worker_email">
+            <join-table name="nim_worker_email">
                 <join-columns>
                     <join-column name="worker_id" referenced-column-name="id" on-delete="CASCADE" />
                 </join-columns>
@@ -73,7 +73,7 @@ file that was distributed with this source code.
                 <cascade-persist/>
                 <cascade-remove/>
             </cascade>
-            <join-table name="worker_phone">
+            <join-table name="nim_worker_phone">
                 <join-columns>
                     <join-column name="worker_id" referenced-column-name="id" on-delete="CASCADE" />
                 </join-columns>
@@ -88,7 +88,7 @@ file that was distributed with this source code.
                 <cascade-persist/>
                 <cascade-remove/>
             </cascade>
-            <join-table name="worker_visa">
+            <join-table name="nim_worker_visa">
                 <join-columns>
                     <join-column name="worker_id" referenced-column-name="id" />
                 </join-columns>
@@ -103,7 +103,7 @@ file that was distributed with this source code.
                 <cascade-persist/>
                 <cascade-remove/>
             </cascade>
-            <join-table name="worker_passport">
+            <join-table name="nim_worker_passport">
                 <join-columns>
                     <join-column name="worker_id" referenced-column-name="id" />
                 </join-columns>
@@ -118,7 +118,7 @@ file that was distributed with this source code.
                 <cascade-persist/>
                 <cascade-remove/>
             </cascade>
-            <join-table name="worker_contact">
+            <join-table name="nim_worker_contact">
                 <join-columns>
                     <join-column name="worker_id" referenced-column-name="id" />
                 </join-columns>
@@ -129,7 +129,7 @@ file that was distributed with this source code.
         </many-to-many>
 
         <many-to-many field="missions" inversed-by="workers" target-entity="NIM\MissionBundle\Model\Mission">
-            <join-table name="worker_mission">
+            <join-table name="nim_worker_mission">
                 <join-columns>
                     <join-column name="worker_id" referenced-column-name="id" />
                 </join-columns>
