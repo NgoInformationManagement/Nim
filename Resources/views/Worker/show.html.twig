@@ -1,0 +1,87 @@
+{% extends 'NIMWebBundle::layout.html.twig' %}
+
+{% import 'NIMWebBundle:Contactable:macro.html.twig' as contactable %}
+{% import 'NIMWebBundle:Macro:button.html.twig' as buttons %}
+{% from 'NIMFormBundle:bootstrap3:show.html.twig' import displayedField %}
+{% from 'NIMFormBundle:bootstrap3:show.html.twig' import displayedContantTranslatableField %}
+{% from 'NIMFormBundle:bootstrap3:alert.html.twig' import info %}
+
+
+{% block page_name %}
+    <i class="icon-rocket"></i>
+    {{ 'worker.title.show'|trans }}
+{% endblock page_name %}
+
+
+{% block page_action %}
+    {{ buttons.back(path('nim_worker_index'), 'button.backToList') }}
+    {{ buttons.edit(path('nim_worker_update', {'id' : worker.id}), 'button.edit') }}
+    {{ buttons.delete(path('nim_worker_delete', {'id' : worker.id}), 'button.delete') }}
+{% endblock page_action %}
+
+
+{% block content %}
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a href="#worker" data-toggle="tab">
+            {{ 'worker.tab.worker'|trans }}
+        </a>
+    </li>
+    <li>
+        <a href="#contact" data-toggle="tab">
+            {{ 'worker.tab.contact'|trans }}
+        </a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="form-horizontal tab-pane active" id="worker">
+        {% if worker.leftAt is not defined %}
+            {% set leftAt = worker.leftAt|localizeddate('long') %}
+        {% endif %}
+        {{ displayedField('gender', worker.gender, 'worker') }}
+        {{ displayedField('firstname', worker.firstname, 'worker') }}
+        {{ displayedField('lastname', worker.lastname, 'worker') }}
+        {{ displayedField('street', worker.street, 'worker') }}
+        {{ displayedField('postcode', worker.postcode, 'worker') }}
+        {{ displayedField('city', worker.city, 'worker') }}
+        {{ displayedField('country', worker.country|country, 'worker') }}
+        {{ displayedField('birthday', worker.birthday|localizeddate('long'), 'worker') }}
+        {{ displayedField('diploma', worker.diploma, 'worker') }}
+        {{ displayedField('function', worker.function, 'worker') }}
+        {{ displayedField('arrivedAt', worker.arrivedAt|localizeddate('long'), 'worker') }}
+        {{ displayedField('leftAt', leftAt|default, 'worker') }}
+        <fieldset>
+            <legend>{{ 'worker.field.email.label'|trans }}</legend>
+            {{ contactable.emailList(worker.emails) }}
+        </fieldset>
+        <fieldset>
+            <legend>{{ 'worker.field.phone.label'|trans }}</legend>
+            {{ contactable.phoneList(worker.phones) }}
+        </fieldset>
+    </div>
+    <div class="form-horizontal row tab-pane" id="contact">
+        {% if worker.contacts|length > 0 %}
+            {% for contact in worker.contacts %}
+                <div class="col-lg-6">
+                    {{ displayedField('firstname', contact.firstname, 'contact') }}
+                    {{ displayedField('lastname', contact.lastname, 'contact') }}
+                    {{ displayedField('street', contact.street, 'contact') }}
+                    {{ displayedField('city', contact.city, 'contact') }}
+                    {{ displayedField('country', contact.country|country, 'contact') }}
+                    <fieldset>
+                        <legend>{{ 'worker.field.email.label'|trans }}</legend>
+                        {{ contactable.emailList(worker.emails) }}
+                    </fieldset>
+                    <fieldset>
+                        <legend>{{ 'worker.field.phone.label'|trans }}</legend>
+                        {{ contactable.phoneList(worker.phones) }}
+                    </fieldset>
+                </div>
+            {% endfor %}
+        {% else %}
+            {{ info('contact.message.empty'|trans) }}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

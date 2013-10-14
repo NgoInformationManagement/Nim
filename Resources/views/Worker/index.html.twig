@@ -1,0 +1,22 @@
+{% extends 'NIMWebBundle::layout.html.twig' %}
+
+{% import 'NIMWebBundle:Macro:button.html.twig' as buttons %}
+{% from 'NIMWebBundle:Macro:misc.html.twig' import pagination %}
+{% from 'NIMWebBundle:Worker:macro.html.twig' import list %}
+
+{% block page_name %}
+    <i class="icon-rocket"></i>
+    {{ 'worker.title.index'|trans }}
+{% endblock page_name %}
+
+
+{% block page_action %}
+    {{ buttons.new(path('nim_worker_create'), 'worker.button.new') }}
+{% endblock page_action %}
+
+
+{% block content %}
+    {{ pagination(workers) }}
+    {{ list(workers) }}
+    {{ pagination(workers) }}
+{% endblock %}

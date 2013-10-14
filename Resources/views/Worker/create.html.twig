@@ -1,0 +1,26 @@
+{% extends 'NIMWebBundle::layout.html.twig' %}
+
+{% import 'NIMWebBundle:Macro:button.html.twig' as buttons %}
+
+{% block page_name %}
+    <i class="icon-rocket"></i>
+    {{ 'worker.title.create'|trans }}
+{% endblock page_name %}
+
+
+{% block page_action %}
+    {{ buttons.back(path('nim_worker_index'), 'button.backToList') }}
+    {{ buttons.create('button.create', 'workerCreateForm') }}
+{% endblock page_action %}
+
+
+{% block content %}
+    <form action="{{ path('nim_worker_create') }}"
+          method="post"
+          role="form"
+          id="workerCreateForm"
+          class="form-horizontal"
+          novalidate>
+        {% include 'NIMWebBundle:Worker:_create.html.twig' %}
+    </form>
+{% endblock %}

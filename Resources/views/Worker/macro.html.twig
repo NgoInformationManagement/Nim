@@ -1,0 +1,42 @@
+{% macro list(workers) %}
+
+    {% from 'NIMWebBundle:Macro:button.html.twig' import listActionButton %}
+    {% from 'NIMWebBundle:Macro:alert.html.twig' import info %}
+
+    {% if workers|length > 0 %}
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>{{ sylius_resource_sort('firstname', 'worker.field.firstname.label'|trans) }}</th>
+                    <th>{{ sylius_resource_sort('lastname', 'worker.field.lastname.label'|trans) }}</th>
+                    <th>{{ sylius_resource_sort('city', 'worker.field.city.label'|trans) }}</th>
+                    <th>{{ sylius_resource_sort('country', 'worker.field.country.label'|trans) }}</th>
+                    <th>{{ sylius_resource_sort('arrivedAt', 'worker.field.arrivedAt.label'|trans) }}</th>
+                    <th>{{ sylius_resource_sort('basedAt', 'worker.field.basedAt.label'|trans) }}</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for worker in workers %}
+                    <tr>
+                        <td>{{ worker.firstname }}</td>
+                        <td>{{ worker.lastname }}</td>
+                        <td>{{ worker.city }}</td>
+                        <td>{{ worker.country|country }}</td>
+                        <td>{{ worker.arrivedAt|localizeddate('long', 'none') }}</td>
+                        <td>{{ worker.basedAt }}</td>
+                        <td>
+                            <div class="pull-right">
+                                {{ listActionButton('nim_worker', worker.id)  }}
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        {{ info('worker.message.empty'|trans) }}
+    {% endif %}
+{% endmacro %}

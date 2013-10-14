@@ -1,0 +1,56 @@
+{% extends 'NIMWebBundle::layout.html.twig' %}
+
+{% import 'NIMWebBundle:Macro:button.html.twig' as buttons %}
+
+{% block page_name %}
+    <i class="icon-rocket"></i>
+    {{ 'worker.title.update'|trans }}
+{% endblock page_name %}
+
+
+{% block page_action %}
+    {{ buttons.back(path('nim_worker_index'), 'button.backToList') }}
+    {{ buttons.update('button.update', 'workerUpdateForm') }}
+{% endblock page_action %}
+
+
+{% block content %}
+    <form action="{{ path('nim_worker_update', {'id': worker.id}) }}"
+          method="post"
+          class="form-horizontal"
+          role="form"
+          id="workerUpdateForm"
+          novalidate>
+        <ul class="nav nav-tabs">
+            <li class="active" >
+                <a href="#worker"
+                   data-toggle="tab"
+                   {% if not form.vars.valid %}class="text-danger"{% endif %}>
+                    {{ 'worker.tab.worker'|trans }}
+                    {% if not form.vars.valid %}
+                        <i class="icon-exclamation-sign"></i>
+                    {% endif %}
+                </a>
+            </li>
+            <li>
+                <a href="#contact"
+                   data-toggle="tab"
+                   {% if not form.contacts.vars.valid %}class="text-danger"{% endif %}>
+                    {{ 'worker.tab.contact'|trans }}
+                    {% if not form.contacts.vars.valid %}
+                    <i class="icon-exclamation-sign"></i>
+                    {% endif %}
+                </a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="form-horizontal tab-pane active" id="worker">
+                {% include 'NIMWebBundle:Worker:_create.html.twig' %}
+            </div>
+            <div class="tab-pane" id="contact">
+                {% include 'NIMWebBundle:Worker:_update.html.twig' %}
+            </div>
+        </div>
+    </form>
+{% endblock %}
