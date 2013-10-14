@@ -26,21 +26,20 @@ file that was distributed with this source code.
         <field name="gender" type="string" column="gender" />
         <field name="firstname" type="string" column="first_name" />
         <field name="lastname" type="string" column="last_name" />
-        <field name="address" type="string" column="address" nullable="true" />
-        <field name="birthday" type="date" column="birthday" nullable="true" />
+        <field name="street" type="string" column="street" nullable="true" />
+        <field name="city" type="string" column="city" nullable="true" />
+        <field name="postcode" type="string" column="postcode" nullable="true" />
+        <field name="country" type="string" column="country" nullable="true" />
+        <field name="birthday" type="date" column="birthday" />
         <field name="diploma" type="string" column="diploma" nullable="true" />
         <field name="function" type="string" column="function" />
         <field name="arrivedAt" type="date" column="arrived_at" />
         <field name="leftAt" type="date" column="left_at" nullable="true" />
-        <field name="phoneNumber" type="string" column="phone_number" nullable="true" />
-        <field name="cellphoneNumber" type="string" column="cellphone_number" nullable="true" />
-        <field name="email" type="string" column="email" />
-        <field name="type" type="string" column="type" />
-        <field name="socialSecurityNumber" type="string" column="social_security_number" nullable="true" />
-        <field name="isReadyToGoOnField" type="boolean" column="is_ready_to_go_on_field" />
-        <field name="isActive" type="boolean" column="is_active" />
-        <field name="nationalities" column="nationalities" />
-        <field name="createdBy" column="created_by" />
+        <!--<field name="type" type="string" column="type" />-->
+        <!--<field name="socialSecurityNumber" type="string" column="social_security_number" nullable="true" />-->
+        <!--<field name="isReadyToGoOnField" type="boolean" column="is_ready_to_go_on_field" />-->
+        <!--<field name="isActive" type="boolean" column="is_active" />-->
+        <!--<field name="nationalities" column="nationalities" />-->
 
         <field name="createdAt" column="created_at" type="datetime">
             <gedmo:timestampable on="create"/>
@@ -53,6 +52,36 @@ file that was distributed with this source code.
         <many-to-one field="basedAt" target-entity="Agency">
             <join-column name="based_at" referenced-column-name="id" />
         </many-to-one>
+
+        <many-to-many field="emails" target-entity="NIM\WorkerBundle\Model\Email">
+            <cascade>
+                <cascade-persist/>
+                <cascade-remove/>
+            </cascade>
+            <join-table name="worker_email">
+                <join-columns>
+                    <join-column name="worker_id" referenced-column-name="id" on-delete="CASCADE" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="email_id" referenced-column-name="id" unique="true" on-delete="CASCADE" />
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
+
+        <many-to-many field="phones" target-entity="NIM\WorkerBundle\Model\Phone">
+            <cascade>
+                <cascade-persist/>
+                <cascade-remove/>
+            </cascade>
+            <join-table name="worker_phone">
+                <join-columns>
+                    <join-column name="worker_id" referenced-column-name="id" on-delete="CASCADE" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="phone_id" referenced-column-name="id" unique="true" on-delete="CASCADE" />
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
 
         <many-to-many field="visas" target-entity="Visa">
             <cascade>
@@ -85,6 +114,10 @@ file that was distributed with this source code.
         </many-to-many>
 
         <many-to-many field="contacts" target-entity="Contact">
+            <cascade>
+                <cascade-persist/>
+                <cascade-remove/>
+            </cascade>
             <join-table name="worker_contact">
                 <join-columns>
                     <join-column name="worker_id" referenced-column-name="id" />

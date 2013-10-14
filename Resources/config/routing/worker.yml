@@ -1,0 +1,41 @@
+nim_worker_index:
+    pattern: /
+    methods: [GET]
+    defaults:
+        _controller: nim.controller.worker:indexAction
+        _sylius:
+            template: NIMWebBundle:Worker:index.html.twig
+
+nim_worker_create:
+    pattern: /new
+    methods: [GET, POST]
+    defaults:
+        _controller: nim.controller.worker:createAction
+        _sylius:
+            template: NIMWebBundle:Worker:create.html.twig
+            redirect: nim_worker_update
+
+nim_worker_update:
+    pattern: /{id}/edit
+    methods: [GET, POST]
+    defaults:
+        _controller: nim.controller.worker:updateAction
+        _sylius:
+            template: NIMWebBundle:Worker:update.html.twig
+            redirect: nim_worker_show
+
+nim_worker_show:
+    pattern: /{id}
+    methods: [GET]
+    defaults:
+        _controller: nim.controller.worker:showAction
+        _sylius:
+            template: NIMWebBundle:Worker:show.html.twig
+
+nim_worker_delete:
+    pattern: /{id}
+    methods: [DELETE]
+    defaults:
+        _controller: nim.controller.worker:deleteAction
+        _sylius:
+            redirect: nim_worker_index

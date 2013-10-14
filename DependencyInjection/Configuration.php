@@ -92,7 +92,7 @@ class Configuration implements ConfigurationInterface
                             ->addDefaultsIfNotSet()
                             ->children()
                                 ->scalarNode('model')->defaultValue('NIM\\WorkerBundle\\Model\\Worker')->end()
-                                ->scalarNode('controller')->defaultValue('NIM\\WorkerBundle\\Controller\\WorkerController')->end()
+                                ->scalarNode('controller')->defaultValue('Sylius\\Bundle\\ResourceBundle\\Controller\\ResourceController')->end()
                                 ->scalarNode('repository')->cannotBeEmpty()->end()
                                 ->scalarNode('form')->defaultValue('NIM\\WorkerBundle\\Form\\Type\\WorkerType')->end()
                             ->end()

@@ -25,6 +25,94 @@ file that was distributed with this source code.
             </constraint>
         </property>
 
+        <property name="street">
+            <constraint name="Length">
+                <option name="max">255</option>
+                <option name="groups">nim</option>
+            </constraint>
+        </property>
+
+        <property name="postcode">
+            <constraint name="Length">
+                <option name="max">20</option>
+                <option name="groups">nim</option>
+            </constraint>
+        </property>
+
+        <property name="city">
+            <constraint name="Length">
+                <option name="max">255</option>
+                <option name="groups">nim</option>
+            </constraint>
+        </property>
+
+        <property name="country">
+            <constraint name="Country">
+                <option name="groups">nim</option>
+            </constraint>
+        </property>
+
+        <property name="emails">
+            <constraint name="Count">
+                <option name="min">1</option>
+                <option name="groups">nim</option>
+                <option name="minMessage">agency.validation.phone.count</option>
+            </constraint>
+            <constraint name="Valid"/>
+        </property>
+
+        <property name="phones">
+            <constraint name="Count">
+                <option name="min">1</option>
+                <option name="groups">nim</option>
+                <option name="minMessage">agency.validation.phone.count</option>
+            </constraint>
+            <constraint name="Valid"></constraint>
+        </property>
+    </class>
+
+    <class name="NIM\WorkerBundle\Model\Contact">
+        <property name="firstname">
+            <constraint name="NotBlank">
+                <option name="groups">nim</option>
+            </constraint>
+            <constraint name="Length">
+                <option name="max">255</option>
+                <option name="groups">nim</option>
+            </constraint>
+        </property>
+
+        <property name="lastname">
+            <constraint name="NotBlank">
+                <option name="groups">nim</option>
+            </constraint>
+            <constraint name="Length">
+                <option name="max">255</option>
+                <option name="groups">nim</option>
+            </constraint>
+        </property>
+
+        <property name="street">
+            <constraint name="Length">
+                <option name="max">255</option>
+                <option name="groups">nim</option>
+            </constraint>
+        </property>
+
+        <property name="postcode">
+            <constraint name="Length">
+                <option name="max">20</option>
+                <option name="groups">nim</option>
+            </constraint>
+        </property>
+
+        <property name="city">
+            <constraint name="Length">
+                <option name="max">255</option>
+                <option name="groups">nim</option>
+            </constraint>
+        </property>
+
         <property name="country">
             <constraint name="Country">
                 <option name="groups">nim</option>
@@ -36,9 +124,113 @@ file that was distributed with this source code.
         </property>
 
         <property name="phones">
+            <constraint name="Count">
+                <option name="min">1</option>
+                <option name="groups">nim</option>
+                <option name="minMessage">contact.validation.phone.count</option>
+            </constraint>
             <constraint name="Valid"></constraint>
         </property>
     </class>
+
+
+    <class name="NIM\WorkerBundle\Model\Worker">
+        <property name="gender">
+            <constraint name="NotBlank">
+                <option name="groups">nim</option>
+            </constraint>
+        </property>
+
+        <property name="firstname">
+            <constraint name="NotBlank">
+                <option name="groups">nim</option>
+            </constraint>
+            <constraint name="Length">
+                <option name="max">255</option>
+                <option name="groups">nim</option>
+            </constraint>
+        </property>
+
+        <property name="lastname">
+            <constraint name="NotBlank">
+                <option name="groups">nim</option>
+            </constraint>
+            <constraint name="Length">
+                <option name="max">255</option>
+                <option name="groups">nim</option>
+            </constraint>
+        </property>
+
+        <property name="country">
+            <constraint name="Country">
+                <option name="groups">nim</option>
+            </constraint>
+        </property>
+
+        <property name="function">
+            <constraint name="NotBlank">
+                <option name="groups">nim</option>
+            </constraint>
+            <constraint name="Length">
+                <option name="max">255</option>
+                <option name="groups">nim</option>
+            </constraint>
+        </property>
+
+        <property name="diploma">
+            <constraint name="Length">
+                <option name="max">255</option>
+                <option name="groups">nim</option>
+            </constraint>
+        </property>
+
+        <property name="birthday">
+            <constraint name="NotBlank">
+                <option name="groups">nim</option>
+            </constraint>
+            <constraint name="Date">
+                <option name="groups">nim</option>
+            </constraint>
+        </property>
+
+        <property name="arrivedAt">
+            <constraint name="NotBlank">
+                <option name="groups">nim</option>
+            </constraint>
+            <constraint name="Date">
+                <option name="groups">nim</option>
+            </constraint>
+        </property>
+
+        <property name="leftAt">
+            <constraint name="Date">
+                <option name="groups">nim</option>
+            </constraint>
+        </property>
+
+        <property name="emails">
+            <constraint name="Valid"/>
+        </property>
+
+        <property name="phones">
+            <constraint name="Count">
+                <option name="min">1</option>
+                <option name="groups">nim</option>
+                <option name="minMessage">worker.validation.phone.count</option>
+            </constraint>
+            <constraint name="Valid"/>
+        </property>
+
+        <property name="contacts">
+            <constraint name="Count">
+                <option name="min">1</option>
+                <option name="groups">nim-update</option>
+                <option name="minMessage">worker.validation.contact.count</option>
+            </constraint>
+            <constraint name="Valid"/>
+        </property>
+    </class>
+
 
     <class name="NIM\WorkerBundle\Model\Email">
         <property name="address">
@@ -50,6 +242,8 @@ file that was distributed with this source code.
             </constraint>
         </property>
     </class>
+
+
     <class name="NIM\WorkerBundle\Model\Phone">
         <property name="type">
             <constraint name="NotBlank">

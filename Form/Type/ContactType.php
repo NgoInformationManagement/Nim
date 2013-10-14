@@ -23,7 +23,7 @@ class ContactType extends NIMType
     {
         $builder
             ->add('firstname', null, array(
-                'label' => 'contact.field.fistname.label',
+                'label' => 'contact.field.firstname.label',
             ))
             ->add('lastname', null, array(
                 'label' => 'contact.field.lastname.label',
@@ -41,12 +41,18 @@ class ContactType extends NIMType
                 'label' => 'contact.field.country.label',
             ))
             ->add('emails', 'collection', array(
-                'type' => 'nim.form.type.contactable.email',
+                'type' => 'nim_contactable_email',
                 'label' => 'contact.field.email.label',
+                'allow_add' => true,
+                'allow_delete' => true,
+                'error_bubbling' => false
             ))
             ->add('phones', 'collection', array(
-                'type' => 'nim.form.type.contactable.phone',
+                'type' => 'nim_contactable_phone',
                 'label' => 'contact.field.phone.label',
+                'allow_add' => true,
+                'allow_delete' => true,
+                'error_bubbling' => false
             ))
         ;
     }
