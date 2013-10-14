@@ -1,0 +1,31 @@
+{% macro emailList(emails) %}
+    {% from 'NIMFormBundle:bootstrap3:show.html.twig' import displayedField %}
+    {% from 'NIMFormBundle:bootstrap3:alert.html.twig' import info %}
+
+    {% if emails|length > 0 %}
+        {% for email in emails %}
+            <div class="col-lg-6">
+                {{ displayedField('label', email.label, 'email') }}
+                {{ displayedField('address', email.address, 'email') }}
+            </div>
+        {% endfor %}
+    {% else %}
+        {{ info('email.message.empty'|trans) }}
+    {% endif %}
+{% endmacro %}
+
+{% macro phoneList(phones) %}
+    {% from 'NIMFormBundle:bootstrap3:show.html.twig' import displayedField %}
+    {% from 'NIMFormBundle:bootstrap3:alert.html.twig' import info %}
+
+    {% if phones|length > 0 %}
+        {% for phone in phones %}
+            <div class="col-lg-6">
+                {{ displayedField('type', phone.type, 'phone') }}
+                {{ displayedField('number', phone.number, 'phone') }}
+            </div>
+        {% endfor %}
+    {% else %}
+        {{ info('phone.message.empty'|trans) }}
+    {% endif %}
+{% endmacro %}
