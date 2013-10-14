@@ -1,8 +1,8 @@
 {
     "name": "nim/core-bundle",
     "type": "symfony-bundle",
-    "description": "",
-    "keywords": [],
+    "description": "Nim core bundle",
+    "keywords": ["nim", "ngo", "humanitarian", "core"],
     "homepage": "https://github.com/NgoInformationManagement/CoreBundle",
     "license": "MIT",
 
@@ -15,11 +15,13 @@
 
     "minimum-stability": "dev",
 
-    "target-dir": "nim/core-bundle",
+    "target-dir": "NIM/CoreBundle",
 
     "require": {
         "php": ">=5.3.3",
-        "symfony/framework-bundle": "~2.3"
+        "symfony/framework-bundle": "~2.3",
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "nim/nim-component": "dev-master"
     },
 
     "autoload": {
