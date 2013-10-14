@@ -31,7 +31,13 @@
         "a2lix/translation-form-bundle": "dev-master",
         "fzaninotto/faker": "1.2.*",
         "white-october/pagerfanta-bundle": "dev-master",
-        "doctrine/doctrine-fixtures-bundle": "dev-master"
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
+        "nim/worker-bundle": "dev-master",
+        "nim/web-bundle": "dev-master",
+        "nim/mission-bundle": "dev-master",
+        "nim/form-bundle": "dev-master",
+        "nim/nim-component": "dev-master",
+        "nim/core-bundle": "dev-master"
     },
     "require-dev": {
         "behat/behat": "2.4.*",
@@ -66,9 +72,6 @@
         "symfony-web-dir": "web",
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
-        },
-        "branch-alias": {
-            "dev-master": "2.3-dev"
         }
     }
 }
