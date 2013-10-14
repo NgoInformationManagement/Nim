@@ -1,8 +1,8 @@
 {
     "name": "nim/web-bundle",
     "type": "symfony-bundle",
-    "description": "",
-    "keywords": [],
+    "description": "Nim Web bundle",
+    "keywords": ["nim", "ngo", "humanitarian", "web"],
     "homepage": "https://github.com/NgoInformationManagement/WebBundle",
     "license": "MIT",
 
@@ -19,7 +19,8 @@
 
     "require": {
         "php": ">=5.3.3",
-        "symfony/framework-bundle": "~2.3"
+        "symfony/framework-bundle": "~2.3",
+        "nim/nim-component": "dev-master"
     },
 
     "autoload": {
