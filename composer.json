@@ -2,7 +2,7 @@
     "name": "nim/nim-application",
     "license": "MIT",
     "type": "project",
-    "description": "Ngo Imformation Management",
+    "description": "Ngo Information Management",
     "authors": [
         {
             "name": "aRn0D",
@@ -16,7 +16,7 @@
         "php": ">=5.3.3",
         "symfony/symfony": "2.3.*",
         "doctrine/orm": ">=2.2.3,<2.4-dev",
-        "doctrine/doctrine-bundle": "1.2.*",
+        "doctrine/doctrine-bundle": "dev-master",
         "twig/extensions": "1.0.*",
         "symfony/assetic-bundle": "2.3.*",
         "symfony/swiftmailer-bundle": "2.3.*",
@@ -24,7 +24,14 @@
         "sensio/distribution-bundle": "2.3.*",
         "sensio/framework-extra-bundle": "2.3.*",
         "sensio/generator-bundle": "2.3.*",
-        "incenteev/composer-parameter-handler": "~2.0"
+        "incenteev/composer-parameter-handler": "~2.0",
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "stof/doctrine-extensions-bundle": "~1.1@dev",
+        "sylius/resource-bundle": "1.0.*@dev",
+        "a2lix/translation-form-bundle": "dev-master",
+        "fzaninotto/faker": "1.2.*",
+        "white-october/pagerfanta-bundle": "dev-master",
+        "doctrine/doctrine-fixtures-bundle": "dev-master"
     },
     "require-dev": {
         "behat/behat": "2.4.*",
@@ -53,7 +60,7 @@
     "config": {
         "bin-dir": "bin"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
