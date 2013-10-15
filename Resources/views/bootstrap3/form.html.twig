@@ -64,9 +64,8 @@
              {% if prototype is defined %}data-prototype="<div data-form-collection='item'>{{ form_rest(prototype) | e }}</div>"{% endif %}>
 
             {% if prototype is defined %}
-                <button href="#"
-                   class="btn"
-                   data-form-collection="add">
+                <button class="btn"
+                        data-form-collection="add">
                     <i class="icon-plus"></i>
                     {{ 'form.collection.add' | trans }}
                 </button>

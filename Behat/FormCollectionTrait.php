@@ -32,14 +32,30 @@ trait FormCollectionTrait
             );
         }
 
-        $locator = sprintf('button:contains("%s")', $button);
-
-        if ($div->has('css', $locator)) {
-            $div->find('css', $locator)->press();
-        } else {
-            $div->clickLink($button);
-        }
+        $this->iClickButtonIn($div,$button);
     }
+
+    /**
+     * For example: I click "Add" to add an item in current tab
+     *
+     * @When /^I click "([^"]*)" to add an item in current tab$/
+     */
+    public function iaddItemToTab($button)
+    {
+        $div = $this->getSession()->getPage()->find('css',
+            '.tab-pane.active div[data-form-type="collection"]'
+        );
+
+        if (null === $div) {
+            throw new ExpectationException(
+                sprintf('Collection is not found in the current tab'),
+                $this->getSession()
+            );
+        }
+
+        $this->iClickButtonIn($div,$button);
+    }
+
 
     /**
      * For example: I click "Delete" to delete the "1" item from "Email"
@@ -61,6 +77,21 @@ trait FormCollectionTrait
 
         // TODO : do not work
         $locator = sprintf('button:nth-child(%d)', $nb, $button);
+
+        if ($div->has('css', $locator)) {
+            $div->find('css', $locator)->press();
+        } else {
+            $div->clickLink($button);
+        }
+    }
+
+    /**
+     * @param $div
+     * @param $button
+     */
+    private function iClickButtonIn($div,$button)
+    {
+        $locator = sprintf('button:contains("%s")', $button);
 
         if ($div->has('css', $locator)) {
             $div->find('css', $locator)->press();
