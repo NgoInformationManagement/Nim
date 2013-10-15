@@ -1,6 +1,6 @@
 Feature: Missions
     In order to create mission
-    As a store administrator
+    As a administrator
     I want to be able to manage mission
 
     Background:

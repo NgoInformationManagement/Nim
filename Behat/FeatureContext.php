@@ -17,10 +17,13 @@ use Behat\MinkExtension\Context\MinkDictionary;
 use Behat\Symfony2Extension\Context\KernelDictionary;
 use NIM\WebBundle\Behat\DataContext\AgencyDataContext;
 use NIM\WebBundle\Behat\DataContext\BaseDataContext;
+use NIM\WebBundle\Behat\DataContext\ContactDataContext;
 use NIM\WebBundle\Behat\DataContext\MissionDataContext;
+use NIM\WebBundle\Behat\DataContext\WorkerDataContext;
 use NIM\WebBundle\Behat\UserContext\AccountUserContext;
 use NIM\WebBundle\Behat\UserContext\BaseUserContext;
 use NIM\FormBundle\Behat\FormCollectionTrait;
+use NIM\WebBundle\Behat\UserContext\WorkerUserContext;
 
 class FeatureContext extends BehatContext
 {
@@ -31,6 +34,8 @@ class FeatureContext extends BehatContext
         MissionDataContext,
         AccountUserContext,
         AgencyDataContext,
+        WorkerDataContext,
+        ContactDataContext,
         FormCollectionTrait;
 
     /**

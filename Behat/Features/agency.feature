@@ -1,6 +1,6 @@
 Feature: Agency
     In order to create agency
-    As a store administrator
+    As a administrator
     I want to be able to manage agency
 
     Background:
@@ -44,13 +44,13 @@ Feature: Agency
          And I fill in "Postcode" with "54000"
          And I fill in "City" with "City"
          And I fill in "Country" with "FR"
-         And I click "Add" to add an item to "Email"
+         And I click "Add" to add an item to "Emails"
          And I fill in "Label" with "Label"
-         And I fill in "Email" with "email@email.fr"
-         And I click "Add" to add an item to "Email"
+         And I fill in "Address" with "email@email.fr"
+         And I click "Add" to add an item to "Emails"
          And I fill in "Label" with "Label"
-         And I fill in "Email" with "email@email.fr"
-         And I click "Add" to add an item to "Phone"
+         And I fill in "Address" with "email@email.fr"
+         And I click "Add" to add an item to "Phones"
          And I fill in "Type" with "Fax"
          And I fill in "Number" with "05949838473"
          And I press "Create"
@@ -64,16 +64,17 @@ Feature: Agency
         And I leave "Street" empty
         And I leave "Postcode" empty
         And I leave "Country" empty
-        And I click "Add" to add an item to "Email"
-        And I click "Add" to add an item to "Phone"
-        And I leave "Email" empty
+        And I click "Add" to add an item to "Emails"
+        And I leave "Address" empty
+        And I click "Add" to add an item to "Phones"
+        And I leave "Number" empty
         And I press "Create"
        Then I should be on the agency creation page
         And I should see "Name" field error
-        And I should see "Email" field error
+        And I should see "Address" field error
         And I should see "Number" field error
-       When I fill in "Email" with "wrongMail"
-       Then I should see "Email" field error
+       When I fill in "Address" with "wrongMail"
+       Then I should see "Address" field error
 
     Scenario: Created agency appears in the list
        Given I created agency "New agency"
@@ -95,8 +96,8 @@ Feature: Agency
          And I fill in "City" with "City"
          And I fill in "Country" with "FR"
          And I fill in "Label" with "Label"
-         And I fill in "Email" with "new@email.com"
-         And I fill in "Type" with "Phone"
+         And I fill in "Address" with "new@email.com"
+         And I fill in "Type" with "Phones"
          And I fill in "Number" with "0449494932"
          And I press "Update"
         Then I should be on the page of agency which has "New agency" as name
@@ -136,7 +137,7 @@ Feature: Agency
          And I should see "64000"
          And I should see "PAU"
          And I should see "France"
-         And I should see "Phone"
+         And I should see "Phones"
          And I should see "0212457812"
          And I should see "Fax"
          And I should see "2154875421"

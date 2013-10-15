@@ -99,9 +99,9 @@ agency:
         country:
             label: Country
         phone:
-            label: Phone Number
+            label: Phones
         email:
-            label: Email
+            label: Emails
 
 worker:
     validation:
@@ -193,7 +193,7 @@ email:
         label:
             label: Label
         address:
-            label: Email
+            label: Address
 phone:
     message:
         empty: There are no phone to display.

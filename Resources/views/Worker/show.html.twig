@@ -46,10 +46,10 @@
         {{ displayedField('postcode', worker.postcode, 'worker') }}
         {{ displayedField('city', worker.city, 'worker') }}
         {{ displayedField('country', worker.country|country, 'worker') }}
-        {{ displayedField('birthday', worker.birthday|localizeddate('long'), 'worker') }}
+        {{ displayedField('birthday', worker.birthday|localizeddate('long', 'none'), 'worker') }}
         {{ displayedField('diploma', worker.diploma, 'worker') }}
         {{ displayedField('function', worker.function, 'worker') }}
-        {{ displayedField('arrivedAt', worker.arrivedAt|localizeddate('long'), 'worker') }}
+        {{ displayedField('arrivedAt', worker.arrivedAt|localizeddate('long','none'), 'worker') }}
         {{ displayedField('leftAt', leftAt|default, 'worker') }}
         <fieldset>
             <legend>{{ 'worker.field.email.label'|trans }}</legend>
@@ -67,15 +67,16 @@
                     {{ displayedField('firstname', contact.firstname, 'contact') }}
                     {{ displayedField('lastname', contact.lastname, 'contact') }}
                     {{ displayedField('street', contact.street, 'contact') }}
+                    {{ displayedField('postcode', contact.postcode, 'worker') }}
                     {{ displayedField('city', contact.city, 'contact') }}
                     {{ displayedField('country', contact.country|country, 'contact') }}
                     <fieldset>
                         <legend>{{ 'worker.field.email.label'|trans }}</legend>
-                        {{ contactable.emailList(worker.emails) }}
+                        {{ contactable.emailList(contact.emails) }}
                     </fieldset>
                     <fieldset>
                         <legend>{{ 'worker.field.phone.label'|trans }}</legend>
-                        {{ contactable.phoneList(worker.phones) }}
+                        {{ contactable.phoneList(contact.phones) }}
                     </fieldset>
                 </div>
             {% endfor %}

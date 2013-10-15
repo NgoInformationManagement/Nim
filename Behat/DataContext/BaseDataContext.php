@@ -12,7 +12,11 @@
 namespace NIM\WebBundle\Behat\DataContext;
 
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
+use Doctrine\Common\Persistence\ObjectRepository;
+use Doctrine\ORM\EntityManager;
 use NIM\CoreBundle\Model\User;
+use NIM\WorkerBundle\Model\Email;
+use NIM\WorkerBundle\Model\Phone;
 use Symfony\Component\PropertyAccess\StringUtil;
 
 trait BaseDataContext
@@ -37,10 +41,73 @@ trait BaseDataContext
         $manager = $this->getEntityManager();
 
         foreach ($this->getRepository($type)->findAll() as $resource) {
-            $this->getEntityManager()->remove($resource);
+            $manager->remove($resource);
         }
 
         $manager->flush();
+    }
+
+    /**
+     * @param $phones
+     * @param $entity
+     * @return mixed
+     */
+    public function entityHasPhones($phones, $entity)
+    {
+        foreach ($phones as $number) {
+            $phone = $this->thereIsPhone($number['type'], $number['number']);
+            $entity->addPhone($phone);
+        }
+
+        return $this->persistAndFlush($entity);
+    }
+
+    /**
+     * @param $type
+     * @param $number
+     * @return Phone
+     */
+    public function thereIsPhone($type, $number)
+    {
+        $phone = new Phone();
+        $this->setDataToObject($phone, array(
+            'type' => $type,
+            'number' => $number
+        ));
+
+        return $this->persistAndFlush($phone);
+    }
+
+    /**
+     * @param $email
+     * @param $entity
+     * @return mixed
+     */
+    public function entityHasEmails($emails, $entity)
+    {
+        foreach ($emails as $address) {
+            $phone = $this->thereIsEmail($address['label'], $address['address']);
+            $entity->addEmail($phone);
+        }
+
+        return $this->persistAndFlush($entity);
+    }
+
+
+    /**
+     * @param $label
+     * @param $address
+     * @return Email
+     */
+    public function thereIsEmail($label, $address)
+    {
+        $email = new Email();
+        $this->setDataToObject($email, array(
+            'label' => $label,
+            'address' => $address
+        ));
+
+        return $this->persistAndFlush($email);
     }
 
     /**
@@ -65,6 +132,7 @@ trait BaseDataContext
             $this->getEntityManager()->persist($user);
             $this->getEntityManager()->flush();
         }
+
         return $user;
     }
 
@@ -130,13 +198,23 @@ trait BaseDataContext
      * Persist and flush $entity
      *
      * @param $entity
+     * @return mixed
      */
     private function persistAndFlush($entity)
     {
         $this->getEntityManager()->persist($entity);
         $this->getEntityManager()->flush();
+
+        return $entity;
     }
 
+    /**
+     * Find single resource
+     *
+     * @param $resourceName
+     * @param $criteria
+     * @return object
+     */
     private function findResourceBy($resourceName, $criteria)
     {
         return $this->getRepository($resourceName)

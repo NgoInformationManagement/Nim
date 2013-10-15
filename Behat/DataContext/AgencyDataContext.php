@@ -36,15 +36,7 @@ trait AgencyDataContext
     {
         $agency = $this->getAgencyByName($name);
 
-        foreach ($table->getHash() as $data) {
-            $email = new Email();
-            $this->setDataToObject($email, $data);
-            $this->persistAndFlush($email);
-
-            $agency->addEmail($email);
-        }
-
-        $this->persistAndFlush($agency);
+        $this->entityHasEmails($table->getHash(), $agency);
     }
 
     /**
@@ -54,15 +46,7 @@ trait AgencyDataContext
     {
         $agency = $this->getAgencyByName($name);
 
-        foreach ($table->getHash() as $data) {
-            $phone = new Phone();
-            $this->setDataToObject($phone, $data);
-            $this->persistAndFlush($phone);
-
-            $agency->addPhone($phone);
-        }
-
-        $this->persistAndFlush($agency);
+        $this->entityHasPhones($table->getHash(), $agency);
     }
 
     /**
@@ -78,7 +62,7 @@ trait AgencyDataContext
             $this->setDataToObject($agency, $additionalData);
         }
 
-        $this->persistAndFlush($agency);
+        return $this->persistAndFlush($agency);
     }
 
     /**
@@ -86,7 +70,7 @@ trait AgencyDataContext
      */
     public function iCreatedAgency($name)
     {
-        $this->thereIsAgency($name, array(
+        return $this->thereIsAgency($name, array(
             'street' => 'street',
             'city' => 'city',
             'postcode' => 'postcode',
