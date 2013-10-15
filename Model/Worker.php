@@ -111,7 +111,7 @@ class Worker extends PersonAbstract
     /**
      * @param mixed $arrivedAt
      */
-    public function setArrivedAt(\DateTime $arrivedAt)
+    public function setArrivedAt(\DateTime $arrivedAt = null)
     {
         $this->arrivedAt = $arrivedAt;
     }
@@ -127,7 +127,7 @@ class Worker extends PersonAbstract
     /**
      * @param mixed $leftAt
      */
-    public function setLeftAt(\DateTime $leftAt)
+    public function setLeftAt(\DateTime $leftAt = null)
     {
         $this->leftAt = $leftAt;
     }
@@ -159,7 +159,7 @@ class Worker extends PersonAbstract
     /**
      * @param mixed $birthday
      */
-    public function setBirthday(\DateTime $birthday)
+    public function setBirthday(\DateTime $birthday = null)
     {
         $this->birthday = $birthday;
     }
@@ -218,6 +218,26 @@ class Worker extends PersonAbstract
     public function getContacts()
     {
         return $this->contacts;
+    }
+
+    /**
+     * @param \NIM\WorkerBundle\Model\Email $contact
+     */
+    public function addContact(Contact $contact)
+    {
+        if (!$this->getContacts()->contains($contact)) {
+            $this->getContacts()->add($contact);
+        }
+    }
+
+    /**
+     * @param \NIM\WorkerBundle\Model\Contact $contact
+     */
+    public function removeContact(Contact $contact)
+    {
+        if ($this->getContacts()->contains($contact)) {
+            $this->getContacts()->removeElement($contact);
+        }
     }
 
     /**

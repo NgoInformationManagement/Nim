@@ -96,14 +96,14 @@ class AgencySpec extends ObjectBehavior
         $this->getEmails()->shouldReturn($col);
     }
 
-    function it_have_unique_emails(Email $email)
+    function it_has_unique_emails(Email $email)
     {
         $this->addEmail($email);
         $this->addEmail($email);
         $this->getEmails()->shouldHaveCount(1);
     }
 
-    function it_have_emails(Email $email1, Email $email2)
+    function it_has_emails(Email $email1, Email $email2)
     {
         $this->addEmail($email1);
         $this->addEmail($email2);
@@ -130,14 +130,14 @@ class AgencySpec extends ObjectBehavior
         $this->getPhones()->shouldReturn($col);
     }
 
-    function it_have_unique_phones(Phone $phone)
+    function it_has_unique_phones(Phone $phone)
     {
         $this->addPhone($phone);
         $this->addPhone($phone);
         $this->getPhones()->shouldHaveCount(1);
     }
 
-    function it_have_phones(Phone $phone1, Phone $phone2)
+    function it_has_phones(Phone $phone1, Phone $phone2)
     {
         $this->addPhone($phone1);
         $this->addPhone($phone2);

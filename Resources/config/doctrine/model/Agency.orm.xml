@@ -42,7 +42,7 @@ file that was distributed with this source code.
             </cascade>
             <join-table name="nim_agency_email">
                 <join-columns>
-                    <join-column name="agency_id" referenced-column-name="id" on-delete="CASCADE" />
+                    <join-column name="agency_id" referenced-column-name="id"/>
                 </join-columns>
                 <inverse-join-columns>
                     <join-column name="email_id" referenced-column-name="id" unique="true" on-delete="CASCADE" />
@@ -57,7 +57,7 @@ file that was distributed with this source code.
             </cascade>
             <join-table name="nim_agency_phone">
                 <join-columns>
-                    <join-column name="agency_id" referenced-column-name="id" on-delete="CASCADE" />
+                    <join-column name="agency_id" referenced-column-name="id"/>
                 </join-columns>
                 <inverse-join-columns>
                     <join-column name="phone_id" referenced-column-name="id" unique="true" on-delete="CASCADE" />

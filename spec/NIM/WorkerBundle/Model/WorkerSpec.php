@@ -14,6 +14,8 @@ namespace spec\NIM\WorkerBundle\Model;
 use Doctrine\Common\Collections\ArrayCollection;
 use NIM\WorkerBundle\Model\Agency;
 use NIM\WorkerBundle\Model\Contact;
+use NIM\WorkerBundle\Model\Email;
+use NIM\WorkerBundle\Model\Phone;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -95,6 +97,29 @@ class WorkerSpec extends ObjectBehavior
         $this->getContacts()->shouldReturn($arrayCollection);
     }
 
+    function it_has_contacts(Contact $contact1, Contact $contact2)
+    {
+        $this->addContact($contact1);
+        $this->addContact($contact2);
+        $this->getContacts()->shouldHaveCount(2);
+    }
+
+    function it_has_unique_contacts(Contact $contact)
+    {
+        $this->addContact($contact);
+        $this->addContact($contact);
+        $this->getContacts()->shouldHaveCount(1);
+    }
+
+    function it_can_remove_contacts(Contact $contact1, Contact $contact2)
+    {
+        $this->addContact($contact1);
+        $this->addContact($contact2);
+
+        $this->removeContact($contact2);
+        $this->getContacts()->shouldHaveCount(1);
+    }
+
     function it_has_no_diploma_by_default()
     {
         $this->getDiploma()->shouldReturn(null);
@@ -137,6 +162,74 @@ class WorkerSpec extends ObjectBehavior
     {
         $this->setLeftAt($dateTime);
         $this->getLeftAt()->shouldReturn($dateTime);
+    }
+
+    function it_has_no_email_by_default()
+    {
+        $this->getEmails()->shouldHaveType('Doctrine\Common\Collections\ArrayCollection');
+    }
+
+    function its_email_is_mutable(ArrayCollection $col)
+    {
+        $this->setEmails($col);
+        $this->getEmails()->shouldReturn($col);
+    }
+
+    function it_has_unique_emails(Email $email)
+    {
+        $this->addEmail($email);
+        $this->addEmail($email);
+        $this->getEmails()->shouldHaveCount(1);
+    }
+
+    function it_has_emails(Email $email1, Email $email2)
+    {
+        $this->addEmail($email1);
+        $this->addEmail($email2);
+        $this->getEmails()->shouldHaveCount(2);
+    }
+
+    function it_can_remove_emails(Email $email1, Email $email2)
+    {
+        $this->addEmail($email1);
+        $this->addEmail($email2);
+
+        $this->removeEmail($email2);
+        $this->getEmails()->shouldHaveCount(1);
+    }
+
+    function it_has_no_phone_by_default()
+    {
+        $this->getPhones()->shouldHaveType('Doctrine\Common\Collections\ArrayCollection');
+    }
+
+    function its_phone_is_mutable(ArrayCollection $col)
+    {
+        $this->setPhones($col);
+        $this->getPhones()->shouldReturn($col);
+    }
+
+    function it_has_unique_phones(Phone $phone)
+    {
+        $this->addPhone($phone);
+        $this->addPhone($phone);
+        $this->getPhones()->shouldHaveCount(1);
+    }
+
+    function it_has_phones(Phone $phone1, Phone $phone2)
+    {
+        $this->addPhone($phone1);
+        $this->addPhone($phone2);
+        $this->getPhones()->shouldHaveCount(2);
+    }
+
+    function it_can_remove_phones(Phone $phone1, Phone $phone2)
+    {
+        $this->addPhone($phone1);
+        $this->addPhone($phone2);
+
+        $this->removePhone($phone2);
+        $this->getPhones()->shouldHaveCount(1);
     }
 
     function it_has_no_updatedAt_by_default()
