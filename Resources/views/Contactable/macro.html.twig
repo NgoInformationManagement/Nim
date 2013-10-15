@@ -5,8 +5,8 @@
     {% if emails|length > 0 %}
         {% for email in emails %}
             <div class="col-lg-6">
-                {{ displayedField('label', email.label, 'email') }}
-                {{ displayedField('address', email.address, 'email') }}
+                {{ displayedField('label', email.label, 'email', 3) }}
+                {{ displayedField('address', email.address, 'email', 3) }}
             </div>
         {% endfor %}
     {% else %}
@@ -21,8 +21,8 @@
     {% if phones|length > 0 %}
         {% for phone in phones %}
             <div class="col-lg-6">
-                {{ displayedField('type', phone.type, 'phone') }}
-                {{ displayedField('number', phone.number, 'phone') }}
+                {{ displayedField('type', phone.type, 'phone', 3) }}
+                {{ displayedField('number', phone.number, 'phone', 3) }}
             </div>
         {% endfor %}
     {% else %}
