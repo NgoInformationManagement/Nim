@@ -18,9 +18,12 @@
 
 {% block content %}
 <div class="form-horizontal">
+    {% if mission.endedAt is not defined %}
+        {% set endedAt = mission.endedAt|localizeddate('long', 'none') %}
+    {% endif %}
     {{ displayedField('translation', nim_translation(mission), 'mission') }}
     {{ displayedField('country', mission.country|country, 'mission') }}
     {{ displayedField('startedAt', mission.startedAt|localizeddate('full', 'none'), 'mission') }}
-    {{ displayedField('endedAt', mission.endedAt|localizeddate('full', 'none'), 'mission') }}
+    {{ displayedField('endedAt', mission.endedAt|default, 'mission') }}
 </div>
 {% endblock %}
