@@ -221,6 +221,14 @@ class Worker extends PersonAbstract
     }
 
     /**
+     * @return bool
+     */
+    public function hasContacts()
+    {
+        return !$this->getContacts()->isEmpty();
+    }
+
+    /**
      * @param \NIM\WorkerBundle\Model\Email $contact
      */
     public function addContact(Contact $contact)

@@ -97,11 +97,23 @@ class WorkerSpec extends ObjectBehavior
         $this->getContacts()->shouldReturn($arrayCollection);
     }
 
-    function it_has_contacts(Contact $contact1, Contact $contact2)
+    function it_has_collection_of_contacts(Contact $contact1, Contact $contact2)
     {
         $this->addContact($contact1);
         $this->addContact($contact2);
         $this->getContacts()->shouldHaveCount(2);
+    }
+
+    function it_has_contacts(Contact $contact1, Contact $contact2)
+    {
+        $this->addContact($contact1);
+        $this->addContact($contact2);
+        $this->hasContacts()->shouldReturn(true);
+    }
+
+    function it_should_have_not_contacts_by_default()
+    {
+        $this->hasContacts()->shouldReturn(false);
     }
 
     function it_has_unique_contacts(Contact $contact)
