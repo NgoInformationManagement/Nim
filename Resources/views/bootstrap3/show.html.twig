@@ -19,3 +19,32 @@
         </div>
     </div>
 {% endmacro %}
+
+{% macro translatableContant(entityName, field, value) %}
+    {{ (entityName ~ '.field.' ~ field ~ '.option.' ~ value)|trans }}
+{% endmacro %}
+
+{% macro boolean(bool, successUrl, errorUrl) %}
+    {% set successUrl = successUrl|default('#') %}
+    {% set errorUrl = errorUrl|default('#') %}
+
+    {% if bool %}
+        <a href="{{ successUrl }}" class="btn btn-success">
+            <i class="icon-ok"></i>
+        </a>
+    {% else %}
+        <a href="{{ errorUrl }}" class="btn btn-danger">
+            <i class="icon-minus-sign"></i>
+        </a>
+    {% endif %}
+{% endmacro %}
+
+{% macro date(date, default) %}
+    {% set default = default|default('-') %}
+
+    {% if date %}
+        {{ date|localizeddate('long', 'none') }}
+    {% else %}
+        {{ default }}
+    {% endif %}
+{% endmacro %}
