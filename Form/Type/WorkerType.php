@@ -62,11 +62,11 @@ class WorkerType extends NIMType
             ->add('street', null, array(
                 'label' => 'worker.field.street.label',
             ))
-            ->add('city', null, array(
-                'label' => 'worker.field.city.label',
-            ))
             ->add('postcode', null, array(
                 'label' => 'worker.field.postcode.label',
+            ))
+            ->add('city', null, array(
+                'label' => 'worker.field.city.label',
             ))
             ->add('country', 'country', array(
                 'label' => 'worker.field.country.label',
@@ -76,14 +76,16 @@ class WorkerType extends NIMType
                 'label' => 'worker.field.email.label',
                 'allow_add' => true,
                 'allow_delete' => true,
-                'error_bubbling' => false
+                'error_bubbling' => false,
+                'item_by_line' => 2
             ))
             ->add('phones', 'collection', array(
                 'type' => 'nim_contactable_phone',
                 'label' => 'worker.field.phone.label',
                 'allow_add' => true,
                 'allow_delete' => true,
-                'error_bubbling' => false
+                'error_bubbling' => false,
+                'item_by_line' => 2
             ))
             ->add('birthday', 'birthday', array(
                 'label' => 'worker.field.birthday.label',

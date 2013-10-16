@@ -28,11 +28,11 @@ class AgencyType extends NIMType
             ->add('street', null, array(
                 'label' => 'agency.field.street.label',
             ))
-            ->add('city', null, array(
-                'label' => 'agency.field.city.label',
-            ))
             ->add('postcode', null, array(
                 'label' => 'agency.field.postcode.label',
+            ))
+            ->add('city', null, array(
+                'label' => 'agency.field.city.label',
             ))
             ->add('country', 'country', array(
                 'label' => 'agency.field.country.label',
@@ -41,13 +41,15 @@ class AgencyType extends NIMType
                 'type' => 'nim_contactable_email',
                 'label' => 'agency.field.email.label',
                 'allow_add' => true,
-                'allow_delete' => true
+                'allow_delete' => true,
+                'item_by_line' => 2
             ))
             ->add('phones', 'collection', array(
                 'type' => 'nim_contactable_phone',
                 'label' => 'agency.field.phone.label',
                 'allow_add' => true,
-                'allow_delete' => true
+                'allow_delete' => true,
+                'item_by_line' => 2
             ))
         ;
     }

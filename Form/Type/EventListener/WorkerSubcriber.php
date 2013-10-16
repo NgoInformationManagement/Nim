@@ -39,7 +39,8 @@ class WorkerSubcriber implements EventSubscriberInterface
                 'label' => 'worker.field.contact.label',
                 'allow_add' => true,
                 'allow_delete' => true,
-                'error_bubbling' => false
+                'error_bubbling' => false,
+                'item_by_line' => 2
             ));
         }
     }
