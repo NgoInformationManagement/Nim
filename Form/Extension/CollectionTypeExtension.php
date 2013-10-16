@@ -13,24 +13,39 @@ namespace NIM\FormBundle\Form\Extension;
 
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormView;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class CollectionTypeExtension extends AbstractTypeExtension
 {
     /**
      * {@inheritdoc}
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildView(FormView $view, FormInterface $form, array $options)
     {
-        if ($options['allow_add'] && $options['prototype']) {
-            $builder->getAttribute('prototype')
-                ->add('deleteItem', 'delete', array(
-                    'label' => 'form.collection.delete',
-                    'attr' => array(
-                        'class' => 'btn btn-danger',
-                        'data-form-collection' => 'delete'
-                    )
-                ));
+
+        if (array_key_exists('item_by_line', $options)) {
+            $view->vars['item_by_line'] = $options['item_by_line'];
         }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setOptional(array(
+            'item_by_line'
+        ));
+
+        $resolver->setAllowedTypes(array(
+            'item_by_line' => array('integer')
+        ));
+
+        $resolver->setDefaults(array(
+            'item_by_line' => 1
+        ));
     }
 
     /**

@@ -65,7 +65,7 @@
     }
 
     /*
-     * PLUGIN DEFINITION
+     * Plugin definition
      */
 
     $.fn.CollectionForm = function ( option ) {
@@ -90,8 +90,9 @@
     $.fn.CollectionForm.Constructor = CollectionForm;
 
 
-    /* APPLY TO STANDARD SIMPLECOLLECTIONFORM ELEMENTS
-     * =================================== */
+    /*
+     * Apply to standard CollectionForm elements
+     */
 
     $('[data-form-type="collection"]').CollectionForm();
 }(jQuery);
