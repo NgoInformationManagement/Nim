@@ -5,6 +5,9 @@ nim_worker_index:
         _controller: nim.controller.worker:indexAction
         _sylius:
             template: NIMWebBundle:Worker:index.html.twig
+            paginate: $page
+            sortable: $sorting
+            filterable: $criteria
 
 nim_worker_create:
     pattern: /new
