@@ -2,34 +2,54 @@
 
     {% from 'NIMFormBundle:bootstrap3:button.html.twig' import listActionButton %}
     {% from 'NIMFormBundle:bootstrap3:alert.html.twig' import info %}
+    {% from 'NIMFormBundle:bootstrap3:show.html.twig' import translatableContant %}
+    {% from 'NIMFormBundle:bootstrap3:show.html.twig' import boolean %}
 
     {% if workers|length > 0 %}
         <div class="table-responsive">
             <table class="table table-bordered table-hover">
+                <colgroup>
+                    <col width="20%">
+                    <col width="15%">
+                    <col>
+                    <col width="20%">
+                    <col width="10%">
+                    <col width="40px">
+                    <col>
+                </colgroup>
                 <thead>
-                <tr>
-                    <th>{{ sylius_resource_sort('firstname', 'worker.field.firstname.label'|trans) }}</th>
-                    <th>{{ sylius_resource_sort('lastname', 'worker.field.lastname.label'|trans) }}</th>
-                    <th>{{ sylius_resource_sort('city', 'worker.field.city.label'|trans) }}</th>
-                    <th>{{ sylius_resource_sort('country', 'worker.field.country.label'|trans) }}</th>
-                    <th>{{ sylius_resource_sort('arrivedAt', 'worker.field.arrivedAt.label'|trans) }}</th>
-                    <th>{{ sylius_resource_sort('basedAt', 'worker.field.basedAt.label'|trans) }}</th>
-                    <th></th>
-                </tr>
+                    <tr>
+                        <th>{{ sylius_resource_sort('lastname', 'person.name'|trans) }}</th>
+                        <th>{{ sylius_resource_sort('function', 'worker.field.function.label'|trans) }}</th>
+                        <th>{{ 'addressing.address'|trans }}</th>
+                        <th>{{ sylius_resource_sort('basedAt', 'worker.field.basedAt.label'|trans) }}</th>
+                        <th>{{ sylius_resource_sort('arrivedAt', 'worker.field.arrivedAt.label'|trans) }}</th>
+                        <th>{{ 'worker.field.contact.label'|trans }}</th>
+                        <th></th>
+                    </tr>
                 </thead>
                 <tbody>
                 {% for worker in workers %}
                     <tr>
-                        <td>{{ worker.firstname }}</td>
-                        <td>{{ worker.lastname }}</td>
-                        <td>{{ worker.city }}</td>
-                        <td>{{ worker.country|country }}</td>
-                        <td>{{ worker.arrivedAt|localizeddate('long', 'none') }}</td>
+                        <td class="worker-name">
+                            <p class="col-md-11">{{ worker.lastname }} {{ worker.firstname }}</p>
+                            <i class="icon-{{ worker.gender }}">
+                        </td>
+                        <td>{{ worker.function }}</td>
+                        <td>{{ worker.street }} {{ worker.postcode }} {{ worker.city }}</td>
                         <td>{{ worker.basedAt }}</td>
+                        <td>{{ worker.arrivedAt|localizeddate('long', 'none') }}</td>
+                        <td class="text-center">
+                            {{
+                                boolean(
+                                    worker.hasContacts,
+                                    path('nim_worker_show', {'id' : worker.id}),
+                                    path('nim_worker_update', {'id' : worker.id})
+                                )
+                            }}
+                        </td>
                         <td>
-                            <div class="pull-right">
-                                {{ listActionButton('nim_worker', worker.id)  }}
-                            </div>
+                            {{ listActionButton('nim_worker', worker.id)  }}
                         </td>
                     </tr>
                 {% endfor %}

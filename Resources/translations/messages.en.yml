@@ -128,6 +128,9 @@ worker:
     field:
         gender:
             label: Gender
+            option:
+                male: Male
+                female: Female
         firstname:
             label: First name
         lastname:
@@ -206,6 +209,12 @@ phone:
             label: Type
         number:
             label: Number
+
+addressing:
+    address: Address
+
+person:
+    name: Name
 
 validation:
     contactable:
