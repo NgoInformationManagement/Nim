@@ -31,17 +31,4 @@ class CollectionTypeExtensionSpec extends ObjectBehavior
     {
         $this->getExtendedType()->shouldReturn('collection');
     }
-
-    function it_toto(FormBuilderInterface $builder)
-    {
-        $builder->getAttribute('prototype')->willreturn($builder);
-
-        $builder->getAttribute('prototype')->shouldBeCalled();
-        $builder->add('deleteItem', 'delete', Argument::any())->shouldBeCalled();
-
-        $this->buildForm($builder, array(
-            'allow_add' => true,
-            'prototype' => true
-        ));
-    }
 }
