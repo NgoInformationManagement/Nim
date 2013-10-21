@@ -15,12 +15,18 @@ file that was distributed with this source code.
                                http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
+        <parameter key="nim.form.extension.choice.class">NIM\FormBundle\Form\Extension\ChoiceTypeExtension</parameter>
         <parameter key="nim.form.extension.collection.class">NIM\FormBundle\Form\Extension\CollectionTypeExtension</parameter>
         <parameter key="nim.form.type.delete.class">NIM\FormBundle\Form\Type\DeleteType</parameter>
         <parameter key="nim.form.type.gender.class">NIM\FormBundle\Form\Type\GenderType</parameter>
     </parameters>
 
     <services>
+        <service id="nim.form.extension.choice"
+                 class="%nim.form.extension.choice.class%">
+            <tag name="form.type_extension" alias="choice" />
+        </service>
+
         <service id="nim.form.extension.collection"
                  class="%nim.form.extension.collection.class%">
             <tag name="form.type_extension" alias="collection" />
