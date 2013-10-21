@@ -24,10 +24,9 @@ class ChoiceTypeExtension extends AbstractTypeExtension
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
-        $view->vars['attr']['data-form-type'] = 'choice';
-
         if (array_key_exists('render_type', $options)) {
             if ($options['render_type'] != 'none') {
+                $view->vars['attr']['data-form-type'] = 'choice';
                 $view->vars['attr']['data-form-render-type'] = $options['render_type'];
 
                 if (array_key_exists('render_options', $options)
