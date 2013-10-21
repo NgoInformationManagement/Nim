@@ -111,11 +111,17 @@ div.collection-item .collection-box {
     margin: 10px 0;
 }
 
-div.collection-list .line {
-    clear: both;
+div.collection-list .col-md-6 {
+    width: 49%; // Humm, why ?
 }
 
 /** Tab */
 .nav-tabs a.text-danger, .nav-tabs .active a.text-danger {
     color: #B94A48;
+}
+
+/** select2 fixes */
+.select2-container .select2-choice {
+    height: 34px;
+    line-height: 34px;
 }
