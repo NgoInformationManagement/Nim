@@ -42,14 +42,16 @@ class AgencyType extends NIMType
                 'label' => 'agency.field.email.label',
                 'allow_add' => true,
                 'allow_delete' => true,
-                'item_by_line' => 2
+                'item_by_line' => 2,
+                'error_bubbling' => false
             ))
             ->add('phones', 'collection', array(
                 'type' => 'nim_contactable_phone',
                 'label' => 'agency.field.phone.label',
                 'allow_add' => true,
                 'allow_delete' => true,
-                'item_by_line' => 2
+                'item_by_line' => 2,
+                'error_bubbling' => false
             ))
         ;
     }
