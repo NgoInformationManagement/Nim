@@ -56,7 +56,7 @@ file that was distributed with this source code.
             <constraint name="Count">
                 <option name="min">1</option>
                 <option name="groups">nim</option>
-                <option name="minMessage">agency.validation.phone.count</option>
+                <option name="minMessage">agency.validation.email.count</option>
             </constraint>
             <constraint name="Valid"/>
         </property>
