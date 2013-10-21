@@ -39,6 +39,7 @@ class ContactType extends NIMType
             ))
             ->add('country', 'country', array(
                 'label' => 'contact.field.country.label',
+                'render_type' => 'select2'
             ))
             ->add('emails', 'collection', array(
                 'type' => 'nim_contactable_email',
