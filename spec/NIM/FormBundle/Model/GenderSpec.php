@@ -26,8 +26,8 @@ class GenderSpec extends ObjectBehavior
     {
         $this::getOptions()->shouldReturn(
             array(
-                Gender::MALE => Gender::MALE,
-                Gender::FEMALE => Gender::FEMALE,
+                Gender::MALE => 'gender.'.Gender::MALE,
+                Gender::FEMALE => 'gender.'.Gender::FEMALE,
             )
         );
     }

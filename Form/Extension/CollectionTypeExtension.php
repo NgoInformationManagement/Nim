@@ -11,6 +11,7 @@
 
 namespace NIM\FormBundle\Form\Extension;
 
+use NIM\FormBundle\Form\FormToolsTrait;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
@@ -19,15 +20,14 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class CollectionTypeExtension extends AbstractTypeExtension
 {
+    use FormToolsTrait;
+
     /**
      * {@inheritdoc}
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
-
-        if (array_key_exists('item_by_line', $options)) {
-            $view->vars['item_by_line'] = $options['item_by_line'];
-        }
+        $this->addAttributeToFormView($view, 'item_by_line', $options['item_by_line']);
     }
 
     /**

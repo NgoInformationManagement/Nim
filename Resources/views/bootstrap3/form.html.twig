@@ -115,3 +115,19 @@
         </button>
     {% endspaceless %}
 {% endblock delete_widget %}
+
+{# Date widget #}
+{% block date_widget %}
+    {% spaceless %}
+        {% if render_type == 'datepicker' %}
+            <div class="input-group">
+                {{ block('form_widget_simple') }}
+                <span class="input-group-addon">
+                    <i class="icon-calendar"></i>
+                </span>
+            </div>
+        {% else %}
+            {{ parent() }}
+        {% endif %}
+    {% endspaceless %}
+{% endblock date_widget %}

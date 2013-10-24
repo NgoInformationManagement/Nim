@@ -11,7 +11,13 @@
 
     "use strict"
 
-    var CollectionForm = function (element, options) {
+    /**
+     * Collection Form plugin
+     *
+     * @param element
+     * @constructor
+     */
+    var CollectionForm = function (element) {
         this.$element = $(element);
         this.formPrototype = this.$element.data('prototype');
         this.$list = this.$element.find('[data-form-collection="list"]:first')
@@ -45,9 +51,7 @@
             this.$list.prepend(prototype);
             this.count = this.count + 1;
 
-            this.$list
-                .find('[data-form-type="collection"]')
-                .CollectionForm();
+            $(document).trigger('collection-form-add', [this.$list.children().first()]);
         },
 
         /**
@@ -61,6 +65,7 @@
                 .closest('[data-form-collection="item"]')
                 .remove();
 
+            $(document).trigger('collection-form-delete', [$(event.currentTarget)]);
         }
     }
 
@@ -80,10 +85,6 @@
                     (data = new CollectionForm(this, options))
                 )
             }
-
-            if (typeof option == 'string') {
-                data[option]();
-            }
         })
     }
 
@@ -93,6 +94,11 @@
     /*
      * Apply to standard CollectionForm elements
      */
+
+    $(document).on('collection-form-add', function(e, addedElement) {
+        $(addedElement).find('[data-form-type="collection"]').CollectionForm();
+        $(document).trigger('dom-node-inserted', [$(addedElement)]);
+    });
 
     $('[data-form-type="collection"]').CollectionForm();
 }(jQuery);

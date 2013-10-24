@@ -16,7 +16,7 @@ class Gender
     const MALE = 'male';
     const FEMALE = 'female';
 
-    public static function getOptions($transDomain = null)
+    public static function getOptions($transDomain = 'gender')
     {
         return array(
             self::MALE => $transDomain .'.'. self::MALE,
