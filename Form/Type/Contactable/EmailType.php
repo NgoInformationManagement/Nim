@@ -22,11 +22,8 @@ class EmailType extends NIMType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('label', null, array(
-                'label' => 'email.field.label.label',
-            ))
             ->add('address', 'email', array(
-                'label' => 'email.field.address.label',
+                'label' => false
             ))
         ;
     }

@@ -36,14 +36,12 @@ class AgencyType extends NIMType
             ))
             ->add('country', 'country', array(
                 'label' => 'agency.field.country.label',
-                'render_type' => 'select2'
             ))
             ->add('emails', 'collection', array(
                 'type' => 'nim_contactable_email',
                 'label' => 'agency.field.email.label',
                 'allow_add' => true,
                 'allow_delete' => true,
-                'item_by_line' => 2,
                 'error_bubbling' => false
             ))
             ->add('phones', 'collection', array(
@@ -51,7 +49,6 @@ class AgencyType extends NIMType
                 'label' => 'agency.field.phone.label',
                 'allow_add' => true,
                 'allow_delete' => true,
-                'item_by_line' => 2,
                 'error_bubbling' => false
             ))
         ;

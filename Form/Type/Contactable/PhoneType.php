@@ -25,10 +25,10 @@ class PhoneType extends NIMType
         $builder
             ->add('type', 'choice', array(
                 'choices' => Phone::getPhoneTypes('phone.field.type.option'),
-                'label' => 'phone.field.type.label',
+                'label' => false,
             ))
             ->add('number', null, array(
-                'label' => 'phone.field.number.label',
+                'label' => false,
             ))
         ;
     }

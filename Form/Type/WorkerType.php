@@ -70,7 +70,6 @@ class WorkerType extends NIMType
             ))
             ->add('country', 'country', array(
                 'label' => 'worker.field.country.label',
-                'render_type' => 'select2'
             ))
             ->add('emails', 'collection', array(
                 'type' => 'nim_contactable_email',
@@ -78,7 +77,6 @@ class WorkerType extends NIMType
                 'allow_add' => true,
                 'allow_delete' => true,
                 'error_bubbling' => false,
-                'item_by_line' => 2
             ))
             ->add('phones', 'collection', array(
                 'type' => 'nim_contactable_phone',
@@ -86,7 +84,6 @@ class WorkerType extends NIMType
                 'allow_add' => true,
                 'allow_delete' => true,
                 'error_bubbling' => false,
-                'item_by_line' => 2
             ))
             ->add('birthday', 'birthday', array(
                 'label' => 'worker.field.birthday.label',

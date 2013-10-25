@@ -39,7 +39,6 @@ class ContactType extends NIMType
             ))
             ->add('country', 'country', array(
                 'label' => 'contact.field.country.label',
-                'render_type' => 'select2'
             ))
             ->add('emails', 'collection', array(
                 'type' => 'nim_contactable_email',
@@ -50,6 +49,7 @@ class ContactType extends NIMType
             ))
             ->add('phones', 'collection', array(
                 'type' => 'nim_contactable_phone',
+                'attr' => array('class' => 'form-inline'),
                 'label' => 'contact.field.phone.label',
                 'allow_add' => true,
                 'allow_delete' => true,
