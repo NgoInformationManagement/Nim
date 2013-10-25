@@ -4,20 +4,9 @@ php:
   - 5.4
   - 5.5
 
-env:
-  - SYMFONY_VERSION=2.2.*
-  - SYMFONY_VERSION=2.3.*
-  - SYMFONY_VERSION=dev-master
-
-before_script:
-  - /home/travis/.phpenv/versions/5.5.0/bin/composer.phar self-update
-  - composer require symfony/symfony:${SYMFONY_VERSION} --no-update
-  - composer update --dry-run
-
 matrix:
     allow_failure:
         - php: 5.5
-        - env: SYMFONY_VERSION=dev-master
 
 before_script: composer install --dev --prefer-source > /dev/null
 
