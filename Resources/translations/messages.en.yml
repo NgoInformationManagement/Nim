@@ -87,6 +87,8 @@ agency:
         new: New Agency
     message:
         empty: There are no agency to display.
+    fieldset:
+        contactdetails: Contact details
     field:
         name:
             label: Name
@@ -123,8 +125,11 @@ worker:
         show: Details about your worker
     button:
         new: New worker
-    message:
-        empty: There are no worker to display.
+    fieldset:
+        contactdetails: Contact details
+        email: Emails
+        phone: Phones
+        organization: Organization
     field:
         gender:
             label: Gender

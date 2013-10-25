@@ -17,7 +17,6 @@
 {% block content %}
     <form action="{{ path('nim_worker_update', {'id': worker.id}) }}"
           method="post"
-          class="form-horizontal"
           role="form"
           id="workerUpdateForm"
           novalidate>
@@ -45,10 +44,10 @@
         </ul>
 
         <div class="tab-content">
-            <div class="form-horizontal tab-pane active" id="worker">
+            <div class=" tab-pane active" id="worker">
                 {% include 'NIMWebBundle:Worker:_create.html.twig' %}
             </div>
-            <div class="tab-pane" id="contact">
+            <div class="form-horizontal tab-pane" id="contact">
                 {% include 'NIMWebBundle:Worker:_update.html.twig' %}
             </div>
         </div>

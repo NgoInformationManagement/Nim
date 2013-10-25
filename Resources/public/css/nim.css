@@ -70,6 +70,10 @@ table td:last-child {
     width: 135px;
 }
 
+.datepicker-days table td:last-child {
+    width: auto;
+}
+
 table .worker-name .col-md-11, table .worker-name .col-md-1 {
     margin: 0;
     padding: 0;
@@ -111,6 +115,34 @@ div.collection-item .collection-box {
     margin: 10px 0;
 }
 
+.collection-widget legend {
+    position: relative;
+}
+
+.collection-widget .collection-button-add {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+div.collection-item .collection-box.unique-field .form-group {
+    margin: 0;
+}
+
+.form-inline div.collection-item .collection-button-remove,
+div.collection-item .unique-field .collection-button-remove {
+    top: 17px;
+}
+
+.form-inline .form-group {
+    margin: 0;
+}
+
+.form-inline div.collection-item .collection-box,
+div.collection-item .collection-box.unique-field {
+    padding: 12px 25px 12px 12px;
+}
+
 div.collection-list .col-md-6 {
     width: 49%; // Humm, why ?
 }
@@ -124,4 +156,10 @@ div.collection-list .col-md-6 {
 .select2-container .select2-choice {
     height: 34px;
     line-height: 34px;
+}
+
+/**  */
+#nim_worker_phones input,
+#nim_agency_phones input {
+    margin-left: 10px;
 }

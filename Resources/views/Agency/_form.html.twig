@@ -1,1 +1,21 @@
+<fieldset class="form-horizontal">
+    <legend>
+        {{ 'agency.fieldset.contactdetails'|trans }}
+    </legend>
+    {{ form_row(form.name) }}
+    {{ form_row(form.street) }}
+    {{ form_row(form.postcode) }}
+    {{ form_row(form.city) }}
+    {{ form_row(form.country) }}
+</fieldset>
+
+<div class="row">
+    <div class="col-md-6">
+        {{ form_widget(form.emails) }}
+    </div>
+    <div class="col-md-6 form-inline">
+        {{ form_widget(form.phones) }}
+    </div>
+</div>
+
 {{ form_rest(form) }}
