@@ -37,15 +37,13 @@ class MissionType extends NIMType
             ))
             ->add('country', 'country', array(
                 'label' => 'mission.field.country.label',
-                'render_type' => 'select2'
             ))
             ->add('startedAt', 'date', array(
-                'input' => 'string',
                 'label' => 'mission.field.startedAt.label',
                 'widget' => 'single_text',
+
             ))
             ->add('endedAt', 'date', array(
-                'input' => 'string',
                 'widget' => 'single_text',
                 'label' => 'mission.field.endedAt.label'
             ))
