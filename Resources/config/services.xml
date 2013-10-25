@@ -17,6 +17,8 @@ file that was distributed with this source code.
     <parameters>
         <parameter key="nim.twig.extension.translation.class">NIM\Component\Twig\NimTranslationExtension</parameter>
         <parameter key="nim.twig.extension.country.class">NIM\Component\Twig\NimCountryExtension</parameter>
+        <parameter key="nim.form.extension.select2.class">NIM\FormBundle\Form\Extension\Select2Extension</parameter>
+        <parameter key="nim.form.extension.datepicker.class">NIM\FormBundle\Form\Extension\EternicodeDatepickerExtension</parameter>
     </parameters>
 
     <services>
@@ -34,6 +36,18 @@ file that was distributed with this source code.
 
         <service id="twig.extension.intl" class="Twig_Extensions_Extension_Intl">
             <tag name="twig.extension" />
+        </service>
+
+        <!-- Select2 extension -->
+        <service id="nim.form.extension.select2"
+                 class="%nim.form.extension.select2.class%">
+            <tag name="form.type_extension" alias="choice" />
+        </service>
+
+        <!-- Eternicode datepicker extension -->
+        <service id="nim.form.extension.datepicker"
+                 class="%nim.form.extension.datepicker.class%">
+            <tag name="form.type_extension" alias="date" />
         </service>
     </services>
 </container>
