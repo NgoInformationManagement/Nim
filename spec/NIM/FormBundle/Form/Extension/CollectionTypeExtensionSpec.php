@@ -12,8 +12,6 @@
 namespace spec\NIM\FormBundle\Form\Extension;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
-use Symfony\Component\Form\FormBuilderInterface;
 
 class CollectionTypeExtensionSpec extends ObjectBehavior
 {

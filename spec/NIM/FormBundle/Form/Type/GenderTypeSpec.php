@@ -12,7 +12,6 @@
 namespace spec\NIM\FormBundle\Form\Type;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class GenderTypeSpec extends ObjectBehavior
 {

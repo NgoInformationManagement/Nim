@@ -13,7 +13,6 @@ namespace NIM\FormBundle\Form\Extension;
 
 use NIM\FormBundle\Form\FormToolsTrait;
 use Symfony\Component\Form\AbstractTypeExtension;
-use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;

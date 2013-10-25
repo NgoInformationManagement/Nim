@@ -12,6 +12,8 @@
 namespace NIM\FormBundle\Behat;
 
 
+use Behat\Mink\Element\NodeElement;
+
 trait FormCollectionTrait
 {
     /**
@@ -53,7 +55,7 @@ trait FormCollectionTrait
             );
         }
 
-        $this->iClickButtonIn($div,$button);
+        $this->iClickButtonIn($div, $button);
     }
 
 
@@ -89,7 +91,7 @@ trait FormCollectionTrait
      * @param $div
      * @param $button
      */
-    private function iClickButtonIn($div,$button)
+    private function iClickButtonIn(NodeElement $div, $button)
     {
         $locator = sprintf('button:contains("%s")', $button);
 

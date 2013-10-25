@@ -11,7 +11,6 @@
 
 namespace NIM\FormBundle\Form\Extension;
 
-use NIM\FormBundle\Form\DataHtml5TransformerTrait;
 use NIM\FormBundle\Form\FormToolsTrait;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormInterface;

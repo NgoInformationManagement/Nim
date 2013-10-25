@@ -12,7 +12,6 @@
 namespace spec\NIM\FormBundle\DependencyInjection;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class NIMFormExtensionSpec extends ObjectBehavior
 {
