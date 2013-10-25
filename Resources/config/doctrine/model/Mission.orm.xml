@@ -32,9 +32,9 @@ file that was distributed with this source code.
 
         <field name="country" />
 
-        <field name="startedAt" />
+        <field name="startedAt" type="date" />
 
-        <field name="endedAt" nullable="true"/>
+        <field name="endedAt" type="date" nullable="true"/>
 
         <one-to-many field="translations" target-entity="NIM\MissionBundle\Model\MissionTranslation" mapped-by="object">
             <cascade>
