@@ -2,34 +2,49 @@
 
 {# Form label #}
 {% block form_label %}
-    {% set label_attr = label_attr | merge({'class' : 'col-lg-2 control-label'}) %}
+    {% set label_attr = label_attr | merge({'class' :  label_attr.class|default ~ ' col-lg-2 control-label'}) %}
     {{ parent() }}
 {% endblock form_label %}
 
 {# Form widget #}
 {% block form_widget_simple %}
-    {% set attr = attr | merge({'class' : 'form-control'}) %}
+    {% set attr = attr | merge({'class' :  attr.class|default ~ ' form-control'}) %}
     {{ parent() }}
 {% endblock form_widget_simple %}
 
 {# Textarea widget #}
 {% block textarea_widget %}
-    {% set attr = attr | merge({'class' : 'form-control'}) %}
+    {% set attr = attr | merge({'class' :  attr.class|default ~ ' form-control'}) %}
     {{ parent() }}
 {% endblock textarea_widget %}
 
 {# Choice widget #}
 {% block choice_widget %}
-    {% set attr = attr | merge({'class' : 'form-control'}) %}
+    {% set attr = attr | merge({'class' :  attr.class|default ~ ' form-control'}) %}
     {{ parent() }}
 {% endblock choice_widget %}
+
+{# Form rest #}
+{% block form_rest %}
+    {% spaceless %}
+        {% for child in form %}
+            {% if not child.rendered %}
+                {% if child.vars.compound %}
+                    {{ form_widget(child) }}
+                {% else %}
+                    {{ form_row(child) }}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    {% endspaceless %}
+{% endblock form_rest %}
 
 {# Form row #}
 {% block form_row %}
     {% spaceless %}
         <div class="form-group {% if errors|length %}has-error{% endif %}">
             {{ form_label(form) }}
-            <div class="col-lg-10">
+            <div {% if label %}class="col-lg-10"{% endif %}>
                 {{ form_widget(form) }}
                 {{ form_errors(form) }}
             </div>
@@ -56,33 +71,33 @@
 
 {# Collection widget #}
 {% block collection_widget %}
+    {% from 'NIMFormBundle:bootstrap3:alert.html.twig' import errors %}
+    {% set attr = attr|merge({'class': attr.class|default ~ ' controls collection-widget'}) %}
     {% spaceless %}
-        {% set attr = attr|merge({'class': 'controls'}) %}
-        {% set boxWidth = (12 / item_by_line)|number_format %}
-
         <div data-form-type="collection"
+             {#class='collection-widget'#}
              {{ block('widget_container_attributes') }}
              {% if prototype is defined %}
              data-prototype='{{ _self.collectionItem(prototype, item_by_line, allow_delete)|e }}'
              {% endif %}>
-
-            {% if prototype is defined and allow_add %}
-            <div>
-                <button class="btn btn-success"
-                        data-form-collection="add">
-                    <i class="icon-plus"></i>
-                    {{ 'form.collection.add' | trans }}
-                </button>
-            </div>
-            {% endif %}
-
-            <div data-form-collection="list"
-                 class="row collection-list">
-            {% for child in form %}
-                {{ _self.collectionItem(child, item_by_line, allow_delete) }}
-            {% endfor %}
-
-             </div>
+            <fieldset >
+                <legend>{{ label|trans }}
+                {% if prototype is defined and allow_add %}
+                    <button class="btn btn-success collection-button-add"
+                            data-form-collection="add">
+                        <i class="icon-plus"></i>
+                        {{ 'form.collection.add' | trans }}
+                    </button>
+                {% endif %}
+                </legend>
+                    {{ errors(form.vars.errors) }}
+                    <div data-form-collection="list"
+                         class="row collection-list">
+                    {% for child in form %}
+                        {{ _self.collectionItem(child, item_by_line, allow_delete) }}
+                    {% endfor %}
+                    </div>
+            </fieldset>
         </div>
     {% endspaceless %}
 {% endblock collection_widget %}
@@ -90,17 +105,19 @@
 {% macro collectionItem(form, item_by_line, allow_delete) %}
     {% set boxWidth = (12 / item_by_line)|number_format %}
 
-    <div data-form-collection="item"
-         class="col-md-{{ boxWidth }} collection-item">
-        <div class="collection-box">
-            {% if allow_delete %}
-                <i class="icon-remove collection-button-remove"
-                   data-form-collection="delete"></i>
-            {% endif %}
+    {% spaceless %}
+        <div data-form-collection="item"
+             class="col-md-{{ boxWidth }} collection-item">
+            <div class="collection-box{% if form|length == 1%} unique-field{% endif %}">
+                {% if allow_delete %}
+                    <i class="icon-remove collection-button-remove"
+                       data-form-collection="delete"></i>
+                {% endif %}
 
-            {{ form_rest(form) }}
+                {{ form_rest(form) }}
+            </div>
         </div>
-    </div>
+    {% endspaceless %}
 {% endmacro %}
 
 {# Delete button widget #}
