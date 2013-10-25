@@ -2,7 +2,7 @@
     "name": "nim/form-bundle",
     "type": "symfony-bundle",
     "description": "Nim form bundle : Manage your symfony form simpler",
-    "keywords": ["nim", "ngo", "humanitarian", "form"],
+    "keywords": ["nim", "ngo", "humanitarian", "form", "select2", "datepicker"],
     "homepage": "https://github.com/NgoInformationManagement/FormBundle",
     "license": "MIT",
 
@@ -15,10 +15,16 @@
 
     "minimum-stability": "dev",
 
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.0-dev"
+        }
+    },
+
     "target-dir": "NIM/FormBundle",
 
     "require": {
-        "php": ">=5.3.3",
+        "php": ">=5.4",
         "symfony/framework-bundle": "~2.3"
     },
 
