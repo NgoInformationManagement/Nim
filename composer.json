@@ -32,12 +32,12 @@
         "fzaninotto/faker": "1.2.*",
         "white-october/pagerfanta-bundle": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
-        "nim/worker-bundle": "dev-master",
-        "nim/web-bundle": "dev-master",
-        "nim/mission-bundle": "dev-master",
-        "nim/form-bundle": "dev-master",
-        "nim/nim-component": "dev-master",
-        "nim/core-bundle": "dev-master"
+        "nim/core-bundle": "0.1.*@dev",
+        "nim/worker-bundle": "0.1.*@dev",
+        "nim/web-bundle": "0.1.*@dev",
+        "nim/mission-bundle": "0.1.*@dev",
+        "nim/form-bundle": "0.1.*@dev",
+        "nim/nim-component": "dev-master"
     },
     "require-dev": {
         "behat/behat": "2.4.*",
