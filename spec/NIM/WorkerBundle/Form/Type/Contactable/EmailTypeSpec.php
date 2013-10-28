@@ -31,12 +31,6 @@ class EmailTypeSpec extends ObjectBehavior
     function it_should_build_agency_form(FormBuilderInterface $builder)
     {
         $builder
-            ->add('label', null,  Argument::any())
-            ->shouldBeCalled()
-            ->willReturn($builder)
-        ;
-
-        $builder
             ->add('address', 'email',  Argument::any())
             ->shouldBeCalled()
             ->willReturn($builder)
