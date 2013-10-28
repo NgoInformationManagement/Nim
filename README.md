@@ -1,4 +1,4 @@
-NIMWorkerBundle
+NIMWorkerBundle [![Build Status](https://travis-ci.org/NgoInformationManagement/WorkerBundle.png?branch=master)](https://travis-ci.org/NgoInformationManagement/WorkerBundle)
 ==============
 
 This bundle is part of the Ngo Information Management (NiM) and licensed under the MIT License.
