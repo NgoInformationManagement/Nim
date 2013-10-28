@@ -14,6 +14,7 @@
             {% stylesheets output='assets/compiled/nim.css' filter='cssrewrite'
                 'bundles/nimweb/css/bootstrap.css'
                 'bundles/nimweb/css/font-awesome.css'
+                'bundles/nimweb/css/bootstrap-datepicker.css'
                 'bundles/nimweb/css/select2/select2.css'
                 'bundles/nimweb/css/select2/select2-bootstrap.css'
                 'bundles/nimweb/css/theme.css'
@@ -150,12 +151,13 @@
         {# javascripts... #}
         {% block javascripts %}
             {% javascripts
-                'bundles/nimweb/js/lib/jquery.min.js'
-                'bundles/nimweb/js/lib/bootstrap.min.js'
+                'bundles/nimweb/js/lib/core/jquery.min.js'
+                'bundles/nimweb/js/lib/core/bootstrap.min.js'
+                'bundles/nimweb/js/lib/plugin/*'
+                'bundles/nimform/js/core/plugin-options-factory.js'
+                'bundles/nimform/js/core/plugin-options-manager.js'
+                'bundles/nimform/js/type/*'
                 'bundles/nimweb/js/lib/knockout.min.js'
-                'bundles/nimweb/js/lib/select2.js'
-                'bundles/nimform/js/choice.js'
-                'bundles/nimform/js/collection.js'
                 'bundles/nimweb/js/layout.js'
             %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
