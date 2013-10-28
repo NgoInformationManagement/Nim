@@ -1,4 +1,4 @@
-NIMMissionBundle
+NIMMissionBundle [![Build Status](https://travis-ci.org/NgoInformationManagement/MissionBundle.png?branch=master)](https://travis-ci.org/NgoInformationManagement/MissionBundle)
 ==============
 
 This bundle is part of the Ngo Information Management (NiM) and licensed under the MIT License.
