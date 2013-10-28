@@ -152,6 +152,11 @@ div.collection-list .col-md-6 {
     color: #B94A48;
 }
 
+.tab-content {
+    padding: 20px 10px 0 0;
+    margin-bottom: 10px;
+}
+
 /** select2 fixes */
 .select2-container .select2-choice {
     height: 34px;
