@@ -29,7 +29,6 @@
         "stof/doctrine-extensions-bundle": "~1.1@dev",
         "sylius/resource-bundle": "1.0.*@dev",
         "a2lix/translation-form-bundle": "dev-master",
-        "fzaninotto/faker": "1.2.*",
         "white-october/pagerfanta-bundle": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "nim/core-bundle": "0.1.*@dev",
@@ -40,6 +39,7 @@
         "nim/nim-component": "dev-master"
     },
     "require-dev": {
+        "fzaninotto/faker": "1.2.*",
         "behat/behat": "2.4.*",
         "behat/symfony2-extension": "*",
         "behat/mink-extension": "*",
