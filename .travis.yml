@@ -4,26 +4,33 @@ php:
   - 5.4
   - 5.5
 
+matrix:
+    allow_failure:
+        - php: 5.5
+
 before_script:
-    - sudo apt-get update > /dev/null
-    - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-curl php5-mysql php5-intl
+  - sudo apt-get update > /dev/null
+  - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-curl php5-mysql php5-intl
 
-    - sudo sed -i -e "s,/var/www,$(pwd)/web,g" /etc/apache2/sites-available/default
-    - export MINK_EXTENSION_PARAMS='base_url=http://localhost:8000/app_test.php'
-    - sudo /etc/init.d/apache2 restart
+  - sudo sed -i -e "s,/var/www,$(pwd)/web,g" /etc/apache2/sites-available/default
+  - export MINK_EXTENSION_PARAMS='base_url=http://localhost:8000/app_test.php'
+  - sudo /etc/init.d/apache2 restart
 
-    - composer self-update
-    - composer install --dev --prefer-dist
+  - composer self-update
+  - composer install --dev --prefer-dist
 
-    - app/console doctrine:database:create --env=test > /dev/null
-    - app/console doctrine:schema:create --env=test > /dev/null
-    - app/console cache:warmup --env=test > /dev/null
+  - app/console doctrine:database:create --env=test > /dev/null
+  - app/console doctrine:schema:create --env=test > /dev/null
+  - app/console cache:warmup --env=test > /dev/null
 
-    - sh -e /etc/init.d/xvfb start
-    - export DISPLAY=:99
-    - wget http://selenium.googlecode.com/files/selenium-server-standalone-2.37.0.jar
-    - java -jar selenium-server-standalone-2.35.0.jar > /dev/null &
-    - sleep 5
+  - sh -e /etc/init.d/xvfb start
+  - export DISPLAY=:99
+  - wget http://selenium.googlecode.com/files/selenium-server-standalone-2.37.0.jar
+  - java -jar selenium-server-standalone-2.35.0.jar > /dev/null &
+  - sleep 5
 
 script:
-    - bin/behat
+  - bin/behat
+
+notifications:
+    email: "ngo.information.management+travis@gmail.com"
