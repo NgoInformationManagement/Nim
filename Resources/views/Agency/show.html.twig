@@ -19,19 +19,17 @@
 
 
 {% block content %}
-<div class="form-horizontal">
-    {{ displayedField('name', agency.name, 'agency') }}
-    {{ displayedField('street', agency.street, 'agency') }}
-    {{ displayedField('postcode', agency.postcode, 'agency') }}
-    {{ displayedField('city', agency.city, 'agency') }}
-    {{ displayedField('country', agency.country|country, 'agency') }}
-    <fieldset>
-        <legend>{{ 'worker.field.email.label'|trans }}</legend>
-        {{ contactable.emailList(agency.emails) }}
-    </fieldset>
-    <fieldset>
-        <legend>{{ 'worker.field.phone.label'|trans }}</legend>
-        {{ contactable.phoneList(agency.phones) }}
-    </fieldset>
-</div>
+    <div class="row form-horizontal">
+        <div class="col-md-6">
+            {{ displayedField('name', agency.name, 'agency') }}
+            {{ displayedField('street', agency.street, 'agency') }}
+            {{ displayedField('postcode', agency.postcode, 'agency') }}
+            {{ displayedField('city', agency.city, 'agency') }}
+            {{ displayedField('country', agency.country|country, 'agency') }}
+        </div>
+        <div class="col-md-6">
+            {{ contactable.emailList('email', agency.emails, 'agency') }}
+            {{ contactable.phoneList('phone', agency.phones, 'agency') }}
+        </div>
+    </div>
 {% endblock %}

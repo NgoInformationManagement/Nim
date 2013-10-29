@@ -136,10 +136,14 @@ worker:
             option:
                 male: Male
                 female: Female
+        name:
+            label: Name
         firstname:
             label: First name
         lastname:
             label: Last name
+        address:
+            label: Address
         street:
             label: Street
         city:
@@ -169,6 +173,8 @@ worker:
         contact:
             label: Contacts
 contact:
+    fieldset:
+        contact: Contact
     validation:
         email:
             count: You should define {{ limit }} email or more
@@ -177,10 +183,14 @@ contact:
     message:
         empty: There are no contact to display
     field:
+        name:
+            label: Name
         firstname:
             label: First name
         lastname:
             label: Last name
+        address:
+            label: Address
         street:
             label: Street
         city:

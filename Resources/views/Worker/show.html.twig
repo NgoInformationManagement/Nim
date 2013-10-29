@@ -3,6 +3,7 @@
 {% import 'NIMWebBundle:Contactable:macro.html.twig' as contactable %}
 {% import 'NIMFormBundle:bootstrap3:button.html.twig' as buttons %}
 {% from 'NIMFormBundle:bootstrap3:show.html.twig' import displayedField %}
+{% from 'NIMFormBundle:bootstrap3:show.html.twig' import address %}
 {% from 'NIMFormBundle:bootstrap3:show.html.twig' import displayedContantTranslatableField %}
 {% from 'NIMFormBundle:bootstrap3:alert.html.twig' import info %}
 
@@ -35,50 +36,42 @@
 </ul>
 
 <div class="tab-content">
-    <div class="form-horizontal tab-pane active" id="worker">
-        {% if worker.leftAt is not defined %}
-            {% set leftAt = worker.leftAt|localizeddate('long', 'none') %}
-        {% endif %}
-        {{ displayedField('gender', worker.gender, 'worker') }}
-        {{ displayedField('firstname', worker.firstname, 'worker') }}
-        {{ displayedField('lastname', worker.lastname, 'worker') }}
-        {{ displayedField('street', worker.street, 'worker') }}
-        {{ displayedField('postcode', worker.postcode, 'worker') }}
-        {{ displayedField('city', worker.city, 'worker') }}
-        {{ displayedField('country', worker.country|country, 'worker') }}
-        {{ displayedField('birthday', worker.birthday|localizeddate('long', 'none'), 'worker') }}
-        {{ displayedField('diploma', worker.diploma, 'worker') }}
-        {{ displayedField('function', worker.function, 'worker') }}
-        {{ displayedField('arrivedAt', worker.arrivedAt|localizeddate('long','none'), 'worker') }}
-        {{ displayedField('leftAt', leftAt|default, 'worker') }}
-        <fieldset>
-            <legend>{{ 'worker.field.email.label'|trans }}</legend>
-            {{ contactable.emailList(worker.emails) }}
+    <div class="form-horizontal row tab-pane active" id="worker">
+        <fieldset class="col-md-6">
+            <legend>
+                {{ 'worker.fieldset.contactdetails'|trans }}
+                <i class="icon-{{ worker.gender }}"></i>
+            </legend>
+            {% if worker.leftAt is not defined %}
+                {% set leftAt = worker.leftAt|localizeddate('long', 'none') %}
+            {% endif %}
+            {{ displayedField('name', worker.firstname ~ ' ' ~ worker.lastname, 'worker') }}
+            {{ displayedField('diploma', worker.diploma, 'worker') }}
+            {{ displayedField('birthday', worker.birthday|localizeddate('long', 'none'), 'worker') }}
+            {{ displayedField('address', address(worker.street, worker.postcode, worker.city, worker.country|country), 'worker') }}
+            {{ contactable.emailList('email', worker.emails, 'worker') }}
+            {{ contactable.phoneList('phone', worker.phones, 'worker') }}
         </fieldset>
-        <fieldset>
-            <legend>{{ 'worker.field.phone.label'|trans }}</legend>
-            {{ contactable.phoneList(worker.phones) }}
+        <fieldset class="col-md-6">
+            <legend>{{ 'worker.fieldset.organization'|trans }}</legend>
+            {{ displayedField('basedAt', worker.basedAt, 'worker') }}
+            {{ displayedField('function', worker.function, 'worker') }}
+            {{ displayedField('arrivedAt', worker.arrivedAt|localizeddate('long','none'), 'worker') }}
+            {{ displayedField('leftAt', leftAt|default, 'worker') }}
         </fieldset>
+
     </div>
     <div class="form-horizontal row tab-pane" id="contact">
         {% if worker.contacts|length > 0 %}
             {% for contact in worker.contacts %}
-                <div class="col-lg-6">
-                    {{ displayedField('firstname', contact.firstname, 'contact') }}
-                    {{ displayedField('lastname', contact.lastname, 'contact') }}
-                    {{ displayedField('street', contact.street, 'contact') }}
-                    {{ displayedField('postcode', contact.postcode, 'worker') }}
-                    {{ displayedField('city', contact.city, 'contact') }}
-                    {{ displayedField('country', contact.country|country, 'contact') }}
-                    <fieldset>
-                        <legend>{{ 'worker.field.email.label'|trans }}</legend>
-                        {{ contactable.emailList(contact.emails) }}
-                    </fieldset>
-                    <fieldset>
-                        <legend>{{ 'worker.field.phone.label'|trans }}</legend>
-                        {{ contactable.phoneList(contact.phones) }}
-                    </fieldset>
-                </div>
+
+        <fieldset class="col-md-6">
+            <legend>{{ 'contact.fieldset.contact'|trans }}</legend>
+                    {{ displayedField('name', contact.firstname ~ ' ' ~ contact.lastname, 'contact') }}
+                    {{ displayedField('address', address(contact.street, contact.postcode, contact.city, contact.country|country), 'contact') }}
+                    {{ contactable.emailList('email', contact.emails, 'contact') }}
+                    {{ contactable.phoneList('phone', contact.phones, 'contact') }}
+        </fieldset>
             {% endfor %}
         {% else %}
             {{ info('contact.message.empty'|trans) }}
