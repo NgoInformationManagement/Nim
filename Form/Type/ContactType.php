@@ -31,11 +31,11 @@ class ContactType extends NIMType
             ->add('street', null, array(
                 'label' => 'contact.field.street.label',
             ))
-            ->add('city', null, array(
-                'label' => 'contact.field.city.label',
-            ))
             ->add('postcode', null, array(
                 'label' => 'contact.field.postcode.label',
+            ))
+            ->add('city', null, array(
+                'label' => 'contact.field.city.label',
             ))
             ->add('country', 'country', array(
                 'label' => 'contact.field.country.label',

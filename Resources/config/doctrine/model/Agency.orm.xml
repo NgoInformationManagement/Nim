@@ -35,7 +35,7 @@ file that was distributed with this source code.
             <gedmo:timestampable on="update"/>
         </field>
 
-        <many-to-many field="emails" target-entity="NIM\WorkerBundle\Model\Email">
+        <many-to-many field="emails" target-entity="NIM\WorkerBundle\Model\Email" orphan-removal="true">
             <cascade>
                 <cascade-persist/>
                 <cascade-remove/>
