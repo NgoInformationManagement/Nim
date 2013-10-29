@@ -4,7 +4,7 @@
     <div class="form-group">
         <label class="col-lg-{{ labelWidth }} control-label">{{ (entityName ~ '.field.' ~ field ~ '.label')|trans }}</label>
         <div class="col-lg-{{ 12 - labelWidth }}">
-            <p class="form-control-static">{{ value|raw }}</p>
+            <div class="form-control-static">{{ value|raw }}</div>
         </div>
     </div>
 {% endmacro %}
@@ -15,7 +15,7 @@
     <div class="form-group">
         <label class="col-lg-{{ labelWidth }} control-label">{{ (entityName ~ '.field.' ~ field ~ '.label')|trans }}</label>
         <div class="col-lg-{{ 12 - labelWidth }}">
-            <p class="form-control-static">{{ (entityName ~ '.field.' ~ field ~ '.option.' ~ value)|trans }}</p>
+            <div class="form-control-static">{{ (entityName ~ '.field.' ~ field ~ '.option.' ~ value)|trans }}</div>
         </div>
     </div>
 {% endmacro %}
@@ -47,4 +47,10 @@
     {% else %}
         {{ default }}
     {% endif %}
+{% endmacro %}
+
+{% macro address(street, postcode, city, country) %}
+    <p>{{ street }}</p>
+    <p>{{ postcode }} {{ city }}</p>
+    <p>{{ country }}</p>
 {% endmacro %}
