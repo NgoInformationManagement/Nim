@@ -1,7 +1,7 @@
 {% macro list(agencies) %}
 
-    {% from 'NIMFormBundle:bootstrap3:button.html.twig' import listActionButton %}
-    {% from 'NIMFormBundle:bootstrap3:alert.html.twig' import info %}
+    {% from 'NIMFormBundle:Bootstrap3:button.html.twig' import listActionButton %}
+    {% from 'NIMFormBundle:Bootstrap3:notification.html.twig' import info %}
 
     {% if agencies|length > 0 %}
         <div class="table-responsive">
@@ -35,6 +35,6 @@
             </table>
         </div>
     {% else %}
-        {{ info('agency.message.empty'|trans) }}
+        {{ info('agency.message.empty') }}
     {% endif %}
 {% endmacro %}

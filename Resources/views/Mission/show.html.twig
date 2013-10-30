@@ -1,7 +1,8 @@
 {% extends 'NIMWebBundle::layout.html.twig' %}
 
-{% import 'NIMFormBundle:bootstrap3:button.html.twig' as buttons %}
-{% from 'NIMFormBundle:bootstrap3:show.html.twig' import displayedField %}
+{% import 'NIMFormBundle:Bootstrap3:button.html.twig' as buttons %}
+{% from 'NIMFormBundle:Bootstrap3:field.html.twig' import field_row %}
+{% from 'NIMFormBundle:Bootstrap3:field.html.twig' import date %}
 
 {% block page_name %}
     <i class="icon-rocket"></i>
@@ -18,12 +19,9 @@
 
 {% block content %}
 <div class="form-horizontal translated-form">
-    {% if mission.endedAt is not null %}
-        {% set endedAt = mission.endedAt|localizeddate('full', 'none') %}
-    {% endif %}
     {{ nim_translation(mission)}}
-    {{ displayedField('country', mission.country|country, 'mission') }}
-    {{ displayedField('startedAt', mission.startedAt|localizeddate('full', 'none'), 'mission') }}
-    {{ displayedField('endedAt', endedAt|default, 'mission') }}
+    {{ field_row('mission.field.country.label', mission.country|country) }}
+    {{ field_row('mission.field.startedAt.label', mission.startedAt|localizeddate('full', 'none')) }}
+    {{ field_row('mission.field.endedAt.label', date(mission.endedAt)) }}
 </div>
 {% endblock %}

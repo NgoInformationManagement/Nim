@@ -1,4 +1,4 @@
-{% from 'NIMFormBundle:bootstrap3:show.html.twig' import displayedField %}
+{% from 'NIMFormBundle:Bootstrap3:field.html.twig' import field_row %}
 
 <div class="a2lix_translations tabbable">
     <ul class="a2lix_translationsLocales nav nav-tabs">
@@ -16,7 +16,7 @@
         {% for locale, translation in translations %}
             <div class="a2lix_translationsFields-{{ locale }} form-horizontal tab-pane {% if (app.request.locale == locale) %}active{% endif %}">
                 {% for field, content in translation %}
-                    {{ displayedField(field, content, 'mission') }}
+                    {{ field_row(field, content) }}
                 {% endfor %}
             </div>
         {% endfor %}

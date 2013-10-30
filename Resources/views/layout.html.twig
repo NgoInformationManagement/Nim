@@ -132,7 +132,8 @@
             <div id="content">
                 <div class="outer">
                     <div class="inner">
-                        {% include "NIMFormBundle:bootstrap3:flash.html.twig" %}
+                        {% from "NIMFormBundle:Bootstrap3:notification.html.twig" import flashes %}
+                        {{ flashes() }}
                         {% block content %}
                         {% endblock content %}
                     </div>

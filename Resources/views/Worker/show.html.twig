@@ -1,11 +1,11 @@
 {% extends 'NIMWebBundle::layout.html.twig' %}
 
 {% import 'NIMWebBundle:Contactable:macro.html.twig' as contactable %}
-{% import 'NIMFormBundle:bootstrap3:button.html.twig' as buttons %}
-{% from 'NIMFormBundle:bootstrap3:show.html.twig' import displayedField %}
-{% from 'NIMFormBundle:bootstrap3:show.html.twig' import address %}
-{% from 'NIMFormBundle:bootstrap3:show.html.twig' import displayedContantTranslatableField %}
-{% from 'NIMFormBundle:bootstrap3:alert.html.twig' import info %}
+{% import 'NIMFormBundle:Bootstrap3:button.html.twig' as buttons %}
+{% from 'NIMFormBundle:Bootstrap3:field.html.twig' import field_row %}
+{% from 'NIMFormBundle:Bootstrap3:field.html.twig' import address %}
+{% from 'NIMFormBundle:Bootstrap3:notification.html.twig' import info %}
+{% from 'NIMFormBundle:Bootstrap3:field.html.twig' import date %}
 
 
 {% block page_name %}
@@ -42,22 +42,19 @@
                 {{ 'worker.fieldset.contactdetails'|trans }}
                 <i class="icon-{{ worker.gender }}"></i>
             </legend>
-            {% if worker.leftAt is not defined %}
-                {% set leftAt = worker.leftAt|localizeddate('long', 'none') %}
-            {% endif %}
-            {{ displayedField('name', worker.firstname ~ ' ' ~ worker.lastname, 'worker') }}
-            {{ displayedField('diploma', worker.diploma, 'worker') }}
-            {{ displayedField('birthday', worker.birthday|localizeddate('long', 'none'), 'worker') }}
-            {{ displayedField('address', address(worker.street, worker.postcode, worker.city, worker.country|country), 'worker') }}
+            {{ field_row('worker.field.name.label', worker.firstname ~ ' ' ~ worker.lastname) }}
+            {{ field_row('worker.field.diploma.label', worker.diploma) }}
+            {{ field_row('worker.field.birthday.label', date(worker.birthday)) }}
+            {{ field_row('worker.field.address.label', address(worker.street, worker.postcode, worker.city, worker.country|country)) }}
             {{ contactable.emailList('email', worker.emails, 'worker') }}
             {{ contactable.phoneList('phone', worker.phones, 'worker') }}
         </fieldset>
         <fieldset class="col-md-6">
             <legend>{{ 'worker.fieldset.organization'|trans }}</legend>
-            {{ displayedField('basedAt', worker.basedAt, 'worker') }}
-            {{ displayedField('function', worker.function, 'worker') }}
-            {{ displayedField('arrivedAt', worker.arrivedAt|localizeddate('long','none'), 'worker') }}
-            {{ displayedField('leftAt', leftAt|default, 'worker') }}
+            {{ field_row('worker.field.basedAt.label', worker.basedAt) }}
+            {{ field_row('worker.field.function.label', worker.function) }}
+            {{ field_row('worker.field.arrivedAt.label', date(worker.arrivedAt)) }}
+            {{ field_row('worker.field.leftAt.label', date(worker.leftAt)) }}
         </fieldset>
 
     </div>
@@ -67,8 +64,8 @@
 
         <fieldset class="col-md-6">
             <legend>{{ 'contact.fieldset.contact'|trans }}</legend>
-                    {{ displayedField('name', contact.firstname ~ ' ' ~ contact.lastname, 'contact') }}
-                    {{ displayedField('address', address(contact.street, contact.postcode, contact.city, contact.country|country), 'contact') }}
+                    {{ field_row('contact.field.name.label', contact.firstname ~ ' ' ~ contact.lastname) }}
+                    {{ field_row('contact.field.address.label', address(contact.street, contact.postcode, contact.city, contact.country|country)) }}
                     {{ contactable.emailList('email', contact.emails, 'contact') }}
                     {{ contactable.phoneList('phone', contact.phones, 'contact') }}
         </fieldset>

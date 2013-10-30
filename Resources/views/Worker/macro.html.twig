@@ -1,9 +1,8 @@
 {% macro list(workers) %}
 
-    {% from 'NIMFormBundle:bootstrap3:button.html.twig' import listActionButton %}
-    {% from 'NIMFormBundle:bootstrap3:alert.html.twig' import info %}
-    {% from 'NIMFormBundle:bootstrap3:show.html.twig' import translatableContant %}
-    {% from 'NIMFormBundle:bootstrap3:show.html.twig' import boolean %}
+    {% from 'NIMFormBundle:Bootstrap3:button.html.twig' import listActionButton %}
+    {% from 'NIMFormBundle:Bootstrap3:notification.html.twig' import info %}
+    {% from 'NIMFormBundle:Bootstrap3:field.html.twig' import boolean %}
 
     {% if workers|length > 0 %}
         <div class="table-responsive">
@@ -57,6 +56,6 @@
             </table>
         </div>
     {% else %}
-        {{ info('worker.message.empty'|trans) }}
+        {{ info('worker.message.empty') }}
     {% endif %}
 {% endmacro %}

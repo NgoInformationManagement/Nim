@@ -1,9 +1,8 @@
 {% extends 'NIMWebBundle::layout.html.twig' %}
 
-{% import 'NIMFormBundle:bootstrap3:button.html.twig' as buttons %}
+{% import 'NIMFormBundle:Bootstrap3:button.html.twig' as buttons %}
 {% import 'NIMWebBundle:Contactable:macro.html.twig' as contactable %}
-{% from 'NIMFormBundle:bootstrap3:show.html.twig' import displayedField %}
-{% from 'NIMFormBundle:bootstrap3:show.html.twig' import displayedContantTranslatableField %}
+{% from 'NIMFormBundle:Bootstrap3:field.html.twig' import field_row %}
 
 {% block page_name %}
     <i class="icon-rocket"></i>
@@ -21,11 +20,11 @@
 {% block content %}
     <div class="row form-horizontal">
         <div class="col-md-6">
-            {{ displayedField('name', agency.name, 'agency') }}
-            {{ displayedField('street', agency.street, 'agency') }}
-            {{ displayedField('postcode', agency.postcode, 'agency') }}
-            {{ displayedField('city', agency.city, 'agency') }}
-            {{ displayedField('country', agency.country|country, 'agency') }}
+            {{ field_row('agency.field.name.label', agency.name) }}
+            {{ field_row('agency.field.street.label', agency.street) }}
+            {{ field_row('agency.field.postcode.label', agency.postcode) }}
+            {{ field_row('agency.field.city.label', agency.city) }}
+            {{ field_row('agency.field.country.label', agency.country|country) }}
         </div>
         <div class="col-md-6">
             {{ contactable.emailList('email', agency.emails, 'agency') }}

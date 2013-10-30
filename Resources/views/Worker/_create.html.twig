@@ -1,6 +1,6 @@
-{% from 'NIMFormBundle:bootstrap3:alert.html.twig' import errors %}
+{% from 'NIMFormBundle:Bootstrap3:notification.html.twig' import error %}
 
-{{ errors(form.vars.errors) }}
+{{ error(form.vars.errors) }}
 <div class="row form-horizontal">
     <fieldset class="col-md-6">
         <legend>{{ 'worker.fieldset.contactdetails'|trans }}</legend>
