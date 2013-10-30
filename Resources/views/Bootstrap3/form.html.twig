@@ -71,8 +71,9 @@
 
 {# Collection widget #}
 {% block collection_widget %}
-    {% from 'NIMFormBundle:bootstrap3:alert.html.twig' import errors %}
+    {% from 'NIMFormBundle:Bootstrap3:notification.html.twig' import error %}
     {% set attr = attr|merge({'class': attr.class|default ~ ' controls collection-widget'}) %}
+
     {% spaceless %}
         <div data-form-type="collection"
              {#class='collection-widget'#}
@@ -90,7 +91,7 @@
                     </button>
                 {% endif %}
                 </legend>
-                    {{ errors(form.vars.errors) }}
+                    {{ error(form.vars.errors) }}
                     <div data-form-collection="list"
                          class="row collection-list">
                     {% for child in form %}

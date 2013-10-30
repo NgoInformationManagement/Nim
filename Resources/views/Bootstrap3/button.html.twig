@@ -71,9 +71,7 @@
 {% endmacro %}
 
 {% macro listActionButton(routePrefix, id) %}
-    {% import 'NIMFormBundle:bootstrap3:button.html.twig' as buttons %}
-
-    {{ buttons.show(path(routePrefix ~ '_show', {'id': id}), null, 'tooltip.show') }}
-    {{ buttons.edit(path(routePrefix ~ '_update', {'id': id}), null, 'tooltip.edit') }}
-    {{ buttons.delete(path(routePrefix ~ '_delete', {'id': id}), null, 'tooltip.delete') }}
+    {{ _self.show(path(routePrefix ~ '_show', {'id': id}), null, 'tooltip.show') }}
+    {{ _self.edit(path(routePrefix ~ '_update', {'id': id}), null, 'tooltip.edit') }}
+    {{ _self.delete(path(routePrefix ~ '_delete', {'id': id}), null, 'tooltip.delete') }}
 {% endmacro %}
