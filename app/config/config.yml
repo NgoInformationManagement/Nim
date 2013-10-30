@@ -27,7 +27,7 @@ twig:
     strict_variables: %kernel.debug%
     form:
         resources:
-            - 'NIMFormBundle:bootstrap3:form.html.twig'
+            - 'NIMFormBundle:Bootstrap3:form.html.twig'
 
 # Assetic Configuration
 assetic:
