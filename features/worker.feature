@@ -1,3 +1,4 @@
+@worker
 Feature: Worker
     In order to create worker
     As a administrator
@@ -30,7 +31,7 @@ Feature: Worker
              | type  | number     |
              | phone | 0512457812 |
              | fax   | 0512415814 |
-#
+
 #  Scenario: Seeing empty index of worker
 #       Given There are no workers
 #        When I am on the worker index page
@@ -47,7 +48,7 @@ Feature: Worker
 #        When I follow "Workers"
 #         And I follow "New worker"
 #        Then I should be on the worker creation page
-#
+
 #    @javascript
 #    Scenario: Creating a new worker
 #       Given I am on the worker creation page
@@ -57,19 +58,35 @@ Feature: Worker
 #         And I fill in "Street" with "Langlade"
 #         And I fill in "Postcode" with "54000"
 #         And I fill in "City" with "City"
-#         And I fill in "Birthday" with "1984-03-03"
+#         And I select "France" from "Country"
+#         And I fill in "Birthday" with "03/03/1984"
 #         And I fill in "Function" with "Integrator"
-#         And I fill in "Arrived at" with "2010-10-13"
-#         And I click "Add" to add an item to "Emails"
-#         And I fill in "Label" with "Label"
-#         And I fill in "Address" with "email@email.fr"
-#         And I click "Add" to add an item to "Phones"
-#         And I fill in "Type" with "Fax"
-#         And I fill in "Number" with "05949838473"
+#         And I fill in "Arrived at" with "10/13/2010"
+#         And I press "Add" to add an item to "Emails"
+#         And I fill in "Address" in the item #1 of the "Emails" collection with "remi@email.fr"
+#         And I press "Add" to add an item to "Phones"
+#         And I fill in "Type" in the item #1 of the "Phones" collection with "fax"
+#         And I fill in "Number" in the item #1 of the "Phones" collection with "05949838473"
 #         And I press "Create"
-#        Then I should be editing worker which has "Rémi" "Anglade" as name
+#        Then I should be editing worker which has "Anglade" as lastname
 #         And I should see "Worker has been successfully created."
-#
+#        When I follow "Contacts"
+#         And I press "Add" in the active tab
+#         And I fill in visible "First name" with "Rémi"
+#         And I fill in visible "Last name" with "Anglade"
+#         And I fill in visible "Street" with "Langlade"
+#         And I fill in visible "Postcode" with "54000"
+#         And I fill in visible "City" with "City"
+#         And I select "France" from visible "Country"
+#         And I press "Add" to add an item to "Emails"
+#         And I fill in "Address" in the item #1 of the "Emails" collection with "it@agency.fr"
+#         And I press "Add" to add an item to "Phones"
+#         And I fill in "Type" in the item #1 of the "Phones" collection with "fax"
+#         And I fill in "Number" in the item #1 of the "Phones" collection with "05949838473"
+#         And I press "Update"
+#        Then I should be on the page of worker which has "Anglade" as lastname
+#         And I should see "Worker has been successfully updated."
+
 #    @javascript
 #    Scenario: Creating a new worker with empties or wrongs fields
 #      Given I am on the worker creation page
@@ -85,26 +102,27 @@ Feature: Worker
 #        And I should see "Birthday" field error
 #        And I should see "Function" field error
 #        And I should see "Arrived at" field error
-#        And I should see "Phone" field error
+#        And I should see "You should define 1 phone or more"
 #       When I click "Add" to add an item to "Email"
-#        And I fill in "Address" with "wrongMail"
+#        And I fill in "Address" in the item #1 of the "Emails" collection with "wrongMail"
 #        And I click "Add" to add an item to "Phone"
-#        And I leave "Number" empty
 #        And I press "Create"
-#       Then I should see "Address" field error
-#        And I should see "Number" field error
-#
+#       Then I should be on the worker creation page
+#        And I should see "Address" field error in the item #1 of the "Emails" collection
+#        And I should see "Number" field error in the item #1 of the "Phone" collection
+
+
 #    Scenario: Created worker appears in the list
-#       Given I created worker which has "Arnaud" "Langlade" as name
+#       Given I created worker which has "Julien" "Dupont" as name
 #        When I go on the worker index page
 #        Then I should see 4 workers in the list
-#         And I should see worker with name "Arnaud Langlade" in the list
-#
+#         And I should see worker with name "Dupont" in the list
+
 #    Scenario: Accessing the editing page from the list
 #        Given I am on the worker index page
 #         When I click edition button near "Langlade"
-#         Then I should be editing worker which has "Arnaud" "Langlade" as name
-#
+#         Then I should be editing worker which has "Langlade" as lastname
+
 #    @javascript
 #    Scenario: Updating a worker
 #       Given I am updating the worker which has "Sébastien" "Lannus" as name
@@ -125,15 +143,15 @@ Feature: Worker
 #         And I fill in "Number" with "05949838473"
 #         And I click "Contacts"
 #         And I click "Add" to add an item in current tab
-##         And I fill in "First name" with "Rémi"
-##         And I fill in "Last name" with "Anglade"
-##         And I click "Add" to add an item to "Phones"
-##         And I fill in "Type" with "Fax"
-##         And I fill in "Number" with "05949838473"
-##         And I press "Update"
-##        Then I should be on the page of worker which has "Rémi" "Langlade" as name
-##         And I should see "Worker has been successfully updated."
-#
+#         And I fill in "First name" with "Rémi"
+#         And I fill in "Last name" with "Anglade"
+#         And I click "Add" to add an item to "Phones"
+#         And I fill in "Type" with "Fax"
+#         And I fill in "Number" with "05949838473"
+#         And I press "Update"
+#        Then I should be on the page of worker which has "Rémi" "Langlade" as name
+#         And I should see "Worker has been successfully updated."
+
 #    Scenario: Deleting worker via the list button
 #       Given I am on the worker index page
 #        When I press deletion button near "Langlade"
@@ -147,35 +165,33 @@ Feature: Worker
 #        Then I should be on the worker index page
 #         And I should see "Worker has been successfully deleted."
 #         But I should not see worker with name "Langlade" in the list
-##
+
   @javascript
   Scenario: Accessing worker details via the list
        Given I am on the worker index page
         When I press details button near "Langlade"
         Then I should be on the page of worker which has "Langlade" as lastname
-         And I should see "Male"
-         And I should see "Arnaud"
-         And I should see "Langlade"
-         And I should see "France"
-         And I should see "function"
-         And I should see "September 3, 1985"
-         And I should see "September 1, 2005"
-         And I should see "diploma"
-         And I should see "19, rue Jean-Baptiste Carreau"
-         And I should see "64000"
-         And I should see "PAU"
-         And I should see "France"
-         And I should see "arnaud@gmail.fr"
-         And I should see "arnaud@gmail.com"
-         And I should see "0212457812"
-         And I should see "0212415814"
+         And I should see "Arnaud Langlade" as "Name"
+
+         And I should see "Developer" as "Function"
+         And I should see "September 3, 1985" as "Birthday"
+         And I should see "September 1, 2005" as "Arrived at"
+         And I should see "-" as "Left at"
+         And I should see "Dut" as "Diploma"
+         And I should see "France" as "Based at"
+         And I should see "64000 PAU" as "Address"
+         And I should see "19, rue Jean-Baptiste Carreau" as "Address"
+         And I should see "France" as "Address"
+         And I should see "arnaud@gmail.fr" as "Emails"
+         And I should see "arnaud@gmail.com" as "Emails"
+         And I should see "phone : 0212457812" as "Phones"
+         And I should see "fax : 0212415814" as "Phones"
          And I click "Contacts"
-         And I should see "Didier"
-         And I should see "Anglade"
-         And I should see "193, rue Cours du Médoc "
-         And I should see "33300"
-         And I should see "Bordeaux"
-         And I should see "didier@gmail.fr"
-         And I should see "didier@gmail.com"
-         And I should see "0512457812"
-         And I should see "0512415814"
+         And I should see "Didier Anglade" as "Name"
+         And I should see "193, rue Cours du Médoc" as "Address"
+         And I should see "33300 Bordeaux" as "Address"
+         And I should see "France" as "Address"
+         And I should see "didier@gmail.fr" as "Emails"
+         And I should see "didier@gmail.com" as "Emails"
+         And I should see "phone : 0512457812"
+         And I should see "fax : 0512415814"

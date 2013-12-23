@@ -6,9 +6,10 @@ default:
         class: NIM\WebBundle\Behat\FeatureContext
     extensions:
         Behat\MinkExtension\Extension:
-            base_url: "http://nim.dev/app_test.php"
-            default_session: symfony2
-            selenium2: ~
+             base_url: 'http://example.com/app_test.php'
+             default_session: symfony2
+             browser_name: firefox
+             selenium2:
+                 wd_host: "http://localhost:4444/wd/hub"
         Behat\Symfony2Extension\Extension:
             mink_driver: true
-

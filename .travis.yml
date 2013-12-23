@@ -4,33 +4,50 @@ php:
   - 5.4
   - 5.5
 
+addons:
+    hosts:
+        - example.com
+
 matrix:
     allow_failure:
         - php: 5.5
 
-before_script:
-  - sudo apt-get update > /dev/null
-  - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-curl php5-mysql php5-intl
+before_install:
+    - sudo apt-get update > /dev/null
 
+install:
+  - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-curl php5-mysql php5-intl > /dev/null
   - sudo sed -i -e "s,/var/www,$(pwd)/web,g" /etc/apache2/sites-available/default
-  - export MINK_EXTENSION_PARAMS='base_url=http://localhost:8000/app_test.php'
+  - sudo sed -i -e "/DocumentRoot/i\ServerName example.com" /etc/apache2/sites-available/default
+  - sudo cat /etc/apache2/sites-available/default
+  - sudo sed -i -e "s/export APACHE_RUN_USER=.*/export APACHE_RUN_USER=travis/ ; s/export APACHE_RUN_GROUP=.*/export APACHE_RUN_GROUP=travis/" /etc/apache2/envvars
+  - sudo chown -R travis:travis /var/lock/apache2
+  - curl http://selenium.googlecode.com/files/selenium-server-standalone-2.37.0.jar > selenium.jar
   - sudo /etc/init.d/apache2 restart
 
-  - composer self-update
-  - composer install --dev --prefer-dist
+before_script:
+  - echo '' > ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini
+
+  - wget http://getcomposer.org/composer.phar
+  - php composer.phar install -n --prefer-source
 
   - app/console doctrine:database:create --env=test > /dev/null
   - app/console doctrine:schema:create --env=test > /dev/null
   - app/console cache:warmup --env=test > /dev/null
+  - app/console assetic:dump --env=test > /dev/null
 
   - sh -e /etc/init.d/xvfb start
-  - export DISPLAY=:99
-  - wget http://selenium.googlecode.com/files/selenium-server-standalone-2.37.0.jar
-  - java -jar selenium-server-standalone-2.37.0.jar > /dev/null &
+  - export DISPLAY=:99.0
+  - sleep 4
+
+  - java -jar selenium.jar > /dev/null &
   - sleep 5
 
 script:
-  - bin/behat
+  - php -d memory_limit=2048M bin/behat --no-snippets --no-paths --verbose --tags '@agency'
+  - php -d memory_limit=2048M bin/behat --no-snippets --no-paths --verbose --tags '@worker'
+  - php -d memory_limit=2048M bin/behat --no-snippets --no-paths --verbose --tags '@account'
+  - php -d memory_limit=2048M bin/behat --no-snippets --no-paths --verbose --tags '@mission'
 
 notifications:
     email: "ngo.information.management+travis@gmail.com"

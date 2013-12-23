@@ -1,3 +1,4 @@
+@account
 Feature: User account profile edition
     In order to manage my personal information
     As a logged user
@@ -44,5 +45,4 @@ Feature: User account profile edition
         And I fill in "Current password" with "password"
         And I press "Update"
        Then I should be on my account profile page
-#      And I wait 30000
         And I should see "The profile has been updated"
