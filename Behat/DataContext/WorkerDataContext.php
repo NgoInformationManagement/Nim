@@ -54,7 +54,7 @@ trait WorkerDataContext
     /**
      * @Given /^Worker with firstname "([^"]*)" and lastname "([^"]*)" has following contacts:$/
      */
-    public function workerHasFollowingContanct($firstname, $lastname, TableNode $table)
+    public function workerHasFollowingContact($firstname, $lastname, TableNode $table)
     {
         $worker = $this->getWorkerByName($firstname, $lastname);
 
@@ -110,7 +110,7 @@ trait WorkerDataContext
      */
     public function iCreatedWorker($firstname, $lastname)
     {
-        $this->thereIsWorker($firstname, $lastname, array(
+        $worker = $this->thereIsWorker($firstname, $lastname, array(
             'gender' => 'male',
             'country' => 'FR',
             'basedAt' => $this->thereIsAgency('France'),
@@ -123,6 +123,8 @@ trait WorkerDataContext
             'arrivedAt' => new \DateTime('2001-01-01'),
             'leftAt' => new \DateTime('2001-01-01'),
         ));
+
+        $this->entityHasPhones(array(array('type' => 'phone', 'number' => '0512457812')), $worker);
     }
 
     /**

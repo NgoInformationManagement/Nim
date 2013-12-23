@@ -39,10 +39,10 @@ file that was distributed with this source code.
         </service>
 
         <!-- Select2 extension -->
-        <service id="nim.form.extension.select2"
-                 class="%nim.form.extension.select2.class%">
-            <tag name="form.type_extension" alias="choice" />
-        </service>
+        <!--<service id="nim.form.extension.select2"-->
+                 <!--class="%nim.form.extension.select2.class%">-->
+            <!--<tag name="form.type_extension" alias="choice" />-->
+        <!--</service>-->
 
         <!-- Eternicode datepicker extension -->
         <service id="nim.form.extension.datepicker"

@@ -12,7 +12,9 @@
 namespace NIM\WebBundle\Behat\UserContext;
 
 use Behat\Mink\Driver\Selenium2Driver;
+use Behat\Mink\Element\NodeElement;
 use Behat\Mink\Exception\ExpectationException;
+use Symfony\Component\Config\Definition\Exception\Exception;
 
 trait BaseUserContext
 {
@@ -101,6 +103,10 @@ trait BaseUserContext
             sprintf('a:contains("%s")', $locale)
         );
 
+        if (null === $tabHedear) {
+            throw new \Exception('Language not found...');
+        }
+
         $tabContainerLocator = $tabHedear->getAttribute('href');
         if ($this->isSeleniumTest()) {
             if (preg_match('/(.*)(\.a2lix_translationsFields-(.*))/',$tabContainerLocator, $matches)) {
@@ -112,11 +118,8 @@ trait BaseUserContext
             $tabContainerLocator
         );
 
-        $fieldElement = $tabContainer->find('named', array(
-            'field', $this->getSession()->getSelectorsHandler()->xpathLiteral($field)
-        ));
-
-        $fieldElement->setValue($value);
+        $tabContainer->findField($field)
+            ->setValue($value);
     }
 
     /**
@@ -142,6 +145,54 @@ trait BaseUserContext
     public function iClick($link)
     {
         $this->getSession()->getPage()->clickLink($link);
+    }
+
+    /**
+     * @Given /^I (click|press) "([^"]*)" in the active tab$/
+     */
+    public function iClickInTheTab($event, $locator)
+    {
+        $tabContainer = $this->getActiveTab();
+
+        if (null === $tabContainer) {
+            throw new ExpectationException(
+                'Tab does not exist',
+                $this->getSession()
+            );
+        }
+
+        if ($event == 'click') {
+            $tabContainer->clickLink($locator);
+        } else {
+            $tabContainer->find(
+                'xpath',
+                sprintf('//button[text()[contains(., "%s")]]', $locator)
+            )->press();
+        }
+    }
+
+    /**
+     * @Given /^I fill in visible "([^"]*)" with "([^"]*)"$/
+     */
+    public function iFillVisibleFieldInWith($locator, $value)
+    {
+        foreach ($this->findAllField($locator) as $field) {
+            if ($field->isVisible()) {
+                $field->setValue($value);
+            }
+        }
+    }
+
+    /**
+     * @Given /^I select "([^"]*)" from visible "([^"]*)"$/
+     */
+    public function iSelectFromInActiveTab($value, $locator)
+    {
+        foreach ($this->findAllField($locator) as $field) {
+            if ($field->isVisible()) {
+                $field->selectOption($value);
+            }
+        }
     }
 
     /**
@@ -225,6 +276,16 @@ trait BaseUserContext
     {
         $this->assertSession()->elementExists('xpath', sprintf(
             "//div[contains(@class, 'error')]//label[text()[contains(., '%s')]]", ucfirst($field)
+        ));
+    }
+
+    /**
+     * @Given /^I should see "([^"]*)" as "([^"]*)"$/
+     */
+    public function iShouldSeeAs($value, $field)
+    {
+        $this->assertSession()->elementExists('xpath', sprintf(
+            "//label[text()[contains(., '%s')]]/following::div//*[text()[contains(., '%s')]]", $field, $value
         ));
     }
 
@@ -350,5 +411,48 @@ trait BaseUserContext
     {
         $class = new \ReflectionClass($resource);
         return strtolower($class->getShortName());
+    }
+
+    /**
+     * Get the active tab
+     *
+     * @return mixed
+     * @throws \Behat\Mink\Exception\ExpectationException
+     */
+    private function getActiveTab()
+    {
+        $tabContainer = $this->getSession()->getPage()->find(
+            'xpath',
+            '//div[contains(@class, "tab-pane active")]'
+        );
+
+        if (null === $tabContainer) {
+            throw new ExpectationException(
+                'Tab does not exist',
+                $this->getSession()
+            );
+        }
+
+        return $tabContainer;
+    }
+
+    /**
+     * @return array
+     * @throws \Behat\Mink\Exception\ExpectationException
+     */
+    private function findAllField($locator)
+    {
+        $fields = $this->getSession()->getPage()->findAll('named', array(
+            'field', $this->getSession()->getSelectorsHandler()->xpathLiteral($locator)
+        ));
+
+        if (!is_array($fields)) {
+            throw new ExpectationException(
+                sprintf('Field named %s does not exist', $locator),
+                $this->getSession()
+            );
+        }
+
+        return $fields;
     }
 }

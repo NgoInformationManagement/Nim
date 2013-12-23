@@ -21,7 +21,7 @@
 <div class="form-horizontal translated-form">
     {{ nim_translation(mission)}}
     {{ field_row('mission.field.country.label', mission.country|country) }}
-    {{ field_row('mission.field.startedAt.label', mission.startedAt|localizeddate('full', 'none')) }}
+    {{ field_row('mission.field.startedAt.label', date(mission.startedAt)) }}
     {{ field_row('mission.field.endedAt.label', date(mission.endedAt)) }}
 </div>
 {% endblock %}

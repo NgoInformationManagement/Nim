@@ -35,6 +35,21 @@ trait MissionDataContext
         /** @var Mission $mission */
         $mission = $this->getMissionRepository()->createNew();
         $mission->setTitle($title);
+        if (array_key_exists('startedAt', $additionalData)) {
+            if (is_string($additionalData['startedAt'])) {
+                $additionalData['startedAt'] = new \DateTime($additionalData['startedAt']);
+            }
+            $mission->setStartedAt($additionalData['startedAt']);
+            unset($additionalData['startedAt']);
+        }
+
+        if (array_key_exists('endedAt', $additionalData)) {
+            if (is_string($additionalData['endedAt'])) {
+                $additionalData['endedAt'] = new \DateTime($additionalData['endedAt']);
+            }
+            $mission->setEndedAt($additionalData['endedAt']);
+            unset($additionalData['endedAt']);
+        }
 
         if (count($additionalData) > 0) {
             $this->setDataToObject($mission, $additionalData);

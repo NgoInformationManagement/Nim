@@ -16,6 +16,7 @@ use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ORM\EntityManager;
 use NIM\CoreBundle\Model\User;
 use NIM\WorkerBundle\Model\Email;
+use NIM\WorkerBundle\Model\Entity\EntityAbstract;
 use NIM\WorkerBundle\Model\Phone;
 use Symfony\Component\PropertyAccess\StringUtil;
 
@@ -41,6 +42,13 @@ trait BaseDataContext
         $manager = $this->getEntityManager();
 
         foreach ($this->getRepository($type)->findAll() as $resource) {
+            if ($resource instanceof EntityAbstract) {
+                $resource->setEmails(null);
+                $resource->setPhones(null);
+
+                $manager->persist($resource);
+                $manager->flush();
+            }
             $manager->remove($resource);
         }
 
