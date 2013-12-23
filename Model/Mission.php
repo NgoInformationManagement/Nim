@@ -90,7 +90,7 @@ class Mission implements Translatable
     /**
      * @param mixed $endedAt
      */
-    public function setEndedAt($endedAt)
+    public function setEndedAt(\DateTime $endedAt = null)
     {
         $this->endedAt = $endedAt;
     }
@@ -106,7 +106,7 @@ class Mission implements Translatable
     /**
      * @param mixed $startedAt
      */
-    public function setStartedAt($startedAt)
+    public function setStartedAt(\DateTime $startedAt = null)
     {
         $this->startedAt = $startedAt;
     }
