@@ -81,7 +81,7 @@
              {% if prototype is defined %}
              data-prototype='{{ _self.collectionItem(prototype, item_by_line, allow_delete)|e }}'
              {% endif %}>
-            <fieldset >
+            <fieldset>
                 <legend>{{ label|trans }}
                 {% if prototype is defined and allow_add %}
                     <button class="btn btn-success collection-button-add"
@@ -111,8 +111,9 @@
              class="col-md-{{ boxWidth }} collection-item">
             <div class="collection-box{% if form|length == 1%} unique-field{% endif %}">
                 {% if allow_delete %}
-                    <i class="icon-remove collection-button-remove"
-                       data-form-collection="delete"></i>
+                    <a href="#" data-form-collection="delete">
+                        <i class="icon-remove collection-button-remove"></i>
+                    </a>
                 {% endif %}
 
                 {{ form_rest(form) }}
