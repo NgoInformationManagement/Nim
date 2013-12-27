@@ -31,7 +31,7 @@ class MissionType extends NIMType
                     ),
                     'description' => array(
                         'label' => 'mission.field.description.label',
-                        'type' => 'textarea',
+                        'field_type' => 'textarea',
                     ),
                 )
             ))

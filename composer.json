@@ -26,7 +26,7 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/framework-bundle": "~2.3",
-        "a2lix/translation-form-bundle": "dev-master",
+        "a2lix/translation-form-bundle": "1.*@dev",
         "sylius/resource-bundle": "1.0.*@dev",
         "stof/doctrine-extensions-bundle": "~1.1@dev",
         "nim/nim-component": "dev-master"

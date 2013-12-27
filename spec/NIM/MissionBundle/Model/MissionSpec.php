@@ -63,8 +63,10 @@ class MissionSpec extends ObjectBehavior
 
     function its_endedat_is_mutable()
     {
-        $this->setEndedAt('2000-01-01');
-        $this->getEndedAt()->shouldReturn('2000-01-01');
+        $date = new \DateTime('2000-01-01');
+        $this->setEndedAt($date);
+        $this->getEndedAt()->format('Y-m-d')
+            ->shouldReturn('2000-01-01');
     }
 
     function it_has_no_startedat_by_default()
@@ -74,8 +76,10 @@ class MissionSpec extends ObjectBehavior
 
     function its_startedat_is_mutable()
     {
-        $this->setStartedAt('2000-01-01');
-        $this->getStartedAt()->shouldReturn('2000-01-01');
+        $date = new \DateTime('2000-01-01');
+        $this->setStartedAt($date);
+        $this->getStartedAt()->format('Y-m-d')
+            ->shouldReturn('2000-01-01');
     }
 
     function it_has_no_locale_by_default()
