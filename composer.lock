@@ -3,39 +3,35 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "999807f644c037fed706efdc56381d29",
+    "hash": "2aec4e6ee76b98d18a2f0cbbaf4955a3",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
-            "version": "dev-master",
+            "version": "1.x-dev",
             "target-dir": "A2lix/TranslationFormBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/a2lix/TranslationFormBundle.git",
-                "reference": "968fad9514d1cc532fefc55cf638fe02ac11f6e1"
+                "reference": "7f0f33af0863275791c96b18f7c1d78bf5a290c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/a2lix/TranslationFormBundle/zipball/968fad9514d1cc532fefc55cf638fe02ac11f6e1",
-                "reference": "968fad9514d1cc532fefc55cf638fe02ac11f6e1",
+                "url": "https://api.github.com/repos/a2lix/TranslationFormBundle/zipball/7f0f33af0863275791c96b18f7c1d78bf5a290c0",
+                "reference": "7f0f33af0863275791c96b18f7c1d78bf5a290c0",
                 "shasum": ""
             },
             "require": {
                 "symfony/symfony": ">=2.3"
             },
-            "require-dev": {
-                "gedmo/doctrine-extensions": "dev-wip-v2.4.0"
-            },
             "suggest": {
                 "a2lix/i18n-doctrine-bundle": "For A2lix strategy",
-                "gedmo/doctrine-extensions": "For Gedmo strategy",
                 "knplabs/doctrine-behaviors": "For Knp strategy",
-                "prezent/doctrine-translatable-bundle": "For Prezent strategy"
+                "stof/doctrine-extensions-bundle": "For Gedmo strategy"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.x-dev"
+                    "dev-master": "1.x-dev"
                 }
             },
             "autoload": {
@@ -69,7 +65,7 @@
                 "translatable",
                 "translation"
             ],
-            "time": "2013-12-15 17:33:41"
+            "time": "2013-12-17 18:40:49"
         },
         {
             "name": "doctrine/annotations",
@@ -1612,16 +1608,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/NgoInformationManagement/MissionBundle.git",
-                "reference": "84fe3a2c07399e0af81267d1a7f9bb93ea2a7510"
+                "reference": "10e1f38a729f2a06add2ec1b60c2d5ca3432d2c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NgoInformationManagement/MissionBundle/zipball/84fe3a2c07399e0af81267d1a7f9bb93ea2a7510",
-                "reference": "84fe3a2c07399e0af81267d1a7f9bb93ea2a7510",
+                "url": "https://api.github.com/repos/NgoInformationManagement/MissionBundle/zipball/10e1f38a729f2a06add2ec1b60c2d5ca3432d2c8",
+                "reference": "10e1f38a729f2a06add2ec1b60c2d5ca3432d2c8",
                 "shasum": ""
             },
             "require": {
-                "a2lix/translation-form-bundle": "dev-master",
+                "a2lix/translation-form-bundle": "1.*@dev",
                 "nim/nim-component": "dev-master",
                 "php": ">=5.3.3",
                 "stof/doctrine-extensions-bundle": "~1.1@dev",
@@ -1661,7 +1657,7 @@
                 "ngo",
                 "nim"
             ],
-            "time": "2013-10-28 18:30:35"
+            "time": "2013-12-27 11:44:34"
         },
         {
             "name": "nim/nim-component",
@@ -2739,12 +2735,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "6387fc457792f38189bdd5729b500772bbddfa4d"
+                "reference": "cb43b1234d081ed82b803fae0e0cca6c91727b88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/6387fc457792f38189bdd5729b500772bbddfa4d",
-                "reference": "6387fc457792f38189bdd5729b500772bbddfa4d",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/cb43b1234d081ed82b803fae0e0cca6c91727b88",
+                "reference": "cb43b1234d081ed82b803fae0e0cca6c91727b88",
                 "shasum": ""
             },
             "require": {
@@ -2780,7 +2776,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-12-10 10:23:00"
+            "time": "2013-12-27 14:21:16"
         },
         {
             "name": "white-october/pagerfanta-bundle",
@@ -3062,12 +3058,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Mink.git",
-                "reference": "00ad9e6959d00508e6be2697c5c4bef54635a2cc"
+                "reference": "ffa0363fba5a130e1964343124ca761a3c69c838"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Mink/zipball/00ad9e6959d00508e6be2697c5c4bef54635a2cc",
-                "reference": "00ad9e6959d00508e6be2697c5c4bef54635a2cc",
+                "url": "https://api.github.com/repos/Behat/Mink/zipball/ffa0363fba5a130e1964343124ca761a3c69c838",
+                "reference": "ffa0363fba5a130e1964343124ca761a3c69c838",
                 "shasum": ""
             },
             "require": {
@@ -3109,7 +3105,7 @@
                 "testing",
                 "web"
             ],
-            "time": "2013-12-26 08:55:33"
+            "time": "2013-12-27 10:08:43"
         },
         {
             "name": "behat/mink-browserkit-driver",
@@ -3117,12 +3113,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkBrowserKitDriver.git",
-                "reference": "bf5733377cab4ee8a2d4d71bb0565670317fb9a6"
+                "reference": "c4e94b1413d0eabf533ea46f1d47e0aeffed90f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkBrowserKitDriver/zipball/bf5733377cab4ee8a2d4d71bb0565670317fb9a6",
-                "reference": "bf5733377cab4ee8a2d4d71bb0565670317fb9a6",
+                "url": "https://api.github.com/repos/Behat/MinkBrowserKitDriver/zipball/c4e94b1413d0eabf533ea46f1d47e0aeffed90f4",
+                "reference": "c4e94b1413d0eabf533ea46f1d47e0aeffed90f4",
                 "shasum": ""
             },
             "require": {
@@ -3164,7 +3160,7 @@
                 "browser",
                 "testing"
             ],
-            "time": "2013-12-16 14:28:42"
+            "time": "2013-12-27 10:08:33"
         },
         {
             "name": "behat/mink-extension",
@@ -3226,12 +3222,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkSelenium2Driver.git",
-                "reference": "9c13005a47c6cfb733c5bf1215609e408371edef"
+                "reference": "d97f184aa1ebefe44c0f091ff39204ea7ef21f52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/9c13005a47c6cfb733c5bf1215609e408371edef",
-                "reference": "9c13005a47c6cfb733c5bf1215609e408371edef",
+                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/d97f184aa1ebefe44c0f091ff39204ea7ef21f52",
+                "reference": "d97f184aa1ebefe44c0f091ff39204ea7ef21f52",
                 "shasum": ""
             },
             "require": {
@@ -3276,7 +3272,7 @@
                 "testing",
                 "webdriver"
             ],
-            "time": "2013-12-19 10:46:22"
+            "time": "2013-12-27 10:09:11"
         },
         {
             "name": "behat/symfony2-extension",
@@ -3477,12 +3473,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "5176923f83a9266ab1fcc9c638081b7526fd0f7d"
+                "reference": "6c72ae141be57bece0189d191f9aba39859452b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/5176923f83a9266ab1fcc9c638081b7526fd0f7d",
-                "reference": "5176923f83a9266ab1fcc9c638081b7526fd0f7d",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/6c72ae141be57bece0189d191f9aba39859452b8",
+                "reference": "6c72ae141be57bece0189d191f9aba39859452b8",
                 "shasum": ""
             },
             "require": {
@@ -3537,7 +3533,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2013-12-26 16:48:03"
+            "time": "2013-12-27 14:17:24"
         },
         {
             "name": "phpspec/prophecy",

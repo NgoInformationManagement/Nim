@@ -28,7 +28,7 @@
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "stof/doctrine-extensions-bundle": "~1.1@dev",
         "sylius/resource-bundle": "1.0.*@dev",
-        "a2lix/translation-form-bundle": "dev-master",
+        "a2lix/translation-form-bundle": "1.*@dev",
         "white-october/pagerfanta-bundle": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "nim/core-bundle": "0.1.*@dev",
