@@ -15,17 +15,17 @@ use PhpSpec\ObjectBehavior;
 
 class CollectionTypeExtensionSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('NIM\FormBundle\Form\Extension\CollectionTypeExtension');
     }
 
-    function it_should_extends_abstract_type_extension()
+    public function it_should_extends_abstract_type_extension()
     {
         $this->shouldHaveType('Symfony\Component\Form\AbstractTypeExtension');
     }
 
-    function it_should_have_collection_as_extended_type()
+    public function it_should_have_collection_as_extended_type()
     {
         $this->getExtendedType()->shouldReturn('collection');
     }

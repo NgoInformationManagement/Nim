@@ -15,12 +15,12 @@ use PhpSpec\ObjectBehavior;
 
 class NIMFormExtensionSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('NIM\FormBundle\DependencyInjection\NIMFormExtension');
     }
 
-    function it_should_extends_symfony_extension()
+    public function it_should_extends_symfony_extension()
     {
         $this->shouldHaveType('Symfony\Component\DependencyInjection\Extension\Extension');
     }

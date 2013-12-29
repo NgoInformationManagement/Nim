@@ -16,12 +16,12 @@ use PhpSpec\ObjectBehavior;
 
 class GenderSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('NIM\FormBundle\Model\Gender');
     }
 
-    function it_should_return_gender_options()
+    public function it_should_return_gender_options()
     {
         $this::getOptions()->shouldReturn(
             array(

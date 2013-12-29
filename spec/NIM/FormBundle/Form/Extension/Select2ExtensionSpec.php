@@ -18,22 +18,22 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class Select2ExtensionSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('NIM\FormBundle\Form\Extension\Select2Extension');
     }
 
-    function it_should_extends_abstract_type_extension()
+    public function it_should_extends_abstract_type_extension()
     {
         $this->shouldHaveType('Symfony\Component\Form\AbstractTypeExtension');
     }
 
-    function it_should_have_collection_as_extended_type()
+    public function it_should_have_collection_as_extended_type()
     {
         $this->getExtendedType()->shouldReturn('choice');
     }
 
-    function it_should_configure_the_resolver(OptionsResolverInterface $resolver)
+    public function it_should_configure_the_resolver(OptionsResolverInterface $resolver)
     {
         $resolver->setOptional(array(
             'width',
@@ -112,7 +112,7 @@ class Select2ExtensionSpec extends ObjectBehavior
         $this->setDefaultOptions($resolver);
     }
 
-    function it_should_build_the_view_by_default(FormView $view, FormInterface $form)
+    public function it_should_build_the_view_by_default(FormView $view, FormInterface $form)
     {
         $this->buildView($view, $form, array());
     }

@@ -15,22 +15,22 @@ use PhpSpec\ObjectBehavior;
 
 class GenderTypeSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('NIM\FormBundle\Form\Type\GenderType');
     }
 
-    function it_should_extends_symfony_extension()
+    public function it_should_extends_symfony_extension()
     {
         $this->shouldHaveType('Symfony\Component\Form\AbstractType');
     }
 
-    function it_should_have_button_as_parent()
+    public function it_should_have_button_as_parent()
     {
         $this->getParent()->shouldReturn('choice');
     }
 
-    function it_should_have_delete_as_name()
+    public function it_should_have_delete_as_name()
     {
         $this->getName()->shouldReturn('gender');
     }

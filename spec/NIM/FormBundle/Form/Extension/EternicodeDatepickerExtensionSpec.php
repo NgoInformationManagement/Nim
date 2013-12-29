@@ -19,22 +19,22 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class EternicodeDatepickerExtensionSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('NIM\FormBundle\Form\Extension\EternicodeDatepickerExtension');
     }
 
-    function it_should_extends_abstract_type_extension()
+    public function it_should_extends_abstract_type_extension()
     {
         $this->shouldHaveType('Symfony\Component\Form\AbstractTypeExtension');
     }
 
-    function it_should_have_collection_as_extended_type()
+    public function it_should_have_collection_as_extended_type()
     {
         $this->getExtendedType()->shouldReturn('date');
     }
 
-    function it_should_configure_the_resolver(OptionsResolverInterface $resolver)
+    public function it_should_configure_the_resolver(OptionsResolverInterface $resolver)
     {
         $resolver->setOptional(array(
             'autoclose',
@@ -81,7 +81,7 @@ class EternicodeDatepickerExtensionSpec extends ObjectBehavior
         $this->setDefaultOptions($resolver);
     }
 
-    function it_should_build_the_view_by_default(FormView $view, FormInterface $form)
+    public function it_should_build_the_view_by_default(FormView $view, FormInterface $form)
     {
         $this->buildView($view, $form, array('format' => 'dd/mm/yyyy'));
     }
