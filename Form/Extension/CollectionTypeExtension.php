@@ -26,7 +26,7 @@ class CollectionTypeExtension extends AbstractTypeExtension
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
-        $this->addAttributeToFormView($view, 'item_by_line', $options['item_by_line']);
+        $this->addVarToFormView($view, 'item_by_line', $options['item_by_line']);
     }
 
     /**

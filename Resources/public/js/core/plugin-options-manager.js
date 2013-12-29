@@ -110,14 +110,4 @@
     };
 
     $.fn.PluginOptionManager.Constructor = PluginOptionManager;
-
-    /*
-     * Apply to standard PluginOptionManage elements
-     */
-
-    $(document).on('dom-node-inserted', function(e, addedElement) {
-        $(addedElement).find('[data-plugin-name]').PluginOptionManager();
-    });
-
-    $('[data-plugin-name]').PluginOptionManager();
 }(jQuery);

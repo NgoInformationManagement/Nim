@@ -12,12 +12,58 @@
 namespace spec\NIM\FormBundle\Form\Extension;
 
 use PhpSpec\ObjectBehavior;
+use Prophecy\Argument;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\Test\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class Select2ExtensionSpec extends ObjectBehavior
 {
+    private $options = array(
+        'plugin_rendered'=> array(
+            'default' => 'plugin',
+            'allowed_types' => array('string'),
+            'allowed_value' => array('plugin', 'none'),
+        ),
+        'width'=> array(
+            'default' => 'element',
+            'allowed_types' => array('string'),
+        ),
+        'load_more_padding'=> array('allowed_types' => array('integer')),
+        'close_on_select'=> array('allowed_types' => array('bool')),
+        'open_on_enter'=> array('allowed_types' => array('bool')),
+        'container_css'=> array('allowed_types' => array('string')),
+        'dropdown_css'=> array('allowed_types' => array('string')),
+        'container_css_class'=> array('allowed_types' => array('string')),
+        'dropdown_css_class'=> array('allowed_types' => array('string')),
+        'format_result'=> array('allowed_types' => array('string')),
+        'format_selection'=> array('allowed_types' => array('string')),
+        'sort_results'=> array('allowed_types' => array('string')),
+        'format_result_css_class'=> array('allowed_types' => array('string')),
+        'format_selection_css_class'=> array('allowed_types' => array('string')),
+        'format_no_matches'=> array('allowed_types' => array('string')),
+        'format_input_too_short'=> array('allowed_types' => array('string')),
+        'format_input_too_long'=> array('allowed_types' => array('string')),
+        'format_selection_too_big'=> array('allowed_types' => array('string')),
+        'format_load_more'=> array('allowed_types' => array('string')),
+        'format_searching'=> array('allowed_types' => array('string')),
+        'minimum_results_for_search'=> array('allowed_types' => array('integer')),
+        'minimum_input_length'=> array('allowed_types' => array('integer')),
+        'maximum_input_length'=> array('allowed_types' => array('integer')),
+        'maximum_selection_size'=> array('allowed_types' => array('integer')),
+        'id'=> array('allowed_types' => array('string')),
+        'matcher'=> array('allowed_types' => array('string')),
+        'separator'=> array('allowed_types' => array('string')),
+        'token_separators'=> array('allowed_types' => array('array')),
+        'tokenizer'=> array('allowed_types' => array('string')),
+        'escape_markup'=> array('allowed_types' => array('string')),
+        'blur_on_change'=> array('allowed_types' => array('bool')),
+        'select_on_blur'=> array('allowed_types' => array('bool')),
+        'adapt_container_css_class'=> array('allowed_types' => array('string')),
+        'adapt_dropdown_css_class'=> array('allowed_types' => array('string')),
+        'next_search_term'=> array('allowed_types' => array('string')),
+    );
+
     public function it_is_initializable()
     {
         $this->shouldHaveType('NIM\FormBundle\Form\Extension\Select2Extension');
@@ -26,6 +72,7 @@ class Select2ExtensionSpec extends ObjectBehavior
     public function it_should_extends_abstract_type_extension()
     {
         $this->shouldHaveType('Symfony\Component\Form\AbstractTypeExtension');
+        $this->shouldHaveType('NIM\FormBundle\Form\Extension\AbstractPluginExtension');
     }
 
     public function it_should_have_collection_as_extended_type()
@@ -35,79 +82,25 @@ class Select2ExtensionSpec extends ObjectBehavior
 
     public function it_should_configure_the_resolver(OptionsResolverInterface $resolver)
     {
-        $resolver->setOptional(array(
-            'width',
-            'load_more_padding',
-            'close_on_select',
-            'open_on_enter',
-            'container_css',
-            'dropdown_css',
-            'container_css_class',
-            'dropdown_css_class',
-            'format_result',
-            'format_selection',
-            'sort_results',
-            'format_result_css_class',
-            'format_selection_css_class',
-            'format_no_matches',
-            'format_input_too_short',
-            'format_input_too_long',
-            'format_selection_too_big',
-            'format_load_more',
-            'format_searching',
-            'minimum_results_for_search',
-            'minimum_input_length',
-            'maximum_input_length',
-            'maximum_selection_size',
-            'id',
-            'matcher',
-            'separator',
-            'token_separators',
-            'tokenizer',
-            'escape_markup',
-            'blur_on_change',
-            'select_on_blur',
-            'adapt_container_css_class',
-            'adapt_dropdown_css_class',
-            'next_search_term'
-        ))->shouldBeCalled();
+        foreach ($this->options as $optionName => $options) {
+            if (isset($options['allowed_values'])) {
+                $resolver->addAllowedValues(array($optionName => $options['allowed_values']))
+                    ->shouldBeCalled();
+            }
 
-        $resolver->setAllowedTypes(array(
-            'width' => array('string'),
-            'load_more_padding' => array('integer'),
-            'close_on_select' => array('bool'),
-            'open_on_enter' => array('bool'),
-            'container_css' => array('string'),
-            'dropdown_css' => array('string'),
-            'container_css_class' => array('string'),
-            'dropdown_css_class' => array('string'),
-            'format_result' => array('string'),
-            'format_selection' => array('string'),
-            'sort_results' => array('string'),
-            'format_result_css_class' => array('string'),
-            'format_selection_css_class' => array('string'),
-            'format_no_matches' => array('string'),
-            'format_input_too_short' => array('string'),
-            'format_input_too_long' => array('string'),
-            'format_selection_too_big' => array('string'),
-            'format_load_more' => array('string'),
-            'format_searching' => array('string'),
-            'minimum_results_for_search' => array('integer'),
-            'minimum_input_length' => array('integer'),
-            'maximum_input_length' => array('integer'),
-            'maximum_selection_size' => array('integer'),
-            'id' => array('string'),
-            'matcher' => array('string'),
-            'separator' => array('string'),
-            'token_separators' => array('array'),
-            'tokenizer' => array('string'),
-            'escape_markup' => array('string'),
-            'blur_on_change' => array('bool'),
-            'select_on_blur' => array('bool'),
-            'adapt_container_css_class' => array('string'),
-            'adapt_dropdown_css_class' => array('string'),
-            'next_search_term' => array('string')
-        ))->shouldBeCalled();
+            if (isset($options['allowed_types'])) {
+                $resolver->addAllowedTypes(array($optionName => $options['allowed_types']))
+                    ->shouldBeCalled();
+            }
+
+            if (isset($options['default'])) {
+                $resolver->replaceDefaults(array($optionName => $options['default']))
+                    ->shouldBeCalled();
+            }
+        }
+
+        $resolver->setOptional(array_keys($this->options))
+            ->shouldBeCalled();
 
         $this->setDefaultOptions($resolver);
     }
@@ -116,4 +109,117 @@ class Select2ExtensionSpec extends ObjectBehavior
     {
         $this->buildView($view, $form, array());
     }
+
+//    private function getResolverOptions()
+//    {
+//        return array(
+//            'rendered_type'=> array(
+//                'default' => 'select2',
+//                'allowed_types' => array('string'),
+//            ),
+//            'width'=> array(
+//                'default' => 'element',
+//                'allowed_types' => array('string'),
+//            ),
+//            'load_more_padding'=> array(
+//                'allowed_types' => array('integer'),
+//            ),
+//            'close_on_select'=> array(
+//                'allowed_types' => array('bool'),
+//            ),
+//            'open_on_enter'=> array(
+//                'allowed_types' => array('bool'),
+//            ),
+//            'container_css'=> array(
+//                'allowed_types' => array('string'),
+//            ),
+//            'dropdown_css'=> array(
+//                'allowed_types' => array('string'),
+//            ),
+//            'container_css_class'=> array(
+//                'allowed_types' => array('string'),
+//            ),
+//            'dropdown_css_class'=> array(
+//                'allowed_types' => array('string'),
+//            ),
+//            'format_result'=> array(
+//                'allowed_types' => array('string'),
+//            ),
+//            'format_selection'=> array(
+//                'allowed_types' => array('string'),
+//            ),
+//            'sort_results'=> array(
+//                'allowed_types' => array('string'),
+//            ),
+//            'format_result_css_class'=> array(
+//                'allowed_types' => array('string'),
+//            ),
+//            'format_selection_css_class'=> array(
+//                'allowed_types' => array('string'),
+//            ),
+//            'format_no_matches'=> array(
+//                'allowed_types' => array('string'),
+//            ),
+//            'format_input_too_short'=> array(
+//                'allowed_types' => array('string'),
+//            ),
+//            'format_input_too_long'=> array(
+//                'allowed_types' => array('string'),
+//            ),
+//            'format_selection_too_big'=> array(
+//                'allowed_types' => array('string'),
+//            ),
+//            'format_load_more'=> array(
+//                'allowed_types' => array('string'),
+//            ),
+//            'format_searching'=> array(
+//                'allowed_types' => array('string'),
+//            ),
+//            'minimum_results_for_search'=> array(
+//                'allowed_types' => array('integer'),
+//            ),
+//            'minimum_input_length'=> array(
+//                'allowed_types' => array('integer'),
+//            ),
+//            'maximum_input_length'=> array(
+//                'allowed_types' => array('integer'),
+//            ),
+//            'maximum_selection_size'=> array(
+//                'allowed_types' => array('integer'),
+//            ),
+//            'id'=> array(
+//                'allowed_types' => array('string'),
+//            ),
+//            'matcher'=> array(
+//                'allowed_types' => array('string'),
+//            ),
+//            'separator'=> array(
+//                'allowed_types' => array('string'),
+//            ),
+//            'token_separators'=> array(
+//                'allowed_types' => array('array'),
+//            ),
+//            'tokenizer'=> array(
+//                'allowed_types' => array('string'),
+//            ),
+//            'escape_markup'=> array(
+//                'allowed_types' => array('string'),
+//            ),
+//            'blur_on_change'=> array(
+//                'allowed_types' => array('bool'),
+//            ),
+//            'select_on_blur'=> array(
+//                'allowed_types' => array('bool'),
+//            ),
+//            'adapt_container_css_class'=> array(
+//                'allowed_types' => array('string'),
+//            ),
+//            'adapt_dropdown_css_class'=> array(
+//                'allowed_types' => array('string'),
+//            ),
+//            'next_search_term'=> array(
+//                'allowed_types' => array('string'),
+//            ),
+//        );
+//    }
 }

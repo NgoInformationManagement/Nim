@@ -138,7 +138,7 @@
 {# Date widget #}
 {% block date_widget %}
     {% spaceless %}
-        {% if render_type == 'datepicker' %}
+        {% if plugin_rendered|default == 'plugin' %}
             <div class="input-group">
                 {{ block('form_widget_simple') }}
                 <span class="input-group-addon">

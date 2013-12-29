@@ -16,6 +16,8 @@ use Symfony\Component\Form\FormView;
 trait FormToolsTrait
 {
     /**
+     * Assign HTML data attribute to the formView form $options
+     *
      * @param FormView $view
      * @param array    $formOptions
      * @param $optionName
@@ -35,11 +37,13 @@ trait FormToolsTrait
     }
 
     /**
+     * Assign var to the formView form $options
+     *
      * @param FormView $view
      * @param array    $formOptions
      * @param $optionName
      */
-    private function addAttributeToFormViewFromOptions(FormView $view, array $formOptions, $optionName)
+    private function addVarToFormViewFromOptions(FormView $view, array $formOptions, $optionName)
     {
         if (array_key_exists($optionName, $formOptions)) {
             $view->vars[$optionName] = $formOptions[$optionName];
@@ -47,6 +51,8 @@ trait FormToolsTrait
     }
 
     /**
+     * Assign HTML data attribute to the formView
+     *
      * @param FormView $view
      * @param $optionName
      * @param $value
@@ -62,11 +68,13 @@ trait FormToolsTrait
     }
 
     /**
+     * Assign var to the formView
+     *
      * @param FormView $view
      * @param $optionName
      * @param $value
      */
-    private function addAttributeToFormView(FormView $view, $optionName, $value)
+    private function addVarToFormView(FormView $view, $optionName, $value)
     {
         $view->vars[$optionName] = $value;
     }
