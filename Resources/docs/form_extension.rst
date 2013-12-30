@@ -89,9 +89,9 @@ Enabling the jquery plugins
 
 Each element managed by these extensions have `data-plugin-name` attribute (can be useful to select them from the DOM). There are several way to enable jquery plugins:
 
-    - Your plugin get its configuration from data attributes. Good! Just follow the plugin doc.
-    - If your plugin can not get configuration from the dom, you still can rewrite the plugin definition. It is not useful because it will be hard to update your plugin after that... You can use the plugin manager! It will automatically find the configuration plugin in the dom and enable the plugin. There are some step to respect:
-        + The plugin needs to expose its defaults options (expose them yourself).
-        + Use the scripts `plugin-options-factory.js` and `plugin-options-manager.js` in your page.
+- Your plugin get its configuration from data attributes. Good! Just follow the plugin doc.
+- If your plugin can not get configuration from the dom, you still can rewrite the plugin definition. It is not useful because it will be hard to update your plugin after that... You can use the plugin manager! It will automatically find the configuration plugin in the dom and enable the plugin. There are some step to respect:
+    + The plugin needs to expose its defaults options (expose them yourself).
+    + Use the scripts `plugin-options-factory.js` and `plugin-options-manager.js` in your page.
 
 Note: Some options are functions, you can register them in the factory.
