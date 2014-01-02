@@ -46,7 +46,18 @@
             {{ form_label(form) }}
             <div {% if label %}class="col-lg-10"{% endif %}>
                 {{ form_widget(form) }}
+
                 {{ form_errors(form) }}
+
+                {% if legend|default %}
+                <ul class="form-type-legend list-unstyled {% if errors|length > 0 %}col-lg-6{% endif %} text-right">
+                    <li>
+                        <p class="text-info">
+                            {{ legend|trans }}
+                        </p>
+                    </li>
+                </ul>
+                {% endif %}
             </div>
         </div>
     {% endspaceless %}
@@ -56,7 +67,7 @@
 {% block form_errors %}
     {% spaceless %}
         {% if errors|length > 0 %}
-            <ul class="form-type-errors list-unstyled">
+            <ul class="form-type-errors list-unstyled{% if legend|default %} col-lg-6{% endif %}">
                 {% for error in errors %}
                     <li>
                         <p class="text-danger">
