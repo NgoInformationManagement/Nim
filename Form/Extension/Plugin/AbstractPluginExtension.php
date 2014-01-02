@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace NIM\FormBundle\Form\Extension;
+namespace NIM\FormBundle\Form\Extension\Plugin;
 
 use Symfony\Component\Form\AbstractTypeExtension;
 use NIM\FormBundle\Form\FormToolsTrait;

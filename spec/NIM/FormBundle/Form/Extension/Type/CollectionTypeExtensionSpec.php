@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\NIM\FormBundle\Form\Extension;
+namespace spec\NIM\FormBundle\Form\Extension\Type;
 
 use PhpSpec\ObjectBehavior;
 
@@ -17,7 +17,7 @@ class CollectionTypeExtensionSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NIM\FormBundle\Form\Extension\CollectionTypeExtension');
+        $this->shouldHaveType('NIM\FormBundle\Form\Extension\Type\CollectionTypeExtension');
     }
 
     public function it_should_extends_abstract_type_extension()

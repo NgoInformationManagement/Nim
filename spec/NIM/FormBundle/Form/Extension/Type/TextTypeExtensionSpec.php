@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\NIM\FormBundle\Form\Extension;
+namespace spec\NIM\FormBundle\Form\Extension\Type;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -12,7 +12,7 @@ class TextTypeExtensionSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NIM\FormBundle\Form\Extension\TextTypeExtension');
+        $this->shouldHaveType('NIM\FormBundle\Form\Extension\Type\TextTypeExtension');
     }
 
     public function it_should_extends_abstract_type_extension()

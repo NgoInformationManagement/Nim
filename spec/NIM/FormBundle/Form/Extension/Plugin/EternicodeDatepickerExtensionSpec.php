@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\NIM\FormBundle\Form\Extension;
+namespace spec\NIM\FormBundle\Form\Extension\Plugin;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -49,13 +49,13 @@ class EternicodeDatepickerExtensionSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NIM\FormBundle\Form\Extension\EternicodeDatepickerExtension');
+        $this->shouldHaveType('NIM\FormBundle\Form\Extension\Plugin\EternicodeDatepickerExtension');
     }
 
     public function it_should_extends_abstract_type_extension()
     {
         $this->shouldHaveType('Symfony\Component\Form\AbstractTypeExtension');
-        $this->shouldHaveType('NIM\FormBundle\Form\Extension\AbstractPluginExtension');
+        $this->shouldHaveType('NIM\FormBundle\Form\Extension\Plugin\AbstractPluginExtension');
     }
 
     public function it_should_have_collection_as_extended_type()

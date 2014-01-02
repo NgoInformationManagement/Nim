@@ -9,25 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace NIM\FormBundle\Form\Extension;
+namespace NIM\FormBundle\Form\Extension\Type;
 
-use NIM\FormBundle\Form\FormToolsTrait;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class CollectionTypeExtension extends AbstractTypeExtension
+class TextTypeExtension extends AbstractTypeExtension
 {
-    use FormToolsTrait;
-
-    /**
-     * {@inheritdoc}
-     */
-    public function buildView(FormView $view, FormInterface $form, array $options)
-    {
-        $this->addVarToFormView($view, 'item_by_line', $options['item_by_line']);
-    }
 
     /**
      * {@inheritdoc}
@@ -35,16 +25,22 @@ class CollectionTypeExtension extends AbstractTypeExtension
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setOptional(array(
-            'item_by_line'
+            'placeholder'
         ));
 
         $resolver->setAllowedTypes(array(
-            'item_by_line' => array('integer')
+            'placeholder' => array('string'),
         ));
+    }
 
-        $resolver->setDefaults(array(
-            'item_by_line' => 1
-        ));
+    /**
+     * {@inheritdoc}
+     */
+    public function buildView(FormView $view, FormInterface $form, array $options)
+    {
+        if (array_key_exists('placeholder', $options) && 'none' != $options['placeholder']) {
+            $view->vars['attr']['placeholder'] = $options['placeholder'];
+        }
     }
 
     /**
@@ -52,6 +48,6 @@ class CollectionTypeExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'collection';
+        return 'text';
     }
 }

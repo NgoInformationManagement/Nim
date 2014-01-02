@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace NIM\FormBundle\Form\Extension;
+namespace NIM\FormBundle\Form\Extension\Type;
 
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormInterface;
