@@ -16,11 +16,24 @@ file that was distributed with this source code.
 
     <parameters>
         <parameter key="nim.form.extension.collection.class">NIM\FormBundle\Form\Extension\CollectionTypeExtension</parameter>
+        <parameter key="nim.form.extension.text.class">NIM\FormBundle\Form\Extension\TextTypeExtension</parameter>
+        <parameter key="nim.form.extension.date.class">NIM\FormBundle\Form\Extension\DateTypeExtension</parameter>
         <parameter key="nim.form.type.delete.class">NIM\FormBundle\Form\Type\DeleteType</parameter>
         <parameter key="nim.form.type.gender.class">NIM\FormBundle\Form\Type\GenderType</parameter>
     </parameters>
 
     <services>
+        <service id="nim.form.extension.date"
+                 class="%nim.form.extension.date.class%">
+            <tag name="form.type_extension" alias="date" />
+        </service>
+
+
+        <service id="nim.form.extension.text"
+                 class="%nim.form.extension.text.class%">
+            <tag name="form.type_extension" alias="text" />
+        </service>
+
         <service id="nim.form.extension.collection"
                  class="%nim.form.extension.collection.class%">
             <tag name="form.type_extension" alias="collection" />
