@@ -21,6 +21,7 @@ file that was distributed with this source code.
         <parameter key="nim.form.extension.form.class">NIM\FormBundle\Form\Extension\Type\FormTypeExtension</parameter>
         <parameter key="nim.form.type.delete.class">NIM\FormBundle\Form\Type\DeleteType</parameter>
         <parameter key="nim.form.type.gender.class">NIM\FormBundle\Form\Type\GenderType</parameter>
+        <parameter key="nim.form.type.politeness.class">NIM\FormBundle\Form\Type\PolitenessType</parameter>
     </parameters>
 
     <services>
@@ -52,6 +53,11 @@ file that was distributed with this source code.
         <service id="nim.form.type.gender"
                  class="%nim.form.type.gender.class%">
             <tag name="form.type" alias="gender" />
+        </service>
+
+        <service id="nim.form.type.politeness"
+                 class="%nim.form.type.politeness.class%">
+            <tag name="form.type" alias="politeness" />
         </service>
     </services>
 </container>

@@ -2,6 +2,11 @@ gender:
     male: Homme
     female: Femme
 
+politeness:
+    madam: Madame
+    miss: Mademoiselle
+    mister: Monsieur
+
 form:
     collection:
         delete: Supprimer
