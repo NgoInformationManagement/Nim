@@ -82,10 +82,13 @@ class EternicodeDatepickerExtensionSpec extends ObjectBehavior
             }
         }
 
-        $resolver->setOptional(array_keys($this->options))
+        $resolver->setOptional(Argument::type('array'))
             ->shouldBeCalled();
 
         $resolver->setDefaults(Argument::type('array'))
+            ->shouldBeCalled();
+
+        $resolver->setAllowedTypes(Argument::type('array'))
             ->shouldBeCalled();
 
         $this->setDefaultOptions($resolver);

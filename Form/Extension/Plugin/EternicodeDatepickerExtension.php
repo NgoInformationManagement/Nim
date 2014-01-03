@@ -28,7 +28,13 @@ class EternicodeDatepickerExtension extends AbstractPluginExtension
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
         if (array_key_exists('plugin_rendered', $options) && $options['plugin_rendered'] != 'none') {
-            $this->addDataAttributeToFormView($view, 'date-format', $this->getDatepickerPattern($options['format']));
+            $this->addDataAttributeToFormView($view, 'date-format', $this->getDatepickerPattern($options['format'], $options['leading_zero']));
+
+            if (!isset($options['placeholder']) ||
+                array_key_exists('placeholder', $options) &&
+                'none' != $options['placeholder']) {
+                $view->vars['attr']['placeholder'] = $this->getDatepickerPattern($options['format'], $options['leading_zero']);
+            }
 
             parent::buildView($view, $form, $options);
         }
@@ -55,10 +61,19 @@ class EternicodeDatepickerExtension extends AbstractPluginExtension
             return $options['format'];
         };
 
+        $resolver->setOptional(array(
+            'leading_zero',
+        ));
+
+        $resolver->setAllowedTypes(array(
+            'leading_zero' => array('bool'),
+        ));
+
         $resolver->setDefaults(array(
             'format' => $format,
             'language' => \Locale::getDefault(),
             'widget' => 'single_text',
+            'leading_zero' => true,
         ));
     }
 
@@ -118,10 +133,14 @@ class EternicodeDatepickerExtension extends AbstractPluginExtension
      * @param $formPattern
      * @return string
      */
-    private function getDatepickerPattern($formPattern)
+    private function getDatepickerPattern($formPattern, $leadingZero)
     {
+        if ($leadingZero) {
+            $formPattern = $this->replaceInString('d', 'dd', $formPattern);
+        }
+
         $formPattern = $this->replaceInString('y', 'yyyy', $formPattern);
-        $formPattern = $this->replaceInString('M', 'mm', $formPattern);
+        $formPattern = $this->replaceInString('M', $leadingZero ? 'mm' : 'm', $formPattern);
         $formPattern = $this->replaceInString('MM', 'mm', $formPattern);
         $formPattern = $this->replaceInString('MMM', 'M', $formPattern);
         $formPattern = $this->replaceInString('MMMM', 'MM', $formPattern);
