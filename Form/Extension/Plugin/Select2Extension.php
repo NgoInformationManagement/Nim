@@ -12,7 +12,6 @@
 namespace NIM\FormBundle\Form\Extension\Plugin;
 
 use NIM\FormBundle\Form\Extension\Plugin\AbstractPluginExtension;
-use NIM\FormBundle\Form\FormToolsTrait;
 
 class Select2Extension extends AbstractPluginExtension
 {

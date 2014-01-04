@@ -13,7 +13,6 @@ namespace spec\NIM\FormBundle\Form\Type;
 
 use NIM\FormBundle\Model\Politeness;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class PolitenessTypeSpec extends ObjectBehavior

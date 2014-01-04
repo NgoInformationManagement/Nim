@@ -14,7 +14,7 @@ namespace spec\NIM\FormBundle\Model;
 use NIM\FormBundle\Model\Politeness;
 use PhpSpec\ObjectBehavior;
 
-class PolitenessSpec extends ObjectBehavior
+class PolitnessSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {

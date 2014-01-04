@@ -41,7 +41,7 @@ class DateTypeExtension extends AbstractTypeExtension
             return;
         }
 
-        if(array_key_exists('widget', $options) && 'single_text' == $options['widget']) {
+        if (array_key_exists('widget', $options) && 'single_text' == $options['widget']) {
             $view->vars['attr']['placeholder'] = $this->getFormat($options);
         }
     }

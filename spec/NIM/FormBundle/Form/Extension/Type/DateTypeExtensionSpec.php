@@ -3,7 +3,6 @@
 namespace spec\NIM\FormBundle\Form\Extension\Type;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\Test\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
