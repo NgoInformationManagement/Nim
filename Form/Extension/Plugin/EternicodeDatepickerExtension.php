@@ -73,7 +73,7 @@ class EternicodeDatepickerExtension extends AbstractPluginExtension
             'format' => $format,
             'language' => \Locale::getDefault(),
             'widget' => 'single_text',
-            'leading_zero' => true,
+            'leading_zero' => false,
         ));
     }
 

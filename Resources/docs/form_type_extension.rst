@@ -1,8 +1,24 @@
-Collection Form Type
+Form extension
+==============
+
+Options are added to the form type :
+- **legend** (string) : Legend of the form type.
+
+Date extension
+==============
+
+Options are added to the form type :
+- **placeholder** (string) : Placeholder, the default value is the format option.
+
+Text extension
+==============
+
+Options are added to the form type :
+- **placeholder** (string) : Placeholder.
+
+Collection extension
 ====================
 
-Collection form extension
---------------
 Two options are added to the basic collection form type :
     - **button_add_label** (default : 'form.collection.add') : Label of the addition button
     - **item_by_line** (default : 1) : integer assigned to the template to calculate the number of items by line.
