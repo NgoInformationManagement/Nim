@@ -21,12 +21,12 @@ trait FormCollectionTrait
      *
      * @When /^I (click|press) "([^"]*)" to add an item to "([^"]*)"$/
      */
-    public function iaddItemTo($type, $button, $label)
+    public function iaddItemTo($type, $buttonName, $label)
     {
         $buttons = $this->getSession()->getPage()->findAll('xpath',
             sprintf(
                 '//div[contains(@data-form-type, "collection")]//legend[text()[contains(., "%s")]]//*[text()[contains(., "%s")] and contains(@data-form-collection, "add")]',
-                $label, $button
+                $label, $buttonName
             )
         );
 

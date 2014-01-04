@@ -14,7 +14,7 @@ namespace spec\NIM\FormBundle\Model;
 use NIM\FormBundle\Model\Politeness;
 use PhpSpec\ObjectBehavior;
 
-class PolitnessSpec extends ObjectBehavior
+class PolitenessSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
@@ -23,12 +23,10 @@ class PolitnessSpec extends ObjectBehavior
 
     public function it_should_return_gender_options()
     {
-        $this::getOptions()->shouldReturn(
-            array(
-                Politeness::MADAM => 'politeness.'.Politeness::MISS,
-                Politeness::MISS => 'politeness.'.Politeness::MISS,
-                Politeness::MISTER => 'politeness'.Politeness::MISTER,
-            )
-        );
+        $this::getOptions()->shouldReturn(array(
+            Politeness::MADAM => 'politeness.'.Politeness::MADAM,
+            Politeness::MISS => 'politeness.'.Politeness::MISS,
+            Politeness::MISTER => 'politeness.'.Politeness::MISTER,
+        ));
     }
 }
