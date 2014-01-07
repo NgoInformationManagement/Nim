@@ -6,7 +6,7 @@ This bundle is part of the Ngo Information Management (NiM) and licensed under t
 Documentation
 -------------
 
-[Read the docs](https://readthedocs.org/projects/formbundle).
+[Read the docs](http://formbundle.readthedocs.org).
 
 Bug tracking
 ------------
