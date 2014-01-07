@@ -3,6 +3,11 @@ NIMFormBundle [![Build Status](https://travis-ci.org/NgoInformationManagement/Fo
 
 This bundle is part of the Ngo Information Management (NiM) and licensed under the MIT License.
 
+Documentation
+-------------
+
+[Read the docs](https://readthedocs.org/projects/formbundle/.
+
 Bug tracking
 ------------
 
