@@ -17,7 +17,7 @@ Available options, see the javascript plugin doc for more details :
     - **clear_btn** (boolean) : Plugin option.
     - **days_of_week_disabled** (array) : Plugin option.
     - **end_date** (string) : Plugin option.
-    - **force_parse ** boolean) : Plugin option.
+    - **force_parse** (boolean) : Plugin option.
     - **inputs** (array) : Plugin option.
     - **keyboard_navigation** (boolean) : Plugin option.
     - **language** (string) : Plugin option.
@@ -34,6 +34,7 @@ The locale and the date form will be automatically calculated.
 **Enable the extension in your service.xml:**
 
 .. code-block:: xml
+
     <services>
         <service id="nim.form.extension.datepicker"
                  class=">NIM\FormBundle\Form\Extension\Plugin\EternicodeDatepickerExtension">
@@ -93,6 +94,7 @@ Available options, see the javascript plugin doc for more details :
 **Enable the extension in your service.xml:**
 
 .. code-block:: xml
+
     <services>
         <service id="nim.form.extension.select2"
                  class="NIM\FormBundle\Form\Extension\Plugin\Select2Extension">

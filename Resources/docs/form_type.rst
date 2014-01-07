@@ -10,10 +10,11 @@ Create a choice type with the gender as choices (male, female).
 :Name: gender
 
 .. code-block:: php
+
     $form->add('fieldName', 'gender')
 
 Politeness type
------------
+---------------
 
 Create a choice type with the politeness as choices (madam, miss, mister).
 
@@ -21,6 +22,7 @@ Create a choice type with the politeness as choices (madam, miss, mister).
 :Name: politeness
 
 .. code-block:: php
+
     $form->add('fieldName', 'politeness')
 
 Delete type
@@ -30,4 +32,5 @@ Delete type
 :Name: delete
 
 .. code-block:: php
+
     $form->add('fieldName', 'delete')

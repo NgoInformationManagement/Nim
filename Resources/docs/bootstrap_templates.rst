@@ -15,12 +15,15 @@ Field macros
 - value : Value (example : option1)
 
 Caution  : your translation file need to have the same organisation for each entity :
-mission:
-    field:
-        type
-            option:
-                option1 : Option number 1
-                option2 : Option number 2
+
+.. code-block:: yaml
+
+    mission:
+        field:
+            type
+                option:
+                    option1 : Option number 1
+                    option2 : Option number 2
 
 **boolean :** Display a boolean (with a pretty icon) and wrap it in a link
 - bool : Value of the boolean
