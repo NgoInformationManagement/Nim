@@ -1,4 +1,4 @@
-NIMFormBundle [![Build Status](https://travis-ci.org/NgoInformationManagement/FormBundle.png?branch=master)](https://travis-ci.org/NgoInformationManagement/FormBundle) [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/NgoInformationManagement/FormBundle/badges/quality-score.png?s=23150a01ec379129826f59500000aa6ac633561a)](https://scrutinizer-ci.com/g/NgoInformationManagement/FormBundle/)
+NIMFormBundle [![Build Status](https://travis-ci.org/NgoInformationManagement/FormBundle.png?branch=master)](https://travis-ci.org/NgoInformationManagement/FormBundle) [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/NgoInformationManagement/FormBundle/badges/quality-score.png?s=23150a01ec379129826f59500000aa6ac633561a)](https://scrutinizer-ci.com/g/NgoInformationManagement/FormBundle/) [![SensioLabsInsight](https://insight.sensiolabs.com/projects/717db362-7f3d-4d1b-9d19-74d030174afa/big.png)](https://insight.sensiolabs.com/projects/717db362-7f3d-4d1b-9d19-74d030174afa)
 ==============
 
 This bundle is part of the Ngo Information Management (NiM) and licensed under the MIT License.
