@@ -45,16 +45,16 @@ abstract class AbstractPluginExtension extends AbstractTypeExtension
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $options = $this->getPluginOptions();
-        $options['plugin_rendered'] = array(
+        $pluginOptions = $this->getPluginOptions();
+        $pluginOptions['plugin_rendered'] = array(
             'default' => 'plugin',
             'allowed_types' => array('string'),
             'allowed_value' => array('plugin', 'none'),
         );
 
-        $resolver->setOptional(array_keys($options));
+        $resolver->setOptional(array_keys($pluginOptions));
 
-        foreach ($options as $optionName => $option) {
+        foreach ($pluginOptions as $optionName => $option) {
             if (isset($option['allowed_values'])) {
                 $resolver->addAllowedValues(array($optionName => $option['allowed_values']));
             }

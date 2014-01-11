@@ -19,11 +19,6 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class Select2ExtensionSpec extends ObjectBehavior
 {
     private $options = array(
-        'plugin_rendered'=> array(
-            'default' => 'plugin',
-            'allowed_types' => array('string'),
-            'allowed_value' => array('plugin', 'none'),
-        ),
         'width'=> array(
             'default' => 'element',
             'allowed_types' => array('string'),
@@ -61,6 +56,11 @@ class Select2ExtensionSpec extends ObjectBehavior
         'adapt_container_css_class'=> array('allowed_types' => array('string')),
         'adapt_dropdown_css_class'=> array('allowed_types' => array('string')),
         'next_search_term'=> array('allowed_types' => array('string')),
+        'plugin_rendered'=> array(
+            'default' => 'plugin',
+            'allowed_types' => array('string'),
+            'allowed_value' => array('plugin', 'none'),
+        ),
     );
 
     public function it_is_initializable()

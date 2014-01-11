@@ -37,11 +37,6 @@ class Select2Extension extends AbstractPluginExtension
     protected function getPluginOptions()
     {
         return array(
-            'plugin_rendered'=> array(
-                'default' => 'plugin',
-                'allowed_types' => array('string'),
-                'allowed_value' => array('plugin', 'none'),
-            ),
             'width'=> array(
                 'default' => 'element',
                 'allowed_types' => array('string'),

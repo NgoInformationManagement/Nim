@@ -12,7 +12,6 @@
 namespace NIM\FormBundle\Form\Extension\Plugin;
 
 use NIM\FormBundle\Form\Extension\Plugin\AbstractPluginExtension;
-use NIM\FormBundle\Form\FormToolsTrait;
 
 class MjolnicColorpickerExtension extends AbstractPluginExtension
 {
@@ -42,24 +41,12 @@ class MjolnicColorpickerExtension extends AbstractPluginExtension
                 'allowed_types' => array('string'),
                 'allowed_value' => array('hex', 'rgb', 'rgba', 'hsl', 'hsla'),
             ),
-            'color' => array(
-                'allowed_types' => array('string'),
-            ),
-            'container' => array(
-                'allowed_types' => array('string'),
-            ),
-            'component' => array(
-                'allowed_types' => array('string'),
-            ),
-            'input' => array(
-                'allowed_types' => array('string'),
-            ),
-            'horizontal' => array(
-                'allowed_types' => array('bool'),
-            ),
-            'template' => array(
-                'allowed_types' => array('string'),
-            ),
+            'color' => array('allowed_types' => array('string')),
+            'container' => array('allowed_types' => array('string')),
+            'component' => array('allowed_types' => array('string')),
+            'input' => array('allowed_types' => array('string')),
+            'horizontal' => array('allowed_types' => array('bool')),
+            'template' => array('allowed_types' => array('string')),
         );
     }
 }

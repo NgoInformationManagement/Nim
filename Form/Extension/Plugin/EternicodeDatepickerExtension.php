@@ -61,19 +61,10 @@ class EternicodeDatepickerExtension extends AbstractPluginExtension
             return $options['format'];
         };
 
-        $resolver->setOptional(array(
-            'leading_zero',
-        ));
-
-        $resolver->setAllowedTypes(array(
-            'leading_zero' => array('bool'),
-        ));
-
         $resolver->setDefaults(array(
             'format' => $format,
             'language' => \Locale::getDefault(),
             'widget' => 'single_text',
-            'leading_zero' => false,
         ));
     }
 
@@ -99,10 +90,9 @@ class EternicodeDatepickerExtension extends AbstractPluginExtension
     protected function getPluginOptions()
     {
         return array(
-            'plugin_rendered'=> array(
-                'default' => 'plugin',
-                'allowed_types' => array('string'),
-                'allowed_value' => array('plugin', 'none'),
+            'leading_zero' => array(
+                'allowed_types' => array('bool'),
+                'default' => false
             ),
             'autoclose' =>  array(
                 'allowed_types' => array('bool'),
@@ -125,6 +115,14 @@ class EternicodeDatepickerExtension extends AbstractPluginExtension
             'today_highlight' => array('allowed_types' => array('bool')),
             'week_start' => array('allowed_types' => array('integer')),
         );
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getExcludedOptions()
+    {
+        return array('plugin_rendered', 'leading_zero');
     }
 
     /**

@@ -20,10 +20,9 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class EternicodeDatepickerExtensionSpec extends ObjectBehavior
 {
     private $options = array(
-        'plugin_rendered'=> array(
-            'default' => 'plugin',
-            'allowed_types' => array('string'),
-            'allowed_value' => array('plugin', 'none'),
+        'leading_zero' => array(
+            'allowed_types' => array('bool'),
+            'default' => false
         ),
         'autoclose' =>  array(
             'allowed_types' => array('bool'),
@@ -45,6 +44,11 @@ class EternicodeDatepickerExtensionSpec extends ObjectBehavior
         'today_btn' => array('allowed_types' => array('bool')),
         'today_highlight' => array('allowed_types' => array('bool')),
         'week_start' => array('allowed_types' => array('integer')),
+        'plugin_rendered'=> array(
+            'default' => 'plugin',
+            'allowed_types' => array('string'),
+            'allowed_value' => array('plugin', 'none'),
+        ),
     );
 
     public function it_is_initializable()
@@ -82,13 +86,10 @@ class EternicodeDatepickerExtensionSpec extends ObjectBehavior
             }
         }
 
-        $resolver->setOptional(Argument::type('array'))
+        $resolver->setOptional(array_keys($this->options))
             ->shouldBeCalled();
 
         $resolver->setDefaults(Argument::type('array'))
-            ->shouldBeCalled();
-
-        $resolver->setAllowedTypes(Argument::type('array'))
             ->shouldBeCalled();
 
         $this->setDefaultOptions($resolver);

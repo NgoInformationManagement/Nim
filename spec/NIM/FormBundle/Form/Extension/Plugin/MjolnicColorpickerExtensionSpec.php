@@ -12,7 +12,6 @@
 namespace spec\NIM\FormBundle\Form\Extension\Plugin;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\Test\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -20,32 +19,20 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class MjolnicColorpickerExtensionSpec extends ObjectBehavior
 {
     private $options = array(
-        'plugin_rendered'=> array(
-            'default' => 'plugin',
-            'allowed_types' => array('string'),
-            'allowed_value' => array('plugin', 'none'),
-        ),
         'format' =>  array(
             'allowed_types' => array('string'),
             'allowed_value' => array('hex', 'rgb', 'rgba', 'hsl', 'hsla'),
         ),
-        'color' => array(
+        'color' => array('allowed_types' => array('string')),
+        'container' => array('allowed_types' => array('string')),
+        'component' => array('allowed_types' => array('string')),
+        'input' => array('allowed_types' => array('string')),
+        'horizontal' => array('allowed_types' => array('bool')),
+        'template' => array('allowed_types' => array('string')),
+        'plugin_rendered'=> array(
+            'default' => 'plugin',
             'allowed_types' => array('string'),
-        ),
-        'container' => array(
-            'allowed_types' => array('string'),
-        ),
-        'component' => array(
-            'allowed_types' => array('string'),
-        ),
-        'input' => array(
-            'allowed_types' => array('string'),
-        ),
-        'horizontal' => array(
-            'allowed_types' => array('bool'),
-        ),
-        'template' => array(
-            'allowed_types' => array('string'),
+            'allowed_value' => array('plugin', 'none'),
         ),
     );
 
