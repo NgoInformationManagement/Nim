@@ -79,7 +79,13 @@
          * @returns {object}
          */
         getPluginDefaultOptions: function(plugin) {
-            return $.fn[plugin].defaults
+            var options = [];
+
+            if($.fn[plugin].defaults) {
+                options = $.fn[plugin].defaults;
+            }
+
+            return options;
         },
 
         /**

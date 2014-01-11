@@ -30,10 +30,11 @@ abstract class AbstractPluginExtension extends AbstractTypeExtension
             $this->addVarToFormView($view, 'plugin_rendered', $options['plugin_rendered']);
             $this->addDataAttributeToFormView($view, 'plugin-name', $this->getPrototypeName());
 
-            $optional = array_keys($this->getPluginOptions());
-            foreach ($optional as $option) {
+            $pluginOptions = array_keys($this->getPluginOptions());
+            foreach ($pluginOptions as $optionName) {
                 if (!in_array($options, $this->getExcludedOptions())) {
-                    $this->addDataAttributeToFormViewFromOptions($view, $options, $option);
+                    $prefix = $this->getPrefixOption($optionName);
+                    $this->addDataAttributeToFormViewFromOptions($view, $options, $optionName, $prefix);
                 }
             }
         }
@@ -44,19 +45,26 @@ abstract class AbstractPluginExtension extends AbstractTypeExtension
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setOptional(array_keys($this->getPluginOptions()));
+        $options = $this->getPluginOptions();
+        $options['plugin_rendered'] = array(
+            'default' => 'plugin',
+            'allowed_types' => array('string'),
+            'allowed_value' => array('plugin', 'none'),
+        );
 
-        foreach ($this->getPluginOptions() as $optionName => $options) {
-            if (isset($options['allowed_values'])) {
-                $resolver->addAllowedValues(array($optionName => $options['allowed_values']));
+        $resolver->setOptional(array_keys($options));
+
+        foreach ($options as $optionName => $option) {
+            if (isset($option['allowed_values'])) {
+                $resolver->addAllowedValues(array($optionName => $option['allowed_values']));
             }
 
-            if (isset($options['allowed_types'])) {
-                $resolver->addAllowedTypes(array($optionName => $options['allowed_types']));
+            if (isset($option['allowed_types'])) {
+                $resolver->addAllowedTypes(array($optionName => $option['allowed_types']));
             }
 
-            if (isset($options['default'])) {
-                $resolver->replaceDefaults(array($optionName => $options['default']));
+            if (isset($option['default'])) {
+                $resolver->replaceDefaults(array($optionName => $option['default']));
             }
         }
     }
@@ -88,5 +96,20 @@ abstract class AbstractPluginExtension extends AbstractTypeExtension
     protected function getExcludedOptions()
     {
         return array('plugin_rendered');
+    }
+
+    /**
+     * Get the prefix a HTML data attribute
+     *
+     * @param $optionName
+     * @return null
+     */
+    protected function getPrefixOption($optionName)
+    {
+        if (isset($this->getPluginOptions()[$optionName]['prefix'])) {
+            return $this->getPluginOptions()[$optionName]['prefix'];
+        }
+
+        return null;
     }
 }

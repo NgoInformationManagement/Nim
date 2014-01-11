@@ -153,7 +153,7 @@
             <div class="input-group">
                 {{ block('form_widget_simple') }}
                 <span class="input-group-addon">
-                    <i class="icon-calendar"></i>
+                    <i class="glyphicon glyphicon-calendar"></i>
                 </span>
             </div>
         {% else %}
@@ -161,3 +161,15 @@
         {% endif %}
     {% endspaceless %}
 {% endblock date_widget %}
+
+{# Colorpicker widget #}
+{% block colorpicker_widget %}
+    {% spaceless %}
+        <div class="input-group">
+            {{ block('form_widget_simple') }}
+            <span class=" input-group-addon">
+               <i class="glyphicon glyphicon-tint"></i>
+            </span>
+        </div>
+    {% endspaceless %}
+{% endblock colorpicker_widget %}
