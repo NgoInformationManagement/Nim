@@ -107,6 +107,39 @@ Available options, see the javascript plugin doc for more details :
 :Website: http://ivaynberg.github.io/select2
 :Github: https://github.com/ivaynberg/select2
 
+Colorpicker Extension
+-----------------
+
+:Extended type: colorpicker
+:Rendered as: text field
+:Inherited options: these options inherit from the `text <http://symfony.com/doc/current/reference/forms/types/text.html>`_ type
+
+Available options, see the javascript plugin doc for more details :
+    - **plugin_rendered** (string) : Enable or not the jquery plugin, it is enabled by default (available values : plugin or none).
+    - **format** (string) : Plugin option.
+    - **color** (string) : Plugin option.
+    - **container** (string) : Plugin option.
+    - **component** (string) : Plugin option.
+    - **input** (string) : Plugin option.
+    - **horizontal** (bool) : Plugin option.
+    - **template** (string) : Plugin option.
+
+**Enable the extension in your service.xml:**
+
+.. code-block:: xml
+
+    <services>
+        <service id="nim.form.extension.colorpicker"
+                 class="NIM\FormBundle\Form\Extension\Plugin\MjolnicColorpickerExtension">
+            <tag name="form.type_extension" alias="colorpicker" />
+        </service>
+    </services>
+
+**More informations on select2 :**
+
+:Website: http://mjolnic.github.io/bootstrap-colorpicker/
+:Github: https://github.com/mjolnic/bootstrap-colorpicker/
+
 Enabling the jquery plugins
 ---------------------------
 

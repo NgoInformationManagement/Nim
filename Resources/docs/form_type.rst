@@ -34,3 +34,13 @@ Delete type
 .. code-block:: php
 
     $form->add('fieldName', 'delete')
+
+Colorpicker type
+-----------
+
+:Parent: Text
+:Name: colorpicker
+
+.. code-block:: php
+
+    $form->add('fieldName', 'colorpicker')
