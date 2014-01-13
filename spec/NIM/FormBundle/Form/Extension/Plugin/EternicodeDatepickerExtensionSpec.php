@@ -19,38 +19,6 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class EternicodeDatepickerExtensionSpec extends ObjectBehavior
 {
-    private $options = array(
-        'leading_zero' => array(
-            'allowed_types' => array('bool'),
-            'default' => false
-        ),
-        'autoclose' =>  array(
-            'allowed_types' => array('bool'),
-            'default' => true,
-        ),
-        'before_show_day' =>  array('allowed_types' => array('string')),
-        'calendar_weeks' =>  array('allowed_types' => array('bool')),
-        'clear_btn' =>  array('allowed_types' => array('bool')),
-        'days_of_week_disabled' => array('allowed_types' => array('array')),
-        'end_date' => array('allowed_types' => array('string')),
-        'force_parse' => array('allowed_types' => array('bool')),
-        'inputs' => array('allowed_types' => array('array')),
-        'keyboard_navigation' => array('allowed_types' => array('bool')),
-        'language' => array('allowed_types' => array('string')),
-        'min_view_mode' => array('allowed_types' => array('string', 'integer')),
-        'orientation' => array( 'allowed_types' => array('string'),),
-        'start_date' => array('allowed_types' => array('string')),
-        'start_view' => array('allowed_types' => array('string', 'integer')),
-        'today_btn' => array('allowed_types' => array('bool')),
-        'today_highlight' => array('allowed_types' => array('bool')),
-        'week_start' => array('allowed_types' => array('integer')),
-        'plugin_rendered'=> array(
-            'default' => 'plugin',
-            'allowed_types' => array('string'),
-            'allowed_value' => array('plugin', 'none'),
-        ),
-    );
-
     public function it_is_initializable()
     {
         $this->shouldHaveType('NIM\FormBundle\Form\Extension\Plugin\EternicodeDatepickerExtension');
@@ -69,28 +37,64 @@ class EternicodeDatepickerExtensionSpec extends ObjectBehavior
 
     public function it_should_configure_the_resolver(OptionsResolverInterface $resolver)
     {
-        foreach ($this->options as $optionName => $options) {
-            if (isset($options['allowed_values'])) {
-                $resolver->addAllowedValues(array($optionName => $options['allowed_values']))
-                    ->shouldBeCalled();
-            }
+        $resolver->setOptional(array(
+            'plugin_rendered',
+            'get_from_factory',
+            'leading_zero',
+            'autoclose',
+            'before_show_day',
+            'calendar_weeks',
+            'clear_btn',
+            'days_of_week_disabled',
+            'end_date',
+            'force_parse',
+            'inputs',
+            'keyboard_navigation',
+            'language',
+            'min_view_mode',
+            'orientation',
+            'start_date',
+            'start_view',
+            'today_btn' ,
+            'today_highlight',
+            'week_start',
+        ));
 
-            if (isset($options['allowed_types'])) {
-                $resolver->addAllowedTypes(array($optionName => $options['allowed_types']))
-                    ->shouldBeCalled();
-            }
+        $resolver->setDefaults(array(
+            'plugin_rendered' => 'plugin',
+            'get_from_factory' => array(),
+            'leading_zero' => false,
+            'autoclose' => false,
+            'format' => Argument::any(),
+            'language' => \Locale::getDefault(),
+            'widget' => 'single_text',
+        ));
 
-            if (isset($options['default'])) {
-                $resolver->replaceDefaults(array($optionName => $options['default']))
-                    ->shouldBeCalled();
-            }
-        }
+        $resolver->setAllowedTypes(array(
+            'plugin_rendered' => array('plugin', 'none'),
+            'leading_zero' => array('bool'),
+            'autoclose' => array('bool'),
+            'before_show_day'=> array('string'),
+            'calendar_weeks'=> array('bool'),
+            'clear_btn'=> array('bool'),
+            'days_of_week_disabled'=> array('array'),
+            'end_date'=> array('string'),
+            'force_parse'=> array('bool'),
+            'inputs'=> array('array'),
+            'keyboard_navigation'=> array('bool'),
+            'language'=> array('string'),
+            'min_view_mode'=> array('string', 'integer'),
+            'orientation'=> array('string'),
+            'start_date'=> array('string'),
+            'start_view'=> array('string', 'integer'),
+            'today_btn'=> array('bool'),
+            'today_highlight'=> array('bool'),
+            'week_start'=> array('integer'),
+        ));
 
-        $resolver->setOptional(array_keys($this->options))
-            ->shouldBeCalled();
-
-        $resolver->setDefaults(Argument::type('array'))
-            ->shouldBeCalled();
+        $resolver->setAllowedValues(array(
+            'plugin_rendered' => array('plugin', 'none')
+        ));
 
         $this->setDefaultOptions($resolver);
     }

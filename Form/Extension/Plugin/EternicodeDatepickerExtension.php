@@ -87,12 +87,13 @@ class EternicodeDatepickerExtension extends AbstractPluginExtension
     /**
      * {@inheritdoc}
      */
-    protected function getPluginOptions()
+    protected function getOptions()
     {
         return array(
             'leading_zero' => array(
                 'allowed_types' => array('bool'),
-                'default' => false
+                'default' => false,
+                'excluded' => true,
             ),
             'autoclose' =>  array(
                 'allowed_types' => array('bool'),
@@ -129,7 +130,8 @@ class EternicodeDatepickerExtension extends AbstractPluginExtension
      * Get the datepicker date pattern
      *
      * @param $formPattern
-     * @return string
+     * @param $leadingZero
+     * @return mixed
      */
     private function getDatepickerPattern($formPattern, $leadingZero)
     {

@@ -34,7 +34,7 @@ class MjolnicColorpickerExtension extends AbstractPluginExtension
     /**
      * {@inheritdoc}
      */
-    protected function getPluginOptions()
+    protected function getOptions()
     {
         return array(
             'format' =>  array(

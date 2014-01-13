@@ -59,6 +59,14 @@
                 </ul>
                 {% endif %}
             </div>
+
+            {% if plugin_rendered|default('none') != 'none' %}
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#{{ id }}').{{ plugin_prototype }}({{ plugin_options|raw }})
+                });
+            </script>
+            {% endif %}
         </div>
     {% endspaceless %}
 {% endblock form_row %}

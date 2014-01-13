@@ -18,24 +18,6 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class MjolnicColorpickerExtensionSpec extends ObjectBehavior
 {
-    private $options = array(
-        'format' =>  array(
-            'allowed_types' => array('string'),
-            'allowed_value' => array('hex', 'rgb', 'rgba', 'hsl', 'hsla'),
-        ),
-        'color' => array('allowed_types' => array('string')),
-        'container' => array('allowed_types' => array('string')),
-        'component' => array('allowed_types' => array('string')),
-        'input' => array('allowed_types' => array('string')),
-        'horizontal' => array('allowed_types' => array('bool')),
-        'template' => array('allowed_types' => array('string')),
-        'plugin_rendered'=> array(
-            'default' => 'plugin',
-            'allowed_types' => array('string'),
-            'allowed_value' => array('plugin', 'none'),
-        ),
-    );
-
     public function it_is_initializable()
     {
         $this->shouldHaveType('NIM\FormBundle\Form\Extension\Plugin\MjolnicColorpickerExtension');
@@ -54,25 +36,36 @@ class MjolnicColorpickerExtensionSpec extends ObjectBehavior
 
     public function it_should_configure_the_resolver(OptionsResolverInterface $resolver)
     {
-        foreach ($this->options as $optionName => $options) {
-            if (isset($options['allowed_values'])) {
-                $resolver->addAllowedValues(array($optionName => $options['allowed_values']))
-                    ->shouldBeCalled();
-            }
+        $resolver->setDefaults(array(
+            'plugin_rendered' => 'plugin',
+            'get_from_factory' => array(),
+        ));
 
-            if (isset($options['allowed_types'])) {
-                $resolver->addAllowedTypes(array($optionName => $options['allowed_types']))
-                    ->shouldBeCalled();
-            }
+        $resolver->setOptional(array(
+            'format',
+            'color',
+            'component',
+            'input',
+            'horizontal',
+            'template',
+            'plugin_rendered',
+            'get_from_factory',
+        ));
+        $resolver->setAllowedValues(array(
+            'format' =>  array('hex', 'rgb', 'rgba', 'hsl', 'hsla'),
+            'plugin_rendered'=> array('plugin', 'none'),
+        ));
 
-            if (isset($options['default'])) {
-                $resolver->replaceDefaults(array($optionName => $options['default']))
-                    ->shouldBeCalled();
-            }
-        }
-
-        $resolver->setOptional(array_keys($this->options))
-            ->shouldBeCalled();
+        $resolver->setAllowedTypes(array(
+            'format' => array('string'),
+            'color'=> array('string'),
+            'container'=> array('string'),
+            'component'=> array('string'),
+            'input'=> array('string'),
+            'horizontal'=> array('bool'),
+            'template'=> array('string'),
+            'plugin_rendered'=> array('string'),
+        ));
 
         $this->setDefaultOptions($resolver);
     }

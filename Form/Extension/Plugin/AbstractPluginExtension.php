@@ -21,22 +21,35 @@ abstract class AbstractPluginExtension extends AbstractTypeExtension
 {
     use FormToolsTrait;
 
+    protected $defaults = array();
+    protected $optional = array();
+    protected $defaultsValues = array();
+    protected $defaultsTypes = array();
+
+    /** @var OptionTransformer $optionTransformer */
+    protected $optionTransformer;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->parseOptions();
+        $this->optionTransformer = (new OptionTransformer())
+            ->setConfiguration($this->getFullOptions());
+    }
+
     /**
      * {@inheritdoc}
      */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
         if (array_key_exists('plugin_rendered', $options) && $options['plugin_rendered'] != 'none') {
-            $this->addVarToFormView($view, 'plugin_rendered', $options['plugin_rendered']);
-            $this->addDataAttributeToFormView($view, 'plugin-name', $this->getPrototypeName());
+            $pluginOptions = $this->optionTransformer->setOptions($options)->transform();
 
-            $pluginOptions = array_keys($this->getPluginOptions());
-            foreach ($pluginOptions as $optionName) {
-                if (!in_array($options, $this->getExcludedOptions())) {
-                    $prefix = $this->getPrefixOption($optionName);
-                    $this->addDataAttributeToFormViewFromOptions($view, $options, $optionName, $prefix);
-                }
-            }
+            $this->addVarToFormView($view, 'plugin_rendered', $options['plugin_rendered']);
+            $this->addVarToFormView($view, 'plugin_prototype', $this->getPrototypeName());
+            $this->addVarToFormView($view, 'plugin_options', $pluginOptions);
         }
     }
 
@@ -45,28 +58,10 @@ abstract class AbstractPluginExtension extends AbstractTypeExtension
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $pluginOptions = $this->getPluginOptions();
-        $pluginOptions['plugin_rendered'] = array(
-            'default' => 'plugin',
-            'allowed_types' => array('string'),
-            'allowed_value' => array('plugin', 'none'),
-        );
-
-        $resolver->setOptional(array_keys($pluginOptions));
-
-        foreach ($pluginOptions as $optionName => $option) {
-            if (isset($option['allowed_values'])) {
-                $resolver->addAllowedValues(array($optionName => $option['allowed_values']));
-            }
-
-            if (isset($option['allowed_types'])) {
-                $resolver->addAllowedTypes(array($optionName => $option['allowed_types']));
-            }
-
-            if (isset($option['default'])) {
-                $resolver->replaceDefaults(array($optionName => $option['default']));
-            }
-        }
+        $resolver->setOptional($this->optional);
+        $resolver->setDefaults($this->defaults);
+        $resolver->setAllowedTypes($this->defaultsTypes);
+        $resolver->setAllowedValues($this->defaultsValues);
     }
 
     /**
@@ -86,30 +81,51 @@ abstract class AbstractPluginExtension extends AbstractTypeExtension
      *
      * @return mixed
      */
-    abstract protected function getPluginOptions();
+    abstract protected function getOptions();
 
     /**
-     * Return all the options which is not assigned to the view
-     *
-     * @return array
+     * Extract the default values, allowed types, allowed values and optional configuration options
+     * from the configuration
      */
-    protected function getExcludedOptions()
+    protected function parseOptions()
     {
-        return array('plugin_rendered');
+        foreach ($this->getFullOptions() as $optionName => $option) {
+            if (isset($option['allowed_values'])) {
+                $this->defaultsValues[$optionName] = $option['allowed_values'];
+            }
+
+            if (isset($option['allowed_types'])) {
+                $this->defaultsTypes[$optionName] = $option['allowed_types'];
+            }
+
+            if (isset($option['default'])) {
+                $this->defaults[$optionName] = $option['default'];
+            }
+        }
+
+        $this->optional = array_keys($this->getFullOptions());
     }
 
     /**
-     * Get the prefix a HTML data attribute
+     * Get the full options
      *
-     * @param $optionName
-     * @return null
+     * @return array
      */
-    protected function getPrefixOption($optionName)
+    protected function getFullOptions()
     {
-        if (isset($this->getPluginOptions()[$optionName]['prefix'])) {
-            return $this->getPluginOptions()[$optionName]['prefix'];
-        }
-
-        return null;
+        return array_merge(array(
+            'plugin_rendered' => array(
+                'default' => 'plugin',
+                'allowed_types' => array('string'),
+                'allowed_value' => array('plugin', 'none'),
+                'excluded' => true,
+            ),
+            'get_from_factory' => array(
+                'default' => array(),
+                'allowed_types' => array('array'),
+                'excluded' => true,
+            )),
+            $this->getOptions()
+        );
     }
 }
