@@ -34,7 +34,7 @@ class Select2Extension extends AbstractPluginExtension
     /**
      * {@inheritdoc}
      */
-    protected function getPluginOptions()
+    protected function getOptions()
     {
         return array(
             'width'=> array(
