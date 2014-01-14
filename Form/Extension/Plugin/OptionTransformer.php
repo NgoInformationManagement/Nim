@@ -94,17 +94,6 @@ class OptionTransformer
 
         return $name;
     }
-//
-//    /**
-//     * Check if option exists
-//     *
-//     * @param $optionName
-//     * @return bool
-//     */
-//    private function isExistingOption($optionName)
-//    {
-//        return isset($this->options[$optionName]);
-//    }
 
     /**
      * Check if option is excluded
