@@ -23,6 +23,8 @@ file that was distributed with this source code.
         <parameter key="nim.form.type.gender.class">NIM\FormBundle\Form\Type\GenderType</parameter>
         <parameter key="nim.form.type.politeness.class">NIM\FormBundle\Form\Type\PolitenessType</parameter>
         <parameter key="nim.form.type.colorpicker.class">NIM\FormBundle\Form\Type\ColorPickerType</parameter>
+
+        <parameter key="nim.twig.extension.country.class">NIM\Component\Twig\NimCountryExtension</parameter>
     </parameters>
 
     <services>
@@ -64,6 +66,10 @@ file that was distributed with this source code.
         <service id="nim.form.type.colorpicker"
                  class="%nim.form.type.colorpicker.class%">
             <tag name="form.type" alias="colorpicker" />
+        </service>
+
+        <service id="nim.twig.extension.country" class="%nim.twig.extension.country.class%">
+            <tag name="twig.extension" />
         </service>
     </services>
 </container>
