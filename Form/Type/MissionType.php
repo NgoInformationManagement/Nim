@@ -41,11 +41,13 @@ class MissionType extends NIMType
             ->add('startedAt', 'date', array(
                 'label' => 'mission.field.startedAt.label',
                 'widget' => 'single_text',
+                'leading_zero' => true,
 
             ))
             ->add('endedAt', 'date', array(
                 'widget' => 'single_text',
-                'label' => 'mission.field.endedAt.label'
+                'label' => 'mission.field.endedAt.label',
+                'leading_zero' => true,
             ))
         ;
     }
