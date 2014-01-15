@@ -23,6 +23,21 @@
             <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
             {% endstylesheets %}
         {% endblock %}
+
+        {# javascripts... #}
+        {% block javascripts %}
+            {% javascripts
+            'bundles/nimweb/js/lib/core/jquery.min.js'
+            'bundles/nimweb/js/lib/core/bootstrap.min.js'
+            'bundles/nimweb/js/lib/plugin/*'
+            'bundles/nimform/js/core/plugin-options-factory.js'
+            'bundles/nimform/js/type/*'
+            'bundles/nimweb/js/lib/knockout.min.js'
+            'bundles/nimweb/js/layout.js'
+            %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
     </head>
     <body class="wide mini-sidebar">
         {% block body %}
@@ -148,23 +163,6 @@
         <div id="footer">
             <p>2013 &copy; {{ 'layout.footer'|trans }}</p>
         </div>
-
-        {# javascripts... #}
-        {% block javascripts %}
-            {% javascripts
-                'bundles/nimweb/js/lib/core/jquery.min.js'
-                'bundles/nimweb/js/lib/core/bootstrap.min.js'
-                'bundles/nimweb/js/lib/plugin/*'
-                'bundles/nimform/js/core/plugin-options-factory.js'
-                'bundles/nimform/js/core/plugin-options-manager.js'
-                'bundles/nimform/js/type/*'
-                'bundles/nimweb/js/lib/knockout.min.js'
-                'bundles/nimweb/js/layout.js'
-            %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-            {% endjavascripts %}
-        {% endblock %}
-
         {% endblock body %}
     </body>
 </html>

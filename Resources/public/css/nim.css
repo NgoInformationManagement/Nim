@@ -84,12 +84,16 @@ table .worker-name i {
 }
 
 /** Form */
-ul.form-type-errors {
+ul.form-type-errors, ul.form-type-legend {
     margin-bottom: 0px;
 }
 
-ul.form-type-errors li p {
+ul.form-type-errors li p, ul.form-type-legend li p {
     margin-bottom: 0px;
+}
+
+ul.form-type-legend, ul.form-type-errors {
+    padding: 0;
 }
 
 div.collection-item {

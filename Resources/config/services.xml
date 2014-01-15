@@ -17,8 +17,8 @@ file that was distributed with this source code.
     <parameters>
         <parameter key="nim.twig.extension.translation.class">NIM\Component\Twig\NimTranslationExtension</parameter>
         <parameter key="nim.twig.extension.country.class">NIM\Component\Twig\NimCountryExtension</parameter>
-        <parameter key="nim.form.extension.select2.class">NIM\FormBundle\Form\Extension\Select2Extension</parameter>
-        <parameter key="nim.form.extension.datepicker.class">NIM\FormBundle\Form\Extension\EternicodeDatepickerExtension</parameter>
+        <parameter key="nim.form.extension.select2.class">NIM\FormBundle\Form\Extension\Plugin\Select2Extension</parameter>
+        <parameter key="nim.form.extension.datepicker.class">NIM\FormBundle\Form\Extension\Plugin\EternicodeDatepickerExtension</parameter>
     </parameters>
 
     <services>
