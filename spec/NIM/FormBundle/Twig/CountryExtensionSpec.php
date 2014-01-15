@@ -33,5 +33,6 @@ class CountryExtensionSpec extends ObjectBehavior
     public function it_should_return_country()
     {
         $this->countryFilter('US', 'fr')->shouldReturn('États-Unis');
+        $this->countryFilter('US', 'en')->shouldReturn('United States');
     }
 }

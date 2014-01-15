@@ -32,7 +32,7 @@ class CountryExtension extends \Twig_Extension
      */
     public function countryFilter($code, $locale = null)
     {
-        if (null !== $country = Intl::getRegionBundle()->getCountryName($code)) {
+        if (null !== $country = Intl::getRegionBundle()->getCountryName($code, $locale)) {
             return $country;
         }
 
