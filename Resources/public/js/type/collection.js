@@ -160,10 +160,12 @@
      * Apply to standard CollectionForm elements
      */
 
-    $(document).on('collection-form-add', function(e, addedElement) {
-        $(addedElement).find('[data-form-type="collection"]').CollectionForm();
-        $(document).trigger('dom-node-inserted', [$(addedElement)]);
-    });
+    $(function() {
+        $(document).on('collection-form-add', function(e, addedElement) {
+            $(addedElement).find('[data-form-type="collection"]').CollectionForm();
+            $(document).trigger('dom-node-inserted', [$(addedElement)]);
+        });
 
-    $('[data-form-type="collection"]').CollectionForm();
+        $('[data-form-type="collection"]').CollectionForm();
+    })
 }(jQuery);
