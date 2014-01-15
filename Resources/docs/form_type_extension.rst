@@ -1,32 +1,39 @@
 Form extension
 ==============
 
-Options are added to the form type :
-- **legend** (string) : Legend of the form type.
+Form
+----
+
+Options are added to the form type:
+
+    - **legend** (string) : Legend of the form type.
 
 Date extension
-==============
+--------------
 
-Options are added to the form type :
-- **placeholder** (string) : Placeholder, the default value is the format option.
+Options are added to the form type:
+
+    - **placeholder** (string) : Placeholder, the default value is the format option.
 
 Text extension
-==============
+--------------
 
-Options are added to the form type :
-- **placeholder** (string) : Placeholder.
+Options are added to the form type:
+
+    - **placeholder** (string) : Placeholder.
 
 Collection extension
-====================
+--------------------
 
-Two options are added to the basic collection form type :
+Two options are added to the basic collection form type:
+
     - **button_add_label** (default : 'form.collection.add') : Label of the addition button
     - **item_by_line** (default : 1) : integer assigned to the template to calculate the number of items by line.
 
 Example with bootstrap : **boxWidth = 12 / item_by_line**
 
 HTML markup
------------
+^^^^^^^^^^^
 The container element needs to have `data-form-type="collection"` as html attribute. It is used to enable the form collection plugin.
 All data attributes beginning by data-form-collection are used by the plugin and should not be removed.
 
@@ -54,7 +61,8 @@ All data attributes beginning by data-form-collection are used by the plugin and
         </a>
     </div>
 
-**List of HTML attributes :**
+List of HTML attributes:
+
     - **data-prototype** : form prototype
     - **data-form-collection="list"** : container of the list of the collection item
     - **data-form-collection="item"** : container of the collection item
@@ -65,7 +73,7 @@ All data attributes beginning by data-form-collection are used by the plugin and
     - **data-form-prototype="update"** : HTML element used to update the form prototype when change event is fired.
 
 Updating dynamically the form Prototype
----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 When a HTML element which has **data-form-prototype="update"** as HTML attribute fired change event, the plugin will find the new
 prototype from the server if the **data-form-url="Url"** is specified. The value of the input/select and the position of the collection
 item will be submitted to the server.

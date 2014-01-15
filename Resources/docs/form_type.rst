@@ -25,16 +25,6 @@ Create a choice type with the politeness as choices (madam, miss, mister).
 
     $form->add('fieldName', 'politeness')
 
-Delete type
------------
-
-:Parent: Button
-:Name: delete
-
-.. code-block:: php
-
-    $form->add('fieldName', 'delete')
-
 Colorpicker type
 -----------
 
@@ -44,3 +34,13 @@ Colorpicker type
 .. code-block:: php
 
     $form->add('fieldName', 'colorpicker')
+
+Delete type
+-----------
+
+:Parent: Button
+:Name: delete
+
+.. code-block:: php
+
+    $form->add('fieldName', 'delete')

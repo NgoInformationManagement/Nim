@@ -140,14 +140,23 @@ Available options, see the javascript plugin doc for more details :
 :Website: http://mjolnic.github.io/bootstrap-colorpicker/
 :Github: https://github.com/mjolnic/bootstrap-colorpicker/
 
-Enabling the jquery plugins
+Factory options plugins
 ---------------------------
 
-Each form type rendered by these extensions have `data-plugin-name` attribute (can be useful to select with them jquery selector). There are several way to enable jquery plugins:
+Some plugin options are functions, you can not define them directly in your php form classes. The solution is to use the
+the plugin options factory, you can add function like that :
 
-- Your plugin get its configuration from data attributes. Good! Just follow the plugin doc.
-- If your plugin can not get configuration from the dom (HTML data attributes), you still can rewrite the plugin definition. It is not useful because it will be hard to update your plugin after that... But you can use the plugin manager! It will automatically configure and enable the plugin. There are some steps to respect:
-    + The plugin has to expose its own defaults options. If it is not the case expose them yourself.
-    + Inlcude the scripts `plugin-options-factory.js` and `plugin-options-manager.js` in your page.
+.. code-block:: js
 
-Note: Some options are functions, you can register them in the factory.
+    $.PluginOptionsFactory.add('optionFunctionName', function() {
+        return (...)
+    });
+
+You can define them in the form class like that :
+
+.. code-block:: php
+
+    $builder->add('startedAt', 'date', array(
+        'option_name' => 'optionFunctionName',
+    ));
+
