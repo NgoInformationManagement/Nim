@@ -15,8 +15,8 @@ file that was distributed with this source code.
                                http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="nim.twig.extension.translation.class">NIM\Component\Twig\NimTranslationExtension</parameter>
-        <parameter key="nim.twig.extension.country.class">NIM\Component\Twig\NimCountryExtension</parameter>
+        <parameter key="nim.twig.extension.translation.class">NIM\CoreBundle\Twig\TranslationExtension</parameter>
+        <parameter key="nim.twig.extension.country.class">NIM\FormBundle\Twig\CountryExtension</parameter>
         <parameter key="nim.form.extension.select2.class">NIM\FormBundle\Form\Extension\Plugin\Select2Extension</parameter>
         <parameter key="nim.form.extension.datepicker.class">NIM\FormBundle\Form\Extension\Plugin\EternicodeDatepickerExtension</parameter>
     </parameters>
