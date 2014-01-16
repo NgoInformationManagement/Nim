@@ -11,14 +11,14 @@
 
 namespace NIM\CoreBundle\DependencyInjection;
 
-use NIM\Component\DependencyInjection\NIMExtension;
+use Sylius\Bundle\ResourceBundle\DependencyInjection\SyliusResourceExtension;
 use NIM\CoreBundle\NIMCoreBundle;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Loader;
 
-class NIMCoreExtension extends NIMExtension
+class NIMCoreExtension extends SyliusResourceExtension
 {
     /**
      * {@inheritDoc}
