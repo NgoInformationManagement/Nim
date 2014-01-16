@@ -14,7 +14,7 @@ class NIMWorkerExtensionSpec extends ObjectBehavior
 
     function it_should_extends_nim_extension()
     {
-        $this->shouldHaveType('NIM\Component\DependencyInjection\NIMExtension');
+        $this->shouldHaveType('Sylius\Bundle\ResourceBundle\DependencyInjection\SyliusResourceExtension');
     }
 
     function it_should_extends_symfony_extension()
