@@ -20,24 +20,24 @@ use Symfony\Component\Form\Test\FormBuilderInterface;
 
 class WorkerSubcriberSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('NIM\WorkerBundle\Form\Type\EventListener\WorkerSubcriber');
     }
 
-    function it_sould_implement()
+    public function it_sould_implement()
     {
         $this->shouldImplement('Symfony\Component\EventDispatcher\EventSubscriberInterface');
     }
 
-    function it_should_subscribe_to_pre_set_event()
+    public function it_should_subscribe_to_pre_set_event()
     {
         $this->getSubscribedEvents()->shouldReturn(array(
             FormEvents::PRE_SET_DATA => 'preSetData'
         ));
     }
 
-    function it_should_add_fields_to_worker_form(FormBuilderInterface $builder,FormEvent $event, Worker $worker)
+    public function it_should_add_fields_to_worker_form(FormBuilderInterface $builder,FormEvent $event, Worker $worker)
     {
         $worker->getId()->willReturn(1);
         $event->getData()->willReturn($worker);

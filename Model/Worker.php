@@ -91,7 +91,6 @@ class Worker extends PersonAbstract
         return $this->firstname;
     }
 
-
     /**
      * @param mixed $lastname
      */
@@ -327,7 +326,6 @@ class Worker extends PersonAbstract
     {
         return $this->passports;
     }
-
 
     /**
      * @param mixed $socialSecurityNumber

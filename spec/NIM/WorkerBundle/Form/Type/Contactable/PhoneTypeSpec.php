@@ -18,17 +18,17 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class PhoneTypeSpec extends ObjectBehavior
 {
-    function let()
+    public function let()
     {
         $this->beConstructedWith('phone', array('nim'));
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('NIM\WorkerBundle\Form\Type\Contactable\PhoneType');
     }
 
-    function it_should_build_agency_form(FormBuilderInterface $builder)
+    public function it_should_build_agency_form(FormBuilderInterface $builder)
     {
         $builder
             ->add('type', 'choice',  Argument::any())
@@ -45,7 +45,7 @@ class PhoneTypeSpec extends ObjectBehavior
         $this->buildForm($builder, array());
     }
 
-    function it_should_define_assigned_data_class(OptionsResolverInterface $resolver)
+    public function it_should_define_assigned_data_class(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => 'phone',
@@ -55,7 +55,7 @@ class PhoneTypeSpec extends ObjectBehavior
         $this->setDefaultOptions($resolver);
     }
 
-    function it_should_have_valid_name()
+    public function it_should_have_valid_name()
     {
         $this->getName()->shouldReturn('nim_contactable_phone');
     }

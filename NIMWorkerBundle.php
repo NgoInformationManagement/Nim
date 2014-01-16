@@ -13,7 +13,6 @@ namespace NIM\WorkerBundle;
 
 use NIM\CoreBundle\NIMCoreBundle;
 use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class NIMWorkerBundle extends NIMCoreBundle
 {

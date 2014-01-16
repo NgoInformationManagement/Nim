@@ -12,7 +12,6 @@
 namespace NIM\WorkerBundle\DependencyInjection;
 
 use NIM\CoreBundle\DependencyInjection\NIMCoreExtension;
-use Sylius\Bundle\ResourceBundle\DependencyInjection\SyliusResourceExtension;
 use NIM\WorkerBundle\NIMWorkerBundle;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -43,7 +42,7 @@ class NIMWorkerExtension extends NIMCoreExtension
     /**
      * Load bundle driver.
      *
-     * @param string $driver
+     * @param string        $driver
      * @param XmlFileLoader $loader
      *
      * @throws \InvalidArgumentException

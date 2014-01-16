@@ -58,7 +58,6 @@ class ContactType extends ResourceBaseType
         ;
     }
 
-
     /**
      * {@inheritdoc}
      */

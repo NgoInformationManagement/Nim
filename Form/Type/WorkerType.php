@@ -16,7 +16,6 @@ use NIM\WorkerBundle\Form\Type\EventListener\WorkerSubcriber;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\Tests\Extension\Core\Type\CountryTypeTest;
 
 class WorkerType extends ResourceBaseType
 {
@@ -27,10 +26,10 @@ class WorkerType extends ResourceBaseType
     {
         parent::__construct($dataClass, $validationGroups);
 
-        $this->validationGroups = function(FormInterface $form) use ($validationGroups) {
+        $this->validationGroups = function (FormInterface $form) use ($validationGroups) {
             $data = $form->getData();
             if ($data && $data->getId()) {
-                return array_map(function($value) {
+                return array_map(function ($value) {
                     return $value. '-update';
                 }, $validationGroups);
             } else {
@@ -114,7 +113,6 @@ class WorkerType extends ResourceBaseType
 //            ))
         ;
     }
-
 
     /**
      * {@inheritdoc}

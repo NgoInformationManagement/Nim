@@ -11,9 +11,6 @@
 
 namespace NIM\WorkerBundle\Model;
 
-use NIM\FormBundle\Model\Core\TimestampableTrait;
-use NIM\WorkerBundle\Model\Entity\AddressingTrait;
-use NIM\WorkerBundle\Model\Entity\ContactableTrait;
 use NIM\WorkerBundle\Model\Entity\EntityAbstract;
 
 class Agency extends EntityAbstract

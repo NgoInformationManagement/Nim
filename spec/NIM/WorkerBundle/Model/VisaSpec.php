@@ -12,11 +12,10 @@
 namespace spec\NIM\WorkerBundle\Model;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class VisaSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('NIM\WorkerBundle\Model\Visa');
     }

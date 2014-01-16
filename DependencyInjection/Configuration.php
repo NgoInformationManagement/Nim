@@ -31,7 +31,7 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('driver')->cannotBeOverwritten()->isRequired()->cannotBeEmpty()->end()
             ->end()
         ;
-        
+
         $this->addClassesSection( $rootNode);
         $this->addValidationGroupsSection($rootNode);
 

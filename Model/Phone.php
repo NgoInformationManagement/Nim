@@ -65,10 +65,8 @@ class Phone
         return $this->type;
     }
 
-
-
     /**
-     * @param null|string $transDomain
+     * @param  null|string $transDomain
      * @return array
      */
     public static function getPhoneTypes($transDomain = null)
