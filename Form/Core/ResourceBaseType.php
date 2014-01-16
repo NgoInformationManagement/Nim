@@ -30,7 +30,7 @@ abstract class ResourceBaseType extends AbstractType
      * Constructor.
      *
      * @param string $dataClass
-     * @param array $validationGroups
+     * @param array  $validationGroups
      */
     public function __construct($dataClass, array $validationGroups = array('nim'))
     {

@@ -16,7 +16,7 @@ trait SoftDeletableTrait
     protected $deletedAt;
 
     /**
-     * @param \DateTime  $deletedAt
+     * @param \DateTime $deletedAt
      */
     public function setDeletedAt(\DateTime $deletedAt)
     {

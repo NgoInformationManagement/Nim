@@ -27,7 +27,7 @@ class CountryExtension extends \Twig_Extension
 
     /**
      * @param $code
-     * @param string $locale
+     * @param  string $locale
      * @return mixed
      */
     public function countryFilter($code, $locale = null)
