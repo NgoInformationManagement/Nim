@@ -11,11 +11,11 @@
 
 namespace NIM\WorkerBundle;
 
-use NIM\Component\Bundle;
+use NIM\CoreBundle\NIMCoreBundle;
 use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class NIMWorkerBundle extends Bundle
+class NIMWorkerBundle extends NIMCoreBundle
 {
     /**
      * {@inheritdoc}
