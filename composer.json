@@ -26,8 +26,7 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/framework-bundle": "~2.3",
-        "friendsofsymfony/user-bundle": "~2.0@dev",
-        "nim/nim-component": "dev-master"
+        "friendsofsymfony/user-bundle": "~2.0@dev"
     },
 
     "autoload": {
