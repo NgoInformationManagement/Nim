@@ -11,11 +11,11 @@
 
 namespace NIM\WorkerBundle\Model;
 
-use NIM\Component\Model\EditableModelTrait;
+use NIM\FormBundle\Model\Core\TimestampableTrait;
 
 class Email
 {
-    use EditableModelTrait;
+    use TimestampableTrait;
 
     protected $id;
     protected $label;

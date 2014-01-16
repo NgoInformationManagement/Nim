@@ -11,7 +11,7 @@
 
 namespace NIM\WorkerBundle\Model\Entity;
 
-use NIM\Component\Model\EditableModelTrait;
+use NIM\FormBundle\Model\Core\TimestampableTrait;
 use NIM\WorkerBundle\Model\Entity\AddressingTrait;
 use NIM\WorkerBundle\Model\Entity\ContactableTrait;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -20,7 +20,7 @@ abstract class EntityAbstract
 {
     use ContactableTrait,
         AddressingTrait,
-        EditableModelTrait;
+        TimestampableTrait;
 
     protected $id;
 

@@ -11,11 +11,11 @@
 
 namespace NIM\WorkerBundle\Model;
 
-use NIM\Component\Model\EditableModelTrait;
+use NIM\FormBundle\Model\Core\TimestampableTrait;
 
 class Phone
 {
-    use EditableModelTrait;
+    use TimestampableTrait;
 
     const CELLPHONE = 'cellphone';
     const FAX = 'fax';
