@@ -126,12 +126,16 @@ Feature: Agency
     Scenario: Deleting agency via the list button
        Given I am on the agency index page
         When I press deletion button near "TSF - INTERNATIONAL HEADQUARTERS"
+         And I should see "Do you want to delete this item"
+        When I press "Delete"
         Then I should still be on the agency index page
          And I should see "Agency has been successfully deleted."
          But I should not see agency with name "TSF - INTERNATIONAL HEADQUARTERS" in the list
 
     Scenario: Deleting country
        Given I am on the page of agency which has "TSF - INTERNATIONAL HEADQUARTERS" as name
+        When I press "Delete"
+         And I should see "Do you want to delete this item"
         When I press "Delete"
         Then I should be on the agency index page
          And I should see "Agency has been successfully deleted."
