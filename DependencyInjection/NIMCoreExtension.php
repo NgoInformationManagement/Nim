@@ -11,7 +11,6 @@
 
 namespace NIM\CoreBundle\DependencyInjection;
 
-use Sylius\Bundle\ResourceBundle\DependencyInjection\SyliusResourceExtension;
 use NIM\CoreBundle\NIMCoreBundle;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
@@ -41,7 +40,7 @@ class NIMCoreExtension extends Extension
     /**
      * Load bundle driver.
      *
-     * @param string $driver
+     * @param string        $driver
      * @param XmlFileLoader $loader
      *
      * @throws \InvalidArgumentException
@@ -58,7 +57,7 @@ class NIMCoreExtension extends Extension
     /**
      * Remap class parameters.
      *
-     * @param array $classes
+     * @param array            $classes
      * @param ContainerBuilder $container
      */
     protected function mapClassParameters(array $classes, ContainerBuilder $container)
@@ -74,7 +73,7 @@ class NIMCoreExtension extends Extension
     /**
      * Remap validation group parameters.
      *
-     * @param array $validationGroups
+     * @param array            $validationGroups
      * @param ContainerBuilder $container
      */
     protected function mapValidationGroupParameters(array $validationGroups, ContainerBuilder $container)

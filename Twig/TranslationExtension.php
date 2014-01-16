@@ -56,8 +56,8 @@ class TranslationExtension extends Twig_Extension
 
     /**
      * @param $entity
-     * @param null $transNamespace
-     * @param array $options
+     * @param  null  $transNamespace
+     * @param  array $options
      * @return mixed
      */
     public function renderTranslations($entity, $transNamespace = null, $options = array())
@@ -88,14 +88,14 @@ class TranslationExtension extends Twig_Extension
     }
 
     /**
-     * @param Translatable $entity
+     * @param  Translatable $entity
      * @return array
      */
     private function getTranslationFromEntity(Translatable $entity)
     {
         $translations = $this->getDefaultTranslation($entity);
 
-        foreach($entity->getTranslations() as $translation) {
+        foreach ($entity->getTranslations() as $translation) {
             $translations[$translation->getLocale()][$translation->getField()] = $translation->getContent();
         }
 
@@ -103,7 +103,7 @@ class TranslationExtension extends Twig_Extension
     }
 
     /**
-     * @param Translatable $entity
+     * @param  Translatable $entity
      * @return array
      */
     private function getDefaultTranslation(Translatable $entity)
@@ -122,7 +122,7 @@ class TranslationExtension extends Twig_Extension
     }
 
     /**
-     * @param Translatable $entity
+     * @param  Translatable $entity
      * @return mixed
      */
     private function getEntityConfiguration(Translatable $entity)
@@ -141,12 +141,13 @@ class TranslationExtension extends Twig_Extension
     }
 
     /**
-     * @param Translatable $entity
+     * @param  Translatable $entity
      * @return mixed
      */
     private function getTranslatableFields(Translatable $entity)
     {
         $this->getEntityConfiguration($entity);
+
         return $this->translationConfiguration['fields'];
     }
 

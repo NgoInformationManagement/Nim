@@ -102,7 +102,7 @@ class NIMCoreBundle extends Bundle
     {
         $xmlFilesPath = sprintf("%s/Resources/config/doctrine/%s", $this->getPath(), strtolower($this->getEntityPath()));
 
-        if(false == ($realXmlFilesPath = realpath($xmlFilesPath))) {
+        if (false == ($realXmlFilesPath = realpath($xmlFilesPath))) {
             throw new \Exception('');
         }
 
