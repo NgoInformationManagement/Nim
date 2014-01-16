@@ -17,7 +17,7 @@
 
     "extra": {
         "branch-alias": {
-            "dev-master": "0.1.0-dev"
+            "dev-master": "0.1-dev"
         }
     },
 
@@ -29,7 +29,8 @@
         "a2lix/translation-form-bundle": "1.*@dev",
         "sylius/resource-bundle": "1.0.*@dev",
         "stof/doctrine-extensions-bundle": "~1.1@dev",
-        "nim/core-bundle": "0.1.*@dev"
+        "nim/core-bundle": "0.1.*@dev",
+        "nim/form-bundle": "0.1.*@dev"
     },
 
     "require-dev": {
