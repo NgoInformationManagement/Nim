@@ -42,3 +42,4 @@ nim_mission_delete:
         _controller: nim.controller.mission:deleteAction
         _sylius:
             redirect: nim_mission_index
+            template: NIMWebBundle:Misc:delete.html.twig
