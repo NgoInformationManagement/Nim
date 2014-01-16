@@ -11,10 +11,10 @@
 
 namespace  NIM\MissionBundle\Form\Type;
 
-use NIM\Component\Form\Type\NIMType;
+use NIM\FormBundle\Form\Core\ResourceBaseType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class MissionType extends NIMType
+class MissionType extends ResourceBaseType
 {
     /**
      * {@inheritdoc}
