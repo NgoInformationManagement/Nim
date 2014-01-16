@@ -13,7 +13,6 @@ namespace NIM\MissionBundle\DependencyInjection;
 
 use NIM\CoreBundle\DependencyInjection\NIMCoreExtension;
 use NIM\MissionBundle\NIMMissionBundle;
-use Sylius\Bundle\ResourceBundle\DependencyInjection\SyliusResourceExtension;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -43,7 +42,7 @@ class NIMMissionExtension extends NIMCoreExtension
     /**
      * Load bundle driver.
      *
-     * @param string $driver
+     * @param string        $driver
      * @param XmlFileLoader $loader
      *
      * @throws \InvalidArgumentException

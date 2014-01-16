@@ -14,7 +14,6 @@ namespace NIM\MissionBundle;
 use NIM\Component\Bundle;
 use NIM\CoreBundle\NIMCoreBundle;
 use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class NIMMissionBundle extends NIMCoreBundle
 {

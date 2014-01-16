@@ -16,12 +16,12 @@ use Prophecy\Argument;
 
 class MissionTypeSpec extends ObjectBehavior
 {
-    function let()
+    public function let()
     {
         $this->beConstructedWith('mission', array('nim'));
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('NIM\MissionBundle\Form\Type\MissionType');
     }
@@ -29,7 +29,7 @@ class MissionTypeSpec extends ObjectBehavior
     /**
      * @param Symfony\Component\Form\FormBuilderInterface $builder
      */
-    function it_should_build_mission_form($builder)
+    public function it_should_build_mission_form($builder)
     {
         $builder
             ->add('translations', 'a2lix_translations_gedmo',  Argument::any())
@@ -60,7 +60,7 @@ class MissionTypeSpec extends ObjectBehavior
     /**
      * @param \Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver
      */
-    function it_should_define_assigned_data_class($resolver)
+    public function it_should_define_assigned_data_class($resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => 'mission',
@@ -70,7 +70,7 @@ class MissionTypeSpec extends ObjectBehavior
         $this->setDefaultOptions($resolver);
     }
 
-    function it_should_have_valid_name()
+    public function it_should_have_valid_name()
     {
         $this->getName()->shouldReturn('nim_mission');
     }
