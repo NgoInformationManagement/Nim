@@ -35,8 +35,7 @@
         "nim/worker-bundle": "0.1.*@dev",
         "nim/web-bundle": "0.1.*@dev",
         "nim/mission-bundle": "0.1.*@dev",
-        "nim/form-bundle": "0.1.*@dev",
-        "nim/nim-component": "dev-master"
+        "nim/form-bundle": "0.1.*@dev"
     },
     "require-dev": {
         "fzaninotto/faker": "1.2.*",
