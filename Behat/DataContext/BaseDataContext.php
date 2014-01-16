@@ -184,7 +184,7 @@ trait BaseDataContext
     /**
      * Get repository by resource name.
      *
-     * @param string $resource
+     * @param  string           $resource
      * @return ObjectRepository
      */
     private function getRepository($resource)

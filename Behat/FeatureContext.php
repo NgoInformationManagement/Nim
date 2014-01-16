@@ -23,7 +23,6 @@ use NIM\WebBundle\Behat\DataContext\WorkerDataContext;
 use NIM\WebBundle\Behat\UserContext\AccountUserContext;
 use NIM\WebBundle\Behat\UserContext\BaseUserContext;
 use NIM\FormBundle\Behat\FormCollectionTrait;
-use NIM\WebBundle\Behat\UserContext\WorkerUserContext;
 
 class FeatureContext extends BehatContext
 {
@@ -61,7 +60,7 @@ class FeatureContext extends BehatContext
     /**
      * Get service by id.
      *
-     * @param string $id
+     * @param  string $id
      * @return object
      */
     private function getService($id)

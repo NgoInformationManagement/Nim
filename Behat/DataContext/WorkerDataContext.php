@@ -14,7 +14,6 @@ namespace NIM\WebBundle\Behat\DataContext;
 use Behat\Gherkin\Node\TableNode;
 use NIM\WorkerBundle\Model\Agency;
 use NIM\WorkerBundle\Model\Contact;
-use NIM\WorkerBundle\Model\Email;
 use NIM\WorkerBundle\Model\Phone;
 use NIM\WorkerBundle\Model\Worker;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;

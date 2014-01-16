@@ -12,7 +12,6 @@
 namespace NIM\WebBundle\Behat\UserContext;
 
 use Behat\Mink\Driver\Selenium2Driver;
-use Behat\Mink\Element\NodeElement;
 use Behat\Mink\Exception\ExpectationException;
 use Symfony\Component\Config\Definition\Exception\Exception;
 
@@ -410,6 +409,7 @@ trait BaseUserContext
     private function getResourceName($resource)
     {
         $class = new \ReflectionClass($resource);
+
         return strtolower($class->getShortName());
     }
 

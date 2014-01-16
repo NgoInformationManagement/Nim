@@ -13,8 +13,6 @@ namespace NIM\WebBundle\Behat\DataContext;
 
 use Behat\Gherkin\Node\TableNode;
 use NIM\WorkerBundle\Model\Agency;
-use NIM\WorkerBundle\Model\Email;
-use NIM\WorkerBundle\Model\Phone;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
 trait AgencyDataContext
