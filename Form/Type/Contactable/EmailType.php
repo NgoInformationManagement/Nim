@@ -11,10 +11,10 @@
 
 namespace NIM\WorkerBundle\Form\Type\Contactable;
 
-use NIM\Component\Form\Type\NIMType;
+use NIM\FormBundle\Form\Core\ResourceBaseType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class EmailType extends NIMType
+class EmailType extends ResourceBaseType
 {
     /**
      * {@inheritdoc}

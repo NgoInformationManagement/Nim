@@ -11,10 +11,10 @@
 
 namespace NIM\WorkerBundle\Form\Type;
 
-use NIM\Component\Form\Type\NIMType;
+use NIM\FormBundle\Form\Core\ResourceBaseType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class AgencyType extends NIMType
+class AgencyType extends ResourceBaseType
 {
     /**
      * {@inheritdoc}

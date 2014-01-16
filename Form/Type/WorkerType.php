@@ -11,14 +11,14 @@
 
 namespace NIM\WorkerBundle\Form\Type;
 
-use NIM\Component\Form\Type\NIMType;
+use NIM\FormBundle\Form\Core\ResourceBaseType;
 use NIM\WorkerBundle\Form\Type\EventListener\WorkerSubcriber;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\Tests\Extension\Core\Type\CountryTypeTest;
 
-class WorkerType extends NIMType
+class WorkerType extends ResourceBaseType
 {
     /**
      * {@inheritdoc}
