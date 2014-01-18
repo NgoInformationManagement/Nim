@@ -11,7 +11,6 @@
 
 namespace NIM\MissionBundle;
 
-use NIM\Component\Bundle;
 use NIM\CoreBundle\NIMCoreBundle;
 use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
 
