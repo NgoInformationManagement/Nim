@@ -88,7 +88,7 @@ class OptionTransformer
      */
     private function getOptionName($name)
     {
-        if (false !== strpos($name , '_')) {
+        if (false !== strpos($name, '_')) {
             $name = lcfirst(str_replace(' ', '', ucwords(str_replace('_', ' ', $name))));
         }
 
@@ -103,6 +103,7 @@ class OptionTransformer
      */
     private function isExcludedOption($optionName)
     {
-        return isset($this->configuration[$optionName]['excluded']) ? $this->configuration[$optionName]['excluded'] : false;
+        return isset($this->configuration[$optionName]['excluded']) ?
+            $this->configuration[$optionName]['excluded'] : false;
     }
 }

@@ -28,12 +28,19 @@ class EternicodeDatepickerExtension extends AbstractPluginExtension
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
         if (array_key_exists('plugin_rendered', $options) && $options['plugin_rendered'] != 'none') {
-            $this->addDataAttributeToFormView($view, 'date-format', $this->getDatepickerPattern($options['format'], $options['leading_zero']));
+            $this->addDataAttributeToFormView(
+                $view,
+                'date-format',
+                $this->getDatepickerPattern($options['format'], $options['leading_zero'])
+            );
 
             if (!isset($options['placeholder']) ||
                 array_key_exists('placeholder', $options) &&
                 'none' != $options['placeholder']) {
-                $view->vars['attr']['placeholder'] = $this->getDatepickerPattern($options['format'], $options['leading_zero']);
+                $view->vars['attr']['placeholder'] = $this->getDatepickerPattern(
+                    $options['format'],
+                    $options['leading_zero']
+                );
             }
 
             parent::buildView($view, $form, $options);

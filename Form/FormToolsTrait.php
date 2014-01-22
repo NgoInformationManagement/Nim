@@ -19,20 +19,20 @@ trait FormToolsTrait
      * Assign HTML data attribute to the formView form $options
      *
      * @param FormView $view
-     * @param array    $formOptions
+     * @param array    $options
      * @param $optionName
      * @param null $prefix
      */
-    private function addDataAttributeToFormViewFromOptions(FormView $view, array $formOptions, $optionName, $prefix = null)
+    private function addDataAttributeToFormViewFromOptions(FormView $view, array $options, $optionName, $prefix = null)
     {
-        if (array_key_exists($optionName, $formOptions)) {
+        if (array_key_exists($optionName, $options)) {
             $newName = str_replace('_', '-', $optionName);
 
             if (null !== $prefix) {
                 $newName = $prefix . $newName;
             }
 
-            $this->addDataAttributeToFormView($view, $newName, $formOptions[$optionName], $prefix);
+            $this->addDataAttributeToFormView($view, $newName, $options[$optionName], $prefix);
         }
     }
 

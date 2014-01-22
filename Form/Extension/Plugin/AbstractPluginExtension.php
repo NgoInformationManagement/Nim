@@ -113,18 +113,20 @@ abstract class AbstractPluginExtension extends AbstractTypeExtension
      */
     protected function getFullOptions()
     {
-        return array_merge(array(
-            'plugin_rendered' => array(
-                'default' => 'plugin',
-                'allowed_types' => array('string'),
-                'allowed_value' => array('plugin', 'none'),
-                'excluded' => true,
+        return array_merge(
+            array(
+                'plugin_rendered' => array(
+                    'default' => 'plugin',
+                    'allowed_types' => array('string'),
+                    'allowed_value' => array('plugin', 'none'),
+                    'excluded' => true,
+                ),
+                'get_from_factory' => array(
+                    'default' => array(),
+                    'allowed_types' => array('array'),
+                    'excluded' => true,
+                )
             ),
-            'get_from_factory' => array(
-                'default' => array(),
-                'allowed_types' => array('array'),
-                'excluded' => true,
-            )),
             $this->getOptions()
         );
     }
