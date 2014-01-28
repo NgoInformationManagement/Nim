@@ -18,7 +18,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class GenderType extends AbstractType
 {
     /**
-     * @docInherit
+     * {@inheritdoc}
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
@@ -28,7 +28,7 @@ class GenderType extends AbstractType
     }
 
     /**
-     * @docInherit
+     * {@inheritdoc}
      */
     public function getParent()
     {
@@ -36,7 +36,7 @@ class GenderType extends AbstractType
     }
 
     /**
-     * @docInherit
+     * {@inheritdoc}
      */
     public function getName()
     {
