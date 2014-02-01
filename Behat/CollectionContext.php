@@ -11,7 +11,6 @@
 
 namespace NIM\FormBundle\Behat;
 
-use Behat\Mink\Element\Element;
 use Behat\Mink\Exception\ElementNotFoundException;
 use Behat\MinkExtension\Context\RawMinkContext;
 
