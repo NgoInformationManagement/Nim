@@ -15,6 +15,7 @@ use Faker\Factory as FakerFactory;
 use Behat\Behat\Context\BehatContext;
 use Behat\MinkExtension\Context\MinkDictionary;
 use Behat\Symfony2Extension\Context\KernelDictionary;
+use NIM\WebBundle\Behat\UserContext\CollectionContext;
 use NIM\WebBundle\Behat\DataContext\AgencyDataContext;
 use NIM\WebBundle\Behat\DataContext\BaseDataContext;
 use NIM\WebBundle\Behat\DataContext\ContactDataContext;
@@ -34,8 +35,7 @@ class FeatureContext extends BehatContext
         AccountUserContext,
         AgencyDataContext,
         WorkerDataContext,
-        ContactDataContext,
-        FormCollectionTrait;
+        ContactDataContext;
 
     /**
      * Faker.
@@ -55,6 +55,7 @@ class FeatureContext extends BehatContext
     {
         $this->parameters = $parameters;
         $this->faker = FakerFactory::create(); // todo
+        $this->useContext('collection-type', new CollectionContext());
     }
 
     /**
