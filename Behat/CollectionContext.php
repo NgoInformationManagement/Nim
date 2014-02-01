@@ -103,7 +103,7 @@ class CollectionContext extends RawMinkContext
     }
 
     /**
-     * Example : I should see "Email" field error in the item #1 of the "Emails" collection
+     * Example : I should see unnamed "Email" field error in the item #1 of the "Emails" collection
      *
      * @Then /^(?:|I )should see unnamed "([^"]*)" field error in the item #(\d+) of the "([^"]*)" collection$/
      */
@@ -126,7 +126,7 @@ class CollectionContext extends RawMinkContext
      */
     public function addItem($collectionSelector, $buttonName = null, $buttonType = 'click')
     {
-        $buttonSelector = null === $buttonName ? '' : sprintf('and text()[contains(., "%s")', $buttonName);
+        $buttonSelector = null === $buttonName ? '' : sprintf('and text()[contains(., "%s")]', $buttonName);
 
         $button = $this->findElement(
             sprintf(

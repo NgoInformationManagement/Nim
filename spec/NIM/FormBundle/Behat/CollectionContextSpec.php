@@ -38,7 +38,7 @@ class CollectionContextSpec extends ObjectBehavior
     )
     {
         $selector = '//*[contains(@data-form-type, "collection")]//legend[text()[contains(., "Emails")]]';
-        $selector .= '//*[contains(@data-form-collection, "add") and text()[contains(., "Add Email")]';
+        $selector .= '//*[contains(@data-form-collection, "add") and text()[contains(., "Add Email")]]';
 
         $page->find('xpath', $selector)->willReturn($element)->shouldBeCalled();
         $session->getPage()->willReturn($page)->shouldBeCalled();
@@ -179,7 +179,7 @@ class CollectionContextSpec extends ObjectBehavior
         NodeElement $element
     )
     {
-        $selector = '//collection//*[contains(@data-form-collection, "add") and text()[contains(., "button")]';
+        $selector = '//collection//*[contains(@data-form-collection, "add") and text()[contains(., "button")]]';
 
         $page->find('xpath', $selector)->willReturn($element)->shouldBeCalled();
         $session->getPage()->willReturn($page)->shouldBeCalled();
