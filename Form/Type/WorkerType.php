@@ -13,7 +13,6 @@ namespace NIM\WorkerBundle\Form\Type;
 
 use NIM\FormBundle\Form\Core\ResourceBaseType;
 use NIM\WorkerBundle\Form\Type\EventListener\WorkerSubcriber;
-use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 

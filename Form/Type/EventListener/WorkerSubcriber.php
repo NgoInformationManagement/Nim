@@ -18,7 +18,7 @@ use Symfony\Component\Form\FormEvents;
 class WorkerSubcriber implements EventSubscriberInterface
 {
     /**
-     * {@docInherit}
+     * {@inheritdoc}
      */
     public static function getSubscribedEvents()
     {
@@ -26,7 +26,7 @@ class WorkerSubcriber implements EventSubscriberInterface
     }
 
     /**
-     * {@docInherit}
+     * {@inheritdoc}
      */
     public function preSetData(FormEvent $event)
     {
