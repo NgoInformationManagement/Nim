@@ -4,14 +4,12 @@
 var NIM = NIM || {};
 
 /**
- * Knockout ModelView : action toolbar
+ * Action toolbar
  */
-NIM.actionToolbar = (function() {
-    return {
-        submitForm: function(formId) {
-            $(formId).submit();
-        }
+NIM.Toolbar = {
+    submitForm: function(formId) {
+        $(formId).submit();
     }
-})();
+};
 
-ko.applyBindings(NIM.actionToolbar, $('#top').get(0));
+$.Kortex.ObjectContainer.register('toolbar', NIM.Toolbar);

@@ -1,6 +1,7 @@
 {% extends 'NIMWebBundle::layout.html.twig' %}
 
 {% import 'NIMFormBundle:Bootstrap3:button.html.twig' as buttons %}
+{% from 'NIMWebBundle:Misc:button.html.twig' import submitFormButton %}
 
 {% block page_name %}
     <i class="icon-rocket"></i>
@@ -10,7 +11,7 @@
 
 {% block page_action %}
     {{ buttons.back(path('nim_agency_index'), 'button.backToList') }}
-    {{ buttons.create('button.create', 'agencyCreateForm') }}
+    {{ submitFormButton('button.create', 'agencyCreateForm') }}
 {% endblock page_action %}
 
 

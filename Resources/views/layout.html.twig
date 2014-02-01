@@ -29,10 +29,10 @@
             {% javascripts
             'bundles/nimweb/js/lib/core/jquery.min.js'
             'bundles/nimweb/js/lib/core/bootstrap.min.js'
+            'bundles/nimweb/js/lib/core/kortex.js'
             'bundles/nimweb/js/lib/plugin/*'
             'bundles/nimform/js/core/plugin-options-factory.js'
             'bundles/nimform/js/type/*'
-            'bundles/nimweb/js/lib/knockout.min.js'
             'bundles/nimweb/js/layout.js'
             %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
@@ -88,7 +88,7 @@
                                 {{ 'layout.page.name'|trans }}
                             {% endblock page_name %}
                             </span>
-                            <span class="pull-right text-right actionButton">
+                            <span class="pull-right text-right actionButton" data-controller="toolbar">
                                 {% block page_action %}
 
                                 {% endblock page_action %}
