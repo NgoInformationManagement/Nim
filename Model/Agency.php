@@ -11,14 +11,15 @@
 
 namespace NIM\WorkerBundle\Model;
 
-use NIM\WorkerBundle\Model\Entity\EntityAbstract;
+use NIM\WorkerBundle\Model\AbstractEntity;
+use NIM\WorkerBundle\Model\Core\AgencyInterface;
 
-class Agency extends EntityAbstract
+class Agency extends AbstractEntity implements AgencyInterface
 {
     private $name;
 
     /**
-     * @param mixed $name
+     * {@inheritdoc}
      */
     public function setName($name)
     {
@@ -26,13 +27,16 @@ class Agency extends EntityAbstract
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
      */
     public function getName()
     {
         return $this->name;
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return $this->getName();

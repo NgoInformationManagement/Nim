@@ -13,6 +13,7 @@ namespace NIM\WorkerBundle\Form\Type;
 
 use NIM\FormBundle\Form\Core\ResourceBaseType;
 use NIM\WorkerBundle\Form\Type\EventListener\WorkerSubcriber;
+use NIM\WorkerBundle\Model\Core\Worker\WorkerTypes;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 
@@ -21,10 +22,8 @@ class WorkerType extends ResourceBaseType
     /**
      * {@inheritdoc}
      */
-    public function __construct($dataClass, array $validationGroups)
+    public function setValidationGroups($validationGroups)
     {
-        parent::__construct($dataClass, $validationGroups);
-
         $this->validationGroups = function (FormInterface $form) use ($validationGroups) {
             $data = $form->getData();
             if ($data && $data->getId()) {
@@ -69,20 +68,8 @@ class WorkerType extends ResourceBaseType
             ->add('country', 'country', array(
                 'label' => 'worker.field.country.label',
             ))
-            ->add('emails', 'collection', array(
-                'type' => 'nim_contactable_email',
-                'label' => 'worker.field.email.label',
-                'allow_add' => true,
-                'allow_delete' => true,
-                'error_bubbling' => false,
-            ))
-            ->add('phones', 'collection', array(
-                'type' => 'nim_contactable_phone',
-                'label' => 'worker.field.phone.label',
-                'allow_add' => true,
-                'allow_delete' => true,
-                'error_bubbling' => false,
-            ))
+            ->add('emails', 'nim_contactable_collection_email')
+            ->add('phones', 'nim_contactable_collection_phone')
             ->add('birthday', 'birthday', array(
                 'label' => 'worker.field.birthday.label',
                 'widget' => 'single_text',
@@ -100,6 +87,10 @@ class WorkerType extends ResourceBaseType
             ->add('leftAt', 'date', array(
                 'label' => 'worker.field.leftAt.label',
                 'widget' => 'single_text',
+            ))
+            ->add('type', 'choice', array(
+                'label' => 'worker.field.type.label',
+                'choices' => WorkerTypes::getTypes('worker.field.type.option')
             ));
 
             $builder->addEventSubscriber(new WorkerSubcriber());

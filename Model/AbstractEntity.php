@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace NIM\WorkerBundle\Model\Entity;
+namespace NIM\WorkerBundle\Model;
 
 use NIM\FormBundle\Model\Core\TimestampableTrait;
-use NIM\WorkerBundle\Model\Entity\AddressingTrait;
-use NIM\WorkerBundle\Model\Entity\ContactableTrait;
+use NIM\WorkerBundle\Model\Core\Addressing\AddressingTrait;
+use NIM\WorkerBundle\Model\Core\Contactable\ContactableTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 
-abstract class EntityAbstract
+abstract class AbstractEntity
 {
-    use ContactableTrait,
-        AddressingTrait,
+    use Core\Contactable\ContactableTrait,
+        Core\Addressing\AddressingTrait,
         TimestampableTrait;
 
     protected $id;

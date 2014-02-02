@@ -25,6 +25,11 @@ class WorkerSpec extends ObjectBehavior
         $this->shouldHaveType('NIM\WorkerBundle\Model\Worker');
     }
 
+    public function it_should_implement_worker_interface()
+    {
+        $this->shouldHaveType('NIM\WorkerBundle\Model\Core\WorkerInterface');
+    }
+
     public function it_has_no_id_by_default()
     {
         $this->getId()->shouldReturn(null);

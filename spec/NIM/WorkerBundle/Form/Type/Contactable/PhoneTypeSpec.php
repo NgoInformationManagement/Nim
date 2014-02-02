@@ -18,11 +18,6 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class PhoneTypeSpec extends ObjectBehavior
 {
-    public function let()
-    {
-        $this->beConstructedWith('phone', array('nim'));
-    }
-
     public function it_is_initializable()
     {
         $this->shouldHaveType('NIM\WorkerBundle\Form\Type\Contactable\PhoneType');
@@ -47,6 +42,9 @@ class PhoneTypeSpec extends ObjectBehavior
 
     public function it_should_define_assigned_data_class(OptionsResolverInterface $resolver)
     {
+        $this->setValidationGroups(array('nim'));
+        $this->setDataClass('phone');
+
         $resolver->setDefaults(array(
             'data_class' => 'phone',
             'validation_groups' => array('nim')

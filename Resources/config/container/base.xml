@@ -19,7 +19,9 @@ file that was distributed with this source code.
             <parameter>nim</parameter>
         </parameter>
         <parameter key="nim.form.type.contactable.email.class">NIM\WorkerBundle\Form\Type\Contactable\EmailType</parameter>
+        <parameter key="nim.form.type.contactable.collection.email.class">NIM\WorkerBundle\Form\Type\Contactable\EmailCollectionType</parameter>
         <parameter key="nim.form.type.contactable.phone.class">NIM\WorkerBundle\Form\Type\Contactable\PhoneType</parameter>
+        <parameter key="nim.form.type.contactable.collection.phone.class">NIM\WorkerBundle\Form\Type\Contactable\PhoneCollectionType</parameter>
         <parameter key="nim.model.contactable.email.class">NIM\WorkerBundle\Model\Email</parameter>
         <parameter key="nim.model.contactable.phone.class">NIM\WorkerBundle\Model\Phone</parameter>
     </parameters>
@@ -32,11 +34,27 @@ file that was distributed with this source code.
             <tag name="form.type" alias="nim_contactable_email" />
         </service>
 
+        <!-- Contactable Email Collection Form -->
+        <service id="nim.form.type.contactable.collection.email" class="%nim.form.type.contactable.collection.email.class%">
+            <call method="setValidationGroups">
+                <argument>%nim.validation_group.contactable%</argument>
+            </call>
+            <tag name="form.type" alias="nim_contactable_collection_email" />
+        </service>
+
         <!-- Contactable Phone Form -->
         <service id="nim.form.type.contactable.phone" class="%nim.form.type.contactable.phone.class%">
             <argument>%nim.model.contactable.phone.class%</argument>
             <argument>%nim.validation_group.contactable%</argument>
             <tag name="form.type" alias="nim_contactable_phone" />
+        </service>
+
+        <!-- Contactable Phone Collection Form -->
+        <service id="nim.form.type.contactable.collection.phone" class="%nim.form.type.contactable.collection.phone.class%">
+            <call method="setValidationGroups">
+                <argument>%nim.validation_group.contactable%</argument>
+            </call>
+            <tag name="form.type" alias="nim_contactable_collection_phone" />
         </service>
     </services>
 </container>

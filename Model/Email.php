@@ -12,13 +12,13 @@
 namespace NIM\WorkerBundle\Model;
 
 use NIM\FormBundle\Model\Core\TimestampableTrait;
+use NIM\WorkerBundle\Model\Core\EmailInterface;
 
-class Email
+class Email implements EmailInterface
 {
     use TimestampableTrait;
 
     protected $id;
-    protected $label;
     protected $address;
 
     /**
@@ -27,22 +27,6 @@ class Email
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @param mixed $label
-     */
-    public function setLabel($label)
-    {
-        $this->label = $label;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLabel()
-    {
-        return $this->label;
     }
 
     /**

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace NIM\WorkerBundle\Model\Entity;
+namespace NIM\WorkerBundle\Model\Core\Contactable;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use NIM\WorkerBundle\Model\Email;
@@ -21,9 +21,9 @@ trait ContactableTrait
     protected $emails;
 
     /**
-     * @param mixed $emails
+     * @param ArrayCollection $emails
      */
-    public function setEmails($emails)
+    public function setEmails(ArrayCollection $emails)
     {
         $this->emails = $emails;
     }
@@ -57,9 +57,9 @@ trait ContactableTrait
     }
 
     /**
-     * @param mixed $phones
+     * @param ArrayCollection $phones
      */
-    public function setPhones($phones)
+    public function setPhones(ArrayCollection $phones)
     {
         $this->phones = $phones;
     }
@@ -73,7 +73,7 @@ trait ContactableTrait
     }
 
     /**
-     * @param \NIM\WorkerBundle\Model\Phone $phone
+     * @param Phone $phone
      */
     public function addPhone(Phone $phone)
     {
@@ -83,7 +83,7 @@ trait ContactableTrait
     }
 
     /**
-     * @param \NIM\WorkerBundle\Model\Phone $phone
+     * @param Phone $phone
      */
     public function removePhone(Phone $phone)
     {

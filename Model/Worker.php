@@ -12,14 +12,11 @@
 namespace NIM\WorkerBundle\Model;
 
 use \Doctrine\Common\Collections\ArrayCollection;
-use NIM\WorkerBundle\Model\Entity\PersonAbstract;
+use NIM\WorkerBundle\Model\AbstractPerson;
+use NIM\WorkerBundle\Model\Core\WorkerInterface;
 
-class Worker extends PersonAbstract
+class Worker extends AbstractPerson implements WorkerInterface
 {
-    const TYPE_EMPLOYEE = 'employee';
-    const TYPE_VOLUNTEER = 'volunteer';
-    const TYPE_INTERN = 'intern';
-
     protected $id;
     protected $gender;
     protected $firstname;
@@ -31,16 +28,19 @@ class Worker extends PersonAbstract
     protected $leftAt;
     protected $basedAt;
     protected $contacts;
-
-    protected $nationalities;
     protected $type;
-    protected $socialSecurityNumber;
-    protected $isReadyToGoOnField;
-    protected $isActive;
-    protected $visas;
-    protected $passports;
-    protected $missions;
 
+//    protected $nationalities;
+//    protected $socialSecurityNumber;
+//    protected $isReadyToGoOnField;
+//    protected $isActive;
+//    protected $visas;
+//    protected $passports;
+//    protected $missions;
+
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         parent::__construct();
@@ -52,15 +52,7 @@ class Worker extends PersonAbstract
     }
 
     /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param mixed $gender
+     * {@inheritdoc}
      */
     public function setGender($gender)
     {
@@ -68,7 +60,7 @@ class Worker extends PersonAbstract
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
      */
     public function getGender()
     {
@@ -76,71 +68,7 @@ class Worker extends PersonAbstract
     }
 
     /**
-     * @param mixed $firstname
-     */
-    public function setFirstname($firstname)
-    {
-        $this->firstname = $firstname;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getFirstname()
-    {
-        return $this->firstname;
-    }
-
-    /**
-     * @param mixed $lastname
-     */
-    public function setLastname($lastname)
-    {
-        $this->lastname = $lastname;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLastname()
-    {
-        return $this->lastname;
-    }
-
-    /**
-     * @param mixed $arrivedAt
-     */
-    public function setArrivedAt(\DateTime $arrivedAt = null)
-    {
-        $this->arrivedAt = $arrivedAt;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getArrivedAt()
-    {
-        return $this->arrivedAt;
-    }
-
-    /**
-     * @param mixed $leftAt
-     */
-    public function setLeftAt(\DateTime $leftAt = null)
-    {
-        $this->leftAt = $leftAt;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLeftAt()
-    {
-        return $this->leftAt;
-    }
-
-    /**
-     * @param mixed $basedAt
+     * {@inheritdoc}
      */
     public function setBasedAt(Agency $basedAt)
     {
@@ -148,7 +76,7 @@ class Worker extends PersonAbstract
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
      */
     public function getBasedAt()
     {
@@ -156,23 +84,7 @@ class Worker extends PersonAbstract
     }
 
     /**
-     * @param mixed $birthday
-     */
-    public function setBirthday(\DateTime $birthday = null)
-    {
-        $this->birthday = $birthday;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getBirthday()
-    {
-        return $this->birthday;
-    }
-
-    /**
-     * @param mixed $diploma
+     * {@inheritdoc}
      */
     public function setDiploma($diploma)
     {
@@ -180,7 +92,7 @@ class Worker extends PersonAbstract
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
      */
     public function getDiploma()
     {
@@ -188,7 +100,39 @@ class Worker extends PersonAbstract
     }
 
     /**
-     * @param mixed $function
+     * {@inheritdoc}
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setArrivedAt(\DateTime $arrivedAt = null)
+    {
+        $this->arrivedAt = $arrivedAt;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getArrivedAt()
+    {
+        return $this->arrivedAt;
+    }
+
+    /**
+     * {@inheritdoc}
      */
     public function setFunction($function)
     {
@@ -196,7 +140,7 @@ class Worker extends PersonAbstract
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
      */
     public function getFunction()
     {
@@ -204,7 +148,39 @@ class Worker extends PersonAbstract
     }
 
     /**
-     * @param \Doctrine\Common\Collections\ArrayCollection $contacts
+     * @param \DateTime $birthday
+     */
+    public function setBirthday(\DateTime $birthday = null)
+    {
+        $this->birthday = $birthday;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getBirthday()
+    {
+        return $this->birthday;
+    }
+
+    /**
+     * @param \DateTime $leftAt
+     */
+    public function setLeftAt(\DateTime $leftAt = null)
+    {
+        $this->leftAt = $leftAt;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getLeftAt()
+    {
+        return $this->leftAt;
+    }
+
+    /**
+     * @param ArrayCollection $contacts
      */
     public function setContacts(ArrayCollection $contacts)
     {
@@ -212,7 +188,7 @@ class Worker extends PersonAbstract
     }
 
     /**
-     * @return \Doctrine\Common\Collections\ArrayCollection
+     * @return ArrayCollection
      */
     public function getContacts()
     {
@@ -228,7 +204,7 @@ class Worker extends PersonAbstract
     }
 
     /**
-     * @param \NIM\WorkerBundle\Model\Email $contact
+     * @param Contact $contact
      */
     public function addContact(Contact $contact)
     {
@@ -238,140 +214,12 @@ class Worker extends PersonAbstract
     }
 
     /**
-     * @param \NIM\WorkerBundle\Model\Contact $contact
+     * @param Contact $contact
      */
     public function removeContact(Contact $contact)
     {
         if ($this->getContacts()->contains($contact)) {
             $this->getContacts()->removeElement($contact);
         }
-    }
-
-    /**
-     * @param mixed $missions
-     */
-    public function setMissions($missions)
-    {
-        $this->missions = $missions;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMissions()
-    {
-        return $this->missions;
-    }
-
-    /**
-     * @param mixed $isActive
-     */
-    public function setIsActive($isActive)
-    {
-        $this->isActive = $isActive;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIsActive()
-    {
-        return $this->isActive;
-    }
-
-    /**
-     * @param mixed $isReadyToGoOnField
-     */
-    public function setIsReadyToGoOnField($isReadyToGoOnField)
-    {
-        $this->isReadyToGoOnField = $isReadyToGoOnField;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIsReadyToGoOnField()
-    {
-        return $this->isReadyToGoOnField;
-    }
-
-    /**
-     * @param \Doctrine\Common\Collections\ArrayCollection $nationalities
-     */
-    public function setNationalities($nationalities)
-    {
-        $this->nationalities = $nationalities;
-    }
-
-    /**
-     * @return \Doctrine\Common\Collections\ArrayCollection
-     */
-    public function getNationalities()
-    {
-        return $this->nationalities;
-    }
-
-    /**
-     * @param \Doctrine\Common\Collections\ArrayCollection $passports
-     */
-    public function setPassports($passports)
-    {
-        $this->passports = $passports;
-    }
-
-    /**
-     * @return \Doctrine\Common\Collections\ArrayCollection
-     */
-    public function getPassports()
-    {
-        return $this->passports;
-    }
-
-    /**
-     * @param mixed $socialSecurityNumber
-     */
-    public function setSocialSecurityNumber($socialSecurityNumber)
-    {
-        $this->socialSecurityNumber = $socialSecurityNumber;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSocialSecurityNumber()
-    {
-        return $this->socialSecurityNumber;
-    }
-
-    /**
-     * @param mixed $type
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param \Doctrine\Common\Collections\ArrayCollection $visas
-     */
-    public function setVisas($visas)
-    {
-        $this->visas = $visas;
-    }
-
-    /**
-     * @return \Doctrine\Common\Collections\ArrayCollection
-     */
-    public function getVisas()
-    {
-        return $this->visas;
     }
 }

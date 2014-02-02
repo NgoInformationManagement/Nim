@@ -29,8 +29,12 @@ http://symfony.com/schema/dic/services/services-1.0.xsd">
 
         <!-- Mission Form -->
         <service id="nim.form.type.contact" class="%nim.form.type.contact.class%">
-            <argument>%nim.model.contact.class%</argument>
-            <argument>%nim.validation_group.contact%</argument>
+            <call method="setValidationGroups">
+                <argument>%nim.validation_group.contact%</argument>
+            </call>
+            <call method="setDataClass">
+                <argument>%nim.model.contact.class%</argument>
+            </call>
             <tag name="form.type" alias="nim_contact" />
         </service>
     </services>

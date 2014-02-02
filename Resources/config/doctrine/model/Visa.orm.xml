@@ -16,7 +16,7 @@ file that was distributed with this source code.
                   xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
 >
 
-    <entity name="NIM\WorkerBundle\Model\Visa" table="nim_visa">
+    <mapped-superclass name="NIM\WorkerBundle\Model\Visa" table="nim_visa">
 
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO"/>
@@ -33,5 +33,5 @@ file that was distributed with this source code.
         <field name="updatedAt" column="updated_at" type="datetime">
             <gedmo:timestampable on="update"/>
         </field>
-    </entity>
+    </mapped-superclass>
 </doctrine-mapping>
