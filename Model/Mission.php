@@ -13,8 +13,9 @@ namespace NIM\MissionBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use \Gedmo\Translatable\Translatable;
+use NIM\MissionBundle\Model\Core\MissionInterface;
 
-class Mission implements Translatable
+class Mission implements Translatable, MissionInterface
 {
     protected $id;
     protected $title;
@@ -32,7 +33,7 @@ class Mission implements Translatable
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
      */
     public function getId()
     {
@@ -40,7 +41,7 @@ class Mission implements Translatable
     }
 
     /**
-     * @param mixed $country
+     * {@inheritdoc}
      */
     public function setCountry($country)
     {
@@ -48,7 +49,7 @@ class Mission implements Translatable
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
      */
     public function getCountry()
     {
@@ -56,7 +57,7 @@ class Mission implements Translatable
     }
 
     /**
-     * @param mixed $description
+     * {@inheritdoc}
      */
     public function setDescription($description)
     {
@@ -64,7 +65,7 @@ class Mission implements Translatable
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
      */
     public function getDescription()
     {
@@ -72,7 +73,7 @@ class Mission implements Translatable
     }
 
     /**
-     * @param mixed $title
+     * {@inheritdoc}
      */
     public function setTitle($title)
     {
@@ -80,7 +81,7 @@ class Mission implements Translatable
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
      */
     public function getTitle()
     {
@@ -88,7 +89,7 @@ class Mission implements Translatable
     }
 
     /**
-     * @param mixed $endedAt
+     * {@inheritdoc}
      */
     public function setEndedAt(\DateTime $endedAt = null)
     {
@@ -96,7 +97,7 @@ class Mission implements Translatable
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
      */
     public function getEndedAt()
     {
@@ -104,7 +105,7 @@ class Mission implements Translatable
     }
 
     /**
-     * @param mixed $startedAt
+     * {@inheritdoc}
      */
     public function setStartedAt(\DateTime $startedAt = null)
     {
@@ -112,7 +113,7 @@ class Mission implements Translatable
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
      */
     public function getStartedAt()
     {
@@ -120,7 +121,7 @@ class Mission implements Translatable
     }
 
     /**
-     * @param mixed $locale
+     * {@inheritdoc}
      */
     public function setLocale($locale)
     {

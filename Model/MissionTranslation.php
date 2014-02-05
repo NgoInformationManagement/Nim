@@ -12,6 +12,7 @@
 namespace NIM\MissionBundle\Model;
 
 use Gedmo\Translatable\Entity\MappedSuperclass\AbstractPersonalTranslation;
+use NIM\MissionBundle\Model\Core\MissionTranslationInterface;
 
 class MissionTranslation extends AbstractPersonalTranslation
 {

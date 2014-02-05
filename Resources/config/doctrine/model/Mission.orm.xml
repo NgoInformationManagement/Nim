@@ -16,7 +16,7 @@ file that was distributed with this source code.
                   xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
 >
 
-    <entity name="NIM\MissionBundle\Model\Mission" table="nim_mission">
+    <mapped-superclass name="NIM\MissionBundle\Model\Mission" table="nim_mission">
 
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO"/>
@@ -45,5 +45,5 @@ file that was distributed with this source code.
         <gedmo:translation entity="NIM\MissionBundle\Model\MissionTranslation" locale="locale"/>
 
         <!--<many-to-many field="workers" mapped-by="missions" target-entity="NIM\WorkerBundle\Model\Worker"/>-->
-    </entity>
+    </mapped-superclass>
 </doctrine-mapping>

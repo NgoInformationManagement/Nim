@@ -11,10 +11,13 @@
 
 namespace NIM\MissionBundle;
 
-use NIM\CoreBundle\NIMCoreBundle;
+use Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass;
+use Sylius\Bundle\ResourceBundle\DependencyInjection\Compiler\ResolveDoctrineTargetEntitiesPass;
 use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class NIMMissionBundle extends NIMCoreBundle
+class NIMMissionBundle extends Bundle
 {
     /**
      * {@inheritdoc}
@@ -26,29 +29,18 @@ class NIMMissionBundle extends NIMCoreBundle
         );
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function getBundlePrefix()
+    public function build(ContainerBuilder $container)
     {
-        return 'nim_mission';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function getEntities()
-    {
-        return array(
-            'NIM\MissionBundle\Model\Mission' => 'nim.model.mission.class',
+        $interfaces = array(
+            'NIM\MissionBundle\Model\Core\MissionInterface' => 'nim.model.mission.class',
         );
-    }
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function getEntityPath()
-    {
-        return 'Model';
+        $container->addCompilerPass(new ResolveDoctrineTargetEntitiesPass('nim_mission', $interfaces));
+
+        $mappings = array(
+            realpath(__DIR__ . '/Resources/config/doctrine/model') => 'NIM\MissionBundle\Model',
+        );
+
+        $container->addCompilerPass(DoctrineOrmMappingsPass::createXmlMappingDriver($mappings, array('doctrine.orm.entity_manager'), 'nim_mission.driver.doctrine/orm'));
     }
 }
