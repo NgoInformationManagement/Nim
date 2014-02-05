@@ -19,35 +19,50 @@ abstract class ResourceBaseType extends AbstractType
     /**
      * @var string
      */
-    protected $dataClass;
+    protected $dataClass = null;
 
     /**
      * @var array
      */
-    protected $validationGroups;
-
-    /**
-     * Constructor.
-     *
-     * @param string $dataClass
-     * @param array  $validationGroups
-     */
-    public function __construct($dataClass, array $validationGroups = array('nim'))
-    {
-        $this->dataClass = $dataClass;
-        $this->validationGroups = $validationGroups;
-    }
+    protected $validationGroups = array();
 
     /**
      * {@inheritdoc}
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver
-            ->setDefaults(array(
-                'data_class' => $this->dataClass,
-                'validation_groups' => $this->validationGroups,
-            ))
-        ;
+        $options = array();
+        if (null !== $this->dataClass) {
+            $options['data_class'] = $this->dataClass;
+        }
+
+        if (0 < count($this->validationGroups)) {
+            $options['validation_groups'] = $this->validationGroups;
+        }
+
+        $resolver->setDefaults($options);
+    }
+
+    /**
+     * Set the data class
+     *
+     * @param $dataClass
+     * @return $this
+     */
+    public function setDataClass($dataClass)
+    {
+        $this->dataClass = $dataClass;
+
+        return $this;
+    }
+
+    /**
+     * Set the validation groups
+     *
+     * @param $validationGroups
+     */
+    public function setValidationGroups(array $validationGroups)
+    {
+        $this->validationGroups = $validationGroups;
     }
 }
