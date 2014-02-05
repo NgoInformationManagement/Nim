@@ -16,7 +16,7 @@ file that was distributed with this source code.
                   xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
 >
 
-    <entity name="NIM\WorkerBundle\Model\Agency" table="nim_agency">
+    <mapped-superclass name="NIM\WorkerBundle\Model\Agency" table="nim_agency">
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO"/>
         </id>
@@ -35,7 +35,7 @@ file that was distributed with this source code.
             <gedmo:timestampable on="update"/>
         </field>
 
-        <many-to-many field="emails" target-entity="NIM\WorkerBundle\Model\Email" orphan-removal="true">
+        <many-to-many field="emails" target-entity="NIM\WorkerBundle\Model\Core\EmailInterface" orphan-removal="true">
             <cascade>
                 <cascade-persist/>
                 <cascade-remove/>
@@ -50,7 +50,7 @@ file that was distributed with this source code.
             </join-table>
         </many-to-many>
 
-        <many-to-many field="phones" target-entity="NIM\WorkerBundle\Model\Phone">
+        <many-to-many field="phones" target-entity="NIM\WorkerBundle\Model\Core\PhoneInterface">
             <cascade>
                 <cascade-persist/>
                 <cascade-remove/>
@@ -64,5 +64,5 @@ file that was distributed with this source code.
                 </inverse-join-columns>
             </join-table>
         </many-to-many>
-    </entity>
+    </mapped-superclass>
 </doctrine-mapping>

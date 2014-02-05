@@ -29,8 +29,12 @@ http://symfony.com/schema/dic/services/services-1.0.xsd">
 
         <!-- Agency Form -->
         <service id="nim.form.type.agency" class="%nim.form.type.agency.class%">
-            <argument>%nim.model.agency.class%</argument>
-            <argument>%nim.validation_group.agency%</argument>
+            <call method="setValidationGroups">
+                <argument>%nim.validation_group.agency%</argument>
+            </call>
+            <call method="setDataClass">
+                <argument>%nim.model.agency.class%</argument>
+            </call>
             <tag name="form.type" alias="nim_agency" />
         </service>
     </services>

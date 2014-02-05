@@ -11,9 +11,10 @@
 
 namespace NIM\WorkerBundle\Model;
 
-use NIM\WorkerBundle\Model\Entity\PersonAbstract;
+use NIM\WorkerBundle\Model\AbstractPerson;
+use NIM\WorkerBundle\Model\Core\ContactInterface;
 
-class Contact extends PersonAbstract
+class Contact extends AbstractPerson implements ContactInterface
 {
 
 }

@@ -29,8 +29,12 @@ http://symfony.com/schema/dic/services/services-1.0.xsd">
 
         <!-- Mission Form -->
         <service id="nim.form.type.passport" class="%nim.form.type.passport.class%">
-            <argument>%nim.model.passport.class%</argument>
-            <argument>%nim.validation_group.passport%</argument>
+            <call method="setValidationGroups">
+                <argument>%nim.validation_group.passport%</argument>
+            </call>
+            <call method="setDataClass">
+                <argument>%nim.model.passport.class%</argument>
+            </call>
             <tag name="form.type" alias="nim_passport" />
         </service>
     </services>

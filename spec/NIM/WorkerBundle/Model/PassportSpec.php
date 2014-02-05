@@ -13,10 +13,10 @@ namespace spec\NIM\WorkerBundle\Model;
 
 use PhpSpec\ObjectBehavior;
 
-class PasswordSpec extends ObjectBehavior
+class PassportSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NIM\WorkerBundle\Model\Password');
+        $this->shouldHaveType('NIM\WorkerBundle\Model\Passport');
     }
 }

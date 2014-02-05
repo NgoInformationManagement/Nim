@@ -16,15 +16,15 @@ file that was distributed with this source code.
                   xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
 >
 
-    <entity name="NIM\WorkerBundle\Model\Visa" table="nim_visa">
+    <mapped-superclass name="NIM\WorkerBundle\Model\Visa" table="nim_visa">
 
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO"/>
         </id>
 
-        <field name="country" type="string" column="country" />
+        <field name="country" type="string" column="country" length="10" />
         <field name="startedAt" type="date" column="started_at" />
-        <field name="lenght" type="date" column="integer"/>
+        <field name="lenght" type="integer" column="lenght"/>
 
         <field name="createdAt" column="created_at" type="datetime">
             <gedmo:timestampable on="create"/>
@@ -33,5 +33,5 @@ file that was distributed with this source code.
         <field name="updatedAt" column="updated_at" type="datetime">
             <gedmo:timestampable on="update"/>
         </field>
-    </entity>
+    </mapped-superclass>
 </doctrine-mapping>

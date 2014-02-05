@@ -37,19 +37,11 @@ class AgencyType extends ResourceBaseType
             ->add('country', 'country', array(
                 'label' => 'agency.field.country.label',
             ))
-            ->add('emails', 'collection', array(
-                'type' => 'nim_contactable_email',
+            ->add('emails', 'nim_contactable_collection_email', array(
                 'label' => 'agency.field.email.label',
-                'allow_add' => true,
-                'allow_delete' => true,
-                'error_bubbling' => false
             ))
-            ->add('phones', 'collection', array(
-                'type' => 'nim_contactable_phone',
+            ->add('phones', 'nim_contactable_collection_phone', array(
                 'label' => 'agency.field.phone.label',
-                'allow_add' => true,
-                'allow_delete' => true,
-                'error_bubbling' => false
             ))
         ;
     }

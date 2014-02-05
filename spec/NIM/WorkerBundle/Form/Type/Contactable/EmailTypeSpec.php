@@ -18,11 +18,6 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class EmailTypeSpec extends ObjectBehavior
 {
-    public function let()
-    {
-        $this->beConstructedWith('email', array('nim'));
-    }
-
     public function it_is_initializable()
     {
         $this->shouldHaveType('NIM\WorkerBundle\Form\Type\Contactable\EmailType');
@@ -41,6 +36,9 @@ class EmailTypeSpec extends ObjectBehavior
 
     public function it_should_define_assigned_data_class(OptionsResolverInterface $resolver)
     {
+        $this->setValidationGroups(array('nim'));
+        $this->setDataClass('email');
+
         $resolver->setDefaults(array(
             'data_class' => 'email',
             'validation_groups' => array('nim')

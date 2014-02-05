@@ -11,14 +11,14 @@
 
 namespace NIM\WorkerBundle;
 
-use NIM\CoreBundle\NIMCoreBundle;
+use Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass;
+use Sylius\Bundle\ResourceBundle\DependencyInjection\Compiler\ResolveDoctrineTargetEntitiesPass;
 use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class NIMWorkerBundle extends NIMCoreBundle
+class NIMWorkerBundle extends Bundle
 {
-    /**
-     * {@inheritdoc}
-     */
     public static function getSupportedDrivers()
     {
         return array(
@@ -29,30 +29,25 @@ class NIMWorkerBundle extends NIMCoreBundle
     /**
      * {@inheritdoc}
      */
-    protected function getBundlePrefix()
+    public function build(ContainerBuilder $container)
     {
-        return 'nim_worker';
-    }
+        $container->addCompilerPass(new ResolveDoctrineTargetEntitiesPass(
+            'nim_worker',
+            array(
+                'NIM\WorkerBundle\Model\Core\WorkerInterface' => 'nim.model.worker.class',
+                'NIM\WorkerBundle\Model\Core\AgencyInterface' => 'nim.model.agency.class',
+                'NIM\WorkerBundle\Model\Core\ContactInterface' => 'nim.model.contact.class',
+                'NIM\WorkerBundle\Model\Core\EmailInterface' => 'nim.model.email.class',
+                'NIM\WorkerBundle\Model\Core\PhoneInterface' => 'nim.model.phone.class',
+            )
+        ));
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function getEntities()
-    {
-        return array(
-            'NIM\WorkerBundle\Model\Worker' => 'nim.model.worker.class',
-            'NIM\WorkerBundle\Model\Agency' => 'nim.model.agency.class',
-            'NIM\WorkerBundle\Model\Contact' => 'nim.model.contact.class',
-            'NIM\WorkerBundle\Model\Passport' => 'nim.model.passport.class',
-            'NIM\WorkerBundle\Model\Visa' => 'nim.model.visa.class',
+        $container->addCompilerPass(
+            DoctrineOrmMappingsPass::createXmlMappingDriver(
+                array(realpath(__DIR__ . '/Resources/config/doctrine/model') => 'NIM\WorkerBundle\Model'),
+                array('doctrine.orm.entity_manager'),
+                'nim_worker.driver.doctrine/orm'
+            )
         );
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function getEntityPath()
-    {
-        return 'Model';
     }
 }

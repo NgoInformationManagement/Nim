@@ -9,15 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace NIM\WorkerBundle\Model\Entity;
+namespace NIM\WorkerBundle\Model;
 
-abstract class PersonAbstract extends EntityAbstract
+use NIM\WorkerBundle\Model\AbstractEntity;
+
+abstract class AbstractPerson extends AbstractEntity
 {
     protected $firstname;
     protected $lastname;
 
     /**
-     * @param mixed $firstname
+     * @param string $firstname
      */
     public function setFirstname($firstname)
     {
@@ -25,7 +27,7 @@ abstract class PersonAbstract extends EntityAbstract
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getFirstname()
     {
@@ -33,7 +35,7 @@ abstract class PersonAbstract extends EntityAbstract
     }
 
     /**
-     * @param mixed $lastname
+     * @param string $lastname
      */
     public function setLastname($lastname)
     {
@@ -41,7 +43,7 @@ abstract class PersonAbstract extends EntityAbstract
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getLastname()
     {

@@ -12,21 +12,18 @@
 namespace NIM\WorkerBundle\Model;
 
 use NIM\FormBundle\Model\Core\TimestampableTrait;
+use NIM\WorkerBundle\Model\Core\PhoneInterface;
 
-class Phone
+class Phone implements PhoneInterface
 {
     use TimestampableTrait;
-
-    const CELLPHONE = 'cellphone';
-    const FAX = 'fax';
-    const PHONE = 'phone';
 
     protected $id;
     protected $type;
     protected $number;
 
     /**
-     * @return mixed
+     * @return integer
      */
     public function getId()
     {
@@ -34,23 +31,7 @@ class Phone
     }
 
     /**
-     * @param mixed $number
-     */
-    public function setNumber($number)
-    {
-        $this->number = $number;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getNumber()
-    {
-        return $this->number;
-    }
-
-    /**
-     * @param mixed $type
+     * {@inheritdoc}
      */
     public function setType($type)
     {
@@ -58,7 +39,7 @@ class Phone
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
      */
     public function getType()
     {
@@ -66,15 +47,18 @@ class Phone
     }
 
     /**
-     * @param  null|string $transDomain
-     * @return array
+     * {@inheritdoc}
      */
-    public static function getPhoneTypes($transDomain = null)
+    public function setNumber($number)
     {
-        return array (
-            self::CELLPHONE => $transDomain . '.' . self::CELLPHONE,
-            self::FAX => $transDomain . '.' . self::FAX,
-            self::PHONE => $transDomain . '.' . self::PHONE
-        );
+        $this->number = $number;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getNumber()
+    {
+        return $this->number;
     }
 }

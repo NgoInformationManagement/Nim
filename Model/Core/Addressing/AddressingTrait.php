@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace NIM\WorkerBundle\Model\Entity;
+namespace NIM\WorkerBundle\Model\Core\Addressing;
 
 trait AddressingTrait
 {
@@ -19,7 +19,7 @@ trait AddressingTrait
     protected $country;
 
     /**
-     * @param mixed $city
+     * @param string $city
      */
     public function setCity($city)
     {
@@ -27,7 +27,7 @@ trait AddressingTrait
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getCity()
     {
@@ -35,7 +35,7 @@ trait AddressingTrait
     }
 
     /**
-     * @param mixed $country
+     * @param string $country
      */
     public function setCountry($country)
     {
@@ -43,7 +43,7 @@ trait AddressingTrait
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getCountry()
     {
@@ -51,7 +51,7 @@ trait AddressingTrait
     }
 
     /**
-     * @param mixed $postcode
+     * @param string $postcode
      */
     public function setPostcode($postcode)
     {
@@ -59,7 +59,7 @@ trait AddressingTrait
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getPostcode()
     {
@@ -67,7 +67,7 @@ trait AddressingTrait
     }
 
     /**
-     * @param mixed $street
+     * @param string $street
      */
     public function setStreet($street)
     {
@@ -75,7 +75,7 @@ trait AddressingTrait
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getStreet()
     {

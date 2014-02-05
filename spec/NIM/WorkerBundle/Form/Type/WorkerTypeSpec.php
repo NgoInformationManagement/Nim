@@ -19,11 +19,6 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class WorkerTypeSpec extends ObjectBehavior
 {
-    public function let()
-    {
-        $this->beConstructedWith('worker', array('nim'));
-    }
-
     public function it_is_initializable()
     {
         $this->shouldHaveType('NIM\WorkerBundle\Form\Type\WorkerType');
@@ -80,13 +75,13 @@ class WorkerTypeSpec extends ObjectBehavior
         ;
 
         $builder
-            ->add('emails', 'collection',  Argument::any())
+            ->add('emails', 'nim_contactable_collection_email')
             ->shouldBeCalled()
             ->willReturn($builder)
         ;
 
         $builder
-            ->add('phones', 'collection',  Argument::any())
+            ->add('phones', 'nim_contactable_collection_phone')
             ->shouldBeCalled()
             ->willReturn($builder)
         ;
@@ -116,6 +111,12 @@ class WorkerTypeSpec extends ObjectBehavior
 
         $builder
             ->add('leftAt', 'date',  Argument::any())
+            ->shouldBeCalled()
+            ->willReturn($builder)
+        ;
+
+        $builder
+            ->add('type', 'choice',  Argument::any())
             ->shouldBeCalled()
             ->willReturn($builder)
         ;

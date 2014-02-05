@@ -32,7 +32,7 @@ class Configuration implements ConfigurationInterface
             ->end()
         ;
 
-        $this->addClassesSection( $rootNode);
+        $this->addClassesSection($rootNode);
         $this->addValidationGroupsSection($rootNode);
 
         return $treeBuilder;
@@ -70,6 +70,14 @@ class Configuration implements ConfigurationInterface
                             ->prototype('scalar')->end()
                             ->defaultValue(array('nim'))
                         ->end()
+                        ->arrayNode('email')
+                            ->prototype('scalar')->end()
+                            ->defaultValue(array('nim'))
+                        ->end()
+                        ->arrayNode('phone')
+                            ->prototype('scalar')->end()
+                            ->defaultValue(array('nim'))
+                        ->end()
                     ->end()
                 ->end()
             ->end()
@@ -97,6 +105,7 @@ class Configuration implements ConfigurationInterface
                                 ->scalarNode('form')->defaultValue('NIM\\WorkerBundle\\Form\\Type\\WorkerType')->end()
                             ->end()
                         ->end()
+
                         ->arrayNode('agency')
                             ->addDefaultsIfNotSet()
                             ->children()
@@ -111,7 +120,7 @@ class Configuration implements ConfigurationInterface
                             ->addDefaultsIfNotSet()
                             ->children()
                                 ->scalarNode('model')->defaultValue('NIM\\WorkerBundle\\Model\\Visa')->end()
-                                ->scalarNode('controller')->defaultValue('NIM\\WorkerBundle\\Controller\\VisaController')->end()
+                                ->scalarNode('controller')->defaultValue('Sylius\\Bundle\\ResourceBundle\\Controller\\ResourceController')->end()
                                 ->scalarNode('repository')->cannotBeEmpty()->end()
                                 ->scalarNode('form')->defaultValue('NIM\\WorkerBundle\\Form\\Type\\VisaType')->end()
                             ->end()
@@ -121,7 +130,7 @@ class Configuration implements ConfigurationInterface
                             ->addDefaultsIfNotSet()
                             ->children()
                                 ->scalarNode('model')->defaultValue('NIM\\WorkerBundle\\Model\\Passport')->end()
-                                ->scalarNode('controller')->defaultValue('NIM\\WorkerBundle\\Controller\\PassportController')->end()
+                                ->scalarNode('controller')->defaultValue('Sylius\\Bundle\\ResourceBundle\\Controller\\ResourceController')->end()
                                 ->scalarNode('repository')->cannotBeEmpty()->end()
                                 ->scalarNode('form')->defaultValue('NIM\\WorkerBundle\\Form\\Type\\PassportType')->end()
                             ->end()
@@ -131,9 +140,29 @@ class Configuration implements ConfigurationInterface
                             ->addDefaultsIfNotSet()
                             ->children()
                                 ->scalarNode('model')->defaultValue('NIM\\WorkerBundle\\Model\\Contact')->end()
-                                ->scalarNode('controller')->defaultValue('NIM\\WorkerBundle\\Controller\\ContactController')->end()
+                                ->scalarNode('controller')->defaultValue('Sylius\\Bundle\\ResourceBundle\\Controller\\ResourceController')->end()
                                 ->scalarNode('repository')->cannotBeEmpty()->end()
                                 ->scalarNode('form')->defaultValue('NIM\\WorkerBundle\\Form\\Type\\ContactType')->end()
+                            ->end()
+                        ->end()
+
+                        ->arrayNode('email')
+                            ->addDefaultsIfNotSet()
+                            ->children()
+                                ->scalarNode('model')->defaultValue('NIM\\WorkerBundle\\Model\\Email')->end()
+                                ->scalarNode('controller')->defaultValue('Sylius\\Bundle\\ResourceBundle\\Controller\\ResourceController')->end()
+                                ->scalarNode('repository')->cannotBeEmpty()->end()
+                                ->scalarNode('form')->defaultValue('NIM\\WorkerBundle\\Form\\Type\\EmailType')->end()
+                            ->end()
+                        ->end()
+
+                        ->arrayNode('phone')
+                            ->addDefaultsIfNotSet()
+                            ->children()
+                                ->scalarNode('model')->defaultValue('NIM\\WorkerBundle\\Model\\Phone')->end()
+                                ->scalarNode('controller')->defaultValue('Sylius\\Bundle\\ResourceBundle\\Controller\\ResourceController')->end()
+                                ->scalarNode('repository')->cannotBeEmpty()->end()
+                                ->scalarNode('form')->defaultValue('NIM\\WorkerBundle\\Form\\Type\\PhoneType')->end()
                             ->end()
                         ->end()
                     ->end()

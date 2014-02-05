@@ -29,8 +29,12 @@ http://symfony.com/schema/dic/services/services-1.0.xsd">
 
         <!-- Mission Form -->
         <service id="nim.form.type.visa" class="%nim.form.type.visa.class%">
-            <argument>%nim.model.visa.class%</argument>
-            <argument>%nim.validation_group.visa%</argument>
+            <call method="setValidationGroups">
+                <argument>%nim.validation_group.visa%</argument>
+            </call>
+            <call method="setDataClass">
+                <argument>%nim.model.visa.class%</argument>
+            </call>
             <tag name="form.type" alias="nim_visa" />
         </service>
     </services>
