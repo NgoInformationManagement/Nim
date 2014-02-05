@@ -176,6 +176,12 @@ worker:
             label: Nationalities
         contact:
             label: Contacts
+        type:
+            label: Type
+            option:
+                employee: Employee
+                volunteer: Volunteer
+                intern: Intern
 contact:
     fieldset:
         contact: Contact
