@@ -19,9 +19,6 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class NIMMissionBundle extends Bundle
 {
-    /**
-     * {@inheritdoc}
-     */
     public static function getSupportedDrivers()
     {
         return array(
@@ -29,21 +26,19 @@ class NIMMissionBundle extends Bundle
         );
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function build(ContainerBuilder $container)
     {
-        $interfaces = array(
-            'NIM\MissionBundle\Model\Core\MissionInterface' => 'nim.model.mission.class',
-        );
-
-        $container->addCompilerPass(new ResolveDoctrineTargetEntitiesPass('nim_mission', $interfaces));
-
-        $mappings = array(
-            realpath(__DIR__ . '/Resources/config/doctrine/model') => 'NIM\MissionBundle\Model',
-        );
+        $container->addCompilerPass(new ResolveDoctrineTargetEntitiesPass(
+            'nim_mission',
+            array('NIM\MissionBundle\Model\Core\MissionInterface' => 'nim.model.mission.class')
+        ));
 
         $container->addCompilerPass(
             DoctrineOrmMappingsPass::createXmlMappingDriver(
-                $mappings,
+                array(realpath(__DIR__ . '/Resources/config/doctrine/model') => 'NIM\MissionBundle\Model'),
                 array('doctrine.orm.entity_manager'), 'nim_mission.driver.doctrine/orm'
             )
         );
