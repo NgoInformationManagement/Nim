@@ -8,6 +8,13 @@ class AppKernel extends Kernel
     public function registerBundles()
     {
         $bundles = array(
+            // Nim Bundle
+            new NIM\MissionBundle\NIMMissionBundle(),
+            new NIM\WorkerBundle\NIMWorkerBundle(),
+            new NIM\CoreBundle\NIMCoreBundle(),
+            new NIM\FormBundle\NIMFormBundle(),
+            new NIM\WebBundle\NIMWebBundle(),
+
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
@@ -24,12 +31,6 @@ class AppKernel extends Kernel
             new Sylius\Bundle\ResourceBundle\SyliusResourceBundle(),
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
-
-            new NIM\MissionBundle\NIMMissionBundle(),
-            new NIM\WorkerBundle\NIMWorkerBundle(),
-            new NIM\CoreBundle\NIMCoreBundle(),
-            new NIM\FormBundle\NIMFormBundle(),
-            new NIM\WebBundle\NIMWebBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
