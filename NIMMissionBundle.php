@@ -41,6 +41,11 @@ class NIMMissionBundle extends Bundle
             realpath(__DIR__ . '/Resources/config/doctrine/model') => 'NIM\MissionBundle\Model',
         );
 
-        $container->addCompilerPass(DoctrineOrmMappingsPass::createXmlMappingDriver($mappings, array('doctrine.orm.entity_manager'), 'nim_mission.driver.doctrine/orm'));
+        $container->addCompilerPass(
+            DoctrineOrmMappingsPass::createXmlMappingDriver(
+                $mappings,
+                array('doctrine.orm.entity_manager'), 'nim_mission.driver.doctrine/orm'
+            )
+        );
     }
 }
