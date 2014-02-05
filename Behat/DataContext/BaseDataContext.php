@@ -16,7 +16,7 @@ use Doctrine\Common\Persistence\ObjectRepository;
 use Doctrine\ORM\EntityManager;
 use NIM\CoreBundle\Model\User;
 use NIM\WorkerBundle\Model\Email;
-use NIM\WorkerBundle\Model\Entity\EntityAbstract;
+use NIM\WorkerBundle\Model\AbstractEntity;
 use NIM\WorkerBundle\Model\Phone;
 use Symfony\Component\PropertyAccess\StringUtil;
 
@@ -42,7 +42,7 @@ trait BaseDataContext
         $manager = $this->getEntityManager();
 
         foreach ($this->getRepository($type)->findAll() as $resource) {
-            if ($resource instanceof EntityAbstract) {
+            if ($resource instanceof AbstractEntity) {
                 $resource->setEmails(null);
                 $resource->setPhones(null);
 
@@ -105,7 +105,7 @@ trait BaseDataContext
     /**
      * @param $label
      * @param $address
-     * @return Email
+     * @return \NIM\WorkerBundle\Model\Email
      */
     public function thereIsEmail($label, $address)
     {
