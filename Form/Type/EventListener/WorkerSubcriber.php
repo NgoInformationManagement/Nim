@@ -41,6 +41,26 @@ class WorkerSubcriber implements EventSubscriberInterface
                 'allow_delete' => true,
                 'error_bubbling' => false,
                 'item_by_line' => 2
+            ))
+//            ->add('missions', 'entity', array(
+//                'label' => 'worker.field.mission.label',
+//                'class' => 'NIMMissionBundle:Mission'
+//            ))
+            ->add('passports', 'collection', array(
+                'type' => 'nim_passport',
+                'label' => 'worker.field.passport.label',
+                'allow_add' => true,
+                'allow_delete' => true,
+                'error_bubbling' => false,
+                'item_by_line' => 2
+            ))
+            ->add('visas', 'collection', array(
+                'type' => 'nim_visa',
+                'label' => 'worker.field.visa.label',
+                'allow_add' => true,
+                'allow_delete' => true,
+                'error_bubbling' => false,
+                'item_by_line' => 2
             ));
         }
     }

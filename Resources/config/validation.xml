@@ -274,8 +274,75 @@ file that was distributed with this source code.
             </constraint>
             <constraint name="Valid"/>
         </property>
+
+        <property name="passports">
+            <constraint name="Count">
+                <option name="min">1</option>
+                <option name="groups">nim-update</option>
+                <option name="minMessage">worker.validation.passport.count</option>
+            </constraint>
+            <constraint name="Valid"/>
+        </property>
+
+        <property name="visas">
+            <constraint name="Valid"/>
+        </property>
     </class>
 
+    <class name="NIM\WorkerBundle\Model\Passport">
+        <property name="country">
+            <constraint name="NotBlank">
+                <option name="groups">
+                    <value>nim-update</value>
+                </option>
+            </constraint>
+        </property>
+        <property name="number">
+            <constraint name="NotBlank">
+                <option name="groups">
+                    <value>nim-update</value>
+                </option>
+            </constraint>
+        </property>
+        <property name="dateOfIssue">
+            <constraint name="NotBlank">
+                <option name="groups">
+                    <value>nim-update</value>
+                </option>
+            </constraint>
+        </property>
+        <property name="dateOfExpiry">
+            <constraint name="NotBlank">
+                <option name="groups">
+                    <value>nim-update</value>
+                </option>
+            </constraint>
+        </property>
+    </class>
+
+    <class name="NIM\WorkerBundle\Model\Visa">
+        <property name="country">
+            <constraint name="NotBlank">
+                <option name="groups">
+                    <value>nim-update</value>
+                </option>
+            </constraint>
+        </property>
+        <property name="startedAt">
+            <constraint name="NotBlank">
+                <option name="groups">
+                    <value>nim-update</value>
+                </option>
+            </constraint>
+        </property>
+        <property name="length">
+            <constraint name="NotBlank">
+                <option name="groups">
+                    <value>nim-update</value>
+                </option>
+            </constraint>
+        </property>
+    </class>
 
     <class name="NIM\WorkerBundle\Model\Email">
         <property name="address">
@@ -293,7 +360,6 @@ file that was distributed with this source code.
             </constraint>
         </property>
     </class>
-
 
     <class name="NIM\WorkerBundle\Model\Phone">
         <property name="type">

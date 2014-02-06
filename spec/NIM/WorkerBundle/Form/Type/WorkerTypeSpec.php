@@ -75,13 +75,13 @@ class WorkerTypeSpec extends ObjectBehavior
         ;
 
         $builder
-            ->add('emails', 'nim_contactable_collection_email')
+            ->add('emails', 'nim_contactable_collection_email', Argument::any())
             ->shouldBeCalled()
             ->willReturn($builder)
         ;
 
         $builder
-            ->add('phones', 'nim_contactable_collection_phone')
+            ->add('phones', 'nim_contactable_collection_phone', Argument::any())
             ->shouldBeCalled()
             ->willReturn($builder)
         ;

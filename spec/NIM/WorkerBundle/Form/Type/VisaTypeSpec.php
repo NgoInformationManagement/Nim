@@ -16,53 +16,28 @@ use Prophecy\Argument;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class AgencyTypeSpec extends ObjectBehavior
+class VisaTypeSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NIM\WorkerBundle\Form\Type\AgencyType');
+        $this->shouldHaveType('NIM\WorkerBundle\Form\Type\VisaType');
     }
 
-    public function it_should_build_agency_form(FormBuilderInterface $builder)
+    public function it_should_build_contact_form(FormBuilderInterface $builder)
     {
         $builder
-            ->add('name', null,  Argument::any())
+            ->add('country', 'country',  Argument::any())
+            ->shouldBeCalled()
+            ->willReturn($builder)
+        ;
+        $builder
+            ->add('startedAt', 'date',  Argument::any())
             ->shouldBeCalled()
             ->willReturn($builder)
         ;
 
         $builder
-            ->add('street', null,  Argument::any())
-            ->shouldBeCalled()
-            ->willReturn($builder)
-        ;
-
-        $builder
-            ->add('postcode', null,  Argument::any())
-            ->shouldBeCalled()
-            ->willReturn($builder)
-        ;
-
-        $builder
-            ->add('city', null,  Argument::any())
-            ->shouldBeCalled()
-            ->willReturn($builder)
-        ;
-
-        $builder
-            ->add('country', 'country', Argument::any())
-            ->shouldBeCalled()
-            ->willReturn($builder)
-        ;
-
-        $builder
-            ->add('emails', 'nim_contactable_collection_email', Argument::any())
-            ->shouldBeCalled()
-            ->willReturn($builder)
-        ;
-
-        $builder
-            ->add('phones', 'nim_contactable_collection_phone', Argument::any())
+            ->add('length', 'integer',  Argument::any())
             ->shouldBeCalled()
             ->willReturn($builder)
         ;
@@ -73,10 +48,10 @@ class AgencyTypeSpec extends ObjectBehavior
     public function it_should_define_assigned_data_class(OptionsResolverInterface $resolver)
     {
         $this->setValidationGroups(array('nim'));
-        $this->setDataClass('agency');
+        $this->setDataClass('visa');
 
         $resolver->setDefaults(array(
-            'data_class' => 'agency',
+            'data_class' => 'visa',
             'validation_groups' => array('nim')
         ))->shouldBeCalled();
 
@@ -85,6 +60,6 @@ class AgencyTypeSpec extends ObjectBehavior
 
     public function it_should_have_valid_name()
     {
-        $this->getName()->shouldReturn('nim_agency');
+        $this->getName()->shouldReturn('nim_visa');
     }
 }

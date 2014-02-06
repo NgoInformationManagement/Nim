@@ -11,25 +11,20 @@
 
 namespace NIM\WorkerBundle\Model;
 
-class Visa
+use NIM\FormBundle\Model\Core\TimestampableTrait;
+use NIM\WorkerBundle\Model\Core\VisaInterface;
+
+class Visa implements VisaInterface
 {
+    use TimestampableTrait;
+
     protected $id;
     protected $country;
     protected $startedAt;
-    protected $lenght;
-    protected $createdAt;
-    protected $updatedAt;
+    protected $length;
 
     /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return mixed
+     * @return integer
      */
     public function getId()
     {
@@ -37,7 +32,7 @@ class Visa
     }
 
     /**
-     * @param mixed $country
+     * {@inheritdoc}
      */
     public function setCountry($country)
     {
@@ -45,7 +40,7 @@ class Visa
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
      */
     public function getCountry()
     {
@@ -53,66 +48,34 @@ class Visa
     }
 
     /**
-     * @param mixed $lenght
+     * {@inheritdoc}
      */
-    public function setLenght($lenght)
+    public function setLength($length)
     {
-        $this->lenght = $lenght;
+        $this->length = $length;
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
      */
-    public function getLenght()
+    public function getLength()
     {
-        return $this->lenght;
+        return $this->length;
     }
 
     /**
-     * @param mixed $startedAt
+     * {@inheritdoc}
      */
-    public function setStartedAt($startedAt)
+    public function setStartedAt(\DateTime $startedAt = null)
     {
         $this->startedAt = $startedAt;
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
      */
     public function getStartedAt()
     {
         return $this->startedAt;
-    }
-
-    /**
-     * @param mixed $createdAt
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param mixed $updatedAt
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
     }
 }

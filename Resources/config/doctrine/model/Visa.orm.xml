@@ -24,7 +24,7 @@ file that was distributed with this source code.
 
         <field name="country" type="string" column="country" length="10" />
         <field name="startedAt" type="date" column="started_at" />
-        <field name="lenght" type="integer" column="lenght"/>
+        <field name="length" type="integer" column="lenght"/>
 
         <field name="createdAt" column="created_at" type="datetime">
             <gedmo:timestampable on="create"/>

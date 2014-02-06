@@ -16,53 +16,34 @@ use Prophecy\Argument;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class AgencyTypeSpec extends ObjectBehavior
+class PassportTypeSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NIM\WorkerBundle\Form\Type\AgencyType');
+        $this->shouldHaveType('NIM\WorkerBundle\Form\Type\PassportType');
     }
 
-    public function it_should_build_agency_form(FormBuilderInterface $builder)
+    public function it_should_build_contact_form(FormBuilderInterface $builder)
     {
         $builder
-            ->add('name', null,  Argument::any())
+            ->add('country', 'country',  Argument::any())
+            ->shouldBeCalled()
+            ->willReturn($builder)
+        ;
+        $builder
+            ->add('number', null,  Argument::any())
             ->shouldBeCalled()
             ->willReturn($builder)
         ;
 
         $builder
-            ->add('street', null,  Argument::any())
+            ->add('dateOfIssue', 'date',  Argument::any())
             ->shouldBeCalled()
             ->willReturn($builder)
         ;
 
         $builder
-            ->add('postcode', null,  Argument::any())
-            ->shouldBeCalled()
-            ->willReturn($builder)
-        ;
-
-        $builder
-            ->add('city', null,  Argument::any())
-            ->shouldBeCalled()
-            ->willReturn($builder)
-        ;
-
-        $builder
-            ->add('country', 'country', Argument::any())
-            ->shouldBeCalled()
-            ->willReturn($builder)
-        ;
-
-        $builder
-            ->add('emails', 'nim_contactable_collection_email', Argument::any())
-            ->shouldBeCalled()
-            ->willReturn($builder)
-        ;
-
-        $builder
-            ->add('phones', 'nim_contactable_collection_phone', Argument::any())
+            ->add('dateOfExpiry', 'date',  Argument::any())
             ->shouldBeCalled()
             ->willReturn($builder)
         ;
@@ -73,10 +54,10 @@ class AgencyTypeSpec extends ObjectBehavior
     public function it_should_define_assigned_data_class(OptionsResolverInterface $resolver)
     {
         $this->setValidationGroups(array('nim'));
-        $this->setDataClass('agency');
+        $this->setDataClass('passport');
 
         $resolver->setDefaults(array(
-            'data_class' => 'agency',
+            'data_class' => 'passport',
             'validation_groups' => array('nim')
         ))->shouldBeCalled();
 
@@ -85,6 +66,6 @@ class AgencyTypeSpec extends ObjectBehavior
 
     public function it_should_have_valid_name()
     {
-        $this->getName()->shouldReturn('nim_agency');
+        $this->getName()->shouldReturn('nim_passport');
     }
 }

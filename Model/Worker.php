@@ -19,8 +19,6 @@ class Worker extends AbstractPerson implements WorkerInterface
 {
     protected $id;
     protected $gender;
-    protected $firstname;
-    protected $lastname;
     protected $birthday;
     protected $diploma;
     protected $function;
@@ -30,13 +28,14 @@ class Worker extends AbstractPerson implements WorkerInterface
     protected $contacts;
     protected $type;
 
-//    protected $nationalities;
+    protected $visas;
+    protected $passports;
+    protected $missions;
+
 //    protected $socialSecurityNumber;
 //    protected $isReadyToGoOnField;
 //    protected $isActive;
-//    protected $visas;
-//    protected $passports;
-//    protected $missions;
+//
 
     /**
      * Constructor
@@ -45,7 +44,6 @@ class Worker extends AbstractPerson implements WorkerInterface
     {
         parent::__construct();
 
-        $this->nationalities = new ArrayCollection();
         $this->visas = new ArrayCollection();
         $this->passports = new ArrayCollection();
         $this->contacts = new ArrayCollection();
@@ -220,6 +218,116 @@ class Worker extends AbstractPerson implements WorkerInterface
     {
         if ($this->getContacts()->contains($contact)) {
             $this->getContacts()->removeElement($contact);
+        }
+    }
+
+    /**
+     * @param mixed $missions
+     */
+    public function setMissions($missions)
+    {
+        $this->missions = $missions;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMissions()
+    {
+        return $this->missions;
+    }
+
+    /**
+     * @param ArrayCollection $passports
+     * @return $this
+     */
+    public function setPassports(ArrayCollection $passports)
+    {
+        $this->passports = $passports;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getPassports()
+    {
+        return $this->passports;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasPassports()
+    {
+        return !$this->getPassports()->isEmpty();
+    }
+
+    /**
+     * @param Passport $passport
+     */
+    public function addPassport(Passport $passport)
+    {
+        if (!$this->getPassports()->contains($passport)) {
+            $this->getPassports()->add($passport);
+        }
+    }
+
+    /**
+     * @param Passport $passport
+     */
+    public function removePassport(Passport $passport)
+    {
+        if ($this->getPassports()->contains($passport)) {
+            $this->getPassports()->removeElement($passport);
+        }
+    }
+
+    /**
+     * @param ArrayCollection $visas
+     * @return $this
+     */
+    public function setVisas(ArrayCollection $visas)
+    {
+        $this->visas = $visas;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getVisas()
+    {
+        return $this->visas;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasVisas()
+    {
+        return !$this->getVisas()->isEmpty();
+    }
+
+    /**
+     * @param Visa $visa
+     */
+    public function addVisa(Visa $visa)
+    {
+        if (!$this->getVisas()->contains($visa)) {
+            $this->getVisas()->add($visa);
+        }
+    }
+
+    /**
+     * @param Visa $visa
+     */
+    public function removeVisa(Visa $visa)
+    {
+        if ($this->getVisas()->contains($visa)) {
+            $this->getVisas()->removeElement($visa);
         }
     }
 }

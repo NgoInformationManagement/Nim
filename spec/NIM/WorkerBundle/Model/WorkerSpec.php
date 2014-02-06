@@ -15,7 +15,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 use NIM\WorkerBundle\Model\Agency;
 use NIM\WorkerBundle\Model\Contact;
 use NIM\WorkerBundle\Model\Email;
+use NIM\WorkerBundle\Model\Passport;
 use NIM\WorkerBundle\Model\Phone;
+use NIM\WorkerBundle\Model\Visa;
 use PhpSpec\ObjectBehavior;
 
 class WorkerSpec extends ObjectBehavior
@@ -246,6 +248,74 @@ class WorkerSpec extends ObjectBehavior
 
         $this->removePhone($phone2);
         $this->getPhones()->shouldHaveCount(1);
+    }
+
+    public function it_has_no_passport_by_default()
+    {
+        $this->getPassports()->shouldHaveType('Doctrine\Common\Collections\ArrayCollection');
+    }
+
+    public function its_passport_is_mutable(ArrayCollection $col)
+    {
+        $this->setPassports($col);
+        $this->getPassports()->shouldReturn($col);
+    }
+
+    public function it_has_unique_passports(Passport $passport)
+    {
+        $this->addPassport($passport);
+        $this->addPassport($passport);
+        $this->getPassports()->shouldHaveCount(1);
+    }
+
+    public function it_has_passports(Passport $passport1, Passport $passport2)
+    {
+        $this->addPassport($passport1);
+        $this->addPassport($passport2);
+        $this->getPassports()->shouldHaveCount(2);
+    }
+
+    public function it_can_remove_passports(Passport $passport1, Passport $passport2)
+    {
+        $this->addPassport($passport1);
+        $this->addPassport($passport2);
+
+        $this->removePassport($passport2);
+        $this->getPassports()->shouldHaveCount(1);
+    }
+
+    public function it_has_no_visa_by_default()
+    {
+        $this->getVisas()->shouldHaveType('Doctrine\Common\Collections\ArrayCollection');
+    }
+
+    public function its_visa_is_mutable(ArrayCollection $col)
+    {
+        $this->setVisas($col);
+        $this->getVisas()->shouldReturn($col);
+    }
+
+    public function it_has_unique_visas(Visa $visa)
+    {
+        $this->addVisa($visa);
+        $this->addVisa($visa);
+        $this->getVisas()->shouldHaveCount(1);
+    }
+
+    public function it_has_visas(Visa $visa1, Visa $visa2)
+    {
+        $this->addVisa($visa1);
+        $this->addVisa($visa2);
+        $this->getVisas()->shouldHaveCount(2);
+    }
+
+    public function it_can_remove_visas(Visa $visa1, Visa $visa2)
+    {
+        $this->addVisa($visa1);
+        $this->addVisa($visa2);
+
+        $this->removeVisa($visa2);
+        $this->getVisas()->shouldHaveCount(1);
     }
 
     public function it_has_no_updatedAt_by_default()

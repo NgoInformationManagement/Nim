@@ -39,6 +39,8 @@ class NIMWorkerBundle extends Bundle
                 'NIM\WorkerBundle\Model\Core\ContactInterface' => 'nim.model.contact.class',
                 'NIM\WorkerBundle\Model\Core\EmailInterface' => 'nim.model.email.class',
                 'NIM\WorkerBundle\Model\Core\PhoneInterface' => 'nim.model.phone.class',
+                'NIM\WorkerBundle\Model\Core\VisaInterface' => 'nim.model.visa.class',
+                'NIM\WorkerBundle\Model\Core\PassportInterface' => 'nim.model.passport.class',
             )
         ));
 

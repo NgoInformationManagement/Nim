@@ -11,23 +11,18 @@
 
 namespace NIM\WorkerBundle\Model;
 
-class Passport
+use NIM\FormBundle\Model\Core\TimestampableTrait;
+use NIM\WorkerBundle\Model\Core\PassportInterface;
+
+class Passport implements PassportInterface
 {
+    use TimestampableTrait;
+
     protected $id;
     protected $country;
     protected $number;
     protected $dateOfIssue;
     protected $dateOfExpiry;
-    protected $createdAt;
-    protected $updatedAt;
-
-    /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
 
     /**
      * @return mixed
@@ -38,7 +33,7 @@ class Passport
     }
 
     /**
-     * @param mixed $country
+     * {@inheritdoc}
      */
     public function setCountry($country)
     {
@@ -46,7 +41,7 @@ class Passport
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
      */
     public function getCountry()
     {
@@ -54,15 +49,15 @@ class Passport
     }
 
     /**
-     * @param mixed $dateOfExpiry
+     * {@inheritdoc}
      */
-    public function setDateOfExpiry($dateOfExpiry)
+    public function setDateOfExpiry(\DateTime $dateOfExpiry = null)
     {
         $this->dateOfExpiry = $dateOfExpiry;
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
      */
     public function getDateOfExpiry()
     {
@@ -70,15 +65,15 @@ class Passport
     }
 
     /**
-     * @param mixed $dateOfIssue
+     * {@inheritdoc}
      */
-    public function setDateOfIssue($dateOfIssue)
+    public function setDateOfIssue(\DateTime $dateOfIssue = null)
     {
         $this->dateOfIssue = $dateOfIssue;
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
      */
     public function getDateOfIssue()
     {
@@ -86,7 +81,7 @@ class Passport
     }
 
     /**
-     * @param mixed $number
+     * {@inheritdoc}
      */
     public function setNumber($number)
     {
@@ -94,42 +89,10 @@ class Passport
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
      */
     public function getNumber()
     {
         return $this->number;
-    }
-
-    /**
-     * @param mixed $createdAt
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param mixed $updatedAt
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
     }
 }

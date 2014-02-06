@@ -49,6 +49,24 @@ class WorkerSubcriberSpec extends ObjectBehavior
             ->willReturn($builder)
         ;
 
+        $builder
+            ->add('missions', 'entity',  Argument::any())
+            ->shouldBeCalled()
+            ->willReturn($builder)
+        ;
+
+        $builder
+            ->add('passports', 'collection',  Argument::any())
+            ->shouldBeCalled()
+            ->willReturn($builder)
+        ;
+
+        $builder
+            ->add('visas', 'collection',  Argument::any())
+            ->shouldBeCalled()
+            ->willReturn($builder)
+        ;
+
         $this->preSetData($event);
     }
 }
