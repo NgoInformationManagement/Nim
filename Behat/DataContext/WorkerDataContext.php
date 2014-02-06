@@ -115,6 +115,7 @@ trait WorkerDataContext
             'basedAt' => $this->thereIsAgency('France'),
             'street' => 'street',
             'city' => 'city',
+            'type' => 'employee',
             'postcode' => 'postcode',
             'birthday' => new \DateTime('2001-01-01'),
             'diploma' => 'diploma',

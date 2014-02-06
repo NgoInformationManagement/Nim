@@ -23,7 +23,6 @@ use NIM\WebBundle\Behat\DataContext\MissionDataContext;
 use NIM\WebBundle\Behat\DataContext\WorkerDataContext;
 use NIM\WebBundle\Behat\UserContext\AccountUserContext;
 use NIM\WebBundle\Behat\UserContext\BaseUserContext;
-use NIM\FormBundle\Behat\FormCollectionTrait;
 
 class FeatureContext extends BehatContext
 {

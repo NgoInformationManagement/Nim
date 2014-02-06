@@ -22,7 +22,7 @@ trait BaseUserContext
      */
     public function iAmLoggedInAsAdministrator()
     {
-        $this->iAmLoggedInAsRole('ROLE_ADMIN');
+        $this->iAmLoggedInAsRole('ROLE_SUPER_ADMIN');
     }
 
     /**

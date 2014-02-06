@@ -117,11 +117,17 @@ worker:
             count: You should define {{ limit }} email or more
         phone:
             count: You should define {{ limit }} phone or more
+        passport:
+            count: You should define {{ limit }} passport or more
+        visa:
+            count: You should define {{ limit }} visa or more
     message:
         empty: There are no worker to display.
     tab:
-        worker: Worker
-        contact : Contacts
+        worker: Personal informations
+        contact : Contact persons
+        immigration: Immigration
+        mission: Missions
     title:
         create: New worker
         update: Update
@@ -130,7 +136,7 @@ worker:
     button:
         new: New worker
     fieldset:
-        contactdetails: Contact details
+        contactdetails: Personal information
         email: Emails
         phone: Phones
         organization: Organization
@@ -182,6 +188,29 @@ worker:
                 employee: Employee
                 volunteer: Volunteer
                 intern: Intern
+        passport:
+            label: Passports
+        visa:
+            label: Visas
+visa:
+    field:
+        country:
+            label: Country
+        startedAt:
+            label: Started at
+        length:
+            label: Length
+passport:
+    field:
+        country:
+            label: Country
+        number:
+            label: Number
+        dateOfIssue:
+            label: Date of issue
+        dateOfExpiry:
+            label: Date of expiry
+
 contact:
     fieldset:
         contact: Contact

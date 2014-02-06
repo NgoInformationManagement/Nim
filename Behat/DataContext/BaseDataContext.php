@@ -94,7 +94,7 @@ trait BaseDataContext
     public function entityHasEmails($emails, $entity)
     {
         foreach ($emails as $address) {
-            $phone = $this->thereIsEmail($address['label'], $address['address']);
+            $phone = $this->thereIsEmail($address['address']);
             $entity->addEmail($phone);
         }
 
@@ -107,11 +107,10 @@ trait BaseDataContext
      * @param $address
      * @return \NIM\WorkerBundle\Model\Email
      */
-    public function thereIsEmail($label, $address)
+    public function thereIsEmail($address)
     {
         $email = new Email();
         $this->setDataToObject($email, array(
-            'label' => $label,
             'address' => $address
         ));
 

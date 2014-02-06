@@ -2,6 +2,7 @@
 
 {% import 'NIMFormBundle:Bootstrap3:button.html.twig' as buttons %}
 {% from 'NIMWebBundle:Misc:button.html.twig' import submitFormButton %}
+{% from 'NIMFormBundle:Bootstrap3:notification.html.twig' import errors %}
 
 {% block page_name %}
     <i class="icon-rocket"></i>
@@ -43,6 +44,26 @@
                     {% endif %}
                 </a>
             </li>
+            <li>
+                <a href="#immigration"
+                   data-toggle="tab"
+                   {% if not form.passports.vars.valid or not form.visas.vars.valid%}class="text-danger"{% endif %}>
+                    {{ 'worker.tab.immigration'|trans }}
+                    {% if not form.passports.vars.valid or not form.visas.vars.valid %}
+                    <i class="icon-exclamation-sign"></i>
+                    {% endif %}
+                </a>
+            </li>
+            {#<li>#}
+                {#<a href="#mission"#}
+                   {#data-toggle="tab"#}
+                   {#{% if not form.missions.vars.valid %}class="text-danger"{% endif %}>#}
+                    {#{{ 'worker.tab.mission'|trans }}#}
+                    {#{% if not form.missions.vars.valid %}#}
+                        {#<i class="icon-exclamation-sign"></i>#}
+                    {#{% endif %}#}
+                {#</a>#}
+            {#</li>#}
         </ul>
 
         <div class="tab-content">
@@ -50,8 +71,15 @@
                 {% include 'NIMWebBundle:Worker:_create.html.twig' %}
             </div>
             <div class="form-horizontal tab-pane" id="contact">
-                {% include 'NIMWebBundle:Worker:_update.html.twig' %}
+                {{ form_widget(form.contacts) }}
             </div>
+            <div class="form-horizontal tab-pane" id="immigration">
+                {{ form_widget(form.passports) }}
+                {{ form_widget(form.visas) }}
+            </div>
+            {#<div class="form-horizontal tab-pane" id="mission">#}
+                {#{{ form_widget(form.missions) }}#}
+            {#</div>#}
         </div>
     </form>
 {% endblock %}
