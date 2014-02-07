@@ -33,7 +33,7 @@ class Mission implements Translatable, MissionInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return integer
      */
     public function getId()
     {
@@ -129,7 +129,7 @@ class Mission implements Translatable, MissionInterface
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getLocale()
     {
@@ -155,6 +155,9 @@ class Mission implements Translatable, MissionInterface
         }
     }
 
+    /**
+     * @param MissionTranslation $t
+     */
     public function removeTranslation(MissionTranslation $t)
     {
         if ($this->translations->contains($t)) {
@@ -176,5 +179,10 @@ class Mission implements Translatable, MissionInterface
     public function getWorkers()
     {
         return $this->workers;
+    }
+
+    public function __toString()
+    {
+        return $this->getTitle();
     }
 }

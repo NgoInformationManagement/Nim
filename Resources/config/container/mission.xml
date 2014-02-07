@@ -13,8 +13,9 @@ file that was distributed with this source code.
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services
 http://symfony.com/schema/dic/services/services-1.0.xsd">
-
-
+    <parameters>
+        <parameter key="nim.form.type.mission.entity.class">NIM\MissionBundle\Form\Type\MissionEntityType</parameter>
+    </parameters>
 
     <services>
         <!-- Mission ressource -->
@@ -23,15 +24,27 @@ http://symfony.com/schema/dic/services/services-1.0.xsd">
             <argument>mission</argument>
             <argument>NIMMissionBundle:Mission</argument>
             <call method="setContainer">
-                <argument type="service" id="service_container" />
+                <argument type="service" id="service_container"/>
             </call>
         </service>
 
         <!-- Mission Form -->
         <service id="nim.form.type.mission" class="%nim.form.type.mission.class%">
-            <argument>%nim.model.mission.class%</argument>
-            <argument>%nim.validation_group.mission%</argument>
-            <tag name="form.type" alias="nim_mission" />
+            <call method="setValidationGroups">
+                <argument>%nim.validation_group.mission%</argument>
+            </call>
+            <call method="setDataClass">
+                <argument>%nim.model.mission.class%</argument>
+            </call>
+            <tag name="form.type" alias="nim_mission"/>
+        </service>
+
+        <!-- Mission Entity Form -->
+        <service id="nim.form.type.entity.mission" class="%nim.form.type.mission.entity.class%">
+            <call method="setValidationGroups">
+                <argument>%nim.validation_group.mission%</argument>
+            </call>
+            <tag name="form.type" alias="nim_entity_mission"/>
         </service>
     </services>
 </container>

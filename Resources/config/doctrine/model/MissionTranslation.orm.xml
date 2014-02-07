@@ -14,7 +14,7 @@ file that was distributed with this source code.
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                                       http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
 >
-    <mapped-superclass name="NIM\MissionBundle\Model\MissionTranslation" table="nim_mission_translation">
+    <entity name="NIM\MissionBundle\Model\MissionTranslation" table="nim_mission_translation">
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
@@ -22,5 +22,5 @@ file that was distributed with this source code.
         <field name="field" type="string" />
         <field name="content" type="string" nullable="true" />
         <many-to-one field="object" target-entity="NIM\MissionBundle\Model\Core\MissionInterface" inversed-by="translations" />
-    </mapped-superclass>
+    </entity>
 </doctrine-mapping>

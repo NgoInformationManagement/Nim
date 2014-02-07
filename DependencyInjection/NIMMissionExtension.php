@@ -13,7 +13,6 @@ namespace NIM\MissionBundle\DependencyInjection;
 
 use NIM\CoreBundle\DependencyInjection\NIMCoreExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Loader;
 
 class NIMMissionExtension extends NIMCoreExtension
 {
