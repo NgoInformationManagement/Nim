@@ -3,6 +3,7 @@
 {% import 'NIMFormBundle:Bootstrap3:button.html.twig' as buttons %}
 {% from 'NIMWebBundle:Misc:button.html.twig' import submitFormButton %}
 {% from 'NIMFormBundle:Bootstrap3:notification.html.twig' import errors %}
+{% form_theme form 'NIMWebBundle:Worker:_form_theme.html.twig' %}
 
 {% block page_name %}
     <i class="icon-rocket"></i>
@@ -13,7 +14,6 @@
 {% block page_action %}
     {{ buttons.back(path('nim_worker_index'), 'button.backToList') }}
     {{ submitFormButton('button.update', 'workerUpdateForm', 'edit') }}
-
 {% endblock page_action %}
 
 
@@ -54,16 +54,16 @@
                     {% endif %}
                 </a>
             </li>
-            {#<li>#}
-                {#<a href="#mission"#}
-                   {#data-toggle="tab"#}
-                   {#{% if not form.missions.vars.valid %}class="text-danger"{% endif %}>#}
-                    {#{{ 'worker.tab.mission'|trans }}#}
-                    {#{% if not form.missions.vars.valid %}#}
-                        {#<i class="icon-exclamation-sign"></i>#}
-                    {#{% endif %}#}
-                {#</a>#}
-            {#</li>#}
+            <li>
+                <a href="#mission"
+                   data-toggle="tab"
+                   {% if not form.missions.vars.valid %}class="text-danger"{% endif %}>
+                    {{ 'worker.tab.mission'|trans }}
+                    {% if not form.missions.vars.valid %}
+                        <i class="icon-exclamation-sign"></i>
+                    {% endif %}
+                </a>
+            </li>
         </ul>
 
         <div class="tab-content">
@@ -77,9 +77,9 @@
                 {{ form_widget(form.passports) }}
                 {{ form_widget(form.visas) }}
             </div>
-            {#<div class="form-horizontal tab-pane" id="mission">#}
-                {#{{ form_widget(form.missions) }}#}
-            {#</div>#}
+            <div class="form-horizontal tab-pane" id="mission">
+                {{ form_widget(form.missions) }}
+            </div>
         </div>
     </form>
 {% endblock %}

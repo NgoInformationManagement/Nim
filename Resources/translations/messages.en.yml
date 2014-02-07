@@ -127,7 +127,7 @@ worker:
         worker: Personal informations
         contact : Contact persons
         immigration: Immigration
-        mission: Missions
+        mission: Missions accomplished
     title:
         create: New worker
         update: Update
