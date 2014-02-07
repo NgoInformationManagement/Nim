@@ -42,10 +42,9 @@ class WorkerSubcriber implements EventSubscriberInterface
                 'error_bubbling' => false,
                 'item_by_line' => 2
             ))
-//            ->add('missions', 'entity', array(
-//                'label' => 'worker.field.mission.label',
-//                'class' => 'NIMMissionBundle:Mission'
-//            ))
+            ->add('missions', 'nim_entity_mission', array(
+                'label' => 'worker.field.mission.label',
+            ))
             ->add('passports', 'collection', array(
                 'type' => 'nim_passport',
                 'label' => 'worker.field.passport.label',

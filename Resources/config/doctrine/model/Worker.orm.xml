@@ -128,15 +128,15 @@ file that was distributed with this source code.
             </join-table>
         </many-to-many>
 
-        <!--<many-to-many field="missions" inversed-by="workers" target-entity="NIM\MissionBundle\Model\Mission">-->
-            <!--<join-table name="nim_worker_mission">-->
-                <!--<join-columns>-->
-                    <!--<join-column name="worker_id" referenced-column-name="id" />-->
-                <!--</join-columns>-->
-                <!--<inverse-join-columns>-->
-                    <!--<join-column name="mission_id" referenced-column-name="id" />-->
-                <!--</inverse-join-columns>-->
-            <!--</join-table>-->
-        <!--</many-to-many>-->
+        <many-to-many field="missions" inversed-by="workers" target-entity="NIM\MissionBundle\Model\Mission">
+            <join-table name="nim_worker_mission">
+                <join-columns>
+                    <join-column name="worker_id" referenced-column-name="id" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="mission_id" referenced-column-name="id" />
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
     </mapped-superclass>
 </doctrine-mapping>

@@ -34,8 +34,6 @@ class Worker extends AbstractPerson implements WorkerInterface
 
 //    protected $socialSecurityNumber;
 //    protected $isReadyToGoOnField;
-//    protected $isActive;
-//
 
     /**
      * Constructor
