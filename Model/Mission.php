@@ -184,6 +184,19 @@ class Mission implements Translatable, MissionInterface
         return $this->workers;
     }
 
+    /**
+     * @return array
+     */
+    public function getEntityFormTypeData()
+    {
+        return array(
+            'title' => $this->getTitle(),
+            'country' => $this->getCountry(),
+            'started_at' => $this->getStartedAt(),
+            'ended_at' => $this->getEndedAt()
+        );
+    }
+
     public function __toString()
     {
         return $this->getTitle();
