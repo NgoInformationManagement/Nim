@@ -155,13 +155,15 @@ div.collection-item .collection-button-remove {
     cursor: pointer;
 }
 
-div.collection-item .collection-box {
+div.collection-item .panel {
     position: relative;
-    background-color: #F0F0F0;
-    border: 1px solid #CCCCCC;
     border-radius: 4px 4px 4px 4px;
     padding: 23px 25px 10px;
     margin: 10px 0;
+}
+
+div.collection-item .panel-body {
+    padding: 0;
 }
 
 .collection-widget legend {
@@ -174,7 +176,7 @@ div.collection-item .collection-box {
     right: 0;
 }
 
-div.collection-item .collection-box.unique-field .form-group {
+div.collection-item .panel.unique-field .form-group {
     margin: 0;
 }
 
@@ -187,8 +189,8 @@ div.collection-item .unique-field .collection-button-remove {
     margin: 0;
 }
 
-.form-inline div.collection-item .collection-box,
-div.collection-item .collection-box.unique-field {
+.form-inline div.collection-item .panel,
+div.collection-item .panel.unique-field {
     padding: 12px 25px 12px 12px;
 }
 
@@ -201,8 +203,11 @@ div.collection-list .col-md-6 {
     color: #B94A48;
 }
 
-.translated-form .tab-content {
+.tab-content {
     padding: 20px 10px 0 0;
+}
+
+.translated-form .tab-content {
     margin-bottom: 10px;
 }
 
@@ -216,4 +221,25 @@ div.collection-list .col-md-6 {
 #nim_worker_phones input,
 #nim_agency_phones input {
     margin-left: 10px;
+}
+
+.panel label.expanded-choice-label {
+    margin: 0;
+    width: 100%;
+}
+
+.panel label p {
+    font-weight: normal;
+}
+
+.panel label p.title {
+    font-weight: bold;
+}
+
+.panel label p {
+    margin: 0;
+}
+
+#nim_worker_missions .panel-body {
+    padding: 6px 15px 4px;
 }

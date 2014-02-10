@@ -5,6 +5,9 @@ layout:
     page:
         title: Ngo Information Management - %page_title%
 
+general:
+    to: to
+
 button:
     create: Create
     update: Update
