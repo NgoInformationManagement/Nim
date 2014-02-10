@@ -144,14 +144,16 @@
     {% spaceless %}
         <div data-form-collection="item"
              class="col-md-{{ boxWidth }} collection-item">
-            <div class="collection-box{% if form|length == 1%} unique-field{% endif %}">
-                {% if allow_delete %}
-                    <a href="#" data-form-collection="delete">
-                        <i class="icon-remove collection-button-remove"></i>
-                    </a>
-                {% endif %}
+                <div class="panel panel-default{% if form|length == 1%} unique-field{% endif %}">
+                    <div class="panel-body">
+                    {% if allow_delete %}
+                        <a href="#" data-form-collection="delete">
+                            <i class="icon-remove collection-button-remove"></i>
+                        </a>
+                    {% endif %}
 
-                {{ form_rest(form) }}
+                    {{ form_rest(form) }}
+                </div>
             </div>
         </div>
     {% endspaceless %}
