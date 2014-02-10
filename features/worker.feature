@@ -37,22 +37,23 @@ Feature: Worker
             | Earthquake in Pakistan  | Earthquake in Pakistan in 2005     | PA      | 2005-09-31 | 2006-10-01 |
             | Earthquake in Mexico    | Earthquake in Mexico in 2000       | ME      | 2000-10-01 | 2000-11-11 |
             | Earthquake in Iran      | Earthquake in Iran in 1989         | ME      | 1989-01-31 | 1989-02-11 |
-#  Scenario: Seeing empty index of worker
-#       Given There are no workers
-#        When I am on the worker index page
-#        Then I should see "There are no worker to display"
-#
-#    Scenario: Seeing index of workers
-#       Given I am on the dashboard page
-#        When I follow "Workers"
-#        Then I should be on the worker index page
-#         And I should see 3 workers in the list
-#
-#    Scenario: Accessing to the worker creation page
-#       Given I am on the dashboard page
-#        When I follow "Workers"
-#         And I follow "New worker"
-#        Then I should be on the worker creation page
+
+    Scenario: Seeing empty index of worker
+       Given There are no workers
+        When I am on the worker index page
+        Then I should see "There are no worker to display"
+
+    Scenario: Seeing index of workers
+       Given I am on the dashboard page
+        When I follow "Workers"
+        Then I should be on the worker index page
+         And I should see 3 workers in the list
+
+    Scenario: Accessing to the worker creation page
+       Given I am on the dashboard page
+        When I follow "Workers"
+         And I follow "New worker"
+        Then I should be on the worker creation page
 
     @javascript
     Scenario: Creating a new worker
