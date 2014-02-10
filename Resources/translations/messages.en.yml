@@ -60,6 +60,7 @@ mission:
         update: Update the mission
         index: Your missions
         show: Details about your mission
+        dashboard: Latest missions
     button:
         new: New Mission
     message:
@@ -135,6 +136,7 @@ worker:
         update: Update the worker
         index: Your workers
         show: Details about your worker
+        dashboard: Latest workers
     button:
         new: New worker
     fieldset:

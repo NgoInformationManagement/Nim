@@ -12,6 +12,7 @@
 namespace NIM\WebBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DashboardController extends Controller
@@ -21,6 +22,14 @@ class DashboardController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        /** @var $missionRepository EntityRepository $missionRepository */
+        $missionRepository = $this->get('nim.repository.mission');
+        /** @var $workerRepository EntityRepository $missionRepository */
+        $workerRepository = $this->get('nim.repository.worker');
+
+        return array(
+            'missions' => $missionRepository->findBy(array(), array('updatedAt' => 'desc'), 5),
+            'workers' => $workerRepository->findBy(array(), array('updatedAt' => 'desc'), 5),
+        );
     }
 }

@@ -43,3 +43,51 @@
         {{ info('mission.message.empty') }}
     {% endif %}
 {% endmacro %}
+
+{% macro latest(missions) %}
+    {% import 'NIMFormBundle:Bootstrap3:button.html.twig' as buttons %}
+    {% from 'NIMFormBundle:Bootstrap3:notification.html.twig' import info %}
+    {% from 'NIMFormBundle:Bootstrap3:field.html.twig' import date %}
+
+    {% if missions|length > 0 %}
+        <div class="table-responsive row">
+            <table class="table table-bordered table-hover" id="missions">
+                <colgroup>
+                    <col width="30%">
+                    <col width="10%">
+                    <col width="20%">
+                    <col width="20%">
+                    <col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>{{ 'mission.field.title.label'|trans }}</th>
+                    <th>{{ 'mission.field.country.label'|trans }}</th>
+                    <th>{{ 'mission.field.startedAt.label'|trans }}</th>
+                    <th>{{ 'mission.field.endedAt.label'|trans }}</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for mission in missions %}
+                    <tr>
+                        <td>{{ mission.title }}</td>
+                        <td>{{ mission.country|country }}</td>
+                        <td>{{ mission.startedAt|localizeddate('long', 'none') }}</td>
+                        <td>{{ date(mission.endedAt) }}</td>
+                        <td>
+                            <div class="pull-right">
+                                {{ buttons.show(path('nim_mission_show', {'id': mission.id}), null, 'tooltip.show') }}
+                                {{ buttons.edit(path('nim_mission_update', {'id': mission.id}), null, 'tooltip.edit') }}
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        {{ info('mission.message.empty') }}
+    {% endif %}
+{% endmacro %}
+

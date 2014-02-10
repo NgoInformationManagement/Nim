@@ -59,3 +59,51 @@
         {{ info('worker.message.empty') }}
     {% endif %}
 {% endmacro %}
+
+
+{% macro latest(workers) %}
+    {% import 'NIMFormBundle:Bootstrap3:button.html.twig' as buttons %}
+    {% from 'NIMFormBundle:Bootstrap3:notification.html.twig' import info %}
+
+    {% if workers|length > 0 %}
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover" id="workers">
+                <colgroup>
+                    <col width="30%">
+                    <col width="30%">
+                    <col width="20%">
+                    <col width="10%">
+                    <col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>{{ 'person.name'|trans }}</th>
+                    <th>{{ 'worker.field.function.label'|trans }}</th>
+                    <th>{{ 'worker.field.basedAt.label'|trans }}</th>
+                    <th>{{ 'worker.field.arrivedAt.label'|trans }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for worker in workers %}
+                    <tr>
+                        <td class="worker-name">
+                            <p class="col-md-11">{{ worker.lastname }} {{ worker.firstname }}</p>
+                            <i class="icon-{{ worker.gender }}">
+                        </td>
+                        <td>{{ worker.function }}</td>
+                        <td>{{ worker.basedAt }}</td>
+                        <td>{{ worker.arrivedAt|localizeddate('long', 'none') }}</td>
+                        <td>
+                            {{ buttons.show(path('nim_worker_show', {'id': worker.id}), null, 'tooltip.show') }}
+                            {{ buttons.edit(path('nim_worker_update', {'id': worker.id}), null, 'tooltip.edit') }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        {{ info('worker.message.empty') }}
+    {% endif %}
+{% endmacro %}
+

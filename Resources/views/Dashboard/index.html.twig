@@ -1,5 +1,11 @@
 {% extends 'NIMWebBundle::layout.html.twig' %}
 
+
+{% block title %}
+    {{ 'layout.page.title'|trans({'%page_title%' : 'dashboard.title.index'|trans}) }}
+{% endblock %}
+
+
 {% block page_name %}
     <i class="icon-dashboard"></i>
     {{ 'dashboard.title.index'|trans }}
@@ -7,5 +13,25 @@
 
 
 {% block content %}
-    TODO
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">{{ 'worker.title.dashboard'|trans }}</div>
+                <div class="panel-body">
+                    {% from 'NIMWebBundle:Worker:macro.html.twig' import latest %}
+                    {{ latest(workers) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">{{ 'mission.title.dashboard'|trans }}</div>
+                <div class="panel-body">
+                    {% from 'NIMWebBundle:Mission:macro.html.twig' import latest %}
+                    {{ latest(missions) }}
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
