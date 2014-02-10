@@ -2,11 +2,8 @@ login:
     welcome: Enter your login and password
 
 layout:
-    header:
-        title: Ngo Information Management
-    footer: Arnaud Langlade
     page:
-        title: Ngo Information Management
+        title: Ngo Information Management - %page_title%
 
 button:
     create: Create
@@ -39,6 +36,8 @@ menu:
     mission: Missions
     worker: Workers
     vaccine: Vaccines
+    preference: Preferences
+    logout: Log out
 
 dashboard:
     title:
@@ -49,14 +48,17 @@ confirmation:
     message: Do you want to delete this item?
 
 account:
+    title:
+        show: Your preferences
+        edit: Edit your preferences
     button:
         edit: Edit profil
 
 mission:
     title:
         create: New mission
-        update: Update
-        index: Yours missions
+        update: Update the mission
+        index: Your missions
         show: Details about your mission
     button:
         new: New Mission
@@ -84,8 +86,8 @@ agency:
             count: You should define {{ limit }} phone or more
     title:
         create: New agency
-        update: Update
-        index: Yours agencies
+        update: Update the agency
+        index: Your agencies
         show: Details about your agency
     button:
         new: New Agency
@@ -130,8 +132,8 @@ worker:
         mission: Missions accomplished
     title:
         create: New worker
-        update: Update
-        index: Yours workers
+        update: Update the worker
+        index: Your workers
         show: Details about your worker
     button:
         new: New worker

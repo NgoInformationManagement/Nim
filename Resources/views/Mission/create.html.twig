@@ -3,6 +3,12 @@
 {% import 'NIMFormBundle:Bootstrap3:button.html.twig' as buttons %}
 {% from 'NIMWebBundle:Misc:button.html.twig' import submitFormButton %}
 
+
+{% block title %}
+    {{ 'layout.page.title'|trans({'%page_title%' : 'mission.title.create'|trans}) }}
+{% endblock %}
+
+
 {% block page_name %}
     <i class="icon-rocket"></i>
     {{ 'mission.title.create'|trans }}

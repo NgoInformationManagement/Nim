@@ -4,6 +4,12 @@
 {% from 'NIMFormBundle:Bootstrap3:pagination/resource_bundle.html.twig' import pagination %}
 {% from 'NIMWebBundle:Worker:macro.html.twig' import list %}
 
+
+{% block title %}
+    {{ 'layout.page.title'|trans({'%page_title%' : 'mission.title.index'|trans}) }}
+{% endblock %}
+
+
 {% block page_name %}
     <i class="icon-rocket"></i>
     {{ 'worker.title.index'|trans }}

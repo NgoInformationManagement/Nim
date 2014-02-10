@@ -5,6 +5,12 @@
 {% from 'NIMFormBundle:Bootstrap3:notification.html.twig' import errors %}
 {% form_theme form 'NIMWebBundle:Worker:_form_theme.html.twig' %}
 
+
+{% block title %}
+    {{ 'layout.page.title'|trans({'%page_title%' : 'mission.title.update'|trans}) }}
+{% endblock %}
+
+
 {% block page_name %}
     <i class="icon-rocket"></i>
     {{ 'worker.title.update'|trans }}

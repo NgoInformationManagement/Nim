@@ -4,6 +4,12 @@
 {% from 'NIMFormBundle:Bootstrap3:field.html.twig' import field_row %}
 {% from 'NIMFormBundle:Bootstrap3:field.html.twig' import date %}
 
+
+{% block title %}
+    {{ 'layout.page.title'|trans({'%page_title%' : 'mission.title.show'|trans}) }}
+{% endblock %}
+
+
 {% block page_name %}
     <i class="icon-rocket"></i>
     {{ 'mission.title.show'|trans }}

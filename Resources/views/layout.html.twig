@@ -17,7 +17,6 @@
                 'bundles/nimweb/css/bootstrap-datepicker.css'
                 'bundles/nimweb/css/select2/select2.css'
                 'bundles/nimweb/css/select2/select2-bootstrap.css'
-                'bundles/nimweb/css/theme.css'
                 'bundles/nimweb/css/nim.css'
             %}
             <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
@@ -39,130 +38,106 @@
             {% endjavascripts %}
         {% endblock %}
     </head>
-    <body class="wide mini-sidebar">
+    <body>
         {% block body %}
-        <div id="wrap">
-
-            <div id="top" class="navbar-fixed-top">
-                <!-- .navbar -->
-                <nav class="navbar navbar-inverse navbar-static-top">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    {% block top_menu %}
-                    <header class="navbar-header">
-                        <a class="navbar-brand" href="{# TODO #}">
-                            <img alt="" src="{# TODO #}">
-                            {{ 'layout.header.title'|trans }}
+        <header class="navbar-fixed-top">
+            <nav role="navigation" class="navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand logo" href="{{ path('nim_dashboard') }}">
+                            <img alt="" src="{{ asset('bundles/nimweb/image/logo.png') }}">
                         </a>
-                    </header>
-                    {% endblock top_menu %}
-
-                    <div class="topnav">
-                        <div class="pull-left welcome">
-                            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
-                        </div>
-                        <div class="btn-toolbar pull-left">
-                            <div class="btn-group">
-                                <a class="btn btn-sm btn-default"
-                                   href="{{ path('fos_user_profile_show') }}">
-                                    <i class="icon-wrench"></i>
-                                </a>
-                                <a class="btn btn-metis-1 btn-sm"
-                                   href="{{ path('fos_user_security_logout') }}">
-                                    <i class="icon-off"></i>
-                                </a>
-                            </div>
-                        </div>
                     </div>
-                </nav>
-                <!-- /.navbar -->
+                    <div class="collapse navbar-collapse">
+                        {% block user_menu %}
+                        <ul class="nav navbar-nav navbar-right" role="menu">
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    {{ app.user.username }}
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a
+                                           href="{{ path('fos_user_profile_show') }}">
+                                            <i class="icon-wrench"></i>
+                                            {{ 'menu.preference'|trans }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                           href="{{ path('fos_user_security_logout') }}">
+                                            <i class="icon-off"></i>
+                                            {{ 'menu.logout'|trans }}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        {% endblock user_menu %}
 
-
-                <!-- header.head -->
-                <header class="head">
-                    <!-- ."main-bar -->
-                    <div class="main-bar">
-                        <h3>
-                            <span class="actionTitle">
-                            {% block page_name %}
-                                <i class="icon-dashboard"></i>
-                                {{ 'layout.page.name'|trans }}
-                            {% endblock page_name %}
-                            </span>
-                            <span class="pull-right text-right actionButton" data-controller="toolbar">
-                                {% block page_action %}
-
-                                {% endblock page_action %}
-                            </span>
-                        </h3>
-                    </div>
-                    <!-- /.main-bar -->
-                </header>
-                <!-- end header.head -->
-            </div>
-
-
-            <div id="left" class="navbar-fixed-top navbar-fixed-left">
-                <!-- #menu -->
-                <ul class="accordion collapse" id="menu">
-                    {% block left_menu %}
-                    {#<li class="nav-header">Menu</li>#}
-                    {#<li class="nav-divider"></li>#}
-                    <li>
-                        <a href="">
-                            <i class="icon-dashboard"></i>
-                            {{ 'menu.dashbord' | trans }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ path('nim_agency_index') }}">
-                            <i class="icon-rocket"></i>
-                            {{ 'menu.agency' | trans }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ path('nim_mission_index') }}">
-                            <i class="icon-rocket"></i>
-                            {{ 'menu.mission' | trans }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ path('nim_worker_index') }}">
-                            <i class="icon-male"></i>
-                            {{ 'menu.worker' | trans }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <i class="icon-beaker"></i>
-                            {{ 'menu.vaccine' | trans }}
-                        </a>
-                    </li>
-                    {% endblock left_menu %}
-                </ul>
-
-                <!-- /#menu -->
-            </div>
-            <!-- /#left -->
-
-            <div id="content">
-                <div class="outer">
-                    <div class="inner">
-                        {% from "NIMFormBundle:Bootstrap3:notification.html.twig" import flashes %}
-                        {{ flashes() }}
-                        {% block content %}
-                        {% endblock content %}
+                        <ul class="nav navbar-nav" role="menu">
+                            {% block main_menu %}
+                                <li>
+                                    <a href="{{ path('nim_dashboard') }}">
+                                        <i class="icon-dashboard"></i>
+                                        {{ 'menu.dashbord' | trans }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('nim_agency_index') }}">
+                                        <i class="icon-rocket"></i>
+                                        {{ 'menu.agency' | trans }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('nim_mission_index') }}">
+                                        <i class="icon-rocket"></i>
+                                        {{ 'menu.mission' | trans }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('nim_worker_index') }}">
+                                        <i class="icon-male"></i>
+                                        {{ 'menu.worker' | trans }}
+                                    </a>
+                                </li>
+                                {#<li>#}
+                                    {#<a href="">#}
+                                        {#<i class="icon-beaker"></i>#}
+                                        {#{{ 'menu.vaccine' | trans }}#}
+                                    {#</a>#}
+                                {#</li>#}
+                            {% endblock main_menu %}
+                        </ul>
                     </div>
                 </div>
-                <!-- end .outer -->
+            </nav>
+
+            <div class="container-fluid nav-second">
+                <div class="row">
+                    <h1 class="col-md-8">
+                        {% block page_name %}
+                            <i class="icon-dashboard"></i>
+                            {{ 'layout.page.name'|trans }}
+                        {% endblock page_name %}
+                    </h1>
+
+                    <nav id="action-menu" class="col-md-4 text-right actionButton" data-controller="toolbar">
+                        {% block page_action %}{% endblock page_action %}
+                    </nav>
+                </div>
             </div>
-            <!-- end #content -->
-        </div>
-        <!-- /#wrap -->
+        </header>
 
-
-        <div id="footer">
-            <p>2013 &copy; {{ 'layout.footer'|trans }}</p>
-        </div>
+        <section class="content">
+            <div class="container-fluid">
+                {% from "NIMFormBundle:Bootstrap3:notification.html.twig" import flashes %}
+                {{ flashes() }}
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </section>
         {% endblock body %}
     </body>
 </html>

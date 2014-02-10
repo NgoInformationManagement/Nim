@@ -1,10 +1,13 @@
 {% block choice_widget_expanded %}
     {% spaceless %}
+        {% set attr = attr | merge({'class' :  attr.class|default ~ ' row'}) %}
         <div {{ block('widget_container_attributes') }}>
             {% for child in form %}
-                <div class="col-lg-4">
-                    {{ form_widget(child) }}
-                    {{ form_label(child) }}
+                <div class="col-lg-4 box">
+                    <label>
+                        {{ child.vars.label }}
+                        {{ form_widget(child) }}
+                    </label>
                 </div>
             {% endfor %}
         </div>

@@ -1,50 +1,96 @@
-/* theme */
-.mini-sidebar #content {
-    margin-top: 106px;
+header {
+    background-color: #222222;
+    border-color: #080808;
 }
 
-.navbar-fixed-left {
-    top:105px;
+header .logo {
+    margin: 5px 0 0 -10px
 }
 
-.head .main-bar h3 {
-    margin-bottom: 7px;
-    margin-top: 0;
-    width: auto;
+header .navbar-brand.logo {
+    padding: 0;
 }
 
-#top .topnav {
-    margin: 10px;
+.navbar-fixed-top, .navbar-fixed-bottom {
+    border-width: 0 0 1px;
+    left: 0;
+    position: fixed;
+    right: 0;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+    background-color: #404040;
+}
+.navbar-inverse .navbar-nav > li.dropdown.open a.dropdown-toggle {
+    background-color: #404040;
 }
 
 .navbar-header {
-    margin: 15px;
+    margin: 0;
 }
 
-.navbar-brand {
-    font-size: 22px;
+.nav-second {
+    background: none repeat scroll 0 0 #404040;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+    height: 50px;
+    padding: 8px;
 }
 
-.inner {
-    border: none;
-    padding: 10px;
+.nav-second h1 {
+    color: #BABABA;
+    padding-right: 10px;
+    margin: 0;
+    font-size: 30px;
+}
+
+.content {
+    left: 0;
+    padding: 10px 0 0 0;
+    position: absolute;
+    right: 0;
+    top: 100px;
+    margin-bottom: 38px;
+}
+
+.pagination-container.row,
+.table-responsive.row {
+    margin: 0;
 }
 
 /* Pagination */
-.paginationContainer .paginate {
-    padding-top: 10px;
+.pagination-container .paginate {
+    padding: 10px 0;
 }
 
 ul.pagination {
     margin:10px 0
 }
 
-.topnav .welcome {
-    padding-top: 5px;
-    margin-right: 10px;
-    color: #FFFFFF;
+.pagination-container ul.pagination {
+    margin: 0
 }
 
+
+.pagination-container .dropdown-menu {
+    left: inherit;
+    min-width: 58px;
+    right: 20px;
+    width: 50px;
+    top: 42px;
+}
+.pagination-container .dropdown-menu a {
+    padding: 3px 0px;
+    text-align: center;
+}
+
+.expanded .pagination-container {
+    margin-bottom: 14px;
+}
+
+/** Table */
 table tr:last-child td:first-child {
     -moz-border-radius-bottomleft:10px;
     -webkit-border-bottom-left-radius:10px;
@@ -57,7 +103,6 @@ table tr:last-child td:last-child {
     border-bottom-right-radius:10px
 }
 
-/** Table */
 table.table tbody tr td {
     max-width: 150px;
     overflow: hidden;
