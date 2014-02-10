@@ -20,9 +20,25 @@
 
 {# Choice widget #}
 {% block choice_widget %}
+    {% if not compound %}
     {% set attr = attr | merge({'class' :  attr.class|default ~ ' form-control'}) %}
+    {% endif %}
     {{ parent() }}
 {% endblock choice_widget %}
+
+{# Choice widget expanded #}
+{% block choice_widget_expanded %}
+    {% spaceless %}
+        <div {{ block('widget_container_attributes') }}>
+            {% for child in form %}
+            <div>
+                {{ form_widget(child) }}
+                {{ form_label(child) }}
+            </div>
+            {% endfor %}
+        </div>
+    {% endspaceless %}
+{% endblock choice_widget_expanded %}
 
 {# Form rest #}
 {% block form_rest %}
