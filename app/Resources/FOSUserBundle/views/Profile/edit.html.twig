@@ -4,6 +4,18 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
 
+
+{% block title %}
+    {{ 'layout.page.title'|trans({'%page_title%' : 'account.title.edit'|trans({}, 'messages')}, 'messages') }}
+{% endblock %}
+
+
+{% block page_name %}
+    <i class="icon-rocket"></i>
+    {{ 'account.title.edit'|trans({}, 'messages') }}
+{% endblock page_name %}
+
+
 {% block page_action %}
     {{ buttons.update('button.update', 'userCreateForm') }}
 {% endblock page_action %}
