@@ -23,7 +23,7 @@ class MissionType extends ResourceBaseType
     {
         $builder
             ->add('translations', 'a2lix_translations_gedmo', array(
-                'label' => 'internationalization.label',
+                'label' => false,
                 'translatable_class' => 'NIM\MissionBundle\Model\Mission',
                 'fields' => array(
                     'title' => array(
@@ -49,6 +49,7 @@ class MissionType extends ResourceBaseType
                 'label' => 'mission.field.endedAt.label',
                 'leading_zero' => true,
             ))
+            ->add('workers', 'nim_entity_worker')
         ;
     }
 

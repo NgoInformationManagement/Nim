@@ -54,6 +54,12 @@ class MissionTypeSpec extends ObjectBehavior
             ->willReturn($builder)
         ;
 
+        $builder
+            ->add('workers', 'nim_entity_worker')
+            ->shouldBeCalled()
+            ->willReturn($builder)
+        ;
+
         $this->buildForm($builder, array());
     }
 
