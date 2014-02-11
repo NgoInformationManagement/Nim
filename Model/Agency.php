@@ -11,12 +11,24 @@
 
 namespace NIM\WorkerBundle\Model;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use NIM\WorkerBundle\Model\AbstractEntity;
 use NIM\WorkerBundle\Model\Core\AgencyInterface;
 
 class Agency extends AbstractEntity implements AgencyInterface
 {
-    private $name;
+    protected $name;
+    protected $workers;
+
+    /**
+     * constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->workers = new ArrayCollection();
+    }
 
     /**
      * {@inheritdoc}
@@ -32,6 +44,22 @@ class Agency extends AbstractEntity implements AgencyInterface
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @param mixed $workers
+     */
+    public function setWorkers(ArrayCollection $workers)
+    {
+        $this->workers = $workers;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWorkers()
+    {
+        return $this->workers;
     }
 
     /**

@@ -50,7 +50,7 @@ class WorkerSubcriberSpec extends ObjectBehavior
         ;
 
         $builder
-            ->add('missions', 'entity',  Argument::any())
+            ->add('missions', 'nim_entity_mission',  Argument::any())
             ->shouldBeCalled()
             ->willReturn($builder)
         ;

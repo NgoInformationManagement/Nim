@@ -66,6 +66,11 @@ class AgencyTypeSpec extends ObjectBehavior
             ->shouldBeCalled()
             ->willReturn($builder)
         ;
+        $builder
+            ->add('workers', 'nim_entity_worker')
+            ->shouldBeCalled()
+            ->willReturn($builder)
+        ;
 
         $this->buildForm($builder, array());
     }

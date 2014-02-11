@@ -31,6 +31,9 @@ class PhoneCollectionTypeSpec extends ObjectBehavior
             'allow_add' => true,
             'allow_delete' => true,
             'error_bubbling' => false,
+            'attr' => array(
+                'class' => 'form-inline'
+            )
         ))->shouldBeCalled();
 
         $this->setDefaultOptions($resolver);
@@ -48,6 +51,9 @@ class PhoneCollectionTypeSpec extends ObjectBehavior
             'allow_add' => true,
             'allow_delete' => true,
             'error_bubbling' => false,
+            'attr' => array(
+                'class' => 'form-inline'
+            )
         ))->shouldBeCalled();
 
         $this->setDefaultOptions($resolver);

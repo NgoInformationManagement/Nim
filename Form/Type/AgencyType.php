@@ -43,6 +43,7 @@ class AgencyType extends ResourceBaseType
             ->add('phones', 'nim_contactable_collection_phone', array(
                 'label' => 'agency.field.phone.label',
             ))
+            ->add('workers', 'nim_entity_worker')
         ;
     }
 

@@ -328,4 +328,17 @@ class Worker extends AbstractPerson implements WorkerInterface
             $this->getVisas()->removeElement($visa);
         }
     }
+
+    /**
+     * @return array
+     */
+    public function getEntityFormTypeData()
+    {
+        return array(
+            'name' => $this->getFullName(),
+            'country' => $this->getCountry(),
+            'function' => $this->getFunction(),
+            'type' => $this->getType()
+        );
+    }
 }

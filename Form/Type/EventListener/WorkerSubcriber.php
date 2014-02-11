@@ -44,7 +44,6 @@ class WorkerSubcriber implements EventSubscriberInterface
             ))
             ->add('missions', 'nim_entity_mission', array(
                 'label' => 'worker.field.mission.label',
-                'property' => 'EntityFormTypeData'
             ))
             ->add('passports', 'collection', array(
                 'type' => 'nim_passport',
