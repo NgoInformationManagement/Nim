@@ -16,6 +16,11 @@ Feature: Missions
           And Mission "Earthquake in Pakistan" has following translations for "French" language:
              | title                             | description                               |
              | Tremblement de terre au Pakistan  | Tremblement de terre en Pakistan en 2005  |
+          And There are following workers:
+             | gender  | firstname  | lastname | type      | function  | arrivedAt  | birthday   | diploma | street                                 | postcode | city     | country |
+             | male    | Arnaud     | Langlade | volunteer | Developer | 2005-09-01 | 1985-09-03 | Dut     | 19, rue Jean-Baptiste Carreau          | 64000    | PAU      | FR      |
+             | male    | Sébastien  | Lannus   | employee  | Admin Sys | 2005-09-01 | 1985-03-05 | Master  | Del supermercado Pali, 1 cuadra arriba |          | Managua  | NA      |
+             | female  | Clémence   | Brig     | employee  | Bocs      | 2008-09-01 | 1985-08-08 | Licence | Cour de la martique
 
     Scenario: Seeing empty index of mission
        Given There are no missions
@@ -45,6 +50,8 @@ Feature: Missions
          And I fill in "Country" with "Niger"
          And I fill in "Started at" with "07/01/2006"
          And I fill in "Ended at" with "08/31/2006"
+         And I click "Employees"
+         And I check "Arnaud Langlade"
          And I press "Create"
         Then I should be on the page of mission which has "Development mission in Niger" as title
          And I should see "Mission has been successfully created."

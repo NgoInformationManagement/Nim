@@ -24,7 +24,6 @@ Feature: Agency
             | male    | Sébastien  | Lannus   | employee  | Admin Sys | 2005-09-01 | 1985-03-05 | Master  | Del supermercado Pali, 1 cuadra arriba |          | Managua  | NA      |
             | female  | Clémence   | Brig     | employee  | Bocs      | 2008-09-01 | 1985-08-08 | Licence | Cour de la martique                    | 33000    | Bordeaux | FR      |
 
-
     Scenario: Seeing empty index of agency
        Given There are no agencies
         When I am on the agency index page
