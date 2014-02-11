@@ -93,6 +93,9 @@ agency:
         update: Update the agency
         index: Your agencies
         show: Details about your agency
+    tab:
+        agency: Agency
+        worker: Employees
     button:
         new: New Agency
     message:
