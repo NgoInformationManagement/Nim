@@ -1,24 +1,24 @@
 {% use 'form_div_layout.html.twig' %}
 
-{# Form label #}
+
 {% block form_label %}
-    {% set label_attr = label_attr | merge({'class' :  label_attr.class|default ~ ' col-lg-2 control-label'}) %}
+    {% set label_attr = label_attr | merge({'class' :  label_attr.class|default ~ ' col-lg-3 control-label'}) %}
     {{ parent() }}
 {% endblock form_label %}
 
-{# Form widget #}
+
 {% block form_widget_simple %}
     {% set attr = attr | merge({'class' :  attr.class|default ~ ' form-control'}) %}
     {{ parent() }}
 {% endblock form_widget_simple %}
 
-{# Textarea widget #}
+
 {% block textarea_widget %}
     {% set attr = attr | merge({'class' :  attr.class|default ~ ' form-control'}) %}
     {{ parent() }}
 {% endblock textarea_widget %}
 
-{# Choice widget #}
+
 {% block choice_widget %}
     {% if not compound %}
     {% set attr = attr | merge({'class' :  attr.class|default ~ ' form-control'}) %}
@@ -26,7 +26,7 @@
     {{ parent() }}
 {% endblock choice_widget %}
 
-{# Choice widget expanded #}
+
 {% block choice_widget_expanded %}
     {% spaceless %}
         <div {{ block('widget_container_attributes') }}>
@@ -40,7 +40,7 @@
     {% endspaceless %}
 {% endblock choice_widget_expanded %}
 
-{# Form rest #}
+
 {% block form_rest %}
     {% spaceless %}
         {% for child in form %}
@@ -55,12 +55,12 @@
     {% endspaceless %}
 {% endblock form_rest %}
 
-{# Form row #}
+
 {% block form_row %}
     {% spaceless %}
         <div class="form-group {% if errors|length %}has-error{% endif %}">
             {{ form_label(form) }}
-            <div {% if label %}class="col-lg-10"{% endif %}>
+            <div {% if label %}class="col-lg-9"{% endif %}>
                 {{ form_widget(form) }}
 
                 {{ form_errors(form) }}
@@ -87,7 +87,7 @@
     {% endspaceless %}
 {% endblock form_row %}
 
-{# Form error #}
+
 {% block form_errors %}
     {% spaceless %}
         {% if errors|length > 0 %}
@@ -104,14 +104,13 @@
     {% endspaceless %}
 {% endblock form_errors %}
 
-{# Collection widget #}
+
 {% block collection_widget %}
     {% from 'NIMFormBundle:Bootstrap3:notification.html.twig' import error %}
     {% set attr = attr|merge({'class': attr.class|default ~ ' controls collection-widget'}) %}
 
     {% spaceless %}
         <div data-form-type="collection"
-             {#class='collection-widget'#}
              {{ block('widget_container_attributes') }}
              {% if prototype is defined %}
              data-prototype='{{ _self.collectionItem(prototype, item_by_line, allow_delete)|e }}'
@@ -159,7 +158,7 @@
     {% endspaceless %}
 {% endmacro %}
 
-{# Delete button widget #}
+
 {% block delete_widget %}
     {% spaceless %}
         {% if label is empty %}
@@ -172,7 +171,7 @@
     {% endspaceless %}
 {% endblock delete_widget %}
 
-{# Date widget #}
+
 {% block date_widget %}
     {% spaceless %}
         {% if plugin_rendered|default == 'plugin' %}
@@ -188,7 +187,7 @@
     {% endspaceless %}
 {% endblock date_widget %}
 
-{# Colorpicker widget #}
+
 {% block colorpicker_widget %}
     {% spaceless %}
         <div class="input-group">
@@ -199,3 +198,11 @@
         </div>
     {% endspaceless %}
 {% endblock colorpicker_widget %}
+
+
+{% block email_widget %}
+    <div class="input-group">
+        <span class="input-group-addon">@</span>
+        {{ form_widget(form) }}
+    </div>
+{% endblock %} %}
