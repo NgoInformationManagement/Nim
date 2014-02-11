@@ -32,9 +32,10 @@ class MissionEntityTypeSpec extends ObjectBehavior
         ))->shouldBeCalled();
 
         $resolver->setDefaults(array(
-            'class' => 'NIMMissionBundle:Mission',
+            'class' => 'NIM\MissionBundle\Model\Mission',
             'expanded' => true,
-            'multiple' => true
+            'multiple' => true,
+            'property' => 'EntityFormTypeData'
         ))->shouldBeCalled();
 
         $this->setDefaultOptions($resolver);

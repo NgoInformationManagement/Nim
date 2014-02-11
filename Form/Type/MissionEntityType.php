@@ -23,7 +23,8 @@ class MissionEntityType extends ResourceBaseType
         $resolver->setDefaults(array(
             'class' => 'NIM\MissionBundle\Model\Mission',
             'expanded' => true,
-            'multiple' => true
+            'multiple' => true,
+            'property' => 'EntityFormTypeData',
         ));
     }
 
