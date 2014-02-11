@@ -29,6 +29,9 @@ class PhoneCollectionType extends ResourceBaseType
             'allow_add' => true,
             'allow_delete' => true,
             'error_bubbling' => false,
+            'attr' => array(
+                'class' => 'form-inline'
+            )
         ));
     }
 
