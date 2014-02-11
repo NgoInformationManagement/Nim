@@ -3,8 +3,9 @@
 {% import 'NIMFormBundle:Bootstrap3:button.html.twig' as buttons %}
 {% from 'NIMWebBundle:Misc:button.html.twig' import submitFormButton %}
 {% from 'NIMFormBundle:Bootstrap3:notification.html.twig' import errors %}
-{% form_theme form 'NIMWebBundle:Mission:nim_entity_mission_widget.html.twig' %}
 
+{#{% form_theme form 'NIMWebBundle:Contactable:email_widget.html.twig' %}#}
+{#{% form_theme form 'NIMWebBundle:Mission:entity_mission_widget.html.twig' %}#}
 
 {% block title %}
     {{ 'layout.page.title'|trans({'%page_title%' : 'mission.title.update'|trans}) }}
@@ -12,7 +13,7 @@
 
 
 {% block page_name %}
-    <i class="icon-rocket"></i>
+    <i class="icon-male"></i>
     {{ 'worker.title.update'|trans }}
 {% endblock page_name %}
 

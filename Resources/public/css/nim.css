@@ -129,6 +129,10 @@ table .worker-name i {
 }
 
 /** Form */
+.form-group {
+    margin-bottom: 6px;
+}
+
 ul.form-type-errors, ul.form-type-legend {
     margin-bottom: 0px;
 }
@@ -162,40 +166,64 @@ div.collection-item .panel {
     margin: 10px 0;
 }
 
+.form-inline div.collection-item .panel,
+div.collection-item .panel.unique-field {
+    margin: 0;
+    box-shadow: none;
+    border: none;
+}
+
 div.collection-item .panel-body {
     padding: 0;
 }
 
 .collection-widget legend {
     position: relative;
+    height: 40px;
+    margin-top: 15px;
+    margin-bottom: 10px;
 }
 
 .collection-widget .collection-button-add {
     position: absolute;
-    bottom: 0;
+    top: 0;
     right: 0;
 }
 
+.form-inline div.collection-item  .panel .form-group,
 div.collection-item .panel.unique-field .form-group {
     margin: 0;
 }
 
 .form-inline div.collection-item .collection-button-remove,
 div.collection-item .unique-field .collection-button-remove {
-    top: 17px;
-}
-
-.form-inline .form-group {
-    margin: 0;
+    top: 9px;
 }
 
 .form-inline div.collection-item .panel,
 div.collection-item .panel.unique-field {
-    padding: 12px 25px 12px 12px;
+    padding: 3px 25px 3px 12px;
 }
 
 div.collection-list .col-md-6 {
     width: 49%; // Humm, why ?
+}
+
+/** Phone */
+.form-inline div.collection-item .form-group:nth-child(3) {
+    width: 80%;
+}
+
+.form-inline div.collection-item .form-group:nth-child(3) input {
+    width: 97%;
+}
+
+.form-inline div.collection-item .form-group:nth-child(2) {
+    width: 20%;
+}
+
+.form-inline div.collection-item .form-group:nth-child(2) select {
+    width: 100%;
 }
 
 /** Tab */
