@@ -64,6 +64,9 @@ mission:
         index: Your missions
         show: Details about your mission
         dashboard: Latest missions
+    tab:
+        mission: Mission
+        worker: Employees
     button:
         new: New Mission
     message:
