@@ -18,6 +18,12 @@ Feature: Agency
             | type  | number     |
             | phone | 0212457812 |
             | fax   | 2154875421 |
+        And There are following workers:
+            | gender  | firstname  | lastname | type      | function  | arrivedAt  | birthday   | diploma | street                                 | postcode | city     | country |
+            | male    | Arnaud     | Langlade | volunteer | Developer | 2005-09-01 | 1985-09-03 | Dut     | 19, rue Jean-Baptiste Carreau          | 64000    | PAU      | FR      |
+            | male    | Sébastien  | Lannus   | employee  | Admin Sys | 2005-09-01 | 1985-03-05 | Master  | Del supermercado Pali, 1 cuadra arriba |          | Managua  | NA      |
+            | female  | Clémence   | Brig     | employee  | Bocs      | 2008-09-01 | 1985-08-08 | Licence | Cour de la martique                    | 33000    | Bordeaux | FR      |
+
 
     Scenario: Seeing empty index of agency
        Given There are no agencies
@@ -51,6 +57,8 @@ Feature: Agency
          And I click "Add" to add an item to "Phones"
          And I fill in unnamed "Type" in the item #1 of the "Phones" collection with "fax"
          And I fill in unnamed "Number" in the item #1 of the "Phones" collection with "05949838473"
+         And I click "Employees"
+         And I check "Arnaud Langlade"
          And I press "Create"
         Then I should be on the page of agency which has "New agency" as name
          And I should see "Agency has been successfully created."
