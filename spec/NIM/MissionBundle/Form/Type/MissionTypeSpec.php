@@ -13,23 +13,17 @@ namespace spec\NIM\MissionBundle\Form\Type;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class MissionTypeSpec extends ObjectBehavior
 {
-    public function let()
-    {
-        $this->beConstructedWith('mission', array('nim'));
-    }
-
     public function it_is_initializable()
     {
         $this->shouldHaveType('NIM\MissionBundle\Form\Type\MissionType');
     }
 
-    /**
-     * @param Symfony\Component\Form\FormBuilderInterface $builder
-     */
-    public function it_should_build_mission_form($builder)
+    public function it_should_build_mission_form(FormBuilderInterface $builder)
     {
         $builder
             ->add('translations', 'a2lix_translations_gedmo',  Argument::any())
@@ -63,11 +57,11 @@ class MissionTypeSpec extends ObjectBehavior
         $this->buildForm($builder, array());
     }
 
-    /**
-     * @param \Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver
-     */
-    public function it_should_define_assigned_data_class($resolver)
+    public function it_should_define_assigned_data_class(OptionsResolverInterface $resolver)
     {
+        $this->setValidationGroups(array('nim'));
+        $this->setDataClass('mission');
+
         $resolver->setDefaults(array(
             'data_class' => 'mission',
             'validation_groups' => array('nim')
