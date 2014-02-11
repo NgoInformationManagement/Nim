@@ -18,7 +18,7 @@ class MissionEntityTypeSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NIM\WorkerBundle\Form\Type\VisaType');
+        $this->shouldHaveType('NIM\WorkerBundle\Form\Type\MissionEntityType');
     }
 
     public function it_should_define_assigned_data_class(OptionsResolverInterface $resolver)
