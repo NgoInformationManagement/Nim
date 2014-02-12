@@ -23,7 +23,7 @@ trait ContactableTrait
     /**
      * @param ArrayCollection $emails
      */
-    public function setEmails(ArrayCollection $emails)
+    public function setEmails(ArrayCollection $emails = null)
     {
         $this->emails = $emails;
     }
@@ -59,7 +59,7 @@ trait ContactableTrait
     /**
      * @param ArrayCollection $phones
      */
-    public function setPhones(ArrayCollection $phones)
+    public function setPhones(ArrayCollection $phones = null)
     {
         $this->phones = $phones;
     }
