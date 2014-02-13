@@ -105,8 +105,9 @@ Feature: Agency
          And I fill in unnamed "Type" in the item #1 of the "Phones" collection with "fax"
          And I fill in unnamed "Number" in the item #1 of the "Phones" collection with "05949838473"
          And I press "Update"
-        Then I should be on the page of agency which has "New agency" as name
-         And I should see "Agency has been successfully updated."
+        Then I should see "Agency has been successfully updated."
+         And I should be on the page of agency which has "New agency" as name
+
 
     @javascript
     Scenario: Updating a agency with empties or wrongs fields

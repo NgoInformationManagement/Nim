@@ -75,10 +75,10 @@ Feature: Worker
          And I select "France" from "Country"
          And I select "Intern" from "Type"
          And I add a new email to worker
-         And I fill in unnamed "Address" in the item #1 of the "Emails" collection with "remi@email.fr"
+         And I fill in "Address" in the item #1 of the "Emails" collection with "remi@email.fr"
          And I add a new phone to worker
-         And I fill in unnamed "Type" in the item #1 of the "Phones" collection with "phone"
-         And I fill in unnamed "Number" in the item #1 of the "Phones" collection with "05949838473"
+         And I fill in "Type" in the item #1 of the "Phones" collection with "phone"
+         And I fill in "Number" in the item #1 of the "Phones" collection with "05949838473"
          And I press "Create"
         Then I should be editing worker which has "Anglade" as lastname
          And I should see "Worker has been successfully created."
@@ -110,11 +110,10 @@ Feature: Worker
          And I press "Update"
         Then I should be on the page of worker which has "Anglade" as lastname
          And I should see "Worker has been successfully updated."
-         And I should be on the page of worker which has "Langlade" as lastname
          And I should see "Rémi Anglade" as "Name"
          And I should see "Integrator" as "Function"
-         And I should see "March 3, 1985" as "Birthday"
-         And I should see "October 13, 2005" as "Arrived at"
+         And I should see "March 3, 1984" as "Birthday"
+         And I should see "October 13, 2010" as "Arrived at"
          And I should see "Intern" as "Type"
          And I should see "-" as "Left at"
          And I should see "Dut" as "Diploma"
@@ -160,12 +159,12 @@ Feature: Worker
         And I should see "Arrived at" field error
         And I should see "You should define 1 phone or more"
        When I add a new email to worker
-        And I fill in unnamed "Address" in the item #1 of the "Emails" collection with "wrongMail"
+        And I fill in "Address" in the item #1 of the "Emails" collection with "wrongMail"
         And I add a new phone to worker
         And I press "Create"
        Then I should be on the worker creation page
-        And I should see unnamed "Address" field error in the item #1 of the "Emails" collection
-        And I should see unnamed "Number" field error in the item #1 of the "Phone" collection
+        And I should see "Address" field error in the item #1 of the "Emails" collection
+        And I should see "Number" field error in the item #1 of the "Phone" collection
 
 
     Scenario: Created worker appears in the list
@@ -193,10 +192,10 @@ Feature: Worker
          And I fill in "Arrived at" with "03/03/2005"
          And I select "Intern" from "Type"
          And I add a new email to worker
-         And I fill in unnamed "Address" in the item #1 of the "Emails" collection with "remi@email.fr"
+         And I fill in "Address" in the item #1 of the "Emails" collection with "remi@email.fr"
          And I add a new phone to worker
-         And I fill in unnamed "Type" in the item #1 of the "Phones" collection with "fax"
-         And I fill in unnamed "Number" in the item #1 of the "Phones" collection with "05949838473"
+         And I fill in "Type" in the item #1 of the "Phones" collection with "fax"
+         And I fill in "Number" in the item #1 of the "Phones" collection with "05949838473"
          And I click "Contact persons"
          And I add a contact to worker
          And I fill in "First name" in the item #1 of the contact collection with "Rémi"
@@ -214,14 +213,14 @@ Feature: Worker
          And I fill in "Date of expiry" in the item #1 of the passports collection with "03/03/2015"
          And I add a visa to worker
          And I fill in "Country" in the item #1 of the visa collection with "Niger"
-         And I fill in "Started at" in the item #1 of the visa collection with "02/11/2005"
          And I fill in "Length" in the item #1 of the visa collection with "3"
+         And I fill in "Started at" in the item #1 of the visa collection with "02/11/2005"
          And I press "Update"
-        Then I should be on the page of worker which has "Langlade" as lastname
+        Then I should be on the page of worker which has "Anglade" as lastname
          And I should see "Worker has been successfully updated."
 
     @javascript
-    Scenario: Updating a worker with empties or wrongs fields
+    Scenario: Updating a worker's contact persons with empties or wrongs fields
        Given I am updating the worker which has "Lannus" as lastname
         When I press "Update"
          And I click "Contact persons"
@@ -232,19 +231,40 @@ Feature: Worker
         Then I should see "First name" field error in the item #1 of the contact collection
          And I should see "Last name" field error in the item #1 of the contact collection
          And I should see "You should define 1 phone or more"
-        When I click "Immigration"
-        Then I should see "You should define 1 passport or more "
+
+     @javascript
+     Scenario: Updating a worker's passport with empties or wrongs fields
+       Given I am updating the worker which has "Lannus" as lastname
+        When I press "Update"
+         And I click "Immigration"
+        Then I should see "You should define 1 passport or more"
         When I add a passport to worker
          And I press "Update"
          And I click "Immigration"
         Then I should see "Number" field error in the item #1 of the passport collection
         Then I should see "Date of issue" field error in the item #1 of the passport collection
         Then I should see "Date of expiry" field error in the item #1 of the passport collection
-        When I add a visa to worker
+        When I fill in "Date of issue" in the item #1 of the passports collection with "string"
+         And I fill in "Date of expiry" in the item #1 of the passports collection with "string"
+         And I press "Update"
+        Then I should see "Date of issue" field error in the item #1 of the passport collection
+        Then I should see "Date of expiry" field error in the item #1 of the passport collection
+
+     @javascript
+     Scenario: Updating a worker's visa with empties or wrongs fields
+       Given I am updating the worker which has "Lannus" as lastname
+        When I press "Update"
+         And I click "Immigration"
+         And I add a visa to worker
          And I press "Update"
          And I click "Immigration"
         Then I should see "Started at" field error in the item #1 of the visa collection
         Then I should see "Length" field error in the item #1 of the visa collection
+        When I fill in "Length" in the item #1 of the visa collection with "string"
+         And I fill in "Started at" in the item #1 of the visa collection with "string"
+         And I press "Update"
+        Then I should see "Length" field error in the item #1 of the visa collection
+        Then I should see "Started at" field error in the item #1 of the visa collection
 
     Scenario: Deleting worker via the list button
        Given I am on the worker index page

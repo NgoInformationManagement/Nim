@@ -20,10 +20,11 @@ Feature: User account profile edition
         And I leave "Username" empty
         And I leave "Current password" empty
         And I press "Update"
+
        Then I should still be on my account profile edition page
         And I should see "Please enter an email"
         And I should see "Please enter a username"
-        And I should see "This value should be the user current password. "
+        And I should see "This value should be the user current password"
 
     @javascript
     Scenario: Editing my information with an invalid email
@@ -46,3 +47,10 @@ Feature: User account profile edition
         And I press "Update"
        Then I should be on my account profile page
         And I should see "The profile has been updated"
+
+     @javascript
+     Scenario: I go back to the detail page
+      Given I am on my account profile edition page
+        And I follow "Edit profil"
+        And I follow "Back"
+       Then I should be on my account profile page

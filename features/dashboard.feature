@@ -1,4 +1,4 @@
-@worker
+@dashboard
 Feature: Dashboard
   In order to have an overview of the latest update
   As a administrator
