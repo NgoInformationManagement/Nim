@@ -1,6 +1,7 @@
 {% extends "NIMWebBundle::layout.html.twig" %}
 
-{% import 'NIMFormBundle:Bootstrap3:button.html.twig' as buttons %}
+{% from 'NIMFormBundle:Bootstrap3:button.html.twig' import back %}
+{% from 'NIMWebBundle:Misc:button.html.twig' import submitFormButton %}
 
 {% trans_default_domain 'FOSUserBundle' %}
 
@@ -17,7 +18,8 @@
 
 
 {% block page_action %}
-    {{ buttons.update('button.update', 'userCreateForm') }}
+    {{ back(path('fos_user_profile_show'), 'account.button.back') }}
+    {{ submitFormButton('button.update', 'userCreateForm', 'edit') }}
 {% endblock page_action %}
 
 {% block content %}
@@ -26,8 +28,24 @@
           role="form"
           id="userCreateForm"
           class="form-horizontal"
-          {{ form_enctype(form) }}
+            {{ form_enctype(form) }}
           novalidate>
         {{ form_rest(form) }}
     </form>
 {% endblock content %}
+
+
+<div class="panel panel-default unique-field">
+    <div class="panel-body"><a href="#" data-form-collection="delete"><i
+                    class="icon-remove collection-button-remove"></i></a>
+
+        <div class="form-group ">
+            <div>
+                <div class="input-group"><span class="input-group-addon">@</span><input
+                            id="nim_worker_contacts_0_emails_0_address"
+                            name="nim_worker[contacts][0][emails][0][address]" required="required" class=" form-control"
+                            type="text"></div>
+            </div>
+        </div>
+    </div>
+</div>
