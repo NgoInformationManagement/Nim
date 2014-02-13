@@ -56,6 +56,7 @@ account:
         edit: Edit your preferences
     button:
         edit: Edit profil
+        back: Back
 
 mission:
     title:

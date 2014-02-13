@@ -56,8 +56,6 @@ class CollectionContext extends BaseContext
     }
 
     /**
-     * Example : I fill in email in the #1 contact with "arnaud@exemple.com"
-     *
      * @When /^I fill in email in the #(\d+) contact with "([^"]*)"$/
      */
     public function iFillContactEmail($position, $value)
@@ -66,32 +64,27 @@ class CollectionContext extends BaseContext
             '*[@id="nim_worker_contacts_' . ($position - 1) . '_emails"]',
             $position,
             'address',
-            $value,
-            false
+            $value
         );
     }
 
     /**
-     * Example : I fill in phone in the #1 contact with "fax" and "0556983423"
-     *
      * @When /^I fill in phone in the #(\d+) contact with "([^"]*)" and "([^"]*)"$/
      */
-    public function iFillContactPhone($position , $type, $number)
+    public function iFillContactPhone($position, $type, $number)
     {
         $this->fillField(
             '*[@id="nim_worker_contacts_' . ($position - 1) . '_phones"]',
             $position,
             'type',
-            $type,
-            false
+            $type
         );
 
         $this->fillField(
             '*[@id="nim_worker_contacts_' . ($position - 1) . '_phones"]',
             $position,
             'number',
-            $number,
-            false
+            $number
         );
     }
 

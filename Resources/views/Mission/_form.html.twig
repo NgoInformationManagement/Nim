@@ -11,12 +11,8 @@
     </li>
     <li>
         <a href="#worker"
-           data-toggle="tab"
-           {% if not form.vars.valid %}class="text-danger"{% endif %}>
+           data-toggle="tab">
             {{ 'mission.tab.worker'|trans }}
-            {% if not form.vars.valid %}
-                <i class="icon-exclamation-sign"></i>
-            {% endif %}
         </a>
     </li>
 </ul>
