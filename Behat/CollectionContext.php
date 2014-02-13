@@ -12,9 +12,8 @@
 namespace NIM\FormBundle\Behat;
 
 use Behat\Mink\Exception\ElementNotFoundException;
-use Behat\MinkExtension\Context\RawMinkContext;
 
-class CollectionContext extends RawMinkContext
+class CollectionContext extends AbstractContext
 {
     /**
      * For example: I click "Add" to add an item to "Emails"
@@ -24,7 +23,7 @@ class CollectionContext extends RawMinkContext
     public function iaddCollectionItem($type, $buttonName, $collectionName)
     {
         $collectionSelector = sprintf(
-            '*[contains(@data-form-type, "collection")]//legend[text()[contains(., "%s")]]',
+            '*[contains(@data-form-type, "collection")]//*[text()[contains(., "%s")]]',
             $collectionName
         );
 
@@ -73,22 +72,6 @@ class CollectionContext extends RawMinkContext
     }
 
     /**
-     * Example : I fill in unnamed "Email" in the item #1 of the "Emails" collection with "arnaud@exemple.com"
-     *
-     * @When /^(?:|I )fill in unnamed "([^"]*)" in the item #(\d+) of the "([^"]*)" collection with "([^"]*)"$/
-     */
-    public function iFillUnnamedField($fieldName, $position, $collectionTitle, $value)
-    {
-        $this->fillField(
-            $this->getDefaultCollectionSelector($collectionTitle),
-            $position,
-            $fieldName,
-            $value,
-            false
-        );
-    }
-
-    /**
      * Example : I should see "Email" field error in the item #1 of the "Emails" collection
      *
      * @Then /^(?:|I )should see "([^"]*)" field error in the item #(\d+) of the "([^"]*)" collection$/
@@ -99,21 +82,6 @@ class CollectionContext extends RawMinkContext
             $this->getDefaultCollectionSelector($collectionTitle),
             $position,
             $field
-        );
-    }
-
-    /**
-     * Example : I should see unnamed "Email" field error in the item #1 of the "Emails" collection
-     *
-     * @Then /^(?:|I )should see unnamed "([^"]*)" field error in the item #(\d+) of the "([^"]*)" collection$/
-     */
-    public function iShouldSeeInvalidUnnamedField($field, $position, $collectionTitle)
-    {
-        $this->isInvalidField(
-            $this->getDefaultCollectionSelector($collectionTitle),
-            $position,
-            $field,
-            false
         );
     }
 
@@ -153,7 +121,7 @@ class CollectionContext extends RawMinkContext
 
         $button = $this->findElement(
             sprintf(
-                '//%s/..//%s//*[contains(@data-form-collection, "delete") %s]',
+                '//%s//%s//*[contains(@data-form-collection, "delete") %s]',
                 $collectionSelector,
                 $this->getDefaultItemSelector($position),
                 $buttonSelector
@@ -169,57 +137,50 @@ class CollectionContext extends RawMinkContext
      * @param $collectionSelector
      * @param $position
      * @param $label
-     * @param bool $useLabel
+     * @return \Behat\Mink\Element\NodeElement|null
      */
-    public function isInvalidField($collectionSelector, $position, $label = null, $useLabel = true)
+    public function isInvalidField($collectionSelector, $position, $label)
     {
-        if ($useLabel) {
-            $fieldSelector = sprintf(
-                '*[contains(@class, "error")]//label[text()[contains(., "%s")]]',
-                $label
+        try {
+            return $this->findElement(
+                sprintf(
+                    '//%s//%s//%s',
+                    $collectionSelector,
+                    $this->getDefaultItemSelector($position),
+                    sprintf('*[contains(@class, "has-error")]//*[contains(@name, "%s")]', strtolower($label))
+                )
             );
-        } else {
-            $fieldSelector = sprintf('*[contains(@class, "error")]//*[contains(@name, "%s")]', strtolower($label));
+        } catch (ElementNotFoundException $e) {
+            return $this->findElement(
+                sprintf(
+                    '//%s//%s//%s',
+                    $collectionSelector,
+                    $this->getDefaultItemSelector($position),
+                    sprintf('*[contains(@class, "has-error")]//label[text()[contains(., "%s")]]', $label)
+                )
+            );
         }
-
-        $this->findElement(
-            sprintf(
-                '//%s/..//%s//%s',
-                $collectionSelector,
-                $this->getDefaultItemSelector($position),
-                $fieldSelector
-            )
-        );
     }
 
     /**
      * Fill a collection form field
      *
-     * @param string$collectionSelector
+     * @param string  $collectionSelector
      * @param integer $position
-     * @param string  $label
+     * @param string  $field
      * @param mixed   $value
-     * @param bool    $useLabel
      */
-    public function fillField($collectionSelector, $position, $label, $value, $useLabel = true)
+    public function fillField($collectionSelector, $position, $field, $value)
     {
-        if ($useLabel) {
-            // It only work your the default collection type template
-            $fieldSelector = sprintf('label[text()[contains(., "%s")]]/..//following::div/*[1]', $label);
-        } else {
-            $fieldSelector = sprintf('*[contains(@name, "%s")]', strtolower($label));
-        }
-
-        $field = $this->findElement(
+        $collectionElement = $this->findElement(
             sprintf(
-                '//%s/..//%s//%s',
+                '//%s//%s',
                 $collectionSelector,
-                $this->getDefaultItemSelector($position),
-                $fieldSelector
+                $this->getDefaultItemSelector($position)
             )
         );
 
-        $field->setValue($value);
+        $this->fillInField($field, $value, $collectionElement);
     }
 
     /**
@@ -229,7 +190,7 @@ class CollectionContext extends RawMinkContext
     protected function getDefaultCollectionSelector($collectionTitle)
     {
         return sprintf(
-            '*[contains(@data-form-type, "collection")]//legend[text()[contains(., "%s")]]',
+            '*[@data-form-type="collection"]//*[text()[contains(., "%s")]]/..',
             $collectionTitle
         );
     }
@@ -244,21 +205,5 @@ class CollectionContext extends RawMinkContext
             '*[contains(@data-form-collection, "item") and position()=%d]',
             $position
         );
-    }
-
-    /**
-     * @param  string                                         $selector
-     * @return \Behat\Mink\Element\NodeElement|null
-     * @throws \Behat\Mink\Exception\ElementNotFoundException
-     */
-    protected function findElement($selector)
-    {
-        $field = $this->getSession()->getPage()->find('xpath', $selector);
-
-        if (null === $field) {
-            throw new ElementNotFoundException($this->getSession(), 'element', 'xpath', $selector);
-        }
-
-        return $field;
     }
 }
