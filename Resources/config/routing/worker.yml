@@ -5,7 +5,7 @@ nim_worker_index:
         _controller: nim.controller.worker:indexAction
         _sylius:
             template: NIMWebBundle:Worker:index.html.twig
-            paginate: $page
+            paginate: $limit
             sortable: $sorting
             filterable: $criteria
 

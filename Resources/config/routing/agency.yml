@@ -5,7 +5,7 @@ nim_agency_index:
         _controller: nim.controller.agency:indexAction
         _sylius:
             template: NIMWebBundle:Agency:index.html.twig
-            paginate: $page
+            paginate: $limit
             sortable: $sorting
             filterable: $criteria
 
