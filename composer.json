@@ -40,6 +40,8 @@
         "nim/form-bundle": "0.1.*@dev"
     },
     "require-dev": {
+
+        "hautelook/alice-bundle": "dev-master",
         "behat/behat": "2.4.*",
         "behat/symfony2-extension": "*",
         "behat/mink-extension": "*",
