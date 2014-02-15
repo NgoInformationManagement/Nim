@@ -11,6 +11,7 @@
 
 namespace NIM\WorkerBundle\Form\Type;
 
+use Doctrine\ORM\EntityRepository;
 use NIM\FormBundle\Form\Core\ResourceBaseType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -43,7 +44,12 @@ class AgencyType extends ResourceBaseType
             ->add('phones', 'nim_contactable_collection_phone', array(
                 'label' => 'agency.field.phone.label',
             ))
-            ->add('workers', 'nim_entity_worker')
+            ->add('workers', 'nim_entity_worker', array(
+                'query_builder' => function(EntityRepository $e) {
+                    return $e->getBasedNoWhereQuery()
+                    ;
+                }
+            ))
         ;
     }
 

@@ -17,7 +17,9 @@ file that was distributed with this source code.
                   xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
 >
 
-    <mapped-superclass name="NIM\WorkerBundle\Model\Worker" table="nim_worker">
+    <mapped-superclass name="NIM\WorkerBundle\Model\Worker"
+                       table="nim_worker"
+                       repository-class="NIM\WorkerBundle\Repository\WorkerRepository">
 
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO"/>
