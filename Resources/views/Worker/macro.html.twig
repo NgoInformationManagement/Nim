@@ -14,6 +14,7 @@
                     <col width="20%">
                     <col width="10%">
                     <col width="40px">
+                    <col width="40px">
                     <col>
                 </colgroup>
                 <thead>
@@ -24,6 +25,7 @@
                         <th>{{ sylius_resource_sort('basedAt', 'worker.field.basedAt.label'|trans) }}</th>
                         <th>{{ sylius_resource_sort('arrivedAt', 'worker.field.arrivedAt.label'|trans) }}</th>
                         <th>{{ 'worker.field.contact.label'|trans }}</th>
+                        <th>{{ 'worker.field.passport.label'|trans }}</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -42,6 +44,15 @@
                             {{
                                 boolean(
                                     worker.hasContacts,
+                                    path('nim_worker_show', {'id' : worker.id}),
+                                    path('nim_worker_update', {'id' : worker.id})
+                                )
+                            }}
+                        </td>
+                        <td class="text-center">
+                            {{
+                                boolean(
+                                    worker.hasPassports,
                                     path('nim_worker_show', {'id' : worker.id}),
                                     path('nim_worker_update', {'id' : worker.id})
                                 )
