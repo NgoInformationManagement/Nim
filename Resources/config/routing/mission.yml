@@ -5,7 +5,7 @@ nim_mission_index:
         _controller: nim.controller.mission:indexAction
         _sylius:
             template: NIMWebBundle:Mission:index.html.twig
-            paginate: $page
+            paginate: $limit
             sortable: $sorting
             filterable: $criteria
 
