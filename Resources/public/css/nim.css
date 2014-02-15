@@ -245,7 +245,6 @@ div.collection-list .col-md-6 {
     line-height: 34px;
 }
 
-/**  */
 #nim_worker_phones input,
 #nim_agency_phones input {
     margin-left: 10px;
@@ -270,4 +269,9 @@ div.collection-list .col-md-6 {
 
 #nim_worker_missions .panel-body {
     padding: 6px 15px 4px;
+}
+
+/** mission */
+#mission textarea.form-control {
+    height: 300px;
 }
