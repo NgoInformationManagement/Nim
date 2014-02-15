@@ -50,12 +50,12 @@ Feature: Agency
          And I fill in "City" with "City"
          And I select "France" from "Country"
          And I click "Add" to add an item to "Emails"
-         And I fill in unnamed "Address" in the item #1 of the "Emails" collection with "conmunication@agency.fr"
+         And I fill in "Address" in the item #1 of the "Emails" collection with "conmunication@agency.fr"
          And I click "Add" to add an item to "Emails"
-         And I fill in unnamed "Address" in the item #2 of the "Emails" collection with "it@agency.fr"
+         And I fill in "Address" in the item #2 of the "Emails" collection with "it@agency.fr"
          And I click "Add" to add an item to "Phones"
-         And I fill in unnamed "Type" in the item #1 of the "Phones" collection with "fax"
-         And I fill in unnamed "Number" in the item #1 of the "Phones" collection with "05949838473"
+         And I fill in "Type" in the item #1 of the "Phones" collection with "fax"
+         And I fill in "Number" in the item #1 of the "Phones" collection with "05949838473"
          And I click "Employees"
          And I check "Arnaud Langlade"
          And I press "Create"
@@ -74,11 +74,11 @@ Feature: Agency
         And I press "Create"
        Then I should be on the agency creation page
         And I should see "Name" field error
-        And I should see unnamed "Address" field error in the item #1 of the "Emails" collection
-        And I should see unnamed "Number" field error in the item #1 of the "Phones" collection
-       When I fill in unnamed "Address" in the item #1 of the "Emails" collection with "wrongMail"
-       Then I should see unnamed "Address" field error in the item #1 of the "Emails" collection
-        And I should see unnamed "Number" field error in the item #1 of the "Phones" collection
+        And I should see "Address" field error in the item #1 of the "Emails" collection
+        And I should see "Number" field error in the item #1 of the "Phones" collection
+       When I fill in "Address" in the item #1 of the "Emails" collection with "wrongMail"
+       Then I should see "Address" field error in the item #1 of the "Emails" collection
+        And I should see "Number" field error in the item #1 of the "Phones" collection
         And I should see "Name" field error
 
     Scenario: Created agency appears in the list
@@ -100,10 +100,10 @@ Feature: Agency
          And I fill in "Postcode" with "54000"
          And I fill in "City" with "City"
          And I fill in "Country" with "FR"
-         And I fill in unnamed "Address" in the item #1 of the "Emails" collection with "conmunication@agency.fr"
-         And I fill in unnamed "Address" in the item #2 of the "Emails" collection with "conmunication2@agency.fr"
-         And I fill in unnamed "Type" in the item #1 of the "Phones" collection with "fax"
-         And I fill in unnamed "Number" in the item #1 of the "Phones" collection with "05949838473"
+         And I fill in "Address" in the item #1 of the "Emails" collection with "conmunication@agency.fr"
+         And I fill in "Address" in the item #2 of the "Emails" collection with "conmunication2@agency.fr"
+         And I fill in "Type" in the item #1 of the "Phones" collection with "fax"
+         And I fill in "Number" in the item #1 of the "Phones" collection with "05949838473"
          And I press "Update"
         Then I should see "Agency has been successfully updated."
          And I should be on the page of agency which has "New agency" as name
@@ -127,10 +127,10 @@ Feature: Agency
         Then I should see "You should define 1 email or more"
          And I should see "You should define 1 phone or more"
         When I click "Add" to add an item to "Emails"
-         And I fill in unnamed "Address" in the item #1 of the "Emails" collection with "wrongMail"
+         And I fill in "Address" in the item #1 of the "Emails" collection with "wrongMail"
          And I should see "You should define 1 phone or more"
          And I press "Update"
-        Then I should see unnamed "Address" field error in the item #1 of the "Emails" collection
+        Then I should see "Address" field error in the item #1 of the "Emails" collection
 
     Scenario: Deleting agency via the list button
        Given I am on the agency index page
