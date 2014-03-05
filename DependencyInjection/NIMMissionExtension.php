@@ -11,11 +11,13 @@
 
 namespace NIM\MissionBundle\DependencyInjection;
 
-use NIM\CoreBundle\DependencyInjection\NIMCoreExtension;
+use Sylius\Bundle\ResourceBundle\DependencyInjection\AbstractResourceExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class NIMMissionExtension extends NIMCoreExtension
+class NIMMissionExtension extends AbstractResourceExtension
 {
+    protected $applicationName = 'nim';
+    protected $configDirectory = '/../Resources/config/container';
     protected $configFiles = array(
         'mission'
     );
@@ -25,8 +27,6 @@ class NIMMissionExtension extends NIMCoreExtension
      */
     public function load(array $configs, ContainerBuilder $container)
     {
-        $this->configDir = __DIR__.'/../Resources/config/container';
-
         $this->configure(
             $configs,
             new Configuration(),
