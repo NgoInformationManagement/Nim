@@ -19,16 +19,6 @@ file that was distributed with this source code.
     </parameters>
 
     <services>
-        <!-- Worker ressource -->
-        <service id="nim.controller.worker" class="%nim.controller.worker.class%">
-            <argument>nim</argument>
-            <argument>worker</argument>
-            <argument>NIMWorkerBundle:Worker</argument>
-            <call method="setContainer">
-                <argument type="service" id="service_container" />
-            </call>
-        </service>
-
         <!-- Worker Form -->
         <service id="nim.form.type.worker" class="%nim.form.type.worker.class%">
             <call method="setValidationGroups">

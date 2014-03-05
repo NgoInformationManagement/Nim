@@ -26,7 +26,7 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/framework-bundle": "~2.3",
-        "sylius/resource-bundle": "0.6",
+        "sylius/resource-bundle": "1.0.*@dev",
         "stof/doctrine-extensions-bundle": "~1.1@dev",
         "nim/core-bundle": "0.1.*@dev",
         "nim/form-bundle": "0.1.*@dev"

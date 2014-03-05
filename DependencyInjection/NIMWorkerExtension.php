@@ -11,11 +11,13 @@
 
 namespace NIM\WorkerBundle\DependencyInjection;
 
-use NIM\CoreBundle\DependencyInjection\NIMCoreExtension;
+use Sylius\Bundle\ResourceBundle\DependencyInjection\AbstractResourceExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class NIMWorkerExtension extends NIMCoreExtension
+class NIMWorkerExtension extends AbstractResourceExtension
 {
+    protected $applicationName = 'nim';
+    protected $configDirectory = '/../Resources/config/container';
     protected $configFiles = array(
         'contactable',
         'worker',
@@ -30,8 +32,6 @@ class NIMWorkerExtension extends NIMCoreExtension
      */
     public function load(array $configs, ContainerBuilder $container)
     {
-        $this->configDir = __DIR__.'/../Resources/config/container';
-
         $this->configure(
             $configs,
             new Configuration(),
