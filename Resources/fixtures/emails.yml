@@ -1,0 +1,6 @@
+NIM\WorkerBundle\Model\Email:
+    email.agency{1..10}:
+        address: <email()>
+
+    email.worker{1..100}:
+            address: <email()>
