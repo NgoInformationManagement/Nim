@@ -11,7 +11,7 @@
 
 namespace NIM\WorkerBundle\Model\Core;
 
-use Sylius\Bundle\ResourceBundle\Model\TimestampableInterface;
+use Sylius\Component\Resource\Model\TimestampableInterface;
 
 interface PhoneInterface extends TimestampableInterface
 {
