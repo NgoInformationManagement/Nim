@@ -6,6 +6,14 @@ $ wget http://getcomposer.org/composer.phar
 $ php composer.phar create-project nim/nim-application -s dev
 ```
 
+Demo
+----
+[Available here](http://nim.belol.net/app.php)
+
+**Login :** admin, **Password :** admin
+
+Thanks to @bust40 for hosting.
+
 [Behat](http://behat.org) scenarios
 -----------------------------------
 
