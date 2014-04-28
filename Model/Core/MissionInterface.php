@@ -11,7 +11,9 @@
 
 namespace NIM\MissionBundle\Model\Core;
 
-interface MissionInterface
+use Sylius\Component\Resource\Model\TimestampableInterface;
+
+interface MissionInterface extends TimestampableInterface
 {
     /**
      * Get the country of the mission
