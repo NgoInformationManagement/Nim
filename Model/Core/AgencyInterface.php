@@ -11,8 +11,9 @@
 namespace NIM\WorkerBundle\Model\Core;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Sylius\Component\Resource\Model\TimestampableInterface;
 
-interface AgencyInterface
+interface AgencyInterface extends TimestampableInterface
 {
     /**
      * Set the city of the agency

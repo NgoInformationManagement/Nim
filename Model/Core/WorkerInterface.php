@@ -13,8 +13,9 @@ namespace NIM\WorkerBundle\Model\Core;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use NIM\WorkerBundle\Model\Agency;
+use Sylius\Component\Resource\Model\TimestampableInterface;
 
-interface WorkerInterface
+interface WorkerInterface extends TimestampableInterface
 {
     /**
      * Set the gender of the worker

@@ -11,7 +11,9 @@
 
 namespace NIM\WorkerBundle\Model\Core;
 
-interface VisaInterface
+use Sylius\Component\Resource\Model\TimestampableInterface;
+
+interface VisaInterface extends TimestampableInterface
 {
     /**
      * @param string $country
