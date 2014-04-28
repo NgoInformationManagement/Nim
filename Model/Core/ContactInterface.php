@@ -12,9 +12,10 @@
 namespace NIM\WorkerBundle\Model\Core;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Sylius\Component\Resource\Model\SoftDeletableInterface;
 use Sylius\Component\Resource\Model\TimestampableInterface;
 
-interface ContactInterface extends TimestampableInterface
+interface ContactInterface extends TimestampableInterface, SoftDeletableInterface
 {
     /**
      * Set the firstname of the contact

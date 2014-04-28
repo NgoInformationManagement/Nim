@@ -51,6 +51,10 @@ file that was distributed with this source code.
             <gedmo:timestampable on="update"/>
         </field>
 
+        <field name="deletedAt" type="datetime" column="deleted_at" nullable="true" />
+
+        <gedmo:soft-deleteable field-name="deletedAt" time-aware="false" />
+
         <many-to-one field="basedAt" inversed-by="workers" target-entity="NIM\WorkerBundle\Model\Core\AgencyInterface">
             <join-column name="based_at" referenced-column-name="id" />
         </many-to-one>

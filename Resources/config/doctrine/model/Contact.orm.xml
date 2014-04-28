@@ -37,6 +37,10 @@ file that was distributed with this source code.
             <gedmo:timestampable on="update"/>
         </field>
 
+        <field name="deletedAt" type="datetime" column="deleted_at" nullable="true" />
+
+        <gedmo:soft-deleteable field-name="deletedAt" time-aware="false" />
+
         <many-to-many field="emails" target-entity="NIM\WorkerBundle\Model\Core\EmailInterface">
             <cascade>
                 <cascade-persist/>

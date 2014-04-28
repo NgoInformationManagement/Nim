@@ -11,6 +11,7 @@
 
 namespace NIM\WorkerBundle\Model;
 
+use NIM\FormBundle\Model\Core\SoftDeletableTrait;
 use NIM\FormBundle\Model\Core\TimestampableTrait;
 use NIM\WorkerBundle\Model\Core\Addressing\AddressingTrait;
 use NIM\WorkerBundle\Model\Core\Contactable\ContactableTrait;
@@ -18,8 +19,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 abstract class AbstractEntity
 {
-    use Core\Contactable\ContactableTrait,
-        Core\Addressing\AddressingTrait,
+    use ContactableTrait,
+        AddressingTrait,
+        SoftDeletableTrait,
         TimestampableTrait;
 
     protected $id;

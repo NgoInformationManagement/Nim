@@ -49,7 +49,7 @@ class Agency extends AbstractEntity implements AgencyInterface
     /**
      * @param mixed $workers
      */
-    public function setWorkers(ArrayCollection $workers)
+    public function setWorkers(ArrayCollection $workers = null)
     {
         $this->workers = $workers;
     }

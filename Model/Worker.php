@@ -66,7 +66,7 @@ class Worker extends AbstractPerson implements WorkerInterface
     /**
      * {@inheritdoc}
      */
-    public function setBasedAt(Agency $basedAt)
+    public function setBasedAt(Agency $basedAt = null)
     {
         $this->basedAt = $basedAt;
     }

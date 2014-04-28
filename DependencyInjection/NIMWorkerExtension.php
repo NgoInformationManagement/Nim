@@ -19,6 +19,7 @@ class NIMWorkerExtension extends AbstractResourceExtension
     protected $applicationName = 'nim';
     protected $configDirectory = '/../Resources/config/container';
     protected $configFiles = array(
+        'services',
         'contactable',
         'worker',
         'agency',

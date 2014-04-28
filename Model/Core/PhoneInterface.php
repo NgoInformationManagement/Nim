@@ -11,9 +11,10 @@
 
 namespace NIM\WorkerBundle\Model\Core;
 
+use Sylius\Component\Resource\Model\SoftDeletableInterface;
 use Sylius\Component\Resource\Model\TimestampableInterface;
 
-interface PhoneInterface extends TimestampableInterface
+interface PhoneInterface extends TimestampableInterface, SoftDeletableInterface
 {
     /**
      * Set the phone type
