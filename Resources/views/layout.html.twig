@@ -136,6 +136,8 @@
                 {{ flashes() }}
                 {% block content %}
                 {% endblock content %}
+
+                {% include 'NIMWebBundle:Misc:confirmation-modal.html.twig' %}
             </div>
         </section>
         {% endblock body %}

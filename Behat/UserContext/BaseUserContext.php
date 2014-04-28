@@ -289,6 +289,28 @@ trait BaseUserContext
     }
 
     /**
+     * @Given /^I click "([^"]*)" from the confirmation modal$/
+     */
+    public function iClickOnConfirmationModal($button)
+    {
+        $this->assertSession()->elementExists('css', '#confirmationModal');
+
+        $modalContainer = $this->getSession()->getPage()->find('css', '#confirmationModal');
+        $primaryButton = $modalContainer->find('css', sprintf('a:contains("%s")' ,$button));
+
+        $this->getSession()->wait(100);
+
+        if (!preg_match('/in/', $modalContainer->getAttribute('class'))) {
+            throw new \Exception('The confirmation modal was not opened...');
+        }
+
+        $this->getSession()->wait(100);
+
+        $primaryButton->click();
+    }
+
+
+    /**
      * Create user and login with given role.
      *
      * @param string $role
@@ -437,7 +459,8 @@ trait BaseUserContext
     }
 
     /**
-     * @return array
+     * @param $locator
+     * @return mixed
      * @throws \Behat\Mink\Exception\ExpectationException
      */
     private function findAllField($locator)
