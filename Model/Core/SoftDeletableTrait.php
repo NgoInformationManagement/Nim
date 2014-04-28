@@ -16,7 +16,15 @@ trait SoftDeletableTrait
     protected $deletedAt;
 
     /**
-     * @param \DateTime $deletedAt
+     * {@inheritdoc}
+     */
+    public function isDeleted()
+    {
+        return $this->deletedAt !== null;
+    }
+
+    /**
+     * {@inheritdoc}
      */
     public function setDeletedAt(\DateTime $deletedAt)
     {
@@ -24,7 +32,7 @@ trait SoftDeletableTrait
     }
 
     /**
-     * @return \DateTime
+     * {@inheritdoc}
      */
     public function getDeletedAt()
     {
