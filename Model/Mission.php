@@ -13,12 +13,14 @@ namespace NIM\MissionBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use \Gedmo\Translatable\Translatable;
+use NIM\FormBundle\Model\Core\SoftDeletableTrait;
 use NIM\FormBundle\Model\Core\TimestampableTrait;
 use NIM\MissionBundle\Model\Core\MissionInterface;
 
 class Mission implements Translatable, MissionInterface
 {
-    use TimestampableTrait;
+    use SoftDeletableTrait,
+        TimestampableTrait;
 
     protected $id;
     protected $title;
