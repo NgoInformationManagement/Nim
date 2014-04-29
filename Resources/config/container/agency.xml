@@ -17,16 +17,6 @@ http://symfony.com/schema/dic/services/services-1.0.xsd">
 
 
     <services>
-        <!-- Agency ressource -->
-        <service id="nim.controller.agency" class="%nim.controller.agency.class%">
-            <argument>nim</argument>
-            <argument>agency</argument>
-            <argument>NIMWorkerBundle:Agency</argument>
-            <call method="setContainer">
-                <argument type="service" id="service_container" />
-            </call>
-        </service>
-
         <!-- Agency Form -->
         <service id="nim.form.type.agency" class="%nim.form.type.agency.class%">
             <call method="setValidationGroups">

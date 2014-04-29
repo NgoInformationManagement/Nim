@@ -17,17 +17,7 @@ http://symfony.com/schema/dic/services/services-1.0.xsd">
 
 
     <services>
-        <!-- Mission ressource -->
-        <service id="nim.controller.contact" class="%nim.controller.contact.class%">
-            <argument>nim</argument>
-            <argument>worker</argument>
-            <argument>NIMMissionBundle:Mission</argument>
-            <call method="setContainer">
-                <argument type="service" id="service_container" />
-            </call>
-        </service>
-
-        <!-- Mission Form -->
+        <!-- Contact Form -->
         <service id="nim.form.type.contact" class="%nim.form.type.contact.class%">
             <call method="setValidationGroups">
                 <argument>%nim.validation_group.contact%</argument>
