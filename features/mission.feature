@@ -105,20 +105,20 @@ Feature: Missions
          And I should see "Title" field error
          And I should see "Started" field error
 
+    @javascript
     Scenario: Deleting mission via the list button
        Given I am on the mission index page
         When I press deletion button near "Earthquake in Indonesia"
-         And I should see "Do you want to delete this item"
-        When I press "Delete"
+         And I click "Delete" from the confirmation modal
         Then I should still be on the mission index page
          And I should see "Mission has been successfully deleted."
          But I should not see mission with name "Earthquake in Indonesia" in the list
 
+    @javascript
     Scenario: Deleting country
        Given I am on the page of mission which has "Earthquake in Indonesia" as title
         When I press "Delete"
-         And I should see "Do you want to delete this item"
-        When I press "Delete"
+         And I click "Delete" from the confirmation modal
         Then I should be on the mission index page
          And I should see "Mission has been successfully deleted."
          But I should not see mission with name "Earthquake in Indonesia" in the list

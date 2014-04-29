@@ -266,20 +266,20 @@ Feature: Worker
         Then I should see "Length" field error in the item #1 of the visa collection
         Then I should see "Started at" field error in the item #1 of the visa collection
 
+    @javascript
     Scenario: Deleting worker via the list button
        Given I am on the worker index page
         When I press deletion button near "Langlade"
-         And I should see "Do you want to delete this item"
-        When I press "Delete"
+         And I click "Delete" from the confirmation modal
         Then I should be on the worker index page
          And I should see "Worker has been successfully deleted."
          But I should not see worker with name "TSF - INTERNATIONAL HEADQUARTERS" in the list
 
+    @javascript
     Scenario: Deleting worker
        Given I am on the page of worker which has "Langlade" as lastname
         When I press "Delete"
-         And I should see "Do you want to delete this item"
-        When I press "Delete"
+         And I click "Delete" from the confirmation modal
         Then I should be on the worker index page
          And I should see "Worker has been successfully deleted."
          But I should not see worker with name "Langlade" in the list
