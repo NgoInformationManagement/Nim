@@ -18,16 +18,6 @@ http://symfony.com/schema/dic/services/services-1.0.xsd">
     </parameters>
 
     <services>
-        <!-- Mission ressource -->
-        <service id="nim.controller.mission" class="%nim.controller.mission.class%">
-            <argument>nim</argument>
-            <argument>mission</argument>
-            <argument>NIMMissionBundle:Mission</argument>
-            <call method="setContainer">
-                <argument type="service" id="service_container"/>
-            </call>
-        </service>
-
         <!-- Mission Form -->
         <service id="nim.form.type.mission" class="%nim.form.type.mission.class%">
             <call method="setValidationGroups">
