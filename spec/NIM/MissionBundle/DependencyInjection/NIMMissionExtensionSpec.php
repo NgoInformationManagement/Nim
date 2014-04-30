@@ -13,7 +13,7 @@ class NIMMissionExtensionSpec extends ObjectBehavior
 
     public function it_should_extends_nim_extension()
     {
-        $this->shouldHaveType('NIM\CoreBundle\DependencyInjection\NIMCoreExtension');
+        $this->shouldHaveType('Sylius\Bundle\ResourceBundle\DependencyInjection\AbstractResourceExtension');
     }
 
     public function it_should_extends_symfony_extension()
