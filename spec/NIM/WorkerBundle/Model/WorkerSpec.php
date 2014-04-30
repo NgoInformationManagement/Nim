@@ -12,6 +12,7 @@
 namespace spec\NIM\WorkerBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use NIM\MissionBundle\Model\Mission;
 use NIM\WorkerBundle\Model\Agency;
 use NIM\WorkerBundle\Model\Contact;
 use NIM\WorkerBundle\Model\Email;
@@ -282,6 +283,35 @@ class WorkerSpec extends ObjectBehavior
 
         $this->removePassport($passport2);
         $this->getPassports()->shouldHaveCount(1);
+    }
+
+    public function its_mission_is_mutable(ArrayCollection $col)
+    {
+        $this->setMissions($col);
+        $this->getMissions()->shouldReturn($col);
+    }
+
+    public function it_has_unique_missions(Mission $mission)
+    {
+        $this->addMission($mission);
+        $this->addMission($mission);
+        $this->getMissions()->shouldHaveCount(1);
+    }
+
+    public function it_has_missions(Mission $mission1, Mission $mission2)
+    {
+        $this->addMission($mission1);
+        $this->addMission($mission2);
+        $this->getMissions()->shouldHaveCount(2);
+    }
+
+    public function it_can_remove_missions(Mission $mission1, Mission $mission2)
+    {
+        $this->addMission($mission1);
+        $this->addMission($mission2);
+
+        $this->removeMission($mission2);
+        $this->getMissions()->shouldHaveCount(1);
     }
 
     public function it_has_no_visa_by_default()

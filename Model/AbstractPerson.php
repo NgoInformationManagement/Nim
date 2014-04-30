@@ -11,8 +11,6 @@
 
 namespace NIM\WorkerBundle\Model;
 
-use NIM\WorkerBundle\Model\AbstractEntity;
-
 abstract class AbstractPerson extends AbstractEntity
 {
     protected $firstname;

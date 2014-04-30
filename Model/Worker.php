@@ -12,7 +12,7 @@
 namespace NIM\WorkerBundle\Model;
 
 use \Doctrine\Common\Collections\ArrayCollection;
-use NIM\WorkerBundle\Model\AbstractPerson;
+use NIM\MissionBundle\Model\Mission;
 use NIM\WorkerBundle\Model\Core\WorkerInterface;
 
 class Worker extends AbstractPerson implements WorkerInterface
@@ -45,6 +45,7 @@ class Worker extends AbstractPerson implements WorkerInterface
         $this->visas = new ArrayCollection();
         $this->passports = new ArrayCollection();
         $this->contacts = new ArrayCollection();
+        $this->missions = new ArrayCollection();
     }
 
     /**
@@ -233,6 +234,29 @@ class Worker extends AbstractPerson implements WorkerInterface
     public function getMissions()
     {
         return $this->missions;
+    }
+
+    /**
+     * @param Mission $mission
+     * @return $this
+     */
+    public function addMission(Mission $mission)
+    {
+        if (!$this->getMissions()->contains($mission)) {
+            $this->getMissions()->add($mission);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param Mission $mission
+     */
+    public function removeMission(Mission $mission)
+    {
+        if ($this->getMissions()->contains($mission)) {
+            $this->getMissions()->removeElement($mission);
+        }
     }
 
     /**
