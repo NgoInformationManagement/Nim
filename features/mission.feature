@@ -20,8 +20,8 @@ Feature: Missions
             | gender  | firstname  | lastname | type      | function  | arrivedAt  | birthday   | diploma | street                                 | postcode | city     | country |
             | male    | Arnaud     | Langlade | volunteer | Developer | 2005-09-01 | 1985-09-03 | Dut     | 19, rue Jean-Baptiste Carreau          | 64000    | PAU      | FR      |
             | male    | Sébastien  | Lannus   | employee  | Admin Sys | 2005-09-01 | 1985-03-05 | Master  | Del supermercado Pali, 1 cuadra arriba |          | Managua  | NA      |
-            | female  | Clémence   | Brig     | employee  | Bocs      | 2008-09-01 | 1985-08-08 | Licence | Cour de la martique                    | 33000    | Bordeaux | FR      |
-
+            | female  | Clémence   | Brig     | employee  | Boss      | 2008-09-01 | 1985-08-08 | Licence | Cour de la martique                    | 33000    | Bordeaux | FR      |
+          And Mission "Earthquake in Indonesia" has "Langlade" as workers
     Scenario: Seeing empty index of mission
        Given There are no missions
         When I am on the mission index page
@@ -48,13 +48,19 @@ Feature: Missions
          And I fill in "Title" with "Mission de développement au Niger" for the language "French"
          And I fill in "Description" with "Ce projet apporte de l'aide à la population" for the language "French"
          And I fill in "Country" with "Niger"
-         And I fill in "Started at" with "07/01/2006"
-         And I fill in "Ended at" with "08/31/2006"
+         And I fill in "Started at" with "06/01/2006"
+         And I fill in "Ended at" with "07/01/2006"
          And I click "Employees"
          And I check "Arnaud Langlade"
          And I press "Create"
         Then I should be on the page of mission which has "Development mission in Niger" as title
          And I should see "Mission has been successfully created."
+         And I should see "Development mission in Niger"
+         And I should see "The project bring help to the population"
+         And I should see "Niger"
+         And I should see "June 1, 2006"
+         And I should see "July 1, 2006"
+         And I should see "Arnaud Langlade"
 
     @javascript
     Scenario: Creating a new mission with empties fields
@@ -136,3 +142,5 @@ Feature: Missions
         When I click "French"
         Then I should see "Tremblement de terre en Indonesie"
          And I should see "Tremblement de terre en Indonesie en 2006"
+#      And I wait 100000000000
+         And I should see "Arnaud Langlade"
