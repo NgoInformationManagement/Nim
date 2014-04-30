@@ -3,6 +3,7 @@
 {% import 'NIMWebBundle:Contactable:macro.html.twig' as contactable %}
 {% import 'NIMFormBundle:Bootstrap3:button.html.twig' as buttons %}
 {% from 'NIMFormBundle:Bootstrap3:field.html.twig' import field_row %}
+{% from 'NIMFormBundle:Bootstrap3:field.html.twig' import date %}
 {% from 'NIMFormBundle:Bootstrap3:field.html.twig' import address %}
 {% from 'NIMFormBundle:Bootstrap3:notification.html.twig' import info %}
 {% from 'NIMFormBundle:Bootstrap3:field.html.twig' import date %}
@@ -36,6 +37,16 @@
     <li>
         <a href="#contact" data-toggle="tab">
             {{ 'worker.tab.contact'|trans }}
+        </a>
+    </li>
+    <li>
+        <a href="#immigration" data-toggle="tab">
+            {{ 'worker.tab.immigration'|trans }}
+        </a>
+    </li>
+    <li>
+        <a href="#mission" data-toggle="tab">
+            {{ 'worker.tab.mission'|trans }}
         </a>
     </li>
 </ul>
@@ -78,6 +89,60 @@
         {% else %}
             {{ info('contact.message.empty'|trans) }}
         {% endif %}
+    </div>
+    <div class="form-horizontal row tab-pane" id="immigration">
+        <fieldset class="col-lg-12">
+            <legend>
+                {{ 'worker.field.passport.label'|trans }}
+            </legend>
+            {% for passport in worker.passports %}
+                <div class="col-lg-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            {{ field_row('passport.field.number.label', passport.number|upper, 4) }}
+                            {{ field_row('passport.field.country.label', passport.country|country, 4) }}
+                            {{ field_row('passport.field.dateOfIssue.label', date(passport.dateOfIssue), 4) }}
+                            {{ field_row('passport.field.dateOfExpiry.label', date(passport.dateOfExpiry), 4) }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </fieldset>
+        <fieldset class="col-lg-12">
+            <legend>
+                {{ 'worker.field.visa.label'|trans }}
+            </legend>
+            {% for visa in worker.visas %}
+                <div class="col-lg-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            {{ field_row('visa.field.country.label', visa.country|country, 4) }}
+                            {{ field_row('visa.field.startedAt.label', date(visa.startedAt), 4) }}
+                            {{ field_row('visa.field.length.label', visa.length, 4) }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </fieldset>
+    </div>
+    <div class="form-horizontal row tab-pane" id="mission">
+        <fieldset class="col-lg-12">
+            <legend>
+                {{ 'worker.field.mission.label'|trans }}
+            </legend>
+            {% for mission in worker.missions %}
+                <div class="col-lg-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            {{ field_row('mission.field.title.label', mission.title, 4) }}
+                            {{ field_row('mission.field.startedAt.label', date(mission.startedAt), 4) }}
+                            {{ field_row('mission.field.endedAt.label', date(mission.endedAt), 4) }}
+                            {{ field_row('mission.field.country.label', mission.country|country, 4) }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </fieldset>
     </div>
 </div>
 {% endblock %}
