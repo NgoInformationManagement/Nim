@@ -67,7 +67,7 @@ class AgencyTypeSpec extends ObjectBehavior
             ->willReturn($builder)
         ;
         $builder
-            ->add('workers', 'nim_entity_worker')
+            ->add('workers', 'nim_entity_worker', Argument::any())
             ->shouldBeCalled()
             ->willReturn($builder)
         ;
