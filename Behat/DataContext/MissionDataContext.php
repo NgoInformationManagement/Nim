@@ -12,6 +12,7 @@
 namespace NIM\WebBundle\Behat\DataContext;
 
 use Behat\Gherkin\Node\TableNode;
+use Doctrine\Common\Collections\ArrayCollection;
 use NIM\MissionBundle\Model\Mission;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
@@ -83,6 +84,19 @@ trait MissionDataContext
             'country' => 'NI',
             'startedAt' => '2006-03-06'
         ));
+    }
+
+    /**
+     * @Given /^Mission "([^"]*)" has "([^"]*)" as workers$/
+     */
+    public function missionHasAsWorkers($title, $lastname)
+    {
+        /** @var Mission $mission */
+        $mission = $this->getMissionRepository()->findOneBy(array('title' => $title));
+        $worker = $this->getRepository('worker')->findOneBy(array('lastname' => $lastname));
+
+        $mission->addWorkers($worker);
+        $this->persistAndFlush($mission);
     }
 
     /**

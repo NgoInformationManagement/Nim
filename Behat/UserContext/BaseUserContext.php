@@ -309,7 +309,6 @@ trait BaseUserContext
         $primaryButton->click();
     }
 
-
     /**
      * Create user and login with given role.
      *
