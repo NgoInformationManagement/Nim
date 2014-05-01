@@ -86,6 +86,25 @@ mission:
         endedAt:
             label: Ended at
 
+vaccine:
+    title:
+        create: New vaccine
+        update: Update the vaccine
+        index: Your vaccines
+        show: Details about your vaccine
+        dashboard: Latest vaccines
+    button:
+        new: New vaccine
+    message:
+        empty: There are no mission to display.
+    field:
+        translation:
+            label: Translation
+        title:
+            label: Title
+        description:
+            label: Description
+
 agency:
     validation:
         email:

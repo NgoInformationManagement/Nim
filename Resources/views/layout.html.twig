@@ -102,12 +102,12 @@
                                         {{ 'menu.worker' | trans }}
                                     </a>
                                 </li>
-                                {#<li>#}
-                                    {#<a href="">#}
-                                        {#<i class="icon-beaker"></i>#}
-                                        {#{{ 'menu.vaccine' | trans }}#}
-                                    {#</a>#}
-                                {#</li>#}
+                                <li>
+                                    <a href="{{ path('nim_vaccine_index') }}">
+                                        <i class="icon-beaker"></i>
+                                        {{ 'menu.vaccine' | trans }}
+                                    </a>
+                                </li>
                             {% endblock main_menu %}
                         </ul>
                     </div>

@@ -2,7 +2,7 @@ nim_dashboard:
     pattern: /
     defaults: { _controller: NIMWebBundle:Dashboard:index }
 
-nim_mision:
+nim_mission:
     resource: @NIMMissionBundle/Resources/config/routing/mission.yml
     prefix: /mission
 
@@ -13,3 +13,7 @@ nim_agency:
 nim_worker:
     resource: @NIMWorkerBundle/Resources/config/routing/worker.yml
     prefix: /worker
+
+nim_vaccine:
+    resource: @NIMVaccineBundle/Resources/config/routing/vaccine.yml
+    prefix: /vaccine

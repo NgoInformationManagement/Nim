@@ -15,6 +15,7 @@ use Faker\Factory as FakerFactory;
 use Behat\Behat\Context\BehatContext;
 use Behat\MinkExtension\Context\MinkDictionary;
 use Behat\Symfony2Extension\Context\KernelDictionary;
+use NIM\WebBundle\Behat\DataContext\VaccineDataContext;
 use NIM\WebBundle\Behat\UserContext\CollectionContext;
 use NIM\WebBundle\Behat\DataContext\AgencyDataContext;
 use NIM\WebBundle\Behat\DataContext\BaseDataContext;
@@ -31,6 +32,7 @@ class FeatureContext extends BehatContext
         BaseDataContext,
         BaseUserContext,
         MissionDataContext,
+        VaccineDataContext,
         AccountUserContext,
         AgencyDataContext,
         WorkerDataContext,

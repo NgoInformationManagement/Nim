@@ -1,0 +1,31 @@
+{% extends 'NIMWebBundle::layout.html.twig' %}
+
+{% import 'NIMFormBundle:Bootstrap3:button.html.twig' as buttons %}
+{% from 'NIMFormBundle:Bootstrap3:field.html.twig' import field_row %}
+{% from 'NIMFormBundle:Bootstrap3:field.html.twig' import date %}
+{% from 'NIMFormBundle:Bootstrap3:field.html.twig' import translatableContant %}
+
+
+{% block title %}
+    {{ 'layout.page.title'|trans({'%page_title%' : 'vaccine.title.show'|trans}) }}
+{% endblock %}
+
+
+{% block page_name %}
+    <i class="icon-rocket"></i>
+    {{ 'vaccine.title.show'|trans }}
+{% endblock page_name %}
+
+
+{% block page_action %}
+    {{ buttons.back(path('nim_vaccine_index'), 'button.backToList') }}
+    {{ buttons.edit(path('nim_vaccine_update', {'id' : vaccine.id}), 'button.edit') }}
+    {{ buttons.delete(path('nim_vaccine_delete', {'id' : vaccine.id}), 'button.delete') }}
+{% endblock page_action %}
+
+
+{% block content %}
+<div class="form-horizontal translated-form">
+    {{ nim_translation(vaccine)}}
+</div>
+{% endblock %}
