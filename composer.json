@@ -42,7 +42,7 @@
     },
 
     "autoload": {
-        "psr-0": { "NIM\\MissionBundle\\": "" }
+        "psr-4": { "NIM\\MissionBundle\\": "" }
     },
     "autoload-dev": {
         "psr-4": { "NIM\\MissionBundle\\spec\\": "spec/" }
