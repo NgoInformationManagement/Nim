@@ -112,3 +112,7 @@ nim_worker:
 # NiM core configuration
 nim_core:
     driver: doctrine/orm
+
+# NiM vaccine configuration
+nim_vaccine:
+    driver: doctrine/orm

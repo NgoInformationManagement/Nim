@@ -14,6 +14,7 @@ class AppKernel extends Kernel
             new NIM\CoreBundle\NIMCoreBundle(),
             new NIM\FormBundle\NIMFormBundle(),
             new NIM\WebBundle\NIMWebBundle(),
+            new NIM\VaccineBundle\NIMVaccineBundle(),
 
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
