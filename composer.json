@@ -46,6 +46,6 @@
         "psr-4": {"NIM\\WorkerBundle\\": ""}
     },
     "autoload-dev": {
-        "psr-4": { "NIM\\MissionBundle\\spec\\": "spec/" }
+        "psr-4": { "NIM\\WorkerBundle\\spec\\": "spec/" }
     }
 }
