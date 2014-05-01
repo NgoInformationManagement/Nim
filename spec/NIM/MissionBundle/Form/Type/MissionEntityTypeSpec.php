@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\NIM\WorkerBundle\Form\Type;
+namespace spec\NIM\MissionBundle\Form\Type;
 
 use PhpSpec\ObjectBehavior;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -18,7 +18,7 @@ class MissionEntityTypeSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NIM\WorkerBundle\Form\Type\MissionEntityType');
+        $this->shouldHaveType('NIM\MissionBundle\Form\Type\MissionEntityType');
     }
 
     public function it_should_define_assigned_data_class(OptionsResolverInterface $resolver)

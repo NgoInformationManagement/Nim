@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\NIM\WorkerBundle\Model;
+namespace spec\NIM\MissionBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use NIM\MissionBundle\Model\MissionTranslation;

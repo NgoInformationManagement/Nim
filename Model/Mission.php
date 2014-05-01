@@ -16,6 +16,7 @@ use \Gedmo\Translatable\Translatable;
 use NIM\FormBundle\Model\Core\SoftDeletableTrait;
 use NIM\FormBundle\Model\Core\TimestampableTrait;
 use NIM\MissionBundle\Model\Core\MissionInterface;
+use NIM\WorkerBundle\Model\Core\WorkerInterface;
 use NIM\WorkerBundle\Model\Worker;
 
 class Mission implements Translatable, MissionInterface
@@ -181,10 +182,10 @@ class Mission implements Translatable, MissionInterface
     }
 
     /**
-     * @param Worker $worker
+     * @param  WorkerInterface $worker
      * @return $this
      */
-    public function addWorkers(Worker $worker)
+    public function addWorker(WorkerInterface $worker)
     {
         if (!$this->getWorkers()->contains($worker)) {
             $worker->addMission($this);
@@ -195,9 +196,9 @@ class Mission implements Translatable, MissionInterface
     }
 
     /**
-     * @param Worker $worker
+     * @param WorkerInterface $worker
      */
-    public function removeMission(Worker $worker)
+    public function removeWorker(WorkerInterface $worker)
     {
         if ($this->getWorkers()->contains($worker)) {
             $this->getWorkers()->removeElement($worker);
