@@ -241,7 +241,7 @@ class Worker extends AbstractPerson implements WorkerInterface
     }
 
     /**
-     * @param MissionInterface $mission
+     * @param  MissionInterface $mission
      * @return $this
      */
     public function addMission(MissionInterface $mission)
@@ -264,7 +264,7 @@ class Worker extends AbstractPerson implements WorkerInterface
     }
 
     /**
-     * @param ArrayCollection $passports
+     * @param  ArrayCollection $passports
      * @return $this
      */
     public function setPassports(ArrayCollection $passports)
@@ -311,7 +311,7 @@ class Worker extends AbstractPerson implements WorkerInterface
     }
 
     /**
-     * @param ArrayCollection $visas
+     * @param  ArrayCollection $visas
      * @return $this
      */
     public function setVisas(ArrayCollection $visas)
