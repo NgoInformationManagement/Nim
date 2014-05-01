@@ -12,11 +12,14 @@
 namespace NIM\WorkerBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use NIM\FormBundle\Model\Core\SoftDeletableTrait;
 use NIM\WorkerBundle\Model\AbstractEntity;
 use NIM\WorkerBundle\Model\Core\AgencyInterface;
 
 class Agency extends AbstractEntity implements AgencyInterface
 {
+    use SoftDeletableTrait;
+
     protected $name;
     protected $workers;
 

@@ -11,10 +11,10 @@
 
 namespace NIM\WorkerBundle\Model;
 
-use NIM\WorkerBundle\Model\AbstractPerson;
+use NIM\FormBundle\Model\Core\SoftDeletableTrait;
 use NIM\WorkerBundle\Model\Core\ContactInterface;
 
 class Contact extends AbstractPerson implements ContactInterface
 {
-
+    use SoftDeletableTrait;
 }

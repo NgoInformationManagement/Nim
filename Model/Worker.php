@@ -12,11 +12,15 @@
 namespace NIM\WorkerBundle\Model;
 
 use \Doctrine\Common\Collections\ArrayCollection;
+use NIM\FormBundle\Model\Core\SoftDeletableTrait;
+use NIM\MissionBundle\Model\Core\MissionInterface;
 use NIM\MissionBundle\Model\Mission;
 use NIM\WorkerBundle\Model\Core\WorkerInterface;
 
 class Worker extends AbstractPerson implements WorkerInterface
 {
+    use SoftDeletableTrait;
+
     protected $id;
     protected $gender;
     protected $birthday;
@@ -237,10 +241,10 @@ class Worker extends AbstractPerson implements WorkerInterface
     }
 
     /**
-     * @param Mission $mission
+     * @param MissionInterface $mission
      * @return $this
      */
-    public function addMission(Mission $mission)
+    public function addMission(MissionInterface $mission)
     {
         if (!$this->getMissions()->contains($mission)) {
             $this->getMissions()->add($mission);
@@ -250,9 +254,9 @@ class Worker extends AbstractPerson implements WorkerInterface
     }
 
     /**
-     * @param Mission $mission
+     * @param MissionInterface $mission
      */
-    public function removeMission(Mission $mission)
+    public function removeMission(MissionInterface $mission)
     {
         if ($this->getMissions()->contains($mission)) {
             $this->getMissions()->removeElement($mission);

@@ -21,7 +21,6 @@ abstract class AbstractEntity
 {
     use ContactableTrait,
         AddressingTrait,
-        SoftDeletableTrait,
         TimestampableTrait;
 
     protected $id;
