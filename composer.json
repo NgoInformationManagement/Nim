@@ -29,7 +29,8 @@
         "sylius/resource-bundle": "0.10.*@dev",
         "stof/doctrine-extensions-bundle": "~1.1@dev",
         "nim/core-bundle": "0.1.*@dev",
-        "nim/form-bundle": "0.1.*@dev"
+        "nim/form-bundle": "0.1.*@dev",
+        "nim/mission-bundle": "0.1.*@dev"
     },
 
     "require-dev": {
@@ -42,8 +43,9 @@
     },
 
     "autoload": {
-        "psr-0": {
-            "NIM\\WorkerBundle": ""
-        }
+        "psr-4": {"NIM\\WorkerBundle\\": ""}
+    },
+    "autoload-dev": {
+        "psr-4": { "NIM\\MissionBundle\\spec\\": "spec/" }
     }
 }
