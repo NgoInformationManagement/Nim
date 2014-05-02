@@ -12,12 +12,13 @@
 namespace NIM\WorkerBundle\Model;
 
 use \Doctrine\Common\Collections\ArrayCollection;
+use NIM\FormBundle\Model\Core\EntityFormTypeInterface;
 use NIM\FormBundle\Model\Core\SoftDeletableTrait;
 use NIM\MissionBundle\Model\Core\MissionInterface;
-use NIM\MissionBundle\Model\Mission;
+use NIM\VaccineBundle\Model\VaccineInterface;
 use NIM\WorkerBundle\Model\Core\WorkerInterface;
 
-class Worker extends AbstractPerson implements WorkerInterface
+class Worker extends AbstractPerson implements WorkerInterface, EntityFormTypeInterface
 {
     use SoftDeletableTrait;
 
@@ -35,6 +36,7 @@ class Worker extends AbstractPerson implements WorkerInterface
     protected $visas;
     protected $passports;
     protected $missions;
+    protected $vaccines;
 
 //    protected $socialSecurityNumber;
 //    protected $isReadyToGoOnField;
@@ -50,6 +52,7 @@ class Worker extends AbstractPerson implements WorkerInterface
         $this->passports = new ArrayCollection();
         $this->contacts = new ArrayCollection();
         $this->missions = new ArrayCollection();
+        $this->vaccines = new ArrayCollection();
     }
 
     /**
@@ -354,6 +357,53 @@ class Worker extends AbstractPerson implements WorkerInterface
     {
         if ($this->getVisas()->contains($visa)) {
             $this->getVisas()->removeElement($visa);
+        }
+    }
+
+    /**
+     * @param  ArrayCollection $vaccines
+     * @return $this
+     */
+    public function setVaccines(ArrayCollection $vaccines)
+    {
+        $this->vaccines = $vaccines;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getVaccines()
+    {
+        return $this->vaccines;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasVaccines()
+    {
+        return !$this->getVaccines()->isEmpty();
+    }
+
+    /**
+     * @param VaccineInterface $vaccine
+     */
+    public function addVaccine(VaccineInterface $vaccine)
+    {
+        if (!$this->getVaccines()->contains($vaccine)) {
+            $this->getVaccines()->add($vaccine);
+        }
+    }
+
+    /**
+     * @param VaccineInterface $vaccine
+     */
+    public function removeVaccine(VaccineInterface $vaccine)
+    {
+        if ($this->getVaccines()->contains($vaccine)) {
+            $this->getVaccines()->removeElement($vaccine);
         }
     }
 

@@ -67,6 +67,16 @@ class WorkerSubcriberSpec extends ObjectBehavior
             ->willReturn($builder)
         ;
 
+        $builder
+            ->add('vaccines', 'entity',  array(
+                'class' => 'NIMVaccineBundle:Vaccine',
+                'multiple' => true,
+                'expanded' => true,
+            ))
+            ->shouldBeCalled()
+            ->willReturn($builder)
+        ;
+
         $this->preSetData($event);
     }
 }

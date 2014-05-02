@@ -32,7 +32,7 @@ class WorkerType extends ResourceBaseType
                 }, $validationGroups);
             } else {
                 return $validationGroups;
-            };
+            }
         };
     }
 

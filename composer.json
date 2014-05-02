@@ -28,7 +28,8 @@
         "stof/doctrine-extensions-bundle": "~1.1@dev",
         "nim/core-bundle": "0.1.*@dev",
         "nim/form-bundle": "0.1.*@dev",
-        "nim/mission-bundle": "0.1.*@dev"
+        "nim/mission-bundle": "0.1.*@dev",
+        "nim/vaccine-bundle": "0.1.*@dev"
     },
 
     "require-dev": {

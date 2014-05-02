@@ -13,6 +13,7 @@ namespace spec\NIM\WorkerBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use NIM\MissionBundle\Model\Mission;
+use NIM\VaccineBundle\Model\Vaccine;
 use NIM\WorkerBundle\Model\Agency;
 use NIM\WorkerBundle\Model\Contact;
 use NIM\WorkerBundle\Model\Email;
@@ -31,6 +32,11 @@ class WorkerSpec extends ObjectBehavior
     public function it_should_implement_worker_interface()
     {
         $this->shouldHaveType('NIM\WorkerBundle\Model\Core\WorkerInterface');
+    }
+
+    public function it_should_implement_entity_form_type_interface()
+    {
+        $this->shouldImplement('NIM\FormBundle\Model\Core\EntityFormTypeInterface');
     }
 
     public function it_has_no_id_by_default()
@@ -346,6 +352,52 @@ class WorkerSpec extends ObjectBehavior
 
         $this->removeVisa($visa2);
         $this->getVisas()->shouldHaveCount(1);
+    }
+
+    public function it_has_no_vaccines_by_default()
+    {
+        $this->getVaccines()->shouldHaveType('Doctrine\Common\Collections\ArrayCollection');
+    }
+
+    public function its_vaccines_is_mutable(ArrayCollection $arrayCollection)
+    {
+        $this->setVaccines($arrayCollection);
+        $this->getVaccines()->shouldReturn($arrayCollection);
+    }
+
+    public function it_has_collection_of_vaccines(Vaccine $vaccine1, Vaccine $vaccine2)
+    {
+        $this->addVaccine($vaccine1);
+        $this->addVaccine($vaccine2);
+        $this->getVaccines()->shouldHaveCount(2);
+    }
+
+    public function it_has_vaccines(Vaccine $vaccine1, Vaccine $vaccine2)
+    {
+        $this->addVaccine($vaccine1);
+        $this->addVaccine($vaccine2);
+        $this->hasVaccines()->shouldReturn(true);
+    }
+
+    public function it_should_have_not_vaccines_by_default()
+    {
+        $this->hasVaccines()->shouldReturn(false);
+    }
+
+    public function it_has_unique_vaccines(Vaccine $vaccine)
+    {
+        $this->addVaccine($vaccine);
+        $this->addVaccine($vaccine);
+        $this->getVaccines()->shouldHaveCount(1);
+    }
+
+    public function it_can_remove_vaccines(Vaccine $vaccine1, Vaccine $vaccine2)
+    {
+        $this->addVaccine($vaccine1);
+        $this->addVaccine($vaccine2);
+
+        $this->removeVaccine($vaccine2);
+        $this->getVaccines()->shouldHaveCount(1);
     }
 
     public function it_has_no_updatedAt_by_default()

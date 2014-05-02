@@ -60,6 +60,11 @@ class WorkerSubcriber implements EventSubscriberInterface
                 'allow_delete' => true,
                 'error_bubbling' => false,
                 'item_by_line' => 2
+            ))
+            ->add('vaccines', 'entity', array(
+                'class' => 'NIM\VaccineBundle\Model\Vaccine',
+                'multiple' => true,
+                'expanded' => true,
             ));
         }
     }
