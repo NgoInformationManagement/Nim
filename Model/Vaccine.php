@@ -13,11 +13,11 @@ namespace NIM\VaccineBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use \Gedmo\Translatable\Translatable;
+use NIM\FormBundle\Model\Core\EntityFormTypeInterface;
 use NIM\FormBundle\Model\Core\SoftDeletableTrait;
 use NIM\FormBundle\Model\Core\TimestampableTrait;
-use NIM\WorkerBundle\Model\Core\WorkerInterface;
 
-class Vaccine implements Translatable, VaccineInterface
+class Vaccine implements Translatable, VaccineInterface, EntityFormTypeInterface
 {
     use SoftDeletableTrait,
         TimestampableTrait;
@@ -25,17 +25,12 @@ class Vaccine implements Translatable, VaccineInterface
     protected $id;
     protected $title;
     protected $description;
-    protected $country;
-    protected $startedAt;
-    protected $endedAt;
-    protected $workers;
     protected $translations;
     protected $locale;
 
     public function __construct()
     {
         $this->translations = new ArrayCollection();
-        $this->workers = new ArrayCollection();
     }
 
     /**
@@ -44,22 +39,6 @@ class Vaccine implements Translatable, VaccineInterface
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setCountry($country)
-    {
-        $this->country = $country;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getCountry()
-    {
-        return $this->country;
     }
 
     /**
@@ -97,38 +76,6 @@ class Vaccine implements Translatable, VaccineInterface
     /**
      * {@inheritdoc}
      */
-    public function setEndedAt(\DateTime $endedAt = null)
-    {
-        $this->endedAt = $endedAt;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getEndedAt()
-    {
-        return $this->endedAt;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setStartedAt(\DateTime $startedAt = null)
-    {
-        $this->startedAt = $startedAt;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getStartedAt()
-    {
-        return $this->startedAt;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function setLocale($locale)
     {
         $this->locale = $locale;
@@ -151,7 +98,7 @@ class Vaccine implements Translatable, VaccineInterface
     }
 
     /**
-     * @param MissionTranslation $t
+     * @param VaccineTranslation $t
      */
     public function addTranslation(VaccineTranslation $t)
     {
@@ -162,7 +109,7 @@ class Vaccine implements Translatable, VaccineInterface
     }
 
     /**
-     * @param MissionTranslation $t
+     * @param VaccineTranslation $t
      */
     public function removeTranslation(VaccineTranslation $t)
     {
@@ -172,55 +119,13 @@ class Vaccine implements Translatable, VaccineInterface
     }
 
     /**
-     * @param mixed $workers
-     */
-    public function setWorkers($workers)
-    {
-        $this->workers = $workers;
-    }
-
-    /**
-     * @param  WorkerInterface $worker
-     * @return $this
-     */
-    public function addWorker(WorkerInterface $worker)
-    {
-        if (!$this->getWorkers()->contains($worker)) {
-            $worker->addMission($this);
-            $this->getWorkers()->add($worker);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param WorkerInterface $worker
-     */
-    public function removeWorker(WorkerInterface $worker)
-    {
-        if ($this->getWorkers()->contains($worker)) {
-            $this->getWorkers()->removeElement($worker);
-        }
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getWorkers()
-    {
-        return $this->workers;
-    }
-
-    /**
      * @return array
      */
     public function getEntityFormTypeData()
     {
         return array(
             'title' => $this->getTitle(),
-            'country' => $this->getCountry(),
-            'started_at' => $this->getStartedAt(),
-            'ended_at' => $this->getEndedAt()
+            'description' => $this->getDescription(),
         );
     }
 

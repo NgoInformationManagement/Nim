@@ -16,20 +16,6 @@ use Sylius\Component\Resource\Model\TimestampableInterface;
 interface VaccineInterface extends TimestampableInterface
 {
     /**
-     * Get the country of the mission
-     *
-     * @return string
-     */
-    public function getCountry();
-
-    /**
-     * Set the country of the mission
-     *
-     * @param string $country
-     */
-    public function setCountry($country);
-
-    /**
      * Set the description of the mission
      *
      * @param string $description
@@ -56,32 +42,4 @@ interface VaccineInterface extends TimestampableInterface
      * @return string
      */
     public function getTitle();
-
-    /**
-     * Set the end of the mission
-     *
-     * @param \Datetime $endedAt
-     */
-    public function setEndedAt(\DateTime $endedAt = null);
-
-    /**
-     * get the end of the mission
-     *
-     * @return \Datetime
-     */
-    public function getEndedAt();
-
-    /**
-     * Set the beginning of the mission
-     *
-     * @param \Datetime $startedAt
-     */
-    public function setStartedAt(\DateTime $startedAt = null);
-
-    /**
-     * Set the beginning of the mission
-     *
-     * @return \Datetime
-     */
-    public function getStartedAt();
 }
