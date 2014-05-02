@@ -20,3 +20,4 @@ NIM\WorkerBundle\Model\Worker:
         visas: [@visa<current()>]
         passports: [@passport<current()>]
         missions: <numberBetween(0, 20)>x @mission*
+        vaccines: <numberBetween(0, 4)>x @vaccine*

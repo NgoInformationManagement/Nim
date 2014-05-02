@@ -55,6 +55,7 @@ class FixturesLoader extends DataFixtureLoader
             $this->getFixturePath('passports.yml'),
             $this->getFixturePath('visas.yml'),
             $this->getFixturePath('contacts.yml'),
+            $this->getFixturePath('vaccines.yml'),
             $this->getFixturePath('workers.yml'),
         );
     }
