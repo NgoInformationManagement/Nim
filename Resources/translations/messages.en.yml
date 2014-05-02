@@ -160,6 +160,7 @@ worker:
         contact : Contact persons
         immigration: Immigration
         mission: Missions accomplished
+        vaccine: Vaccines
     title:
         create: New worker
         update: Update the worker
@@ -225,6 +226,8 @@ worker:
             label: Passports
         visa:
             label: Visas
+        vaccine:
+            label: Vaccines
 visa:
     field:
         country:

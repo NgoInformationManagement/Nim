@@ -49,6 +49,11 @@
             {{ 'worker.tab.mission'|trans }}
         </a>
     </li>
+    <li>
+        <a href="#vaccine" data-toggle="tab">
+            {{ 'worker.tab.vaccine'|trans }}
+        </a>
+    </li>
 </ul>
 
 <div class="tab-content">
@@ -138,6 +143,20 @@
                             {{ field_row('mission.field.startedAt.label', date(mission.startedAt), 4) }}
                             {{ field_row('mission.field.endedAt.label', date(mission.endedAt), 4) }}
                             {{ field_row('mission.field.country.label', mission.country|country, 4) }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </fieldset>
+    </div>
+    <div class="form-horizontal row tab-pane" id="vaccine">
+        <fieldset class="col-lg-12">
+            {% for vaccine in worker.vaccines %}
+                <div class="col-lg-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            {{ field_row('vaccine.field.title.label', vaccine.title, 4) }}
+                            {{ field_row('vaccine.field.description.label', vaccine.description, 4) }}
                         </div>
                     </div>
                 </div>
