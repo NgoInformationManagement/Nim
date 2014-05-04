@@ -40,11 +40,9 @@
     "config": {
         "bin-dir": "bin"
     },
-
     "autoload": {
-        "psr-4": { "NIM\\MissionBundle\\": "" }
+        "psr-0": {"NIM\\MissionBundle\\": ""}
     },
-    "autoload-dev": {
-        "psr-4": { "NIM\\MissionBundle\\spec\\": "spec/" }
-    }
+
+    "target-dir": "NIM/MissionBundle"
 }
