@@ -11,15 +11,21 @@
 
 namespace NIM\CoreBundle\DependencyInjection;
 
-use Sylius\Bundle\ResourceBundle\DependencyInjection\BaseExtension;
+use Sylius\Bundle\ResourceBundle\DependencyInjection\AbstractResourceExtension;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Loader;
 
-class NIMCoreExtension extends Extension
+class NIMCoreExtension extends AbstractResourceExtension
 {
+    protected $applicationName = 'nim';
+    protected $configDirectory = '/../Resources/config/container';
+    protected $configFiles = array(
+        'services'
+    );
+
     /**
      * {@inheritDoc}
      */
@@ -27,12 +33,10 @@ class NIMCoreExtension extends Extension
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
-
-        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config/container'));
+        $loader = new XmlFileLoader($container, new FileLocator($this->getConfigurationDirectory()));
         $driver = $config['driver'];
 
-//        $this->loadDriver($driver, $loader);
-
+        $this->loadConfigurationFile($this->configFiles, $loader);
         $container->setParameter('nim_core.driver', $driver);
         $container->setParameter('nim_core.driver.'.$driver, true);
     }
