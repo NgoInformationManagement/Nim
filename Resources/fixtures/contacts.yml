@@ -5,3 +5,4 @@ NIM\WorkerBundle\Model\Contact:
         street: <streetName()>
         postcode: <postcode()>
         city: <city()>
+        phones: [@phone.contact<current()>]

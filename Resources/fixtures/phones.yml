@@ -12,3 +12,7 @@ NIM\WorkerBundle\Model\Phone:
     phone.worker.phone{1..100}:
         number: <phoneNumber()>
         type: phone
+
+    phone.contact{1..200}:
+        number: <phoneNumber()>
+        type: phone

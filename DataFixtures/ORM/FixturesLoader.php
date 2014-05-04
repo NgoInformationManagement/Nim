@@ -51,11 +51,13 @@ class FixturesLoader extends DataFixtureLoader
             $this->getFixturePath('phones.yml'),
             $this->getFixturePath('emails.yml'),
             $this->getFixturePath('missions.yml'),
+            $this->getFixturePath('mission_translations.yml'),
             $this->getFixturePath('agencies.yml'),
             $this->getFixturePath('passports.yml'),
             $this->getFixturePath('visas.yml'),
             $this->getFixturePath('contacts.yml'),
             $this->getFixturePath('vaccines.yml'),
+            $this->getFixturePath('vaccine_translations.yml'),
             $this->getFixturePath('workers.yml'),
         );
     }
