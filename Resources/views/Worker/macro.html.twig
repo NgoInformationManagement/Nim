@@ -15,6 +15,7 @@
                     <col width="10%">
                     <col width="40px">
                     <col width="40px">
+                    <col width="40px">
                     <col>
                 </colgroup>
                 <thead>
@@ -26,6 +27,7 @@
                         <th>{{ sylius_resource_sort('arrivedAt', 'worker.field.arrivedAt.label'|trans) }}</th>
                         <th>{{ 'worker.field.contact.label'|trans }}</th>
                         <th>{{ 'worker.field.passport.label'|trans }}</th>
+                        <th>{{ 'worker.field.vaccine.label'|trans }}</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -34,7 +36,7 @@
                     <tr>
                         <td class="worker-name">
                             <p class="col-md-11">{{ worker.lastname }} {{ worker.firstname }}</p>
-                            <i class="icon-{{ worker.gender }}">
+                            <i class="icon-{{ worker.gender }}"></i>
                         </td>
                         <td>{{ worker.function }}</td>
                         <td>{{ worker.street }} {{ worker.postcode }} {{ worker.city }}</td>
@@ -53,6 +55,15 @@
                             {{
                                 boolean(
                                     worker.hasPassports,
+                                    path('nim_worker_show', {'id' : worker.id}),
+                                    path('nim_worker_update', {'id' : worker.id})
+                                )
+                            }}
+                        </td>
+                        <td class="text-center">
+                            {{
+                                boolean(
+                                    worker.hasVaccines,
                                     path('nim_worker_show', {'id' : worker.id}),
                                     path('nim_worker_update', {'id' : worker.id})
                                 )
@@ -99,7 +110,7 @@
                     <tr>
                         <td class="worker-name">
                             <p class="col-md-11">{{ worker.lastname }} {{ worker.firstname }}</p>
-                            <i class="icon-{{ worker.gender }}">
+                            <i class="icon-{{ worker.gender }}"></i>
                         </td>
                         <td>{{ worker.function }}</td>
                         <td>{{ worker.basedAt }}</td>
