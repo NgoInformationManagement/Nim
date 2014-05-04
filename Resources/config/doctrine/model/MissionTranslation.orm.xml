@@ -20,7 +20,7 @@ file that was distributed with this source code.
         </id>
         <field name="locale" type="string" />
         <field name="field" type="string" />
-        <field name="content" type="string" nullable="true" />
+        <field name="content" type="text" nullable="true" />
         <many-to-one field="object" target-entity="NIM\MissionBundle\Model\Core\MissionInterface" inversed-by="translations" />
     </entity>
 </doctrine-mapping>
