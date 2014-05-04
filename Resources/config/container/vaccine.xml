@@ -12,8 +12,13 @@ file that was distributed with this source code.
 <container xmlns="http://symfony.com/schema/dic/services"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services
-http://symfony.com/schema/dic/services/services-1.0.xsd">
+                               http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <parameters>
+        <parameter key="nim.form.type.vaccine.entity.class">NIM\VaccineBundle\Form\Type\VaccineEntityType</parameter>
+    </parameters>
+
     <services>
+
         <!-- Vaccine Form -->
         <service id="nim.form.type.vaccine" class="%nim.form.type.vaccine.class%">
             <call method="setValidationGroups">
@@ -23,6 +28,14 @@ http://symfony.com/schema/dic/services/services-1.0.xsd">
                 <argument>%nim.model.vaccine.class%</argument>
             </call>
             <tag name="form.type" alias="nim_vaccine"/>
+        </service>
+
+        <!-- Vaccine Entity Form -->
+        <service id="nim.form.type.entity.vaccine" class="%nim.form.type.vaccine.entity.class%">
+            <call method="setValidationGroups">
+                <argument>%nim.validation_group.vaccine%</argument>
+            </call>
+            <tag name="form.type" alias="nim_entity_vaccine"/>
         </service>
     </services>
 </container>
