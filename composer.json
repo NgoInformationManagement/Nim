@@ -42,9 +42,8 @@
     },
 
     "autoload": {
-        "psr-4": {"NIM\\WorkerBundle\\": ""}
+        "psr-0": {"NIM\\WorkerBundle\\": ""}
     },
-    "autoload-dev": {
-        "psr-4": { "NIM\\WorkerBundle\\spec\\": "spec/" }
-    }
+
+    "target-dir": "NIM/WorkerBundle"
 }
