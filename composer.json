@@ -40,9 +40,8 @@
     },
 
     "autoload": {
-        "psr-4": {"NIM\\VaccineBundle\\": ""}
+        "psr-0": {"NIM\\VaccineBundle\\": ""}
     },
-    "autoload-dev": {
-        "psr-4": { "NIM\\VaccineBundle\\spec\\": "spec/" }
-    }
+
+    "target-dir": "NIM/VaccineBundle"
 }
