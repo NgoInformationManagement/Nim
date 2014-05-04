@@ -11,7 +11,7 @@
 
 namespace spec\NIM\WorkerBundle\Form\Type;
 
-use NIM\WorkerBundle\Form\Type\EventListener\WorkerSubcriber;
+use NIM\WorkerBundle\Form\EventListener\WorkerSubscriber;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,13 +19,20 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class WorkerTypeSpec extends ObjectBehavior
 {
+    public function let(WorkerSubscriber $workerSubscriber)
+    {
+        $this->beConstructedWith($workerSubscriber);
+    }
+
     public function it_is_initializable()
     {
         $this->shouldHaveType('NIM\WorkerBundle\Form\Type\WorkerType');
     }
 
-    public function it_should_build_worker_form(FormBuilderInterface $builder)
-    {
+    public function it_should_build_worker_form(
+        FormBuilderInterface $builder,
+        WorkerSubscriber $workerSubscriber
+    ) {
         $builder
             ->add('basedAt', 'entity',  Argument::any())
             ->shouldBeCalled()
@@ -122,7 +129,7 @@ class WorkerTypeSpec extends ObjectBehavior
         ;
 
         $builder
-            ->addEventSubscriber(new WorkerSubcriber)
+            ->addEventSubscriber($workerSubscriber)
             ->shouldBeCalled();
 
         $this->buildForm($builder, array());

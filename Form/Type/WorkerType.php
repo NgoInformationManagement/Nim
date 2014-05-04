@@ -12,13 +12,20 @@
 namespace NIM\WorkerBundle\Form\Type;
 
 use NIM\FormBundle\Form\Core\ResourceBaseType;
-use NIM\WorkerBundle\Form\Type\EventListener\WorkerSubcriber;
+use NIM\WorkerBundle\Form\EventListener\WorkerSubscriber;
 use NIM\WorkerBundle\Model\Core\Worker\WorkerTypes;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 
 class WorkerType extends ResourceBaseType
 {
+    private $workerSubscriber;
+
+    public function __construct(WorkerSubscriber $workerSubscriber)
+    {
+        $this->workerSubscriber = $workerSubscriber;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -97,7 +104,7 @@ class WorkerType extends ResourceBaseType
                 'choices' => WorkerTypes::getTypes('worker.field.type.option')
             ));
 
-            $builder->addEventSubscriber(new WorkerSubcriber());
+            $builder->addEventSubscriber($this->workerSubscriber);
         ;
     }
 

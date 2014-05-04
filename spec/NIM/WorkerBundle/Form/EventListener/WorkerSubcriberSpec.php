@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\NIM\WorkerBundle\Form\Type\EventListener;
+namespace spec\NIM\WorkerBundle\Form\EventListener;
 
 use NIM\WorkerBundle\Model\Worker;
 use PhpSpec\ObjectBehavior;
@@ -18,11 +18,11 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\Test\FormBuilderInterface;
 
-class WorkerSubcriberSpec extends ObjectBehavior
+class WorkerSubscriberSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NIM\WorkerBundle\Form\Type\EventListener\WorkerSubcriber');
+        $this->shouldHaveType('NIM\WorkerBundle\Form\EventListener\WorkerSubscriber');
     }
 
     public function it_sould_implement()
@@ -45,34 +45,6 @@ class WorkerSubcriberSpec extends ObjectBehavior
 
         $builder
             ->add('contacts', 'collection',  Argument::any())
-            ->shouldBeCalled()
-            ->willReturn($builder)
-        ;
-
-        $builder
-            ->add('missions', 'nim_entity_mission',  Argument::any())
-            ->shouldBeCalled()
-            ->willReturn($builder)
-        ;
-
-        $builder
-            ->add('passports', 'collection',  Argument::any())
-            ->shouldBeCalled()
-            ->willReturn($builder)
-        ;
-
-        $builder
-            ->add('visas', 'collection',  Argument::any())
-            ->shouldBeCalled()
-            ->willReturn($builder)
-        ;
-
-        $builder
-            ->add('vaccines', 'entity',  array(
-                'class' => 'NIMVaccineBundle:Vaccine',
-                'multiple' => true,
-                'expanded' => true,
-            ))
             ->shouldBeCalled()
             ->willReturn($builder)
         ;

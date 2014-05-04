@@ -16,11 +16,15 @@ file that was distributed with this source code.
         >
     <parameters>
         <parameter key="nim.form.type.worker.entity.class">NIM\WorkerBundle\Form\Type\WorkerEntityType</parameter>
+        <parameter key="nim.form.subscriber.worker.class">NIM\WorkerBundle\Form\EventListener\WorkerSubscriber</parameter>
     </parameters>
 
     <services>
+        <service id="nim.form.subscriber.worker" class="%nim.form.Subscriber.worker.class%" />
+
         <!-- Worker Form -->
         <service id="nim.form.type.worker" class="%nim.form.type.worker.class%">
+            <argument type="service" id="nim.form.subscriber.worker" />
             <call method="setValidationGroups">
                 <argument>%nim.validation_group.worker%</argument>
             </call>
