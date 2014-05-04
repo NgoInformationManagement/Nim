@@ -11,7 +11,7 @@
 
 namespace NIM\WorkerBundle\Model\Core\Worker;
 
-use NIM\CoreBundle\Model\ConstantInterface;
+use NIM\FormBundle\Model\Core\ConstantInterface;
 
 class WorkerTypes implements ConstantInterface
 {
