@@ -56,7 +56,7 @@
     {% endspaceless %}
 {% endblock  %}
 
-{% block nim_worker_vaccines_widget %}
+{% block nim_entity_vaccine_widget %}
     {% spaceless %}
         {% set attr = attr | merge({'class' :  attr.class|default ~ ' tab-content row'}) %}
         <div {{ block('widget_container_attributes') }}>
