@@ -26,7 +26,17 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/framework-bundle": "~2.3",
-        "friendsofsymfony/user-bundle": "~2.0@dev"
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "nim/form-bundle": "0.1.*@dev",
+        "nim/worker-bundle": "0.1.*@dev"
+    },
+
+    "require-dev": {
+        "phpspec/phpspec": "2.0.*@dev"
+    },
+
+    "config": {
+        "bin-dir": "bin"
     },
 
     "autoload": {
