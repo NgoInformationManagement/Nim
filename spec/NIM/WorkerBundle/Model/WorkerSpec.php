@@ -291,35 +291,6 @@ class WorkerSpec extends ObjectBehavior
         $this->getPassports()->shouldHaveCount(1);
     }
 
-    public function its_mission_is_mutable(ArrayCollection $col)
-    {
-        $this->setMissions($col);
-        $this->getMissions()->shouldReturn($col);
-    }
-
-    public function it_has_unique_missions(Mission $mission)
-    {
-        $this->addMission($mission);
-        $this->addMission($mission);
-        $this->getMissions()->shouldHaveCount(1);
-    }
-
-    public function it_has_missions(Mission $mission1, Mission $mission2)
-    {
-        $this->addMission($mission1);
-        $this->addMission($mission2);
-        $this->getMissions()->shouldHaveCount(2);
-    }
-
-    public function it_can_remove_missions(Mission $mission1, Mission $mission2)
-    {
-        $this->addMission($mission1);
-        $this->addMission($mission2);
-
-        $this->removeMission($mission2);
-        $this->getMissions()->shouldHaveCount(1);
-    }
-
     public function it_has_no_visa_by_default()
     {
         $this->getVisas()->shouldHaveType('Doctrine\Common\Collections\ArrayCollection');
@@ -352,52 +323,6 @@ class WorkerSpec extends ObjectBehavior
 
         $this->removeVisa($visa2);
         $this->getVisas()->shouldHaveCount(1);
-    }
-
-    public function it_has_no_vaccines_by_default()
-    {
-        $this->getVaccines()->shouldHaveType('Doctrine\Common\Collections\ArrayCollection');
-    }
-
-    public function its_vaccines_is_mutable(ArrayCollection $arrayCollection)
-    {
-        $this->setVaccines($arrayCollection);
-        $this->getVaccines()->shouldReturn($arrayCollection);
-    }
-
-    public function it_has_collection_of_vaccines(Vaccine $vaccine1, Vaccine $vaccine2)
-    {
-        $this->addVaccine($vaccine1);
-        $this->addVaccine($vaccine2);
-        $this->getVaccines()->shouldHaveCount(2);
-    }
-
-    public function it_has_vaccines(Vaccine $vaccine1, Vaccine $vaccine2)
-    {
-        $this->addVaccine($vaccine1);
-        $this->addVaccine($vaccine2);
-        $this->hasVaccines()->shouldReturn(true);
-    }
-
-    public function it_should_have_not_vaccines_by_default()
-    {
-        $this->hasVaccines()->shouldReturn(false);
-    }
-
-    public function it_has_unique_vaccines(Vaccine $vaccine)
-    {
-        $this->addVaccine($vaccine);
-        $this->addVaccine($vaccine);
-        $this->getVaccines()->shouldHaveCount(1);
-    }
-
-    public function it_can_remove_vaccines(Vaccine $vaccine1, Vaccine $vaccine2)
-    {
-        $this->addVaccine($vaccine1);
-        $this->addVaccine($vaccine2);
-
-        $this->removeVaccine($vaccine2);
-        $this->getVaccines()->shouldHaveCount(1);
     }
 
     public function it_has_no_updatedAt_by_default()
