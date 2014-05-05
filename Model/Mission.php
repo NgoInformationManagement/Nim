@@ -175,46 +175,6 @@ class Mission implements Translatable, MissionInterface, EntityFormTypeInterface
     }
 
     /**
-     * @param mixed $workers
-     */
-    public function setWorkers($workers)
-    {
-        $this->workers = $workers;
-    }
-
-    /**
-     * @param  WorkerInterface $worker
-     * @return $this
-     */
-    public function addWorker(WorkerInterface $worker)
-    {
-        if (!$this->getWorkers()->contains($worker)) {
-            $worker->addMission($this);
-            $this->getWorkers()->add($worker);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param WorkerInterface $worker
-     */
-    public function removeWorker(WorkerInterface $worker)
-    {
-        if ($this->getWorkers()->contains($worker)) {
-            $this->getWorkers()->removeElement($worker);
-        }
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getWorkers()
-    {
-        return $this->workers;
-    }
-
-    /**
      * @return array
      */
     public function getEntityFormTypeData()
