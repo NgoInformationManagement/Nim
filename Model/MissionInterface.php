@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace NIM\MissionBundle\Model\Core;
+namespace NIM\MissionBundle\Model;
 
 use Sylius\Component\Resource\Model\TimestampableInterface;
 

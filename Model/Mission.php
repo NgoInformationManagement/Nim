@@ -16,7 +16,7 @@ use \Gedmo\Translatable\Translatable;
 use NIM\FormBundle\Model\Core\EntityFormTypeInterface;
 use NIM\FormBundle\Model\Core\SoftDeletableTrait;
 use NIM\FormBundle\Model\Core\TimestampableTrait;
-use NIM\MissionBundle\Model\Core\MissionInterface;
+use NIM\MissionBundle\Model\MissionInterface;
 use NIM\WorkerBundle\Model\Core\WorkerInterface;
 use NIM\WorkerBundle\Model\Worker;
 

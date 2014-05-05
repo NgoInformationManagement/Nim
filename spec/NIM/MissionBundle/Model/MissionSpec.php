@@ -19,6 +19,11 @@ class MissionSpec extends ObjectBehavior
         $this->shouldImplement('\Gedmo\Translatable\Translatable');
     }
 
+    public function it_should_implement_mission_interface()
+    {
+        $this->shouldImplement('NIM\MissionBundle\Model\MissionInterface');
+    }
+
     public function it_should_implement_entity_form_type_interface()
     {
         $this->shouldImplement('NIM\FormBundle\Model\Core\EntityFormTypeInterface');
