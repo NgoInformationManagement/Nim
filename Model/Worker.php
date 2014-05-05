@@ -16,7 +16,7 @@ use NIM\FormBundle\Model\Core\EntityFormTypeInterface;
 use NIM\FormBundle\Model\Core\SoftDeletableTrait;
 use NIM\MissionBundle\Model\MissionInterface;
 use NIM\VaccineBundle\Model\VaccineInterface;
-use NIM\WorkerBundle\Model\Core\WorkerInterface;
+use NIM\WorkerBundle\Model\WorkerInterface;
 
 class Worker extends AbstractPerson implements WorkerInterface, EntityFormTypeInterface
 {

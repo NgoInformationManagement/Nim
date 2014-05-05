@@ -22,7 +22,7 @@ class EmailSpec extends ObjectBehavior
 
     public function it_should_implement_email_interface()
     {
-        $this->shouldHaveType('NIM\WorkerBundle\Model\Core\EmailInterface');
+        $this->shouldHaveType('NIM\WorkerBundle\Model\EmailInterface');
     }
 
     public function it_has_no_id_by_default()

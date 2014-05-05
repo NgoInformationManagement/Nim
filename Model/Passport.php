@@ -13,7 +13,7 @@ namespace NIM\WorkerBundle\Model;
 
 use NIM\FormBundle\Model\Core\SoftDeletableTrait;
 use NIM\FormBundle\Model\Core\TimestampableTrait;
-use NIM\WorkerBundle\Model\Core\PassportInterface;
+use NIM\WorkerBundle\Model\PassportInterface;
 
 class Passport implements PassportInterface
 {

@@ -25,7 +25,7 @@ class ContactSpec extends ObjectBehavior
 
     public function it_should_implement_contact_interface()
     {
-        $this->shouldHaveType('NIM\WorkerBundle\Model\Core\ContactInterface');
+        $this->shouldHaveType('NIM\WorkerBundle\Model\ContactInterface');
     }
 
     public function it_has_no_id_by_default()

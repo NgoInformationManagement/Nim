@@ -22,7 +22,7 @@ class PhoneSpec extends ObjectBehavior
 
     public function it_should_implement_phone_interface()
     {
-        $this->shouldHaveType('NIM\WorkerBundle\Model\Core\PhoneInterface');
+        $this->shouldHaveType('NIM\WorkerBundle\Model\PhoneInterface');
     }
 
     public function it_has_no_id_by_default()

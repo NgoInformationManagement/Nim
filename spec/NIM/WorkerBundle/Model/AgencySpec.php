@@ -25,7 +25,7 @@ class AgencySpec extends ObjectBehavior
 
     public function it_should_implement_agency_interface()
     {
-        $this->shouldHaveType('NIM\WorkerBundle\Model\Core\AgencyInterface');
+        $this->shouldHaveType('NIM\WorkerBundle\Model\AgencyInterface');
     }
 
     public function it_has_no_id_by_default()

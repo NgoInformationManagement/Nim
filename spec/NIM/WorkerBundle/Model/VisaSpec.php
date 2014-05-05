@@ -22,7 +22,7 @@ class VisaSpec extends ObjectBehavior
 
     public function it_should_implement_worker_interface()
     {
-        $this->shouldHaveType('NIM\WorkerBundle\Model\Core\VisaInterface');
+        $this->shouldHaveType('NIM\WorkerBundle\Model\VisaInterface');
     }
 
     public function it_has_no_id_by_default()

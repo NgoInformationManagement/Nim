@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\NIM\WorkerBundle\Model\Core\Contactable;
+namespace spec\NIM\WorkerBundle\Model\Contactable;
 
 use PhpSpec\ObjectBehavior;
 
@@ -17,12 +17,12 @@ class PhoneTypesSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NIM\WorkerBundle\Model\Core\Contactable\PhoneTypes');
+        $this->shouldHaveType('NIM\WorkerBundle\Model\Contactable\PhoneTypes');
     }
 
     public function it_should_implement_constant_interface()
     {
-        $this->shouldHaveType('NIM\FormBundle\Model\Core\ConstantInterface');
+        $this->shouldImplement('NIM\FormBundle\Model\ConstantInterface');
     }
 
     public function it_should_return_all_phone_types()

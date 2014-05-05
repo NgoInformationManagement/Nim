@@ -13,7 +13,7 @@ namespace NIM\WorkerBundle\Form\Type;
 
 use NIM\FormBundle\Form\Core\ResourceBaseType;
 use NIM\WorkerBundle\Form\EventListener\WorkerSubscriber;
-use NIM\WorkerBundle\Model\Core\Worker\WorkerTypes;
+use NIM\WorkerBundle\Model\Worker\WorkerTypes;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 

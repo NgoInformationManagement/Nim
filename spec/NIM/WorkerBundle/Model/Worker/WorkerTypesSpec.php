@@ -17,12 +17,12 @@ class WorkerTypesSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NIM\WorkerBundle\Model\Core\Worker\WorkerTypes');
+        $this->shouldHaveType('NIM\WorkerBundle\Model\Worker\WorkerTypes');
     }
 
     public function it_should_implement_constant_interface()
     {
-        $this->shouldHaveType('NIM\\FormBundle\Model\Core\ConstantInterface');
+        $this->shouldHaveType('NIM\FormBundle\Model\ConstantInterface');
     }
 
     public function it_should_return_all_phone_types()

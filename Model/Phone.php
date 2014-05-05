@@ -13,7 +13,7 @@ namespace NIM\WorkerBundle\Model;
 
 use NIM\FormBundle\Model\Core\SoftDeletableTrait;
 use NIM\FormBundle\Model\Core\TimestampableTrait;
-use NIM\WorkerBundle\Model\Core\PhoneInterface;
+use NIM\WorkerBundle\Model\PhoneInterface;
 
 class Phone implements PhoneInterface
 {

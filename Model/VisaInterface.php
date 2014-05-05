@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace NIM\WorkerBundle\Model\Core;
+namespace NIM\WorkerBundle\Model;
 
 use Sylius\Component\Resource\Model\SoftDeletableInterface;
 use Sylius\Component\Resource\Model\TimestampableInterface;
 
-interface PassportInterface extends TimestampableInterface, SoftDeletableInterface
+interface VisaInterface extends TimestampableInterface, SoftDeletableInterface
 {
     /**
      * @param string $country
@@ -27,32 +27,22 @@ interface PassportInterface extends TimestampableInterface, SoftDeletableInterfa
     public function getCountry();
 
     /**
-     * @param \DateTime $dateOfExpiry
+     * @param integer $length
      */
-    public function setDateOfExpiry(\DateTime $dateOfExpiry = null);
+    public function setLength($length);
 
     /**
-     * @return mixed
+     * @return integer
      */
-    public function getDateOfExpiry();
+    public function getLength();
 
     /**
-     * @param \DateTime $dateOfIssue
+     * @param \DateTime $startedAt
      */
-    public function setDateOfIssue(\DateTime $dateOfIssue = null);
+    public function setStartedAt(\DateTime $startedAt = null);
 
     /**
      * @return \DateTime
      */
-    public function getDateOfIssue();
-
-    /**
-     * @param string $number
-     */
-    public function setNumber($number);
-
-    /**
-     * @return string
-     */
-    public function getNumber();
+    public function getStartedAt();
 }

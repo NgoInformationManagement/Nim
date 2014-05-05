@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace NIM\WorkerBundle\Model\Core\Addressing;
+namespace NIM\WorkerBundle\Model\Addressing;
 
 trait AddressingTrait
 {

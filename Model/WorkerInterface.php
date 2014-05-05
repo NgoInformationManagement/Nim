@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace NIM\WorkerBundle\Model\Core;
+namespace NIM\WorkerBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use NIM\WorkerBundle\Model\Agency;

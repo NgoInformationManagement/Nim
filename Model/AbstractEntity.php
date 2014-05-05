@@ -12,14 +12,14 @@
 namespace NIM\WorkerBundle\Model;
 
 use NIM\FormBundle\Model\Core\TimestampableTrait;
-use NIM\WorkerBundle\Model\Core\Addressing\AddressingTrait;
-use NIM\WorkerBundle\Model\Core\Contactable\ContactableTrait;
+use NIM\WorkerBundle\Model\Addressing\AddressingTrait;
+use NIM\WorkerBundle\Model\Contactable\ContactableTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 
 abstract class AbstractEntity
 {
-    use ContactableTrait,
-        AddressingTrait,
+    use Contactable\ContactableTrait,
+        Addressing\AddressingTrait,
         TimestampableTrait;
 
     protected $id;

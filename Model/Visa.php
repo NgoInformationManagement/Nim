@@ -13,7 +13,7 @@ namespace NIM\WorkerBundle\Model;
 
 use NIM\FormBundle\Model\Core\SoftDeletableTrait;
 use NIM\FormBundle\Model\Core\TimestampableTrait;
-use NIM\WorkerBundle\Model\Core\VisaInterface;
+use NIM\WorkerBundle\Model\VisaInterface;
 
 class Visa implements VisaInterface
 {

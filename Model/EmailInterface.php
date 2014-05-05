@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace NIM\WorkerBundle\Model\Core;
+namespace NIM\WorkerBundle\Model;
 
 use Sylius\Component\Resource\Model\SoftDeletableInterface;
 use Sylius\Component\Resource\Model\TimestampableInterface;

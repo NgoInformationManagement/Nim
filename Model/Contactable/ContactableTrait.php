@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace NIM\WorkerBundle\Model\Core\Contactable;
+namespace NIM\WorkerBundle\Model\Contactable;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use NIM\WorkerBundle\Model\Email;

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace NIM\WorkerBundle\Model\Core\Worker;
+namespace NIM\WorkerBundle\Model\Worker;
 
 use NIM\FormBundle\Model\Core\ConstantInterface;
 

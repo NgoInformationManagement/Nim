@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace NIM\WorkerBundle\Model\Core\Contactable;
+namespace NIM\WorkerBundle\Model\Contactable;
 
 use NIM\FormBundle\Model\Core\ConstantInterface;
 
