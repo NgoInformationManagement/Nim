@@ -104,10 +104,16 @@ a2lix_translation_form:
 # NiM mission configuration
 nim_mission:
     driver: doctrine/orm
+    classes:
+        mission:
+            model: NIM\CoreBundle\Model\Mission
 
 # NiM worker configuration
 nim_worker:
     driver: doctrine/orm
+    classes:
+        worker:
+            model: NIM\CoreBundle\Model\Worker
 
 # NiM core configuration
 nim_core:

@@ -1056,12 +1056,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "47ed3e44d7e9b464c0d3d606a91a4651f8002a2b"
+                "reference": "6120bd01592a8d7d5dc48b51b7087cbc3e701e09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/47ed3e44d7e9b464c0d3d606a91a4651f8002a2b",
-                "reference": "47ed3e44d7e9b464c0d3d606a91a4651f8002a2b",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/6120bd01592a8d7d5dc48b51b7087cbc3e701e09",
+                "reference": "6120bd01592a8d7d5dc48b51b7087cbc3e701e09",
                 "shasum": ""
             },
             "require": {
@@ -1128,7 +1128,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2014-04-21 07:57:57"
+            "time": "2014-05-04 14:19:39"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1137,12 +1137,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Incenteev/ParameterHandler.git",
-                "reference": "f6b98615a403a0f684eb15581ed9f6e93709169d"
+                "reference": "15b15d8246d501df277dd6e40f5fd3f6e2084c42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Incenteev/ParameterHandler/zipball/f6b98615a403a0f684eb15581ed9f6e93709169d",
-                "reference": "f6b98615a403a0f684eb15581ed9f6e93709169d",
+                "url": "https://api.github.com/repos/Incenteev/ParameterHandler/zipball/15b15d8246d501df277dd6e40f5fd3f6e2084c42",
+                "reference": "15b15d8246d501df277dd6e40f5fd3f6e2084c42",
                 "shasum": ""
             },
             "require": {
@@ -1180,7 +1180,7 @@
             "keywords": [
                 "parameters management"
             ],
-            "time": "2014-03-11 08:44:13"
+            "time": "2014-05-02 13:55:31"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -1605,18 +1605,23 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/NgoInformationManagement/CoreBundle.git",
-                "reference": "7711c5c269b03db344fe68dfb757defca4f9c89d"
+                "reference": "a551e0d3443bf2b915f4ddd73057ad4c00e8d126"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NgoInformationManagement/CoreBundle/zipball/7711c5c269b03db344fe68dfb757defca4f9c89d",
-                "reference": "7711c5c269b03db344fe68dfb757defca4f9c89d",
+                "url": "https://api.github.com/repos/NgoInformationManagement/CoreBundle/zipball/a551e0d3443bf2b915f4ddd73057ad4c00e8d126",
+                "reference": "a551e0d3443bf2b915f4ddd73057ad4c00e8d126",
                 "shasum": ""
             },
             "require": {
                 "friendsofsymfony/user-bundle": "~2.0@dev",
+                "nim/form-bundle": "0.1.*@dev",
+                "nim/worker-bundle": "0.1.*@dev",
                 "php": ">=5.3.3",
                 "symfony/framework-bundle": "~2.3"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "2.0.*@dev"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -1647,7 +1652,7 @@
                 "ngo",
                 "nim"
             ],
-            "time": "2014-04-16 10:48:58"
+            "time": "2014-05-04 21:35:23"
         },
         {
             "name": "nim/form-bundle",
@@ -1656,12 +1661,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/NgoInformationManagement/FormBundle.git",
-                "reference": "241b0ee3236518a3301488e2eca88951f26010d6"
+                "reference": "b460c35ead9f3f922be11199073cdd21a51bcff7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NgoInformationManagement/FormBundle/zipball/241b0ee3236518a3301488e2eca88951f26010d6",
-                "reference": "241b0ee3236518a3301488e2eca88951f26010d6",
+                "url": "https://api.github.com/repos/NgoInformationManagement/FormBundle/zipball/b460c35ead9f3f922be11199073cdd21a51bcff7",
+                "reference": "b460c35ead9f3f922be11199073cdd21a51bcff7",
                 "shasum": ""
             },
             "require": {
@@ -1706,20 +1711,21 @@
                 "nim",
                 "select2"
             ],
-            "time": "2014-04-28 22:09:30"
+            "time": "2014-05-04 21:48:41"
         },
         {
             "name": "nim/mission-bundle",
             "version": "dev-master",
+            "target-dir": "NIM/MissionBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NgoInformationManagement/MissionBundle.git",
-                "reference": "a24cbfd47acdd87e95bd150cc47962184092628f"
+                "reference": "5af829a0db9e577229ee2634a46dd07e5e224513"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NgoInformationManagement/MissionBundle/zipball/a24cbfd47acdd87e95bd150cc47962184092628f",
-                "reference": "a24cbfd47acdd87e95bd150cc47962184092628f",
+                "url": "https://api.github.com/repos/NgoInformationManagement/MissionBundle/zipball/5af829a0db9e577229ee2634a46dd07e5e224513",
+                "reference": "5af829a0db9e577229ee2634a46dd07e5e224513",
                 "shasum": ""
             },
             "require": {
@@ -1765,20 +1771,21 @@
                 "ngo",
                 "nim"
             ],
-            "time": "2014-05-01 15:37:02"
+            "time": "2014-05-05 20:46:59"
         },
         {
             "name": "nim/vaccine-bundle",
             "version": "dev-master",
+            "target-dir": "NIM/VaccineBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NgoInformationManagement/VaccineBundle.git",
-                "reference": "1d664d6758fa143d5ae504eb40abd4fdbe18c228"
+                "reference": "2a259a7f15f1c2c4253ebf5fb9d317c684c3db7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NgoInformationManagement/VaccineBundle/zipball/1d664d6758fa143d5ae504eb40abd4fdbe18c228",
-                "reference": "1d664d6758fa143d5ae504eb40abd4fdbe18c228",
+                "url": "https://api.github.com/repos/NgoInformationManagement/VaccineBundle/zipball/2a259a7f15f1c2c4253ebf5fb9d317c684c3db7b",
+                "reference": "2a259a7f15f1c2c4253ebf5fb9d317c684c3db7b",
                 "shasum": ""
             },
             "require": {
@@ -1800,7 +1807,7 @@
                 }
             },
             "autoload": {
-                "psr-4": {
+                "psr-0": {
                     "NIM\\VaccineBundle\\": ""
                 }
             },
@@ -1822,7 +1829,7 @@
                 "nim",
                 "vaccine"
             ],
-            "time": "2014-05-01 17:11:43"
+            "time": "2014-05-04 21:31:57"
         },
         {
             "name": "nim/web-bundle",
@@ -1831,12 +1838,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/NgoInformationManagement/WebBundle.git",
-                "reference": "b4b3f7e09ce393e4ad565fbc7ef9e713c44e459e"
+                "reference": "b8e803dc536fb53c225f452f15ca8889e0ad3510"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NgoInformationManagement/WebBundle/zipball/b4b3f7e09ce393e4ad565fbc7ef9e713c44e459e",
-                "reference": "b4b3f7e09ce393e4ad565fbc7ef9e713c44e459e",
+                "url": "https://api.github.com/repos/NgoInformationManagement/WebBundle/zipball/b8e803dc536fb53c225f452f15ca8889e0ad3510",
+                "reference": "b8e803dc536fb53c225f452f15ca8889e0ad3510",
                 "shasum": ""
             },
             "require": {
@@ -1873,26 +1880,25 @@
                 "nim",
                 "web"
             ],
-            "time": "2014-05-01 18:25:37"
+            "time": "2014-05-04 18:46:05"
         },
         {
             "name": "nim/worker-bundle",
             "version": "dev-master",
+            "target-dir": "NIM/WorkerBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NgoInformationManagement/WorkerBundle.git",
-                "reference": "06d8f208bc90d5babcd1f055957b94ad80eb274e"
+                "reference": "369714a3fbf9ca402b2aa730801df5cd32281105"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NgoInformationManagement/WorkerBundle/zipball/06d8f208bc90d5babcd1f055957b94ad80eb274e",
-                "reference": "06d8f208bc90d5babcd1f055957b94ad80eb274e",
+                "url": "https://api.github.com/repos/NgoInformationManagement/WorkerBundle/zipball/369714a3fbf9ca402b2aa730801df5cd32281105",
+                "reference": "369714a3fbf9ca402b2aa730801df5cd32281105",
                 "shasum": ""
             },
             "require": {
-                "nim/core-bundle": "0.1.*@dev",
                 "nim/form-bundle": "0.1.*@dev",
-                "nim/mission-bundle": "0.1.*@dev",
                 "php": ">=5.3.3",
                 "stof/doctrine-extensions-bundle": "~1.1@dev",
                 "sylius/resource-bundle": "0.10.*@dev",
@@ -1909,7 +1915,7 @@
                 }
             },
             "autoload": {
-                "psr-4": {
+                "psr-0": {
                     "NIM\\WorkerBundle\\": ""
                 }
             },
@@ -1931,7 +1937,7 @@
                 "ngo",
                 "nim"
             ],
-            "time": "2014-05-01 16:38:25"
+            "time": "2014-05-05 20:46:59"
         },
         {
             "name": "pagerfanta/pagerfanta",
@@ -1939,12 +1945,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/whiteoctober/Pagerfanta.git",
-                "reference": "c41473a84768ac18ec107033dbfa87229cdefafa"
+                "reference": "3ac597b089fed30f3904c3b145ac36d5df0845c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/whiteoctober/Pagerfanta/zipball/c41473a84768ac18ec107033dbfa87229cdefafa",
-                "reference": "c41473a84768ac18ec107033dbfa87229cdefafa",
+                "url": "https://api.github.com/repos/whiteoctober/Pagerfanta/zipball/3ac597b089fed30f3904c3b145ac36d5df0845c0",
+                "reference": "3ac597b089fed30f3904c3b145ac36d5df0845c0",
                 "shasum": ""
             },
             "require": {
@@ -1997,7 +2003,7 @@
                 "paginator",
                 "paging"
             ],
-            "time": "2014-03-14 07:32:00"
+            "time": "2014-05-06 16:27:14"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -2356,19 +2362,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "bcb025ef81285d0a2ee8c65352c4e5a3359185ca"
+                "reference": "8443b5ca82b360a62c0c8ba04598e476076bbe2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/bcb025ef81285d0a2ee8c65352c4e5a3359185ca",
-                "reference": "bcb025ef81285d0a2ee8c65352c4e5a3359185ca",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/8443b5ca82b360a62c0c8ba04598e476076bbe2d",
+                "reference": "8443b5ca82b360a62c0c8ba04598e476076bbe2d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
             "require-dev": {
-                "mockery/mockery": "~0.9@dev"
+                "mockery/mockery": "~0.9.1"
             },
             "type": "library",
             "extra": {
@@ -2402,7 +2408,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2014-05-01 06:41:55"
+            "time": "2014-05-05 09:37:46"
         },
         {
             "name": "sylius/resource",
@@ -2830,12 +2836,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "d1267cb2d7d6e69917fef92d9c5abf823cbf1d5d"
+                "reference": "903acf9acb59d7911165406d9a771fe5aa38cad1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/d1267cb2d7d6e69917fef92d9c5abf823cbf1d5d",
-                "reference": "d1267cb2d7d6e69917fef92d9c5abf823cbf1d5d",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/903acf9acb59d7911165406d9a771fe5aa38cad1",
+                "reference": "903acf9acb59d7911165406d9a771fe5aa38cad1",
                 "shasum": ""
             },
             "require": {
@@ -2932,7 +2938,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-05-01 06:28:42"
+            "time": "2014-05-05 19:19:05"
         },
         {
             "name": "twig/extensions",
@@ -2989,12 +2995,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "4a6e7ff3d50db27c4f08952c5e0336effbfdea21"
+                "reference": "052eb5d1ed1b5b7755525e4e7af26faea1619747"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/4a6e7ff3d50db27c4f08952c5e0336effbfdea21",
-                "reference": "4a6e7ff3d50db27c4f08952c5e0336effbfdea21",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/052eb5d1ed1b5b7755525e4e7af26faea1619747",
+                "reference": "052eb5d1ed1b5b7755525e4e7af26faea1619747",
                 "shasum": ""
             },
             "require": {
@@ -3038,7 +3044,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-04-29 17:01:20"
+            "time": "2014-05-05 08:48:03"
         },
         {
             "name": "white-october/pagerfanta-bundle",
@@ -3190,12 +3196,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yohang/Finite.git",
-                "reference": "3c892a6d254a579dad2a1e90f48132a0dfad4aeb"
+                "reference": "68890e6c56121bfeee554179be476466c4cb034c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yohang/Finite/zipball/3c892a6d254a579dad2a1e90f48132a0dfad4aeb",
-                "reference": "3c892a6d254a579dad2a1e90f48132a0dfad4aeb",
+                "url": "https://api.github.com/repos/yohang/Finite/zipball/68890e6c56121bfeee554179be476466c4cb034c",
+                "reference": "68890e6c56121bfeee554179be476466c4cb034c",
                 "shasum": ""
             },
             "require": {
@@ -3252,7 +3258,7 @@
                 "transition",
                 "workflow"
             ],
-            "time": "2014-04-30 12:11:35"
+            "time": "2014-05-06 12:00:46"
         }
     ],
     "packages-dev": [
@@ -3445,12 +3451,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkBrowserKitDriver.git",
-                "reference": "2f33c28e4b8e5b026e87303cca52048f303b289e"
+                "reference": "b13938751bbf3f5350494c63f5bfdb7d5a1f82cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkBrowserKitDriver/zipball/2f33c28e4b8e5b026e87303cca52048f303b289e",
-                "reference": "2f33c28e4b8e5b026e87303cca52048f303b289e",
+                "url": "https://api.github.com/repos/Behat/MinkBrowserKitDriver/zipball/b13938751bbf3f5350494c63f5bfdb7d5a1f82cd",
+                "reference": "b13938751bbf3f5350494c63f5bfdb7d5a1f82cd",
                 "shasum": ""
             },
             "require": {
@@ -3460,7 +3466,7 @@
                 "symfony/dom-crawler": "~2.0"
             },
             "require-dev": {
-                "silex/silex": "@dev"
+                "silex/silex": "~1.2"
             },
             "type": "mink-driver",
             "extra": {
@@ -3492,7 +3498,7 @@
                 "browser",
                 "testing"
             ],
-            "time": "2014-04-27 22:16:38"
+            "time": "2014-05-03 07:39:51"
         },
         {
             "name": "behat/mink-extension",
@@ -3554,12 +3560,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/MinkSelenium2Driver.git",
-                "reference": "aaab00355e3d5908cbd752e7fb9a17cf6bd78bc5"
+                "reference": "39088afbd3463d62403f692c140c3f43ee4f7433"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/aaab00355e3d5908cbd752e7fb9a17cf6bd78bc5",
-                "reference": "aaab00355e3d5908cbd752e7fb9a17cf6bd78bc5",
+                "url": "https://api.github.com/repos/Behat/MinkSelenium2Driver/zipball/39088afbd3463d62403f692c140c3f43ee4f7433",
+                "reference": "39088afbd3463d62403f692c140c3f43ee4f7433",
                 "shasum": ""
             },
             "require": {
@@ -3604,7 +3610,7 @@
                 "testing",
                 "webdriver"
             ],
-            "time": "2014-05-01 11:15:36"
+            "time": "2014-05-03 07:40:36"
         },
         {
             "name": "behat/symfony2-extension",
@@ -3771,12 +3777,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/instaclick/php-webdriver.git",
-                "reference": "aafad2492a612b63ee3204afb7fea7008678bc42"
+                "reference": "be78bfa6d714e6571aa3f68b80494ed29bf707b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/instaclick/php-webdriver/zipball/aafad2492a612b63ee3204afb7fea7008678bc42",
-                "reference": "aafad2492a612b63ee3204afb7fea7008678bc42",
+                "url": "https://api.github.com/repos/instaclick/php-webdriver/zipball/be78bfa6d714e6571aa3f68b80494ed29bf707b1",
+                "reference": "be78bfa6d714e6571aa3f68b80494ed29bf707b1",
                 "shasum": ""
             },
             "require": {
@@ -3824,7 +3830,7 @@
                 "webdriver",
                 "webtest"
             ],
-            "time": "2014-04-14 21:04:22"
+            "time": "2014-05-06 04:36:21"
         },
         {
             "name": "nelmio/alice",
