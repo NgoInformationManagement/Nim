@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\NIM\WorkerBundle\Model\Core\Worker;
+namespace spec\NIM\WorkerBundle\Model\Worker;
 
 use PhpSpec\ObjectBehavior;
 
@@ -22,7 +22,7 @@ class WorkerTypesSpec extends ObjectBehavior
 
     public function it_should_implement_constant_interface()
     {
-        $this->shouldHaveType('NIM\FormBundle\Model\ConstantInterface');
+        $this->shouldImplement('NIM\FormBundle\Model\Core\ConstantInterface');
     }
 
     public function it_should_return_all_phone_types()

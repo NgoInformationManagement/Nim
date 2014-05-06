@@ -36,7 +36,7 @@ class WorkerSpec extends ObjectBehavior
 
     public function it_should_implement_entity_form_type_interface()
     {
-        $this->shouldImplement('NIM\FormBundle\Model\EntityFormTypeInterface');
+        $this->shouldImplement('NIM\FormBundle\Model\Core\EntityFormTypeInterface');
     }
 
     public function it_has_no_id_by_default()

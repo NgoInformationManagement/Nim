@@ -34,13 +34,13 @@ class NIMWorkerBundle extends Bundle
         $container->addCompilerPass(new ResolveDoctrineTargetEntitiesPass(
             'nim_worker',
             array(
-                'NIM\WorkerBundle\Model\Core\WorkerInterface' => 'nim.model.worker.class',
-                'NIM\WorkerBundle\Model\Core\AgencyInterface' => 'nim.model.agency.class',
-                'NIM\WorkerBundle\Model\Core\ContactInterface' => 'nim.model.contact.class',
-                'NIM\WorkerBundle\Model\Core\EmailInterface' => 'nim.model.email.class',
-                'NIM\WorkerBundle\Model\Core\PhoneInterface' => 'nim.model.phone.class',
-                'NIM\WorkerBundle\Model\Core\VisaInterface' => 'nim.model.visa.class',
-                'NIM\WorkerBundle\Model\Core\PassportInterface' => 'nim.model.passport.class',
+                'NIM\WorkerBundle\Model\WorkerInterface' => 'nim.model.worker.class',
+                'NIM\WorkerBundle\Model\AgencyInterface' => 'nim.model.agency.class',
+                'NIM\WorkerBundle\Model\ContactInterface' => 'nim.model.contact.class',
+                'NIM\WorkerBundle\Model\EmailInterface' => 'nim.model.email.class',
+                'NIM\WorkerBundle\Model\PhoneInterface' => 'nim.model.phone.class',
+                'NIM\WorkerBundle\Model\VisaInterface' => 'nim.model.visa.class',
+                'NIM\WorkerBundle\Model\PassportInterface' => 'nim.model.passport.class',
             )
         ));
 

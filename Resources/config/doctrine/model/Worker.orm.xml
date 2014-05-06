@@ -55,11 +55,11 @@ file that was distributed with this source code.
 
         <gedmo:soft-deleteable field-name="deletedAt" time-aware="false" />
 
-        <many-to-one field="basedAt" inversed-by="workers" target-entity="NIM\WorkerBundle\Model\Core\AgencyInterface">
+        <many-to-one field="basedAt" inversed-by="workers" target-entity="NIM\WorkerBundle\Model\AgencyInterface">
             <join-column name="based_at" referenced-column-name="id" />
         </many-to-one>
 
-        <many-to-many field="emails" target-entity="NIM\WorkerBundle\Model\Core\EmailInterface">
+        <many-to-many field="emails" target-entity="NIM\WorkerBundle\Model\EmailInterface">
             <cascade>
                 <cascade-persist/>
                 <cascade-remove/>
@@ -74,7 +74,7 @@ file that was distributed with this source code.
             </join-table>
         </many-to-many>
 
-        <many-to-many field="phones" target-entity="NIM\WorkerBundle\Model\Core\PhoneInterface">
+        <many-to-many field="phones" target-entity="NIM\WorkerBundle\Model\PhoneInterface">
             <cascade>
                 <cascade-persist/>
                 <cascade-remove/>
@@ -89,7 +89,7 @@ file that was distributed with this source code.
             </join-table>
         </many-to-many>
 
-        <many-to-many field="visas" target-entity="NIM\WorkerBundle\Model\Core\VisaInterface">
+        <many-to-many field="visas" target-entity="NIM\WorkerBundle\Model\VisaInterface">
             <cascade>
                 <cascade-persist/>
                 <cascade-remove/>
@@ -104,7 +104,7 @@ file that was distributed with this source code.
             </join-table>
         </many-to-many>
 
-        <many-to-many field="passports" target-entity="NIM\WorkerBundle\Model\Core\PassportInterface">
+        <many-to-many field="passports" target-entity="NIM\WorkerBundle\Model\PassportInterface">
             <cascade>
                 <cascade-persist/>
                 <cascade-remove/>
@@ -119,7 +119,7 @@ file that was distributed with this source code.
             </join-table>
         </many-to-many>
 
-        <many-to-many field="contacts" target-entity="NIM\WorkerBundle\Model\Core\ContactInterface">
+        <many-to-many field="contacts" target-entity="NIM\WorkerBundle\Model\ContactInterface">
             <cascade>
                 <cascade-persist/>
                 <cascade-remove/>
@@ -130,28 +130,6 @@ file that was distributed with this source code.
                 </join-columns>
                 <inverse-join-columns>
                     <join-column name="contactp_id" referenced-column-name="id" unique="true" />
-                </inverse-join-columns>
-            </join-table>
-        </many-to-many>
-
-        <many-to-many field="missions" inversed-by="workers" target-entity="NIM\MissionBundle\Model\Core\MissionInterface">
-            <join-table name="nim_worker_mission">
-                <join-columns>
-                    <join-column name="worker_id" referenced-column-name="id" />
-                </join-columns>
-                <inverse-join-columns>
-                    <join-column name="mission_id" referenced-column-name="id" />
-                </inverse-join-columns>
-            </join-table>
-        </many-to-many>
-
-        <many-to-many field="vaccines" inversed-by="workers" target-entity="NIM\VaccineBundle\Model\VaccineInterface">
-            <join-table name="nim_worker_vaccine">
-                <join-columns>
-                    <join-column name="worker_id" referenced-column-name="id" />
-                </join-columns>
-                <inverse-join-columns>
-                    <join-column name="vaccine_id" referenced-column-name="id" />
                 </inverse-join-columns>
             </join-table>
         </many-to-many>

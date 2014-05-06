@@ -14,8 +14,6 @@ namespace NIM\WorkerBundle\Model;
 use \Doctrine\Common\Collections\ArrayCollection;
 use NIM\FormBundle\Model\Core\EntityFormTypeInterface;
 use NIM\FormBundle\Model\Core\SoftDeletableTrait;
-use NIM\MissionBundle\Model\MissionInterface;
-use NIM\VaccineBundle\Model\VaccineInterface;
 use NIM\WorkerBundle\Model\WorkerInterface;
 
 class Worker extends AbstractPerson implements WorkerInterface, EntityFormTypeInterface
@@ -35,8 +33,6 @@ class Worker extends AbstractPerson implements WorkerInterface, EntityFormTypeIn
 
     protected $visas;
     protected $passports;
-    protected $missions;
-    protected $vaccines;
 
 //    protected $socialSecurityNumber;
 //    protected $isReadyToGoOnField;
@@ -51,8 +47,6 @@ class Worker extends AbstractPerson implements WorkerInterface, EntityFormTypeIn
         $this->visas = new ArrayCollection();
         $this->passports = new ArrayCollection();
         $this->contacts = new ArrayCollection();
-        $this->missions = new ArrayCollection();
-        $this->vaccines = new ArrayCollection();
     }
 
     /**

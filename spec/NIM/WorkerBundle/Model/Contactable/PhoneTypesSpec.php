@@ -22,7 +22,7 @@ class PhoneTypesSpec extends ObjectBehavior
 
     public function it_should_implement_constant_interface()
     {
-        $this->shouldImplement('NIM\FormBundle\Model\ConstantInterface');
+        $this->shouldImplement('NIM\FormBundle\Model\Core\ConstantInterface');
     }
 
     public function it_should_return_all_phone_types()
