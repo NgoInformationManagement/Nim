@@ -1605,17 +1605,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/NgoInformationManagement/CoreBundle.git",
-                "reference": "a551e0d3443bf2b915f4ddd73057ad4c00e8d126"
+                "reference": "f5cc004eee0b09683f9affe60be13ed9cc94eb03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NgoInformationManagement/CoreBundle/zipball/a551e0d3443bf2b915f4ddd73057ad4c00e8d126",
-                "reference": "a551e0d3443bf2b915f4ddd73057ad4c00e8d126",
+                "url": "https://api.github.com/repos/NgoInformationManagement/CoreBundle/zipball/f5cc004eee0b09683f9affe60be13ed9cc94eb03",
+                "reference": "f5cc004eee0b09683f9affe60be13ed9cc94eb03",
                 "shasum": ""
             },
             "require": {
                 "friendsofsymfony/user-bundle": "~2.0@dev",
                 "nim/form-bundle": "0.1.*@dev",
+                "nim/mission-bundle": "0.1.*@dev",
                 "nim/worker-bundle": "0.1.*@dev",
                 "php": ">=5.3.3",
                 "symfony/framework-bundle": "~2.3"
@@ -1652,7 +1653,7 @@
                 "ngo",
                 "nim"
             ],
-            "time": "2014-05-04 21:35:23"
+            "time": "2014-05-06 18:01:14"
         },
         {
             "name": "nim/form-bundle",
@@ -1720,19 +1721,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/NgoInformationManagement/MissionBundle.git",
-                "reference": "5af829a0db9e577229ee2634a46dd07e5e224513"
+                "reference": "25d7e5f019d837001f84ad29242d44d8cb00f282"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NgoInformationManagement/MissionBundle/zipball/5af829a0db9e577229ee2634a46dd07e5e224513",
-                "reference": "5af829a0db9e577229ee2634a46dd07e5e224513",
+                "url": "https://api.github.com/repos/NgoInformationManagement/MissionBundle/zipball/25d7e5f019d837001f84ad29242d44d8cb00f282",
+                "reference": "25d7e5f019d837001f84ad29242d44d8cb00f282",
                 "shasum": ""
             },
             "require": {
                 "a2lix/translation-form-bundle": "1.2",
-                "nim/core-bundle": "0.1.*@dev",
                 "nim/form-bundle": "0.1.*@dev",
-                "nim/worker-bundle": "0.1.*@dev",
                 "php": ">=5.3.3",
                 "stof/doctrine-extensions-bundle": "~1.1@dev",
                 "sylius/resource-bundle": "0.10.*@dev",
@@ -1771,7 +1770,7 @@
                 "ngo",
                 "nim"
             ],
-            "time": "2014-05-05 20:46:59"
+            "time": "2014-05-06 17:50:41"
         },
         {
             "name": "nim/vaccine-bundle",
@@ -1889,12 +1888,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/NgoInformationManagement/WorkerBundle.git",
-                "reference": "369714a3fbf9ca402b2aa730801df5cd32281105"
+                "reference": "862c4ab08897307bb3cad4401e182e8fc694f23d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NgoInformationManagement/WorkerBundle/zipball/369714a3fbf9ca402b2aa730801df5cd32281105",
-                "reference": "369714a3fbf9ca402b2aa730801df5cd32281105",
+                "url": "https://api.github.com/repos/NgoInformationManagement/WorkerBundle/zipball/862c4ab08897307bb3cad4401e182e8fc694f23d",
+                "reference": "862c4ab08897307bb3cad4401e182e8fc694f23d",
                 "shasum": ""
             },
             "require": {
@@ -1937,7 +1936,7 @@
                 "ngo",
                 "nim"
             ],
-            "time": "2014-05-05 20:46:59"
+            "time": "2014-05-06 17:50:41"
         },
         {
             "name": "pagerfanta/pagerfanta",
