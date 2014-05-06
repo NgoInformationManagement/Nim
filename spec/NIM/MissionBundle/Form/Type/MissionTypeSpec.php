@@ -18,6 +18,10 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class MissionTypeSpec extends ObjectBehavior
 {
+    public function let()
+    {
+        $this->beConstructedWith('\Mission\model');
+    }
     public function it_is_initializable()
     {
         $this->shouldHaveType('NIM\MissionBundle\Form\Type\MissionType');

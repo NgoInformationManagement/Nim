@@ -55,7 +55,5 @@ file that was distributed with this source code.
         </one-to-many>
 
         <gedmo:translation entity="NIM\MissionBundle\Model\MissionTranslation" locale="locale"/>
-
-        <many-to-many field="workers" mapped-by="missions" target-entity="NIM\WorkerBundle\Model\Core\WorkerInterface" />
     </mapped-superclass>
 </doctrine-mapping>

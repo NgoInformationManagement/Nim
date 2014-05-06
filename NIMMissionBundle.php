@@ -33,7 +33,7 @@ class NIMMissionBundle extends Bundle
     {
         $container->addCompilerPass(new ResolveDoctrineTargetEntitiesPass(
             'nim_mission',
-            array('NIM\MissionBundle\Model\Core\MissionInterface' => 'nim.model.mission.class')
+            array('NIM\MissionBundle\Model\MissionInterface' => 'nim.model.mission.class')
         ));
 
         $container->addCompilerPass(

@@ -31,14 +31,12 @@ class Mission implements Translatable, MissionInterface, EntityFormTypeInterface
     protected $country;
     protected $startedAt;
     protected $endedAt;
-    protected $workers;
     protected $translations;
     protected $locale;
 
     public function __construct()
     {
         $this->translations = new ArrayCollection();
-        $this->workers = new ArrayCollection();
     }
 
     /**

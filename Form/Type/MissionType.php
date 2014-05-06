@@ -17,6 +17,16 @@ use Symfony\Component\Form\FormBuilderInterface;
 class MissionType extends ResourceBaseType
 {
     /**
+     * @var string
+     */
+    private $missionModel;
+
+    public function __construct($missionModel)
+    {
+        $this->missionModel = $missionModel;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -24,7 +34,7 @@ class MissionType extends ResourceBaseType
         $builder
             ->add('translations', 'a2lix_translations_gedmo', array(
                 'label' => false,
-                'translatable_class' => 'NIM\MissionBundle\Model\Mission',
+                'translatable_class' => $this->missionModel,
                 'fields' => array(
                     'title' => array(
                         'label' => 'mission.field.title.label',

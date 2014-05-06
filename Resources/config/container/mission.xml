@@ -20,6 +20,7 @@ http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
         <!-- Mission Form -->
         <service id="nim.form.type.mission" class="%nim.form.type.mission.class%">
+            <argument type="string">%nim.model.mission.class%</argument>
             <call method="setValidationGroups">
                 <argument>%nim.validation_group.mission%</argument>
             </call>
