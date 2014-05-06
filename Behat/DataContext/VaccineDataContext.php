@@ -36,21 +36,6 @@ trait VaccineDataContext
         /** @var Vaccine $vaccine */
         $vaccine = $this->getVaccineRepository()->createNew();
         $vaccine->setTitle($title);
-        if (array_key_exists('startedAt', $additionalData)) {
-            if (is_string($additionalData['startedAt'])) {
-                $additionalData['startedAt'] = new \DateTime($additionalData['startedAt']);
-            }
-            $vaccine->setStartedAt($additionalData['startedAt']);
-            unset($additionalData['startedAt']);
-        }
-
-        if (array_key_exists('endedAt', $additionalData)) {
-            if (is_string($additionalData['endedAt'])) {
-                $additionalData['endedAt'] = new \DateTime($additionalData['endedAt']);
-            }
-            $vaccine->setEndedAt($additionalData['endedAt']);
-            unset($additionalData['endedAt']);
-        }
 
         if (count($additionalData) > 0) {
             $this->setDataToObject($vaccine, $additionalData);
@@ -81,8 +66,6 @@ trait VaccineDataContext
     {
         $this->thereIsVaccine($title, array(
             'description' => 'description',
-            'country' => 'NI',
-            'startedAt' => '2006-03-06'
         ));
     }
 

@@ -87,7 +87,7 @@ trait BaseDataContext
     }
 
     /**
-     * @param $email
+     * @param $emails
      * @param $entity
      * @return mixed
      */
@@ -101,11 +101,9 @@ trait BaseDataContext
         return $this->persistAndFlush($entity);
     }
 
-
     /**
-     * @param $label
      * @param $address
-     * @return \NIM\WorkerBundle\Model\Email
+     * @return mixed
      */
     public function thereIsEmail($address)
     {

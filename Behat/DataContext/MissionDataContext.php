@@ -95,7 +95,7 @@ trait MissionDataContext
         $mission = $this->getMissionRepository()->findOneBy(array('title' => $title));
         $worker = $this->getRepository('worker')->findOneBy(array('lastname' => $lastname));
 
-        $mission->addWorkers($worker);
+        $mission->addWorker($worker);
         $this->persistAndFlush($mission);
     }
 
