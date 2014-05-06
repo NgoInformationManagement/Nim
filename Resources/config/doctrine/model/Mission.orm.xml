@@ -17,6 +17,6 @@ file that was distributed with this source code.
 >
 
     <mapped-superclass name="NIM\CoreBundle\Model\Mission" table="nim_mission">
-        <many-to-many field="workers" mapped-by="missions" target-entity="NIM\WorkerBundle\Model\Core\WorkerInterface" />
+        <many-to-many field="workers" mapped-by="missions" target-entity="NIM\WorkerBundle\Model\WorkerInterface" />
     </mapped-superclass>
 </doctrine-mapping>

@@ -49,6 +49,12 @@ class WorkerSubscriberSpec extends ObjectBehavior
         $event->getForm()->willReturn($builder);
 
         $builder
+            ->add('contacts', 'collection',  Argument::any())
+            ->shouldBeCalled()
+            ->willReturn($builder)
+        ;
+
+        $builder
             ->add('missions', 'nim_entity_mission',  Argument::any())
             ->shouldBeCalled()
             ->willReturn($builder)
@@ -67,11 +73,7 @@ class WorkerSubscriberSpec extends ObjectBehavior
         ;
 
         $builder
-            ->add('vaccines', 'entity',  array(
-                'class' => 'NIMVaccineBundle:Vaccine',
-                'multiple' => true,
-                'expanded' => true,
-            ))
+            ->add('vaccines', 'nim_entity_vaccine', Argument::any())
             ->shouldBeCalled()
             ->willReturn($builder)
         ;

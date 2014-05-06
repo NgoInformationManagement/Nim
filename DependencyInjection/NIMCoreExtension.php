@@ -31,11 +31,13 @@ class NIMCoreExtension extends AbstractResourceExtension
      */
     public function load(array $configs, ContainerBuilder $container)
     {
-        $this->configure(
-            $configs,
-            new Configuration(),
-            $container,
-            self::CONFIGURE_LOADER | self::CONFIGURE_DATABASE | self::CONFIGURE_PARAMETERS
-        );
+        $configuration = new Configuration();
+        $config = $this->processConfiguration($configuration, $configs);
+        $loader = new XmlFileLoader($container, new FileLocator($this->getConfigurationDirectory()));
+        $driver = $config['driver'];
+
+        $this->loadConfigurationFile($this->configFiles, $loader);
+        $container->setParameter('nim_core.driver', $driver);
+        $container->setParameter('nim_core.driver.'.$driver, true);
     }
 }

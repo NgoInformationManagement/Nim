@@ -11,11 +11,18 @@
 
 namespace NIM\CoreBundle\Model;
 
-use \NIM\MissionBundle\Model\Mission as BaseMission;
+use Doctrine\Common\Collections\ArrayCollection;
+use NIM\MissionBundle\Model\Mission as BaseMission;
 use NIM\WorkerBundle\Model\WorkerInterface;
 
 class Mission extends BaseMission
 {
+    protected $workers;
+
+    public function __construct()
+    {
+        $this->workers = new ArrayCollection();
+    }
 
     /**
      * @param mixed $workers

@@ -18,6 +18,14 @@ use \NIM\WorkerBundle\Model\Worker as BaseWorker;
 
 class Worker extends BaseWorker
 {
+    protected $missions;
+    protected $vaccines;
+
+    public function __construct()
+    {
+        $this->missions = new ArrayCollection();
+        $this->vaccines = new ArrayCollection();
+    }
 
     /**
      * @param mixed $missions
@@ -56,6 +64,14 @@ class Worker extends BaseWorker
         if ($this->getMissions()->contains($mission)) {
             $this->getMissions()->removeElement($mission);
         }
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasMissions()
+    {
+        return !$this->getMissions()->isEmpty();
     }
 
     /**

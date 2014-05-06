@@ -32,39 +32,6 @@ class Configuration implements ConfigurationInterface
             ->end()
         ;
 
-        $this->addClassesSection($rootNode);
-
         return $treeBuilder;
-    }
-
-    /**
-     * Adds `classes` section.
-     *
-     * @param ArrayNodeDefinition $node
-     */
-    private function addClassesSection(ArrayNodeDefinition $node)
-    {
-        $node
-            ->children()
-                ->arrayNode('classes')
-                ->addDefaultsIfNotSet()
-                    ->children()
-                    ->arrayNode('mission')
-                        ->addDefaultsIfNotSet()
-                        ->children()
-                            ->scalarNode('model')->defaultValue('NIM\\CoreBundle\\Model\\Mission')->end()
-                            ->scalarNode('controller')->defaultValue('Sylius\Bundle\ResourceBundle\Controller\ResourceController')->end()
-                        ->end()
-                    ->end()
-                    ->arrayNode('worker')
-                        ->addDefaultsIfNotSet()
-                        ->children()
-                            ->scalarNode('model')->defaultValue('NIM\\WorkerBundle\\Model\\Worker')->end()
-                            ->scalarNode('controller')->defaultValue('Sylius\Bundle\ResourceBundle\Controller\ResourceController')->end()
-                        ->end()
-                    ->end()
-                ->end()
-            ->end()
-        ;
     }
 }

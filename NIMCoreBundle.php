@@ -30,9 +30,12 @@ class NIMCoreBundle extends Bundle
      */
     public function build(ContainerBuilder $container)
     {
-        $container->addCompilerPass(DoctrineOrmMappingsPass::createXmlMappingDriver(
-            array(realpath(__DIR__ . '/Resources/config/doctrine/model') => 'NIM\CoreBundle\Model'),
-            array('doctrine.orm.entity_manager'), 'nim_core.driver.doctrine/orm')
+        $container->addCompilerPass(
+            DoctrineOrmMappingsPass::createXmlMappingDriver(
+                array(realpath(__DIR__ . '/Resources/config/doctrine/model') => 'NIM\CoreBundle\Model'),
+                array('doctrine.orm.entity_manager'),
+                'nim_core.driver.doctrine/orm'
+            )
         );
     }
 }
