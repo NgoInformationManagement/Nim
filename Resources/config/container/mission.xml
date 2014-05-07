@@ -32,6 +32,7 @@ http://symfony.com/schema/dic/services/services-1.0.xsd">
 
         <!-- Mission Entity Form -->
         <service id="nim.form.type.entity.mission" class="%nim.form.type.mission.entity.class%">
+            <argument type="string">%nim.model.mission.class%</argument>
             <call method="setValidationGroups">
                 <argument>%nim.validation_group.mission%</argument>
             </call>

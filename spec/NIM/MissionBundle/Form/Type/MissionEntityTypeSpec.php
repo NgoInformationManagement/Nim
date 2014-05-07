@@ -16,6 +16,11 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class MissionEntityTypeSpec extends ObjectBehavior
 {
+    public function let()
+    {
+        $this->beConstructedWith('\Model\Mission');
+    }
+
     public function it_is_initializable()
     {
         $this->shouldHaveType('NIM\MissionBundle\Form\Type\MissionEntityType');
@@ -32,7 +37,7 @@ class MissionEntityTypeSpec extends ObjectBehavior
         ))->shouldBeCalled();
 
         $resolver->setDefaults(array(
-            'class' => 'NIM\MissionBundle\Model\Mission',
+            'class' => '\Model\Mission',
             'expanded' => true,
             'multiple' => true,
             'property' => 'EntityFormTypeData'

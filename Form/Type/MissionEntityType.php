@@ -16,12 +16,22 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class MissionEntityType extends ResourceBaseType
 {
+    /**
+     * @var string
+     */
+    private $missionModel;
+
+    public function __construct($missionModel)
+    {
+        $this->missionModel = $missionModel;
+    }
+
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         parent::setDefaultOptions($resolver);
 
         $resolver->setDefaults(array(
-            'class' => 'NIM\MissionBundle\Model\Mission',
+            'class' => $this->missionModel,
             'expanded' => true,
             'multiple' => true,
             'property' => 'EntityFormTypeData',
