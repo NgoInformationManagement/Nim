@@ -37,7 +37,7 @@ Feature: Worker
             | Earthquake in Pakistan  | Earthquake in Pakistan in 2005     | PA      | 2005-09-31 | 2006-10-01 |
             | Earthquake in Mexico    | Earthquake in Mexico in 2000       | ME      | 2000-10-01 | 2000-11-11 |
             | Earthquake in Iran      | Earthquake in Iran in 1989         | ME      | 1989-01-31 | 1989-02-11 |
-          And There are following vaccines:
+          And There are following vaccine:
             | title   | description            |
             | Measles | Description of measles |
             | Rage    | Description of rage    |
@@ -149,7 +149,7 @@ Feature: Worker
          And I click "Mission"
          And I should see "Earthquake in Indonesia"
          And I should see "Earthquake in Mexico"
-         And I click "Vaccines"
+         And I click "Vaccinations"
          And I should see "Rage"
          And I should see "Mumps"
 
@@ -226,7 +226,7 @@ Feature: Worker
          And I fill in "Country" in the item #1 of the visa collection with "Niger"
          And I fill in "Length" in the item #1 of the visa collection with "3"
          And I fill in "Started at" in the item #1 of the visa collection with "02/11/2005"
-         And I click "Vaccines"
+         And I click "Vaccinations"
          And I check "Rage"
          And I press "Update"
         Then I should be on the page of worker which has "Anglade" as lastname

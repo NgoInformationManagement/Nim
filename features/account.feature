@@ -7,20 +7,21 @@ Feature: User account profile edition
     Background:
       Given I am logged in as administrator
 
-  Scenario: Accessing mission details
-     Given I am on my account profile edition page
-      Then I should see "admin"
-       And I should see "admin@admin.fr"
+
+    Scenario: Accessing mission details
+      Given I am on my account profile edition page
+       Then I should see "admin"
+        And I should see "admin@admin.fr"
 
     @javascript
     Scenario: Editing my information with a blank data
-      Given I am on my account profile edition page
+      Given I wait 1000 microseconds
+        And I am on my account profile edition page
         And I follow "Edit profil"
        When I leave "Email" empty
         And I leave "Username" empty
         And I leave "Current password" empty
         And I press "Update"
-
        Then I should still be on my account profile edition page
         And I should see "Please enter an email"
         And I should see "Please enter a username"
@@ -28,7 +29,8 @@ Feature: User account profile edition
 
     @javascript
     Scenario: Editing my information with an invalid email
-      Given I am on my account profile edition page
+      Given I wait 1000 microseconds
+        And I am on my account profile edition page
         And I follow "Edit profil"
        When I fill in "Email" with "wrongemail"
         And I fill in "Username" with "John"
@@ -39,7 +41,8 @@ Feature: User account profile edition
 
     @javascript
     Scenario: Successfully editing my personal information
-      Given I am on my account profile edition page
+      Given I wait 1000 microseconds
+        And I am on my account profile edition page
         And I follow "Edit profil"
        When I fill in "Email" with "johndoe@example.com"
         And I fill in "Username" with "John"
@@ -48,9 +51,10 @@ Feature: User account profile edition
        Then I should be on my account profile page
         And I should see "The profile has been updated"
 
-     @javascript
-     Scenario: I go back to the detail page
-      Given I am on my account profile edition page
+    @javascript
+    Scenario: I go back to the detail page
+      Given I wait 1000 microseconds
+        And I am on my account profile edition page
         And I follow "Edit profil"
         And I follow "Back"
        Then I should be on my account profile page

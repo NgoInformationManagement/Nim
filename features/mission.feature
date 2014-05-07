@@ -142,5 +142,4 @@ Feature: Missions
         When I click "French"
         Then I should see "Tremblement de terre en Indonesie"
          And I should see "Tremblement de terre en Indonesie en 2006"
-#      And I wait 100000000000
          And I should see "Arnaud Langlade"
