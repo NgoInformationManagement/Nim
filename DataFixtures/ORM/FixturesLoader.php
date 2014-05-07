@@ -35,7 +35,6 @@ class FixturesLoader extends DataFixtureLoader
      */
     protected $faker;
 
-
     public function __construct()
     {
         $this->faker = FakerFactory::create();

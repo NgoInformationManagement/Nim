@@ -122,4 +122,4 @@ class Worker extends BaseWorker
             $this->getVaccines()->removeElement($vaccine);
         }
     }
-} 
+}

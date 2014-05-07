@@ -14,12 +14,6 @@ namespace spec\NIM\CoreBundle\Model;
 use Doctrine\Common\Collections\ArrayCollection;
 use NIM\MissionBundle\Model\Mission;
 use NIM\VaccineBundle\Model\Vaccine;
-use NIM\WorkerBundle\Model\Agency;
-use NIM\WorkerBundle\Model\Contact;
-use NIM\WorkerBundle\Model\Email;
-use NIM\WorkerBundle\Model\Passport;
-use NIM\WorkerBundle\Model\Phone;
-use NIM\WorkerBundle\Model\Visa;
 use PhpSpec\ObjectBehavior;
 
 class WorkerSpec extends ObjectBehavior

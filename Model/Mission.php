@@ -65,4 +65,4 @@ class Mission extends BaseMission
     {
         return $this->workers;
     }
-} 
+}

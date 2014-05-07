@@ -3,7 +3,6 @@
 namespace spec\NIM\CoreBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use NIM\MissionBundle\Model\MissionTranslation;
 use NIM\WorkerBundle\Model\Worker;
 use PhpSpec\ObjectBehavior;
 
