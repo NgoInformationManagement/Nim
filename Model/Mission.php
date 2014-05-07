@@ -21,6 +21,8 @@ class Mission extends BaseMission
 
     public function __construct()
     {
+        parent::__construct();
+
         $this->workers = new ArrayCollection();
     }
 

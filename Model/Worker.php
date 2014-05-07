@@ -23,6 +23,8 @@ class Worker extends BaseWorker
 
     public function __construct()
     {
+        parent::__construct();
+
         $this->missions = new ArrayCollection();
         $this->vaccines = new ArrayCollection();
     }
