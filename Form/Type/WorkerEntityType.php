@@ -17,6 +17,16 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class WorkerEntityType extends ResourceBaseType
 {
     /**
+     * @var string
+     */
+    private $workerModel;
+
+    public function __construct($workerModel)
+    {
+        $this->workerModel = $workerModel;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
@@ -24,7 +34,7 @@ class WorkerEntityType extends ResourceBaseType
         parent::setDefaultOptions($resolver);
 
         $resolver->setDefaults(array(
-            'class' => 'NIM\WorkerBundle\Model\Worker',
+            'class' => $this->workerModel,
             'expanded' => true,
             'multiple' => true,
             'property' => 'EntityFormTypeData'

@@ -16,6 +16,11 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class WorkerEntityTypeSpec extends ObjectBehavior
 {
+    public function let()
+    {
+        $this->beConstructedWith('\Model\Worker');
+    }
+
     public function it_is_initializable()
     {
         $this->shouldHaveType('NIM\WorkerBundle\Form\Type\WorkerEntityType');
@@ -32,7 +37,7 @@ class WorkerEntityTypeSpec extends ObjectBehavior
         ))->shouldBeCalled();
 
         $resolver->setDefaults(array(
-            'class' => 'NIM\WorkerBundle\Model\Worker',
+            'class' => '\Model\Worker',
             'expanded' => true,
             'multiple' => true,
             'property' => 'EntityFormTypeData'
