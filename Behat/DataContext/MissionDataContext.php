@@ -12,7 +12,6 @@
 namespace NIM\WebBundle\Behat\DataContext;
 
 use Behat\Gherkin\Node\TableNode;
-use Doctrine\Common\Collections\ArrayCollection;
 use NIM\MissionBundle\Model\Mission;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 

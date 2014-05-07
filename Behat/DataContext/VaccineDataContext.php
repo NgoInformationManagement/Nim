@@ -12,7 +12,6 @@
 namespace NIM\WebBundle\Behat\DataContext;
 
 use Behat\Gherkin\Node\TableNode;
-use Doctrine\Common\Collections\ArrayCollection;
 use NIM\VaccineBundle\Model\Vaccine;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
