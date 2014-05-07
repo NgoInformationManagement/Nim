@@ -1,3 +1,4 @@
+@agency
 Feature: Agency
     In order to create agency
     As a administrator

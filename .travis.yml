@@ -8,10 +8,6 @@ addons:
     hosts:
         - nim.dev
 
-matrix:
-    allow_failure:
-        - php: 5.5
-
 before_install:
     - sudo apt-get update > /dev/null
 
@@ -21,7 +17,7 @@ install:
   - sudo sed -i -e "/DocumentRoot/i\ServerName nim.dev" /etc/apache2/sites-available/default
   - sudo sed -i -e "s/export APACHE_RUN_USER=.*/export APACHE_RUN_USER=travis/ ; s/export APACHE_RUN_GROUP=.*/export APACHE_RUN_GROUP=travis/" /etc/apache2/envvars
   - sudo chown -R travis:travis /var/lock/apache2
-  - curl http://selenium.googlecode.com/files/selenium-server-standalone-2.37.0.jar > selenium.jar
+  - curl http://selenium.googlecode.com/files/selenium-server-standalone-2.41.0.jar > selenium.jar
   - sudo /etc/init.d/apache2 restart
 
 before_script:
@@ -44,6 +40,8 @@ before_script:
 
 script:
   - php -d memory_limit=2048M bin/behat --no-snippets --no-paths --verbose --tags '@agency'
+  - php -d memory_limit=2048M bin/behat --no-snippets --no-paths --verbose --tags '@dashboard'
+  - php -d memory_limit=2048M bin/behat --no-snippets --no-paths --verbose --tags '@vaccine'
   - php -d memory_limit=2048M bin/behat --no-snippets --no-paths --verbose --tags '@worker'
   - php -d memory_limit=2048M bin/behat --no-snippets --no-paths --verbose --tags '@account'
   - php -d memory_limit=2048M bin/behat --no-snippets --no-paths --verbose --tags '@mission'
