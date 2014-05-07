@@ -4,7 +4,6 @@ namespace spec\NIM\MissionBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use NIM\MissionBundle\Model\MissionTranslation;
-use NIM\WorkerBundle\Model\Worker;
 use PhpSpec\ObjectBehavior;
 
 class MissionSpec extends ObjectBehavior
