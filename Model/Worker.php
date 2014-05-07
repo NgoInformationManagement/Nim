@@ -14,7 +14,6 @@ namespace NIM\WorkerBundle\Model;
 use \Doctrine\Common\Collections\ArrayCollection;
 use NIM\FormBundle\Model\Core\EntityFormTypeInterface;
 use NIM\FormBundle\Model\Core\SoftDeletableTrait;
-use NIM\WorkerBundle\Model\WorkerInterface;
 
 class Worker extends AbstractPerson implements WorkerInterface, EntityFormTypeInterface
 {
@@ -314,7 +313,6 @@ class Worker extends AbstractPerson implements WorkerInterface, EntityFormTypeIn
             $this->getVisas()->removeElement($visa);
         }
     }
-
 
     /**
      * @return array

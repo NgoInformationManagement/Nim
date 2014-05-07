@@ -12,7 +12,6 @@
 namespace NIM\WorkerBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use NIM\WorkerBundle\Model\Agency;
 use Sylius\Component\Resource\Model\SoftDeletableInterface;
 use Sylius\Component\Resource\Model\TimestampableInterface;
 

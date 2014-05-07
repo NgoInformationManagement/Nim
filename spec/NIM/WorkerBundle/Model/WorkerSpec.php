@@ -12,8 +12,6 @@
 namespace spec\NIM\WorkerBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use NIM\MissionBundle\Model\Mission;
-use NIM\VaccineBundle\Model\Vaccine;
 use NIM\WorkerBundle\Model\Agency;
 use NIM\WorkerBundle\Model\Contact;
 use NIM\WorkerBundle\Model\Email;

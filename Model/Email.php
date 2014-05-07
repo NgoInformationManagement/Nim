@@ -13,7 +13,6 @@ namespace NIM\WorkerBundle\Model;
 
 use NIM\FormBundle\Model\Core\SoftDeletableTrait;
 use NIM\FormBundle\Model\Core\TimestampableTrait;
-use NIM\WorkerBundle\Model\EmailInterface;
 
 class Email implements EmailInterface
 {

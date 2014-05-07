@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\NIM\WorkerBundle\Form\EventListener;
+namespace spec\NIM\WorkerBundle\EventListener;
 
 use NIM\WorkerBundle\Model\Worker;
 use PhpSpec\ObjectBehavior;
@@ -18,11 +18,11 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\Test\FormBuilderInterface;
 
-class WorkerSubscriberSpec extends ObjectBehavior
+class WorkerSubcriberSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('NIM\WorkerBundle\Form\EventListener\WorkerSubscriber');
+        $this->shouldHaveType('NIM\WorkerBundle\EventListener\WorkerSubscriber');
     }
 
     public function it_sould_implement()
