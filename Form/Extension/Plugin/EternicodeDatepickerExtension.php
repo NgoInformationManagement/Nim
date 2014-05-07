@@ -11,7 +11,6 @@
 
 namespace NIM\FormBundle\Form\Extension\Plugin;
 
-use NIM\FormBundle\Form\Extension\Plugin\AbstractPluginExtension;
 use NIM\FormBundle\Form\FormToolsTrait;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;

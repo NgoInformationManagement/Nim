@@ -11,8 +11,6 @@
 
 namespace NIM\FormBundle\Form\Extension\Plugin;
 
-use NIM\FormBundle\Form\Extension\Plugin\AbstractPluginExtension;
-
 class MjolnicColorpickerExtension extends AbstractPluginExtension
 {
     /**

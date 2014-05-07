@@ -21,7 +21,7 @@ trait FormToolsTrait
      * @param FormView $view
      * @param array    $options
      * @param $optionName
-     * @param null $prefix
+     * @param null     $prefix
      */
     private function addDataAttributeToFormViewFromOptions(FormView $view, array $options, $optionName, $prefix = null)
     {

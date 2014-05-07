@@ -18,4 +18,4 @@ interface EntityFormTypeInterface
      * @return array
      */
     public function getEntityFormTypeData();
-} 
+}
