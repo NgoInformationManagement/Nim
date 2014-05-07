@@ -17,7 +17,9 @@ file that was distributed with this source code.
                   xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
 >
 
-    <mapped-superclass name="NIM\CoreBundle\Model\Worker" table="nim_worker">
+    <mapped-superclass name="NIM\CoreBundle\Model\Worker"
+                       table="nim_worker"
+                       repository-class="NIM\WorkerBundle\Repository\WorkerRepository">
         <many-to-many field="missions" inversed-by="workers" target-entity="NIM\MissionBundle\Model\MissionInterface">
             <join-table name="nim_worker_mission">
                 <join-columns>
