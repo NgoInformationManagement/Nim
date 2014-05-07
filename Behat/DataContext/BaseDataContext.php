@@ -38,7 +38,12 @@ trait BaseDataContext
      */
     public function thereAreNoResources($type)
     {
-        $type = str_replace(' ', '_', StringUtil::singularify($type));
+        if ($type == 'vaccines') {
+            $type = 'vaccine';
+        } else {
+            $type = str_replace(' ', '_', StringUtil::singularify($type));
+        }
+
         $manager = $this->getEntityManager();
 
         foreach ($this->getRepository($type)->findAll() as $resource) {

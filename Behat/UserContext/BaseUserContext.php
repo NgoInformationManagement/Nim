@@ -131,7 +131,7 @@ trait BaseUserContext
     }
 
     /**
-     * @Given /^I wait (\d+)$/
+     * @Given /^I wait (\d+) microseconds$/
      */
     public function iWait($time)
     {

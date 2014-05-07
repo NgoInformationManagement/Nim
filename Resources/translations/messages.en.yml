@@ -96,7 +96,7 @@ vaccine:
     button:
         new: New vaccine
     message:
-        empty: There are no mission to display.
+        empty: There are no vaccine to display.
     field:
         translation:
             label: Translation
@@ -160,7 +160,7 @@ worker:
         contact : Contact persons
         immigration: Immigration
         mission: Missions accomplished
-        vaccine: Vaccines
+        vaccine: Vaccinations
     title:
         create: New worker
         update: Update the worker
