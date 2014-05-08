@@ -6,13 +6,13 @@ var NIM = NIM || {};
 /**
  * Action toolbar
  */
-NIM.Toolbar = {
+NIM.Header = {
     submitForm: function(formId) {
         $(formId).submit();
     }
 };
 
-$.Kortex.ObjectContainer.register('toolbar', NIM.Toolbar);
+$.Kortex.ObjectContainer.register('header', NIM.Header);
 
 
 // Confirmation modal

@@ -40,7 +40,7 @@
     </head>
     <body>
         {% block body %}
-        <header class="navbar-fixed-top">
+        <header class="navbar-fixed-top" data-controller="header">
             <nav role="navigation" class="navbar-inverse">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -74,6 +74,7 @@
                                 </ul>
                             </li>
                         </ul>
+                        {{ render(controller('NIMWebBundle:Locale:index')) }}
                         {% endblock user_menu %}
 
                         <ul class="nav navbar-nav" role="menu">
@@ -123,7 +124,7 @@
                         {% endblock page_name %}
                     </h1>
 
-                    <nav id="action-menu" class="col-md-4 text-right actionButton" data-controller="toolbar">
+                    <nav id="action-menu" class="col-md-4 text-right actionButton">
                         {% block page_action %}{% endblock page_action %}
                     </nav>
                 </div>
