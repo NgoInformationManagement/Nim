@@ -26,7 +26,7 @@ file that was distributed with this source code.
             <gedmo:translatable/>
         </field>
 
-        <field name="description" nullable="true">
+        <field name="description" type="text" nullable="true">
             <gedmo:translatable/>
         </field>
 
