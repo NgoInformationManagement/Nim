@@ -4,7 +4,7 @@
         {% set attr = attr | merge({'class' :  attr.class|default ~ ' tab-content row'}) %}
         <div {{ block('widget_container_attributes') }}>
             {% for child in form %}
-                <div class="col-lg-3">
+                <div class="col-lg-3 choice-entity-block">
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <label class="expanded-choice-label">
@@ -34,7 +34,7 @@
         {% set attr = attr | merge({'class' :  attr.class|default ~ ' tab-content row'}) %}
         <div {{ block('widget_container_attributes') }}>
             {% for child in form %}
-                <div class="col-lg-3">
+                <div class="col-lg-3 choice-entity-block">
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <label class="expanded-choice-label">
@@ -61,7 +61,7 @@
         {% set attr = attr | merge({'class' :  attr.class|default ~ ' tab-content row'}) %}
         <div {{ block('widget_container_attributes') }}>
             {% for child in form %}
-                <div class="col-lg-3">
+                <div class="col-lg-3 choice-entity-block">
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <label class="expanded-choice-label">
@@ -69,7 +69,7 @@
                                     {{ child.vars.label.title }}
                                 </p>
                                 <p>
-                                    {{ child.vars.label.description }}
+                                    {{ child.vars.label.description|truncate(200, true, '...') }}
                                 </p>
                                 <p class="text-right">
                                     {{ form_widget(child) }}

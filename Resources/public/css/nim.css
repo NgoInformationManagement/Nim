@@ -145,7 +145,7 @@ ul.form-type-legend, ul.form-type-errors {
     padding: 0;
 }
 
-div.collection-item {
+div.collection-item, div.choice-entity-block {
     display: inline-block;
     float: none;
     vertical-align: top;

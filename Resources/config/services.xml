@@ -38,6 +38,10 @@ file that was distributed with this source code.
             <tag name="twig.extension" />
         </service>
 
+        <service id="twig.extension.text" class="Twig_Extensions_Extension_Text">
+            <tag name="twig.extension" />
+        </service>
+
         <!-- Select2 extension -->
         <!--<service id="nim.form.extension.select2"-->
                  <!--class="%nim.form.extension.select2.class%">-->
