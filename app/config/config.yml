@@ -98,7 +98,7 @@ fos_user:
 
 # A2lix Translation Form configuration
 a2lix_translation_form:
-    locales: [fr, es, en]
+    locales: %nim_locales%
     templating: NIMWebBundle:I18n:form.html.twig
 
 # NiM mission configuration
