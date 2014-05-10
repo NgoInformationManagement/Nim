@@ -15,6 +15,7 @@ file that was distributed with this source code.
 http://symfony.com/schema/dic/services/services-1.0.xsd">
     <parameters>
         <parameter key="nim.form.type.mission.entity.class">NIM\MissionBundle\Form\Type\MissionEntityType</parameter>
+        <parameter key="nim.form.type.filter.mission.class">NIM\MissionBundle\Form\Type\FilterType</parameter>
     </parameters>
 
     <services>
@@ -37,6 +38,11 @@ http://symfony.com/schema/dic/services/services-1.0.xsd">
                 <argument>%nim.validation_group.mission%</argument>
             </call>
             <tag name="form.type" alias="nim_entity_mission"/>
+        </service>
+
+        <!-- Mission Filter Form -->
+        <service id="nim.form.type.filter.mission" class="%nim.form.type.filter.mission.class%">
+            <tag name="form.type" alias="nim_filter_mission"/>
         </service>
     </services>
 </container>
