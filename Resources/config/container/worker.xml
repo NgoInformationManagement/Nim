@@ -16,11 +16,12 @@ file that was distributed with this source code.
         >
     <parameters>
         <parameter key="nim.form.type.worker.entity.class">NIM\WorkerBundle\Form\Type\WorkerEntityType</parameter>
+        <parameter key="nim.form.type.filter.worker.class">NIM\WorkerBundle\Form\Type\Filter\WorkerType</parameter>
         <parameter key="nim.form.subscriber.worker.class">NIM\WorkerBundle\Form\EventListener\WorkerSubscriber</parameter>
     </parameters>
 
     <services>
-        <service id="nim.form.subscriber.worker" class="%nim.form.Subscriber.worker.class%" />
+        <service id="nim.form.subscriber.worker" class="%nim.form.subscriber.worker.class%" />
 
         <!-- Worker Form -->
         <service id="nim.form.type.worker" class="%nim.form.type.worker.class%">
@@ -41,6 +42,11 @@ file that was distributed with this source code.
                 <argument>%nim.validation_group.worker%</argument>
             </call>
             <tag name="form.type" alias="nim_entity_worker"/>
+        </service>
+
+        <!-- Worker Filter Form -->
+        <service id="nim.form.type.filter.worker" class="%nim.form.type.filter.worker.class%">
+            <tag name="form.type" alias="nim_filter_worker"/>
         </service>
     </services>
 </container>

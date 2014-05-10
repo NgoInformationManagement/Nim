@@ -13,8 +13,9 @@ file that was distributed with this source code.
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services
 http://symfony.com/schema/dic/services/services-1.0.xsd">
-
-
+    <parameters>
+        <parameter key="nim.form.type.filter.agency.class">NIM\WorkerBundle\Form\Type\Filter\AgencyType</parameter>
+    </parameters>
 
     <services>
         <!-- Agency Form -->
@@ -26,6 +27,11 @@ http://symfony.com/schema/dic/services/services-1.0.xsd">
                 <argument>%nim.model.agency.class%</argument>
             </call>
             <tag name="form.type" alias="nim_agency" />
+        </service>
+
+        <!-- Agency Filter Form -->
+        <service id="nim.form.type.filter.agency" class="%nim.form.type.filter.agency.class%">
+            <tag name="form.type" alias="nim_filter_agency"/>
         </service>
     </services>
 </container>
