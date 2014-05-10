@@ -19,6 +19,7 @@ file that was distributed with this source code.
         <parameter key="nim.twig.extension.country.class">NIM\FormBundle\Twig\CountryExtension</parameter>
         <parameter key="nim.form.extension.select2.class">NIM\FormBundle\Form\Extension\Plugin\Select2Extension</parameter>
         <parameter key="nim.form.extension.datepicker.class">NIM\FormBundle\Form\Extension\Plugin\EternicodeDatepickerExtension</parameter>
+        <parameter key="nim.controller.form.class">NIM\WebBundle\Controller\FormController</parameter>
     </parameters>
 
     <services>
@@ -40,6 +41,12 @@ file that was distributed with this source code.
 
         <service id="twig.extension.text" class="Twig_Extensions_Extension_Text">
             <tag name="twig.extension" />
+        </service>
+
+        <service id="nim.controller.form" class="%nim.controller.form.class%">
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
         </service>
 
         <!-- Select2 extension -->

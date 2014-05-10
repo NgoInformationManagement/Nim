@@ -22,6 +22,7 @@
 
 
 {% block content %}
+    {% render(controller('nim.controller.form:filterAction', {'type': 'nim_filter_mission', 'path': 'nim_mission_index'})) %}
     {{ pagination(missions) }}
     {{ list(missions) }}
     {{ pagination(missions) }}
