@@ -14,6 +14,7 @@ file that was distributed with this source code.
            xsi:schemaLocation="http://symfony.com/schema/dic/services
                                http://symfony.com/schema/dic/services/services-1.0.xsd">
     <parameters>
+        <parameter key="nim.form.type.filter.vaccine.class">NIM\VaccineBundle\Form\Type\FilterType</parameter>
         <parameter key="nim.form.type.vaccine.entity.class">NIM\VaccineBundle\Form\Type\VaccineEntityType</parameter>
     </parameters>
 
@@ -36,6 +37,11 @@ file that was distributed with this source code.
                 <argument>%nim.validation_group.vaccine%</argument>
             </call>
             <tag name="form.type" alias="nim_entity_vaccine"/>
+        </service>
+
+        <!-- Vaccine Filter Form -->
+        <service id="nim.form.type.filter.vaccine" class="%nim.form.type.filter.vaccine.class%">
+            <tag name="form.type" alias="nim_filter_vaccine"/>
         </service>
     </services>
 </container>
