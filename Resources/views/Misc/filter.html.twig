@@ -2,12 +2,15 @@
       method="GET"
       role="form"
       id="workerCreateForm"
+      data-controller="filter"
       class="form-horizontal panel panel-default"
       novalidate>
-    <div class="panel-heading">
+    <div class="panel-heading filter-header" data-event='{"event":"click", "method":"toggle"}'>
         {{ 'general.filter'|trans }}
     </div>
-    <div class="panel-body">
+    <div class="panel-body"
+         data-toggle="filter"
+         {% if not openPanel %}style="display:none"{% endif %}>
         <div class="row">
             {% for child in form %}
                 <div class="col-lg-3">

@@ -281,3 +281,8 @@ div.collection-list .col-md-6 {
     float: right;
     margin-top: 9px;
 }
+
+/** filter */
+.filter-header {
+    cursor: pointer;
+}

@@ -22,7 +22,11 @@
 
 
 {% block content %}
-    {% render(controller('nim.controller.form:filterAction', {'type': 'nim_filter_vaccine', 'path': 'nim_vaccine_index'})) %}
+    {% render(controller(
+            'nim.controller.form:filterAction',
+            {'type': 'nim_filter_vaccine', 'path': 'nim_vaccine_index', 'request': app.request})
+        )
+    %}
     {{ pagination(vaccines) }}
     {{ list(vaccines) }}
     {{ pagination(vaccines) }}

@@ -22,7 +22,11 @@
 
 
 {% block content %}
-    {% render(controller('nim.controller.form:filterAction', {'type': 'nim_filter_worker', 'path': 'nim_worker_index'})) %}
+    {% render(controller(
+            'nim.controller.form:filterAction',
+            {'type': 'nim_filter_worker', 'path': 'nim_worker_index', 'request': app.request})
+        )
+    %}
     {{ pagination(workers) }}
     {{ list(workers) }}
     {{ pagination(workers) }}

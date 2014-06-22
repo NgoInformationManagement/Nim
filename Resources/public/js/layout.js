@@ -12,7 +12,15 @@ NIM.Header = {
     }
 };
 
+NIM.Filter = {
+    toggle: function() {
+        $('[data-toggle="filter"]').toggle();
+    }
+};
+
+
 $.Kortex.ObjectContainer.register('header', NIM.Header);
+$.Kortex.ObjectContainer.register('filter', NIM.Filter);
 
 
 // Confirmation modal

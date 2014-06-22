@@ -22,7 +22,11 @@
 
 
 {% block content %}
-    {% render(controller('nim.controller.form:filterAction', {'type': 'nim_filter_agency', 'path': 'nim_agency_index'})) %}
+    {% render(controller(
+            'nim.controller.form:filterAction',
+            {'type': 'nim_filter_agency', 'path': 'nim_agency_index', 'request': app.request})
+        )
+    %}
     {{ pagination(agencies) }}
     {{ list(agencies) }}
     {{ pagination(agencies) }}
