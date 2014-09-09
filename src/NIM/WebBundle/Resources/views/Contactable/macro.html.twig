@@ -1,0 +1,35 @@
+{% macro emailList(fieldName, emails, entityName, labelWidth) %}
+    {% set entityName = entityName|default('nim') %}
+    {% set labelWidth = labelWidth|default(2) %}
+
+    <div class="form-group">
+        <label class="col-lg-{{ labelWidth }} control-label">{{ (entityName ~ '.field.' ~ fieldName ~ '.label')|trans }}</label>
+        <div class="col-lg-{{ 12 - labelWidth }}">
+        {% if emails|length > 0 %}
+            {% for email in emails %}
+                <p class="form-control-static">
+                    {{ email.address }}
+                </p>
+            {% endfor %}
+        {% endif %}
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro phoneList(fieldName, phones, entityName, labelWidth) %}
+    {% set entityName = entityName|default('nim') %}
+    {% set labelWidth = labelWidth|default(2) %}
+
+    <div class="form-group">
+        <label class="col-lg-{{ labelWidth }} control-label">{{ (entityName ~ '.field.' ~ fieldName ~ '.label')|trans }}</label>
+        <div class="col-lg-{{ 12 - labelWidth }}">
+            {% if phones|length > 0 %}
+                {% for phone in phones %}
+                    <p class="form-control-static">
+                        {{ phone.type }} : {{ phone.number }}
+                    </p>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endmacro %}

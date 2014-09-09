@@ -1,0 +1,40 @@
+{% extends 'NIMWebBundle::layout.html.twig' %}
+
+{% import 'NIMFormBundle:Bootstrap3:button.html.twig' as buttons %}
+{% import 'NIMWebBundle:Contactable:macro.html.twig' as contactable %}
+{% from 'NIMFormBundle:Bootstrap3:field.html.twig' import field_row %}
+
+
+{% block title %}
+    {{ 'layout.page.title'|trans({'%page_title%' : 'agency.title.show'|trans}) }}
+{% endblock %}
+
+
+{% block page_name %}
+    <i class="icon-rocket"></i>
+    {{ 'agency.title.show'|trans }}
+{% endblock page_name %}
+
+
+{% block page_action %}
+    {{ buttons.back(path('nim_agency_index'), 'button.backToList') }}
+    {{ buttons.edit(path('nim_agency_update', {'id' : agency.id}), 'button.edit') }}
+    {{ buttons.delete(path('nim_agency_delete', {'id' : agency.id}), 'button.delete') }}
+{% endblock page_action %}
+
+
+{% block content %}
+    <div class="row form-horizontal">
+        <div class="col-md-6">
+            {{ field_row('agency.field.name.label', agency.name) }}
+            {{ field_row('agency.field.street.label', agency.street) }}
+            {{ field_row('agency.field.postcode.label', agency.postcode) }}
+            {{ field_row('agency.field.city.label', agency.city) }}
+            {{ field_row('agency.field.country.label', agency.country|country) }}
+        </div>
+        <div class="col-md-6">
+            {{ contactable.emailList('email', agency.emails, 'agency') }}
+            {{ contactable.phoneList('phone', agency.phones, 'agency') }}
+        </div>
+    </div>
+{% endblock %}

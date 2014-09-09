@@ -1,0 +1,167 @@
+{% extends 'NIMWebBundle::layout.html.twig' %}
+
+{% import 'NIMWebBundle:Contactable:macro.html.twig' as contactable %}
+{% import 'NIMFormBundle:Bootstrap3:button.html.twig' as buttons %}
+{% from 'NIMFormBundle:Bootstrap3:field.html.twig' import field_row %}
+{% from 'NIMFormBundle:Bootstrap3:field.html.twig' import date %}
+{% from 'NIMFormBundle:Bootstrap3:field.html.twig' import address %}
+{% from 'NIMFormBundle:Bootstrap3:notification.html.twig' import info %}
+{% from 'NIMFormBundle:Bootstrap3:field.html.twig' import date %}
+
+
+{% block title %}
+    {{ 'layout.page.title'|trans({'%page_title%' : 'mission.title.show'|trans}) }}
+{% endblock %}
+
+
+{% block page_name %}
+    <i class="icon-male"></i>
+    {{ 'worker.title.show'|trans }}
+{% endblock page_name %}
+
+
+{% block page_action %}
+    {{ buttons.back(path('nim_worker_index'), 'button.backToList') }}
+    {{ buttons.edit(path('nim_worker_update', {'id' : worker.id}), 'button.edit') }}
+    {{ buttons.delete(path('nim_worker_delete', {'id' : worker.id}), 'button.delete') }}
+{% endblock page_action %}
+
+
+{% block content %}
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a href="#worker" data-toggle="tab">
+            {{ 'worker.tab.worker'|trans }}
+        </a>
+    </li>
+    <li>
+        <a href="#contact" data-toggle="tab">
+            {{ 'worker.tab.contact'|trans }}
+        </a>
+    </li>
+    <li>
+        <a href="#immigration" data-toggle="tab">
+            {{ 'worker.tab.immigration'|trans }}
+        </a>
+    </li>
+    <li>
+        <a href="#mission" data-toggle="tab">
+            {{ 'worker.tab.mission'|trans }}
+        </a>
+    </li>
+    <li>
+        <a href="#vaccine" data-toggle="tab">
+            {{ 'worker.tab.vaccine'|trans }}
+        </a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="form-horizontal row tab-pane active" id="worker">
+        <fieldset class="col-md-6">
+            <legend>
+                {{ 'worker.fieldset.contactdetails'|trans }}
+                <i class="icon-{{ worker.gender }}"></i>
+            </legend>
+            {{ field_row('worker.field.name.label', worker.firstname ~ ' ' ~ worker.lastname) }}
+            {{ field_row('worker.field.diploma.label', worker.diploma) }}
+            {{ field_row('worker.field.birthday.label', date(worker.birthday)) }}
+            {{ field_row('worker.field.address.label', address(worker.street, worker.postcode, worker.city, worker.country|country)) }}
+            {{ contactable.emailList('email', worker.emails, 'worker') }}
+            {{ contactable.phoneList('phone', worker.phones, 'worker') }}
+        </fieldset>
+        <fieldset class="col-md-6">
+            <legend>{{ 'worker.fieldset.organization'|trans }}</legend>
+            {{ field_row('worker.field.basedAt.label', worker.basedAt) }}
+            {{ field_row('worker.field.function.label', worker.function) }}
+            {{ field_row('worker.field.arrivedAt.label', date(worker.arrivedAt)) }}
+            {{ field_row('worker.field.leftAt.label', date(worker.leftAt)) }}
+        </fieldset>
+
+    </div>
+    <div class="form-horizontal row tab-pane" id="contact">
+        {% if worker.contacts|length > 0 %}
+            {% for contact in worker.contacts %}
+
+        <fieldset class="col-md-6">
+            <legend>{{ 'contact.fieldset.contact'|trans }}</legend>
+                    {{ field_row('contact.field.name.label', contact.firstname ~ ' ' ~ contact.lastname) }}
+                    {{ field_row('contact.field.address.label', address(contact.street, contact.postcode, contact.city, contact.country|country)) }}
+                    {{ contactable.emailList('email', contact.emails, 'contact') }}
+                    {{ contactable.phoneList('phone', contact.phones, 'contact') }}
+        </fieldset>
+            {% endfor %}
+        {% else %}
+            {{ info('contact.message.empty'|trans) }}
+        {% endif %}
+    </div>
+    <div class="form-horizontal row tab-pane" id="immigration">
+        <fieldset class="col-lg-12">
+            <legend>
+                {{ 'worker.field.passport.label'|trans }}
+            </legend>
+            {% for passport in worker.passports %}
+                <div class="col-lg-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            {{ field_row('passport.field.number.label', passport.number|upper, 4) }}
+                            {{ field_row('passport.field.country.label', passport.country|country, 4) }}
+                            {{ field_row('passport.field.dateOfIssue.label', date(passport.dateOfIssue), 4) }}
+                            {{ field_row('passport.field.dateOfExpiry.label', date(passport.dateOfExpiry), 4) }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </fieldset>
+        <fieldset class="col-lg-12">
+            <legend>
+                {{ 'worker.field.visa.label'|trans }}
+            </legend>
+            {% for visa in worker.visas %}
+                <div class="col-lg-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            {{ field_row('visa.field.country.label', visa.country|country, 4) }}
+                            {{ field_row('visa.field.startedAt.label', date(visa.startedAt), 4) }}
+                            {{ field_row('visa.field.length.label', visa.length, 4) }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </fieldset>
+    </div>
+    <div class="form-horizontal row tab-pane" id="mission">
+        <fieldset class="col-lg-12">
+            <legend>
+                {{ 'worker.field.mission.label'|trans }}
+            </legend>
+            {% for mission in worker.missions %}
+                <div class="col-lg-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            {{ field_row('mission.field.title.label', mission.title, 4) }}
+                            {{ field_row('mission.field.startedAt.label', date(mission.startedAt), 4) }}
+                            {{ field_row('mission.field.endedAt.label', date(mission.endedAt), 4) }}
+                            {{ field_row('mission.field.country.label', mission.country|country, 4) }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </fieldset>
+    </div>
+    <div class="form-horizontal row tab-pane" id="vaccine">
+        <fieldset class="col-lg-12">
+            {% for vaccine in worker.vaccines %}
+                <div class="col-lg-3">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            {{ field_row('vaccine.field.title.label', vaccine.title, 4) }}
+                            {{ field_row('vaccine.field.description.label', vaccine.description, 4) }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </fieldset>
+    </div>
+</div>
+{% endblock %}

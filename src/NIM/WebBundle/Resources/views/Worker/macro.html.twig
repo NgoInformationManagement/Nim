@@ -1,0 +1,130 @@
+{% macro list(workers) %}
+
+    {% from 'NIMFormBundle:Bootstrap3:button.html.twig' import listActionButton %}
+    {% from 'NIMFormBundle:Bootstrap3:notification.html.twig' import info %}
+    {% from 'NIMFormBundle:Bootstrap3:field.html.twig' import boolean %}
+
+    {% if workers|length > 0 %}
+        <div class="table-responsive row">
+            <table class="table table-bordered table-hover">
+                <colgroup>
+                    <col width="20%">
+                    <col width="15%">
+                    <col>
+                    <col width="20%">
+                    <col width="10%">
+                    <col width="40px">
+                    <col width="40px">
+                    <col width="40px">
+                    <col>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>{{ sylius_resource_sort('lastname', 'person.name'|trans) }}</th>
+                        <th>{{ sylius_resource_sort('function', 'worker.field.function.label'|trans) }}</th>
+                        <th>{{ 'addressing.address'|trans }}</th>
+                        <th>{{ sylius_resource_sort('basedAt', 'worker.field.basedAt.label'|trans) }}</th>
+                        <th>{{ sylius_resource_sort('arrivedAt', 'worker.field.arrivedAt.label'|trans) }}</th>
+                        <th>{{ 'worker.field.contact.label'|trans }}</th>
+                        <th>{{ 'worker.field.passport.label'|trans }}</th>
+                        <th>{{ 'worker.field.vaccine.label'|trans }}</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for worker in workers %}
+                    <tr>
+                        <td class="worker-name">
+                            <p class="col-md-11">{{ worker.lastname }} {{ worker.firstname }}</p>
+                            <i class="icon-{{ worker.gender }}"></i>
+                        </td>
+                        <td>{{ worker.function }}</td>
+                        <td>{{ worker.street }} {{ worker.postcode }} {{ worker.city }}</td>
+                        <td>{{ worker.basedAt }}</td>
+                        <td>{{ worker.arrivedAt|localizeddate('long', 'none') }}</td>
+                        <td class="text-center">
+                            {{
+                                boolean(
+                                    worker.hasContacts,
+                                    path('nim_worker_show', {'id' : worker.id}),
+                                    path('nim_worker_update', {'id' : worker.id})
+                                )
+                            }}
+                        </td>
+                        <td class="text-center">
+                            {{
+                                boolean(
+                                    worker.hasPassports,
+                                    path('nim_worker_show', {'id' : worker.id}),
+                                    path('nim_worker_update', {'id' : worker.id})
+                                )
+                            }}
+                        </td>
+                        <td class="text-center">
+                            {{
+                                boolean(
+                                    worker.hasVaccines,
+                                    path('nim_worker_show', {'id' : worker.id}),
+                                    path('nim_worker_update', {'id' : worker.id})
+                                )
+                            }}
+                        </td>
+                        <td>
+                            {{ listActionButton('nim_worker', worker.id)  }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        {{ info('worker.message.empty') }}
+    {% endif %}
+{% endmacro %}
+
+
+{% macro latest(workers) %}
+    {% import 'NIMFormBundle:Bootstrap3:button.html.twig' as buttons %}
+    {% from 'NIMFormBundle:Bootstrap3:notification.html.twig' import info %}
+
+    {% if workers|length > 0 %}
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover" id="workers">
+                <colgroup>
+                    <col width="30%">
+                    <col width="30%">
+                    <col width="20%">
+                    <col width="10%">
+                    <col>
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>{{ 'person.name'|trans }}</th>
+                    <th>{{ 'worker.field.function.label'|trans }}</th>
+                    <th>{{ 'worker.field.basedAt.label'|trans }}</th>
+                    <th>{{ 'worker.field.arrivedAt.label'|trans }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for worker in workers %}
+                    <tr>
+                        <td class="worker-name">
+                            <p class="col-md-11">{{ worker.lastname }} {{ worker.firstname }}</p>
+                            <i class="icon-{{ worker.gender }}"></i>
+                        </td>
+                        <td>{{ worker.function }}</td>
+                        <td>{{ worker.basedAt }}</td>
+                        <td>{{ worker.arrivedAt|localizeddate('long', 'none') }}</td>
+                        <td>
+                            {{ buttons.show(path('nim_worker_show', {'id': worker.id}), null, 'tooltip.show') }}
+                            {{ buttons.edit(path('nim_worker_update', {'id': worker.id}), null, 'tooltip.edit') }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        {{ info('worker.message.empty') }}
+    {% endif %}
+{% endmacro %}

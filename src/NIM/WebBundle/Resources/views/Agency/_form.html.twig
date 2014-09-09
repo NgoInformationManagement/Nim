@@ -1,0 +1,54 @@
+<ul class="nav nav-tabs">
+    <li class="active" >
+        <a href="#agency"
+           data-toggle="tab"
+           {% if not form.vars.valid %}class="text-danger"{% endif %}>
+            {{ 'agency.tab.agency'|trans }}
+            {% if not form.vars.valid %}
+                <i class="icon-exclamation-sign"></i>
+            {% endif %}
+        </a>
+    </li>
+    <li>
+        <a href="#worker"
+           data-toggle="tab"
+           {% if not form.vars.valid %}class="text-danger"{% endif %}>
+            {{ 'agency.tab.worker'|trans }}
+            {% if not form.vars.valid %}
+                <i class="icon-exclamation-sign"></i>
+            {% endif %}
+        </a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class=" tab-pane active" id="agency">
+        <fieldset class="form-horizontal">
+            <legend>
+                {{ 'agency.fieldset.contactdetails'|trans }}
+            </legend>
+            <div class="col-md-6">
+                {{ form_row(form.name) }}
+                {{ form_row(form.street) }}
+                {{ form_row(form.postcode) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(form.city) }}
+                {{ form_row(form.country) }}
+            </div>
+        </fieldset>
+
+        <div class="row">
+            <div class="col-md-6">
+                {{ form_widget(form.emails) }}
+            </div>
+            <div class="col-md-6 form-inline">
+                {{ form_widget(form.phones) }}
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane" id="worker">
+        {{ form_widget(form.workers) }}
+    </div>
+</div>
+{{ form_rest(form) }}

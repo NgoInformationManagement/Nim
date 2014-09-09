@@ -1,0 +1,33 @@
+{% extends 'NIMWebBundle::layout.html.twig' %}
+
+{% import 'NIMFormBundle:Bootstrap3:button.html.twig' as buttons %}
+{% from 'NIMFormBundle:Bootstrap3:pagination/resource_bundle.html.twig' import pagination %}
+{% from 'NIMWebBundle:Worker:macro.html.twig' import list %}
+
+
+{% block title %}
+    {{ 'layout.page.title'|trans({'%page_title%' : 'mission.title.index'|trans}) }}
+{% endblock %}
+
+
+{% block page_name %}
+    <i class="icon-male"></i>
+    {{ 'worker.title.index'|trans }}
+{% endblock page_name %}
+
+
+{% block page_action %}
+    {{ buttons.new(path('nim_worker_create'), 'worker.button.new') }}
+{% endblock page_action %}
+
+
+{% block content %}
+    {% render(controller(
+            'nim.controller.form:filterAction',
+            {'type': 'nim_filter_worker', 'path': 'nim_worker_index', 'request': app.request})
+        )
+    %}
+    {{ pagination(workers) }}
+    {{ list(workers) }}
+    {{ pagination(workers) }}
+{% endblock %}

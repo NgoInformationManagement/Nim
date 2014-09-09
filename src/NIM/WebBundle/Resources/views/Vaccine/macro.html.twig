@@ -1,0 +1,39 @@
+{% macro list(vaccines) %}
+    {% from 'NIMFormBundle:Bootstrap3:button.html.twig' import listActionButton %}
+    {% from 'NIMFormBundle:Bootstrap3:notification.html.twig' import info %}
+    {% from 'NIMFormBundle:Bootstrap3:field.html.twig' import date %}
+
+    {% if vaccines|length > 0 %}
+        <div class="table-responsive row">
+            <table class="table table-bordered table-hover">
+                <colgroup>
+                    <col>
+                    <col width="70%">
+                    <col>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>{{ 'vaccine.field.title.label'|trans }}</th>
+                        <th>{{ 'vaccine.field.description.label'|trans }}</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for vaccine in vaccines %}
+                    <tr>
+                        <td>{{ vaccine.title }}</td>
+                        <td>{{ vaccine.description }}</td>
+                        <td>
+                            <div class="pull-right">
+                                {{ listActionButton('nim_vaccine', vaccine.id) }}
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        {{ info('vaccine.message.empty') }}
+    {% endif %}
+{% endmacro %}

@@ -1,0 +1,35 @@
+<ul class="nav nav-tabs">
+    <li class="active" >
+        <a href="#mission"
+           data-toggle="tab"
+           {% if not form.vars.valid %}class="text-danger"{% endif %}>
+            {{ 'mission.tab.mission'|trans }}
+            {% if not form.vars.valid %}
+                <i class="icon-exclamation-sign"></i>
+            {% endif %}
+        </a>
+    </li>
+    <li>
+        <a href="#worker"
+           data-toggle="tab">
+            {{ 'mission.tab.worker'|trans }}
+        </a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane active" id="mission">
+        <div class="col-md-6">
+            {{ form_row(form.translations) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form.country) }}
+            {{ form_row(form.startedAt) }}
+            {{ form_row(form.endedAt) }}
+        </div>
+    </div>
+    <div class="tab-pane" id="worker">
+        {{ form_widget(form.workers) }}
+    </div>
+</div>
+{{ form_rest(form) }}

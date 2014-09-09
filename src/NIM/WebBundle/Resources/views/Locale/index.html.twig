@@ -1,0 +1,10 @@
+{% block content %}
+    <form action="{{ path('nim_locale_update') }}"
+          method="post"
+          role="form"
+          id="localeForm"
+          novalidate>
+        {{ form_row(form.locale, {'attr' : {'data-event' : '{"event":"change", "method":"submitForm", "parameters":"#localeForm"}'}}) }}
+        {{ form_rest(form) }}
+    </form>
+{% endblock %}

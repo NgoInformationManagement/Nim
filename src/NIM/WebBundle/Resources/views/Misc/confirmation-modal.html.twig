@@ -1,0 +1,27 @@
+<div class="modal fade"
+     id="confirmationModal"
+     tabindex="-1"
+     role="dialog"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">{{ 'confirmation.title'|trans }}</h4>
+            </div>
+
+            <div class="modal-body">
+                {{ message is defined ? message : 'confirmation.message'|trans }}
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">
+                    <i class="glyphicon glyphicon-remove"></i> {{ 'button.back'|trans }}
+                </button>
+                <a class="btn btn-danger" data-confirmation-modal="confirm">
+                    <i class="glyphicon glyphicon-trash"></i><span>{{ 'button.delete'|trans }}</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

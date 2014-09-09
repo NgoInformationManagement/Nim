@@ -1,0 +1,320 @@
+fr: FR
+en: EN
+es: ES
+
+login:
+    welcome: Enter your login and password
+
+layout:
+    page:
+        title: Ngo Information Management - %page_title%
+
+general:
+    to: to
+    filter: Filters
+
+button:
+    create: Create
+    update: Update
+    edit: Edit
+    delete: Delete
+    show: Detail
+    back: Back
+    filter: Filter
+    backToList: Back to the list
+
+tooltip:
+    show: Details
+    edit: Edit
+    delete: Delete
+
+internationalization:
+    label: Translations
+    locale:
+        default: Default
+        fr: French
+        en: English
+        es: Spanish
+
+pager:
+    displayBy: Display by
+
+menu:
+    dashbord: Dashboard
+    agency: Agencies
+    mission: Missions
+    worker: Workers
+    vaccine: Vaccines
+    preference: Preferences
+    logout: Log out
+
+dashboard:
+    title:
+        index: Dashboard
+
+confirmation:
+    title: Deletion
+    message: Do you want to delete this item?
+
+account:
+    title:
+        show: Your preferences
+        edit: Edit your preferences
+    button:
+        edit: Edit profil
+        back: Back
+
+mission:
+    title:
+        create: New mission
+        update: Update the mission
+        index: Your missions
+        show: Details about your mission
+        dashboard: Latest missions
+    tab:
+        mission: Mission
+        worker: Employees
+    button:
+        new: New Mission
+    message:
+        empty: There are no mission to display.
+    field:
+        translation:
+            label: Translation
+        title:
+            label: Title
+        description:
+            label: Description
+        country:
+            label: Country
+        startedAt:
+            label: Started at
+        endedAt:
+            label: Ended at
+
+vaccine:
+    title:
+        create: New vaccine
+        update: Update the vaccine
+        index: Your vaccines
+        show: Details about your vaccine
+        dashboard: Latest vaccines
+    button:
+        new: New vaccine
+    message:
+        empty: There are no vaccine to display.
+    field:
+        translation:
+            label: Translation
+        title:
+            label: Title
+        description:
+            label: Description
+
+agency:
+    validation:
+        email:
+            count: You should define {{ limit }} email or more
+        phone:
+            count: You should define {{ limit }} phone or more
+    title:
+        create: New agency
+        update: Update the agency
+        index: Your agencies
+        show: Details about your agency
+    tab:
+        agency: Agency
+        worker: Employees
+    button:
+        new: New Agency
+    message:
+        empty: There are no agency to display.
+    fieldset:
+        contactdetails: Contact details
+    field:
+        name:
+            label: Name
+        street:
+            label: Street
+        city:
+            label: City
+        postcode:
+            label: Postcode
+        country:
+            label: Country
+        phone:
+            label: Phones
+        email:
+            label: Emails
+
+worker:
+    validation:
+        contact:
+            count: You should define {{ limit }} contact or more
+        email:
+            count: You should define {{ limit }} email or more
+        phone:
+            count: You should define {{ limit }} phone or more
+        passport:
+            count: You should define {{ limit }} passport or more
+        visa:
+            count: You should define {{ limit }} visa or more
+    message:
+        empty: There are no worker to display.
+    tab:
+        worker: Personal informations
+        contact : Contact persons
+        immigration: Immigration
+        mission: Missions accomplished
+        vaccine: Vaccinations
+    title:
+        create: New worker
+        update: Update the worker
+        index: Your workers
+        show: Details about your worker
+        dashboard: Latest workers
+    button:
+        new: New worker
+    fieldset:
+        contactdetails: Personal information
+        email: Emails
+        phone: Phones
+        organization: Organization
+    field:
+        gender:
+            label: Gender
+            option:
+                male: Male
+                female: Female
+        name:
+            label: Name
+        firstname:
+            label: First name
+        lastname:
+            label: Last name
+        address:
+            label: Address
+        street:
+            label: Street
+        city:
+            label: City
+        postcode:
+            label: Postcode
+        country:
+            label: Country
+        email:
+            label: Emails
+        phone:
+            label: Phones
+        birthday:
+            label: Birthday
+        diploma:
+            label: Diploma
+        function:
+            label: Function
+        arrivedAt:
+            label: Arrived at
+        leftAt:
+            label: Left at
+        basedAt:
+            label: Based at
+        nationalities:
+            label: Nationalities
+        contact:
+            label: Contacts
+        type:
+            label: Type
+            option:
+                employee: Employee
+                volunteer: Volunteer
+                intern: Intern
+        passport:
+            label: Passports
+        visa:
+            label: Visas
+        vaccine:
+            label: Vaccines
+visa:
+    field:
+        country:
+            label: Country
+        startedAt:
+            label: Started at
+        length:
+            label: Length
+passport:
+    field:
+        country:
+            label: Country
+        number:
+            label: Number
+        dateOfIssue:
+            label: Date of issue
+        dateOfExpiry:
+            label: Date of expiry
+
+contact:
+    fieldset:
+        contact: Contact
+    validation:
+        email:
+            count: You should define {{ limit }} email or more
+        phone:
+            count: You should define {{ limit }} phone or more
+    message:
+        empty: There are no contact to display
+    field:
+        name:
+            label: Name
+        firstname:
+            label: First name
+        lastname:
+            label: Last name
+        address:
+            label: Address
+        street:
+            label: Street
+        city:
+            label: City
+        postcode:
+            label: Postcode
+        country:
+            label: Country
+        email:
+            label: Emails
+        phone:
+            label: Phones
+
+email:
+    message:
+        empty: There are no email to display.
+    field:
+        label:
+            label: Label
+        address:
+            label: Address
+phone:
+    message:
+        empty: There are no phone to display.
+    field:
+        type:
+            option:
+                cellphone: Cellphone
+                fax: Fax
+                phone: Phone
+            label: Type
+        number:
+            label: Number
+
+addressing:
+    address: Address
+
+person:
+    name: Name
+
+validation:
+    contactable:
+        email:
+            count: You should define {{ limit }} email or more
+        phone:
+            count: You should define {{ limit }} phone or more
