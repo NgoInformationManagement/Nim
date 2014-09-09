@@ -1,0 +1,9 @@
+NIM\WorkerBundle\Model\Agency:
+    agency{1..10}:
+        name: <company()>
+        street: <streetName()>
+        postcode: <postcode()>
+        city: <city()>
+        country: <randomElement(['BE', 'FR', 'NI', 'PK', 'PL', 'CH', 'PT', 'MA'])>
+        phones: [@phone.agency.fax<current()>, @phone.agency.phone<current()>]
+        emails: [@email.agency<current()>]

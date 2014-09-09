@@ -1,0 +1,4 @@
+NIM\VaccineBundle\Model\Vaccine:
+    vaccine{1..15}:
+        title: <word()>
+        description: <paragraph(15)>

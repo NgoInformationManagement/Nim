@@ -1,0 +1,21 @@
+NIM\MissionBundle\Model\MissionTranslation:
+    title.fr{100..200}:
+        locale: fr
+        field: title
+        object: @mission<current()>
+        content: <word()>
+    description.fr{100..200}:
+        locale: fr
+        field: description
+        object: @mission<current()>
+        content: <paragraph(1000)>
+    title.es{100..200}:
+        locale: es
+        field: title
+        object: @mission<current()>
+        content: <word()>
+    description.es{100..200}:
+        locale: es
+        field: description
+        object: @mission<current()>
+        content: <paragraph(1000)>

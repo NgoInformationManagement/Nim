@@ -1,0 +1,79 @@
+NIM\WorkerBundle\Model\Worker:
+    worker{1..5}:
+        basedAt:
+        firstname: <firstName()>
+        lastname: <lastName()>
+        street: <streetName()>
+        postcode: <postcode()>
+        city: <city()>
+        country: <randomElement(['BE', 'FR', 'NI', 'PK', 'PL', 'CH', 'PT', 'MA'])>
+        phones: [@phone.worker.fax<current()>, @phone.worker.phone<current()>]
+        emails: [@email.worker<current()>]
+        gender: <randomElement(['male', 'female'])>
+        birthday: <date()>
+        diploma: <word()>
+        function: <randomElement(['Developer', 'Admin System', 'Logistics coordinator ', 'Manager', 'IT Technician'])>
+        arrivedAt: <date()>
+        type: <randomElement(['employee', 'volunteer', 'intern'])>
+    worker{5..10}:
+        basedAt: @agency*
+        firstname: <firstName()>
+        lastname: <lastName()>
+        street: <streetName()>
+        postcode: <postcode()>
+        city: <city()>
+        country: <randomElement(['BE', 'FR', 'NI', 'PK', 'PL', 'CH', 'PT', 'MA'])>
+        phones: [@phone.worker.fax<current()>, @phone.worker.phone<current()>]
+        emails: [@email.worker<current()>]
+        gender: <randomElement(['male', 'female'])>
+        birthday: <date()>
+        diploma: <word()>
+        function: <randomElement(['Developer', 'Admin System', 'Logistics coordinator ', 'Manager', 'IT Technician'])>
+        arrivedAt: <date()>
+        contacts: [@contact<current()>]
+        type: <randomElement(['employee', 'volunteer', 'intern'])>
+        passports: [@passport<current()>]
+    worker{10..20}:
+        basedAt: @agency*
+        firstname: <firstName()>
+        lastname: <lastName()>
+        street: <streetName()>
+        postcode: <postcode()>
+        city: <city()>
+        country: <randomElement(['BE', 'FR', 'NI', 'PK', 'PL', 'CH', 'PT', 'MA'])>
+        phones: [@phone.worker.fax<current()>, @phone.worker.phone<current()>]
+        emails: [@email.worker<current()>]
+        gender: <randomElement(['male', 'female'])>
+        birthday: <date()>
+        diploma: <word()>
+        function: <randomElement(['Developer', 'Admin System', 'Logistics coordinator ', 'Manager', 'IT Technician'])>
+        arrivedAt: <date()>
+        leftAt:
+        contacts: [@contact<current()>]
+        type: <randomElement(['employee', 'volunteer', 'intern'])>
+        visas: [@visa<current()>]
+        passports: [@passport<current()>]
+        missions: <numberBetween(0, 10)>x @mission*
+        vaccines: <numberBetween(0, 4)>x @vaccine*
+    worker{20..100}:
+        basedAt: @agency*
+        firstname: <firstName()>
+        lastname: <lastName()>
+        street: <streetName()>
+        postcode: <postcode()>
+        city: <city()>
+        country: <randomElement(['BE', 'FR', 'NI', 'PK', 'PL', 'CH', 'PT', 'MA'])>
+        phones: [@phone.worker.fax<current()>, @phone.worker.phone<current()>]
+        emails: [@email.worker<current()>]
+        gender: <randomElement(['male', 'female'])>
+        birthday: <date()>
+        diploma: <word()>
+        function: <randomElement(['Developer', 'Admin System', 'Logistics coordinator ', 'Manager', 'IT Technician'])>
+        arrivedAt: <date()>
+        leftAt: <date()>
+        contacts: [@contact<current()>]
+        type: <randomElement(['employee', 'volunteer', 'intern'])>
+        visas: [@visa<current()>]
+        passports: [@passport<current()>]
+        missions: <numberBetween(0, 20)>x @mission*
+        vaccines: <numberBetween(0, 4)>x @vaccine*
