@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+This file is part of the NIM package.
+
+(c) Langlade Arnaud
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+-->
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+
+
+    <services>
+        <!-- Passport Form -->
+        <service id="nim.form.type.passport" class="%nim.form.type.passport.class%">
+            <call method="setValidationGroups">
+                <argument>%nim.validation_group.passport%</argument>
+            </call>
+            <call method="setDataClass">
+                <argument>%nim.model.passport.class%</argument>
+            </call>
+            <tag name="form.type" alias="nim_passport" />
+        </service>
+    </services>
+</container>
