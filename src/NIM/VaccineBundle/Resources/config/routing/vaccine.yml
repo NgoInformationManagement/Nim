@@ -1,0 +1,45 @@
+nim_vaccine_index:
+    pattern: /
+    methods: [GET]
+    defaults:
+        _controller: nim.controller.vaccine:indexAction
+        _sylius:
+            template: NIMWebBundle:Vaccine:index.html.twig
+            paginate: $limit
+            sortable: $sorting
+            filterable: $criteria
+
+nim_vaccine_create:
+    pattern: /new
+    methods: [GET, POST]
+    defaults:
+        _controller: nim.controller.vaccine:createAction
+        _sylius:
+            template: NIMWebBundle:Vaccine:create.html.twig
+            redirect: nim_vaccine_show
+
+nim_vaccine_update:
+    pattern: /{id}/edit
+    methods: [GET, POST]
+    defaults:
+        _controller: nim.controller.vaccine:updateAction
+        _sylius:
+            template: NIMWebBundle:Vaccine:update.html.twig
+            redirect: nim_vaccine_show
+
+nim_vaccine_show:
+    pattern: /{id}
+    methods: [GET]
+    defaults:
+        _controller: nim.controller.vaccine:showAction
+        _sylius:
+            template: NIMWebBundle:Vaccine:show.html.twig
+
+nim_vaccine_delete:
+    pattern: /{id}
+    methods: [DELETE]
+    defaults:
+        _controller: nim.controller.vaccine:deleteAction
+        _sylius:
+            redirect: nim_vaccine_index
+            template: NIMWebBundle:Misc:delete.html.twig

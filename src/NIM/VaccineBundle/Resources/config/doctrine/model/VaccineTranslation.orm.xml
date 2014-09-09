@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+This file is part of the NIM package.
+
+(c) Langlade Arnaud
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+-->
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+>
+    <entity name="NIM\VaccineBundle\Model\VaccineTranslation" table="nim_vaccine_translation">
+        <id name="id" column="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+        <field name="locale" type="string" />
+        <field name="field" type="string" />
+        <field name="content" type="text" nullable="true" />
+        <many-to-one field="object" target-entity="NIM\VaccineBundle\Model\VaccineInterface" inversed-by="translations" />
+    </entity>
+</doctrine-mapping>
