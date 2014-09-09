@@ -52,7 +52,6 @@ class WorkerTypeSpec extends ObjectBehavior
         $this->buildForm($builder, array());
     }
 
-
     public function it_should_define_assigned_data_class(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(

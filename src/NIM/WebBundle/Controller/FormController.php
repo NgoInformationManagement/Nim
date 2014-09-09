@@ -22,8 +22,8 @@ class FormController extends Controller
      *
      * @param $type
      * @param $path
-     * @param string $template
-     * @param Request $request
+     * @param  string   $template
+     * @param  Request  $request
      * @return Response
      */
     public function filterAction(

@@ -45,4 +45,4 @@ class FilterType extends AbstractType
     {
         return 'nim_filter_vaccine';
     }
-} 
+}

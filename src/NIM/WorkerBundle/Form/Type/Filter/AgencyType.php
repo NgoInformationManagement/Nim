@@ -51,4 +51,4 @@ class AgencyType extends AbstractType
     {
         return 'nim_filter_agency';
     }
-} 
+}

@@ -58,4 +58,4 @@ class WorkerType extends AbstractType
     {
         return 'nim_filter_worker';
     }
-} 
+}
