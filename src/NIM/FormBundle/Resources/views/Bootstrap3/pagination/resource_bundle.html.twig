@@ -1,0 +1,15 @@
+{% macro pagination(paginator, options) %}
+    <div class="pagination-container row">
+        <div class="col-md-10">
+            {% if paginator.haveToPaginate()|default(false) %}
+                {{ pagerfanta(paginator, 'twitter_bootstrap3_translated', options|default({})) }}
+            {% endif %}
+        </div>
+        <div class="col-md-2 text-right paginate">
+            {% if paginator | length %}
+            {{ 'pager.displayBy' | trans }}
+            {{ sylius_resource_paginate(paginator, [10, 20, 30]) }}
+            {% endif %}
+        </div>
+    </div>
+{% endmacro %}

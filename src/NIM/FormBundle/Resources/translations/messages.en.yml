@@ -1,0 +1,13 @@
+gender:
+    male: Male
+    female: Female
+
+politeness:
+    madam: Madam
+    miss: Miss
+    mister: Mister
+
+form:
+    collection:
+        delete: Delete
+        add: Add

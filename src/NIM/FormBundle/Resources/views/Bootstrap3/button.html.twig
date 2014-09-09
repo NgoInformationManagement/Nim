@@ -1,0 +1,78 @@
+{% macro show(url, message, title) %}
+<a href="{{ url }}"
+   class="btn btn-default behat-details"
+   {% if title is not null %}
+   data-toggle="tooltip"
+   data-placement="left"
+   title="{{ title|default|trans }}">
+   {% endif %}
+    <i class="icon-book"></i>
+    {{ message|default|trans }}
+</a>
+{% endmacro %}
+
+{% macro create(message, formId) %}
+<button class="btn btn-primary">
+    <i class="icon-plus-sign"></i>
+    {{ message|trans }}
+</button>
+{% endmacro %}
+
+{% macro new(url, message) %}
+<a href="{{ url }}"
+   class="btn btn-primary">
+    <i class="icon-plus-sign"></i>
+    {{ message|default|trans }}
+</a>
+{% endmacro %}
+
+{% macro update(message, formId) %}
+<button class="btn btn-primary">
+    <i class="icon-edit"></i>
+    {{ message|trans }}
+</button>
+{% endmacro %}
+
+{% macro edit(url, message, title) %}
+    <a href="{{ url }}"
+       {% if title is not null %}
+       data-toggle="tooltip"
+       data-placement="left"
+       title="{{ title|default|trans }}"
+       {% endif %}
+       class="btn behat-edition {% if message is null %}btn-default{% else %}btn-primary{% endif %}">
+    <i class="icon-edit"></i>
+    {{ message|default|trans }}
+</a>
+{% endmacro %}
+
+{% macro delete(url, message, title) %}
+<form action="{{ url }}" method="post" style="display: inline;" data-confirmation="form">
+    <input type="hidden" name="_method" value="DELETE">
+    <button class="btn btn-danger behat-deletion"
+            data-confirmation="delete"
+            data-toggle="modal"
+            data-target="#confirmationModal"
+            {% if title is not null %}
+            data-toggle="tooltip"
+            data-placement="left"
+            title="{{ title|default|trans }}"
+            {% endif %}>
+        <i class="icon-trash"></i>
+        {{ message|default|trans }}
+    </button>
+</form>
+{% endmacro %}
+
+{% macro back(url, message) %}
+    <a href="{{ url }}" class="btn btn-default">
+        <i class="icon-arrow-left"></i>
+        {{ message|default|trans }}
+    </a>
+{% endmacro %}
+
+{% macro listActionButton(routePrefix, id) %}
+    {{ _self.show(path(routePrefix ~ '_show', {'id': id}), null, 'tooltip.show') }}
+    {{ _self.edit(path(routePrefix ~ '_update', {'id': id}), null, 'tooltip.edit') }}
+    {{ _self.delete(path(routePrefix ~ '_delete', {'id': id}), null, 'tooltip.delete') }}
+{% endmacro %}
