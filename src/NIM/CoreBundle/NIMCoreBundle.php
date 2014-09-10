@@ -11,13 +11,14 @@
 
 namespace NIM\CoreBundle;
 
-use Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass;
+use Sylius\Bundle\ResourceBundle\AbstractResourceBundle;
 use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class NIMCoreBundle extends Bundle
+class NIMCoreBundle extends AbstractResourceBundle
 {
+    /**
+     * {@inheritdoc}
+     */
     public static function getSupportedDrivers()
     {
         return array(
@@ -28,14 +29,16 @@ class NIMCoreBundle extends Bundle
     /**
      * {@inheritdoc}
      */
-    public function build(ContainerBuilder $container)
+    protected function getBundlePrefix()
     {
-        $container->addCompilerPass(
-            DoctrineOrmMappingsPass::createXmlMappingDriver(
-                array(realpath(__DIR__ . '/Resources/config/doctrine/model') => 'NIM\CoreBundle\Model'),
-                array('doctrine.orm.entity_manager'),
-                'nim_core.driver.doctrine/orm'
-            )
-        );
+        return 'nim_core';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getModelNamespace()
+    {
+        return 'NIM\CoreBundle\Model';
     }
 }

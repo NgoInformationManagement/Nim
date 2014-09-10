@@ -11,14 +11,14 @@
 
 namespace NIM\WorkerBundle;
 
-use Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass;
-use Sylius\Bundle\ResourceBundle\DependencyInjection\Compiler\ResolveDoctrineTargetEntitiesPass;
+use Sylius\Bundle\ResourceBundle\AbstractResourceBundle;
 use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class NIMWorkerBundle extends Bundle
+class NIMWorkerBundle extends AbstractResourceBundle
 {
+    /**
+     * {@inheritdoc}
+     */
     public static function getSupportedDrivers()
     {
         return array(
@@ -29,27 +29,32 @@ class NIMWorkerBundle extends Bundle
     /**
      * {@inheritdoc}
      */
-    public function build(ContainerBuilder $container)
+    protected function getModelInterfaces()
     {
-        $container->addCompilerPass(new ResolveDoctrineTargetEntitiesPass(
-            'nim_worker',
-            array(
-                'NIM\WorkerBundle\Model\WorkerInterface' => 'nim.model.worker.class',
-                'NIM\WorkerBundle\Model\AgencyInterface' => 'nim.model.agency.class',
-                'NIM\WorkerBundle\Model\ContactInterface' => 'nim.model.contact.class',
-                'NIM\WorkerBundle\Model\EmailInterface' => 'nim.model.email.class',
-                'NIM\WorkerBundle\Model\PhoneInterface' => 'nim.model.phone.class',
-                'NIM\WorkerBundle\Model\VisaInterface' => 'nim.model.visa.class',
-                'NIM\WorkerBundle\Model\PassportInterface' => 'nim.model.passport.class',
-            )
-        ));
-
-        $container->addCompilerPass(
-            DoctrineOrmMappingsPass::createXmlMappingDriver(
-                array(realpath(__DIR__ . '/Resources/config/doctrine/model') => 'NIM\WorkerBundle\Model'),
-                array('doctrine.orm.entity_manager'),
-                'nim_worker.driver.doctrine/orm'
-            )
+        return array(
+            'NIM\WorkerBundle\Model\WorkerInterface' => 'nim.model.worker.class',
+            'NIM\WorkerBundle\Model\AgencyInterface' => 'nim.model.agency.class',
+            'NIM\WorkerBundle\Model\ContactInterface' => 'nim.model.contact.class',
+            'NIM\WorkerBundle\Model\EmailInterface' => 'nim.model.email.class',
+            'NIM\WorkerBundle\Model\PhoneInterface' => 'nim.model.phone.class',
+            'NIM\WorkerBundle\Model\VisaInterface' => 'nim.model.visa.class',
+            'NIM\WorkerBundle\Model\PassportInterface' => 'nim.model.passport.class',
         );
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getBundlePrefix()
+    {
+        return 'nim_worker';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getModelNamespace()
+    {
+        return 'NIM\WorkerBundle\Model';
     }
 }
