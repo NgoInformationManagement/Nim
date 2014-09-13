@@ -33,6 +33,12 @@
         "a2lix/translation-form-bundle": "1.2",
         "white-october/pagerfanta-bundle": "1.0.*@dev",
         "doctrine/doctrine-fixtures-bundle": "2.2.*"
+        "nim/core-bundle": "0.1.*@dev",
+        "nim/worker-bundle": "0.1.*@dev",
+        "nim/web-bundle": "0.1.*@dev",
+        "nim/mission-bundle": "0.1.*@dev",
+        "nim/form-bundle": "0.1.*@dev",
+        "nim/vaccine-bundle": "0.1.*@dev"
     },
     "require-dev": {
         "hautelook/alice-bundle": "dev-master",
