@@ -28,7 +28,7 @@ interface WorkerInterface extends BaseWorkerInterface
     public function getMissions();
 
     /**
-     * @param  MissionInterface $mission
+     * @param MissionInterface $mission
      *
      * @return $this
      */
@@ -45,7 +45,7 @@ interface WorkerInterface extends BaseWorkerInterface
     public function hasMissions();
 
     /**
-     * @param  ArrayCollection $vaccines
+     * @param ArrayCollection $vaccines
      *
      * @return $this
      */

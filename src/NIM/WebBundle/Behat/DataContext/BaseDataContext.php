@@ -61,11 +61,11 @@ trait BaseDataContext
     }
 
     /**
-     * @param $phones
+     * @param  Phone $phones
      * @param $entity
      * @return mixed
      */
-    public function entityHasPhones($phones, $entity)
+    public function entityHasPhones(Phone $phones, $entity)
     {
         foreach ($phones as $number) {
             $phone = $this->thereIsPhone($number['type'], $number['number']);
@@ -92,11 +92,11 @@ trait BaseDataContext
     }
 
     /**
-     * @param $emails
+     * @param  Email $emails
      * @param $entity
      * @return mixed
      */
-    public function entityHasEmails($emails, $entity)
+    public function entityHasEmails(Email $emails, $entity)
     {
         foreach ($emails as $address) {
             $phone = $this->thereIsEmail($address['address']);

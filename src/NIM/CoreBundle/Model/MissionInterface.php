@@ -27,7 +27,7 @@ interface MissionInterface extends BaseMissionInterface
     public function getWorkers();
 
     /**
-     * @param  WorkerInterface $worker
+     * @param WorkerInterface $worker
      *
      * @return $this
      */

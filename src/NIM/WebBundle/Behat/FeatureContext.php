@@ -55,7 +55,7 @@ class FeatureContext extends BehatContext
     public function __construct(array $parameters)
     {
         $this->parameters = $parameters;
-        $this->faker = FakerFactory::create(); // todo
+        $this->faker = FakerFactory::create();
         $this->useContext('collection-type', new CollectionContext());
     }
 
