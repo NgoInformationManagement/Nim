@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d6e7246e4e9165abd2df2831a2c17a48",
+    "hash": "41d3e8fcdcaf74e5e485463e0e5fbb55",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
@@ -1008,12 +1008,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "e009ce7e3d42ed0578544ad65ece869e2a7c9734"
+                "reference": "7001669bccb3fcedfc1c5411ecb2157715e92dd6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/e009ce7e3d42ed0578544ad65ece869e2a7c9734",
-                "reference": "e009ce7e3d42ed0578544ad65ece869e2a7c9734",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/7001669bccb3fcedfc1c5411ecb2157715e92dd6",
+                "reference": "7001669bccb3fcedfc1c5411ecb2157715e92dd6",
                 "shasum": ""
             },
             "require": {
@@ -1067,7 +1067,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2014-09-08 21:45:10"
+            "time": "2014-09-12 11:18:14"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -1075,12 +1075,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "fc56b463ec0f82344dc1ec72ae90f04036675b66"
+                "reference": "fff460dfb1b2edeaaccc96a8327320555be1c023"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/fc56b463ec0f82344dc1ec72ae90f04036675b66",
-                "reference": "fc56b463ec0f82344dc1ec72ae90f04036675b66",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/fff460dfb1b2edeaaccc96a8327320555be1c023",
+                "reference": "fff460dfb1b2edeaaccc96a8327320555be1c023",
                 "shasum": ""
             },
             "require": {
@@ -1148,7 +1148,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2014-09-04 15:05:20"
+            "time": "2014-09-12 15:07:29"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1555,12 +1555,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "12545cda2f7a0bd82a110f742ef455fe735e60cf"
+                "reference": "b3f039339d7a8173c7b441dbaa572ccacb712b54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/12545cda2f7a0bd82a110f742ef455fe735e60cf",
-                "reference": "12545cda2f7a0bd82a110f742ef455fe735e60cf",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/b3f039339d7a8173c7b441dbaa572ccacb712b54",
+                "reference": "b3f039339d7a8173c7b441dbaa572ccacb712b54",
                 "shasum": ""
             },
             "require": {
@@ -1619,7 +1619,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-07-31 22:12:22"
+            "time": "2014-09-10 15:41:01"
         },
         {
             "name": "pagerfanta/pagerfanta",
@@ -2512,12 +2512,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "f5b4b115baa0c1eca147a411e0d125e474163a93"
+                "reference": "2351513da275b3206f4dd584153bc3d6842091d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/f5b4b115baa0c1eca147a411e0d125e474163a93",
-                "reference": "f5b4b115baa0c1eca147a411e0d125e474163a93",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/2351513da275b3206f4dd584153bc3d6842091d6",
+                "reference": "2351513da275b3206f4dd584153bc3d6842091d6",
                 "shasum": ""
             },
             "require": {
@@ -2612,7 +2612,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-09-09 14:58:14"
+            "time": "2014-09-13 09:36:39"
         },
         {
             "name": "twig/extensions",
@@ -3934,7 +3934,6 @@
         "stof/doctrine-extensions-bundle": 20,
         "sylius/resource-bundle": 20,
         "white-october/pagerfanta-bundle": 20,
-        "doctrine/doctrine-fixtures-bundle": 20,
         "hautelook/alice-bundle": 20,
         "phpspec/phpspec": 20
     },
