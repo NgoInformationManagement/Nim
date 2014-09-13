@@ -18,5 +18,4 @@ bin/phpspec
 bin/webunit
 
 vendor/*
-src/*
 media/*
