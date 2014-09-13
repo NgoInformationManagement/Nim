@@ -3,7 +3,7 @@
 namespace spec\NIM\CoreBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use NIM\WorkerBundle\Model\Worker;
+use NIM\CoreBundle\Model\WorkerInterface;
 use PhpSpec\ObjectBehavior;
 
 class MissionSpec extends ObjectBehavior
@@ -24,21 +24,21 @@ class MissionSpec extends ObjectBehavior
         $this->getWorkers()->shouldReturn($col);
     }
 
-    public function it_has_unique_workers(Worker $worker)
+    public function it_has_unique_workers(WorkerInterface $worker)
     {
         $this->addWorker($worker);
         $this->addWorker($worker);
         $this->getWorkers()->shouldHaveCount(1);
     }
 
-    public function it_has_workers(Worker $worker1, Worker $worker2)
+    public function it_has_workers(WorkerInterface $worker1, WorkerInterface $worker2)
     {
         $this->addWorker($worker1);
         $this->addWorker($worker2);
         $this->getWorkers()->shouldHaveCount(2);
     }
 
-    public function it_can_remove_workers(Worker $worker1, Worker $worker2)
+    public function it_can_remove_workers(WorkerInterface $worker1, WorkerInterface $worker2)
     {
         $this->addWorker($worker1);
         $this->addWorker($worker2);

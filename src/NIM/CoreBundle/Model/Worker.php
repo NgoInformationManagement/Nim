@@ -12,13 +12,19 @@
 namespace NIM\CoreBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use NIM\MissionBundle\Model\MissionInterface;
 use NIM\VaccineBundle\Model\VaccineInterface;
 use \NIM\WorkerBundle\Model\Worker as BaseWorker;
 
-class Worker extends BaseWorker
+class Worker extends BaseWorker implements WorkerInterface
 {
+    /**
+     * @var ArrayCollection
+     */
     protected $missions;
+
+    /**
+     * @var ArrayCollection
+     */
     protected $vaccines;
 
     public function __construct()
@@ -30,15 +36,15 @@ class Worker extends BaseWorker
     }
 
     /**
-     * @param mixed $missions
+     * {@inheritdoc}
      */
-    public function setMissions($missions)
+    public function setMissions(ArrayCollection $missions)
     {
         $this->missions = $missions;
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
      */
     public function getMissions()
     {
@@ -46,8 +52,7 @@ class Worker extends BaseWorker
     }
 
     /**
-     * @param  MissionInterface $mission
-     * @return $this
+     * {@inheritdoc}
      */
     public function addMission(MissionInterface $mission)
     {
@@ -59,7 +64,7 @@ class Worker extends BaseWorker
     }
 
     /**
-     * @param MissionInterface $mission
+     * {@inheritdoc}
      */
     public function removeMission(MissionInterface $mission)
     {
@@ -69,7 +74,7 @@ class Worker extends BaseWorker
     }
 
     /**
-     * @return bool
+     * {@inheritdoc}
      */
     public function hasMissions()
     {
@@ -77,8 +82,7 @@ class Worker extends BaseWorker
     }
 
     /**
-     * @param  ArrayCollection $vaccines
-     * @return $this
+     * {@inheritdoc}
      */
     public function setVaccines(ArrayCollection $vaccines)
     {
@@ -88,7 +92,7 @@ class Worker extends BaseWorker
     }
 
     /**
-     * @return ArrayCollection
+     * {@inheritdoc}
      */
     public function getVaccines()
     {
@@ -96,7 +100,7 @@ class Worker extends BaseWorker
     }
 
     /**
-     * @return bool
+     * {@inheritdoc}
      */
     public function hasVaccines()
     {
@@ -104,7 +108,7 @@ class Worker extends BaseWorker
     }
 
     /**
-     * @param VaccineInterface $vaccine
+     * {@inheritdoc}
      */
     public function addVaccine(VaccineInterface $vaccine)
     {
@@ -114,7 +118,7 @@ class Worker extends BaseWorker
     }
 
     /**
-     * @param VaccineInterface $vaccine
+     * {@inheritdoc}
      */
     public function removeVaccine(VaccineInterface $vaccine)
     {

@@ -12,7 +12,7 @@
 namespace spec\NIM\CoreBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use NIM\MissionBundle\Model\Mission;
+use NIM\CoreBundle\Model\MissionInterface;
 use NIM\VaccineBundle\Model\Vaccine;
 use PhpSpec\ObjectBehavior;
 
@@ -65,14 +65,14 @@ class WorkerSpec extends ObjectBehavior
         $this->getMissions()->shouldReturn($arrayCollection);
     }
 
-    public function it_has_collection_of_missions(Mission $mission1, Mission $mission2)
+    public function it_has_collection_of_missions(MissionInterface $mission1, MissionInterface $mission2)
     {
         $this->addMission($mission1);
         $this->addMission($mission2);
         $this->getMissions()->shouldHaveCount(2);
     }
 
-    public function it_has_missions(Mission $mission1, Mission $mission2)
+    public function it_has_missions(MissionInterface $mission1, MissionInterface $mission2)
     {
         $this->addMission($mission1);
         $this->addMission($mission2);
@@ -84,14 +84,14 @@ class WorkerSpec extends ObjectBehavior
         $this->hasMissions()->shouldReturn(false);
     }
 
-    public function it_has_unique_missions(Mission $mission)
+    public function it_has_unique_missions(MissionInterface $mission)
     {
         $this->addMission($mission);
         $this->addMission($mission);
         $this->getMissions()->shouldHaveCount(1);
     }
 
-    public function it_can_remove_missions(Mission $mission1, Mission $mission2)
+    public function it_can_remove_missions(MissionInterface $mission1, MissionInterface $mission2)
     {
         $this->addMission($mission1);
         $this->addMission($mission2);

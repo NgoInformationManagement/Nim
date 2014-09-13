@@ -13,10 +13,12 @@ namespace NIM\CoreBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use NIM\MissionBundle\Model\Mission as BaseMission;
-use NIM\WorkerBundle\Model\WorkerInterface;
 
-class Mission extends BaseMission
+class Mission extends BaseMission implements MissionInterface
 {
+    /**
+     * @var ArrayCollection
+     */
     protected $workers;
 
     public function __construct()
@@ -27,16 +29,23 @@ class Mission extends BaseMission
     }
 
     /**
-     * @param mixed $workers
+     * {@inheritdoc}
      */
-    public function setWorkers($workers)
+    public function setWorkers(ArrayCollection $workers)
     {
         $this->workers = $workers;
     }
 
     /**
-     * @param  WorkerInterface $worker
-     * @return $this
+     * {@inheritdoc}
+     */
+    public function getWorkers()
+    {
+        return $this->workers;
+    }
+
+    /**
+     * {@inheritdoc}
      */
     public function addWorker(WorkerInterface $worker)
     {
@@ -49,20 +58,12 @@ class Mission extends BaseMission
     }
 
     /**
-     * @param WorkerInterface $worker
+     * {@inheritdoc}
      */
     public function removeWorker(WorkerInterface $worker)
     {
         if ($this->getWorkers()->contains($worker)) {
             $this->getWorkers()->removeElement($worker);
         }
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getWorkers()
-    {
-        return $this->workers;
     }
 }
