@@ -13,7 +13,6 @@ namespace NIM\CoreBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use NIM\WorkerBundle\Model\WorkerInterface as BaseWorkerInterface;
-use NIM\VaccineBundle\Model\VaccineInterface;
 
 interface WorkerInterface extends BaseWorkerInterface
 {

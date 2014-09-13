@@ -13,7 +13,7 @@ namespace spec\NIM\CoreBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use NIM\CoreBundle\Model\MissionInterface;
-use NIM\VaccineBundle\Model\Vaccine;
+use NIM\CoreBundle\Model\VaccineInterface;
 use PhpSpec\ObjectBehavior;
 
 class WorkerSpec extends ObjectBehavior
@@ -24,14 +24,14 @@ class WorkerSpec extends ObjectBehavior
         $this->getVaccines()->shouldReturn($arrayCollection);
     }
 
-    public function it_has_collection_of_vaccines(Vaccine $vaccine1, Vaccine $vaccine2)
+    public function it_has_collection_of_vaccines(VaccineInterface $vaccine1, VaccineInterface $vaccine2)
     {
         $this->addVaccine($vaccine1);
         $this->addVaccine($vaccine2);
         $this->getVaccines()->shouldHaveCount(2);
     }
 
-    public function it_has_vaccines(Vaccine $vaccine1, Vaccine $vaccine2)
+    public function it_has_vaccines(VaccineInterface $vaccine1, VaccineInterface $vaccine2)
     {
         $this->addVaccine($vaccine1);
         $this->addVaccine($vaccine2);
@@ -43,14 +43,14 @@ class WorkerSpec extends ObjectBehavior
         $this->hasVaccines()->shouldReturn(false);
     }
 
-    public function it_has_unique_vaccines(Vaccine $vaccine)
+    public function it_has_unique_vaccines(VaccineInterface $vaccine)
     {
         $this->addVaccine($vaccine);
         $this->addVaccine($vaccine);
         $this->getVaccines()->shouldHaveCount(1);
     }
 
-    public function it_can_remove_vaccines(Vaccine $vaccine1, Vaccine $vaccine2)
+    public function it_can_remove_vaccines(VaccineInterface $vaccine1, VaccineInterface $vaccine2)
     {
         $this->addVaccine($vaccine1);
         $this->addVaccine($vaccine2);

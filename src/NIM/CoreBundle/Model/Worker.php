@@ -12,7 +12,6 @@
 namespace NIM\CoreBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use NIM\VaccineBundle\Model\VaccineInterface;
 use \NIM\WorkerBundle\Model\Worker as BaseWorker;
 
 class Worker extends BaseWorker implements WorkerInterface

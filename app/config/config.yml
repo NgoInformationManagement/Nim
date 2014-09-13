@@ -122,3 +122,6 @@ nim_core:
 # NiM vaccine configuration
 nim_vaccine:
     driver: doctrine/orm
+    classes:
+        vaccine:
+            model: NIM\CoreBundle\Model\Vaccine
