@@ -5,6 +5,8 @@ nim_mission:
     classes:
         mission:
             model: NIM\CoreBundle\Model\Mission
+    templates:
+        mission: NIMWebBundle:Mission
 
 # NiM worker configuration
 nim_worker:
@@ -12,6 +14,9 @@ nim_worker:
     classes:
         worker:
             model: NIM\CoreBundle\Model\Worker
+    templates:
+        worker: NIMWebBundle:Worker
+        agency: NIMWebBundle:Agency
 
 # NiM core configuration
 nim_core:
@@ -23,3 +28,5 @@ nim_vaccine:
     classes:
         vaccine:
             model: NIM\CoreBundle\Model\Vaccine
+    templates:
+        vaccine: NIMWebBundle:Vaccine

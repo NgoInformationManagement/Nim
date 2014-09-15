@@ -34,6 +34,7 @@ class Configuration implements ConfigurationInterface
 
         $this->addClassesSection($rootNode);
         $this->addValidationGroupsSection($rootNode);
+        $this->addTemplateSection($rootNode);
 
         return $treeBuilder;
     }
@@ -78,6 +79,31 @@ class Configuration implements ConfigurationInterface
                             ->prototype('scalar')->end()
                             ->defaultValue(array('nim'))
                         ->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
+    }
+
+    /**
+     * Adds `template` section.
+     *
+     * @param ArrayNodeDefinition $node
+     */
+    private function addTemplateSection(ArrayNodeDefinition $node)
+    {
+        $node
+            ->children()
+                ->arrayNode('templates')
+                ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('worker')->defaultValue('NIMWorkerBundle:Worker')->end()
+                        ->scalarNode('visa')->defaultValue('NIMWorkerBundle:Visa')->end()
+                        ->scalarNode('passport')->defaultValue('NIMWorkerBundle:Passport')->end()
+                        ->scalarNode('contact')->defaultValue('NIMWorkerBundle:Contact')->end()
+                        ->scalarNode('agency')->defaultValue('NIMWorkerBundle:Agency')->end()
+                        ->scalarNode('email')->defaultValue('NIMWorkerBundle:Email')->end()
+                        ->scalarNode('phone')->defaultValue('NIMWorkerBundle:Phone')->end()
                     ->end()
                 ->end()
             ->end()

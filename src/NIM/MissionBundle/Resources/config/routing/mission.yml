@@ -4,7 +4,6 @@ nim_mission_index:
     defaults:
         _controller: nim.controller.mission:indexAction
         _sylius:
-            template: NIMWebBundle:Mission:index.html.twig
             paginate: $limit
             sortable: $sorting
             filterable: $criteria
@@ -15,7 +14,6 @@ nim_mission_create:
     defaults:
         _controller: nim.controller.mission:createAction
         _sylius:
-            template: NIMWebBundle:Mission:create.html.twig
             redirect: nim_mission_show
 
 nim_mission_update:
@@ -24,7 +22,6 @@ nim_mission_update:
     defaults:
         _controller: nim.controller.mission:updateAction
         _sylius:
-            template: NIMWebBundle:Mission:update.html.twig
             redirect: nim_mission_show
 
 nim_mission_show:
@@ -32,8 +29,6 @@ nim_mission_show:
     methods: [GET]
     defaults:
         _controller: nim.controller.mission:showAction
-        _sylius:
-            template: NIMWebBundle:Mission:show.html.twig
 
 nim_mission_delete:
     pattern: /{id}
@@ -42,4 +37,3 @@ nim_mission_delete:
         _controller: nim.controller.mission:deleteAction
         _sylius:
             redirect: nim_mission_index
-            template: NIMWebBundle:Misc:delete.html.twig

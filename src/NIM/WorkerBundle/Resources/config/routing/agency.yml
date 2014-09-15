@@ -4,7 +4,6 @@ nim_agency_index:
     defaults:
         _controller: nim.controller.agency:indexAction
         _sylius:
-            template: NIMWebBundle:Agency:index.html.twig
             paginate: $limit
             sortable: $sorting
             filterable: $criteria
@@ -15,7 +14,6 @@ nim_agency_create:
     defaults:
         _controller: nim.controller.agency:createAction
         _sylius:
-            template: NIMWebBundle:Agency:create.html.twig
             redirect: nim_agency_show
 
 nim_agency_update:
@@ -24,7 +22,6 @@ nim_agency_update:
     defaults:
         _controller: nim.controller.agency:updateAction
         _sylius:
-            template: NIMWebBundle:Agency:update.html.twig
             redirect: nim_agency_show
 
 nim_agency_show:
@@ -32,8 +29,6 @@ nim_agency_show:
     methods: [GET]
     defaults:
         _controller: nim.controller.agency:showAction
-        _sylius:
-            template: NIMWebBundle:Agency:show.html.twig
 
 nim_agency_delete:
     pattern: /{id}
@@ -42,4 +37,3 @@ nim_agency_delete:
         _controller: nim.controller.agency:deleteAction
         _sylius:
             redirect: nim_agency_index
-            template: NIMWebBundle:Misc:delete.html.twig

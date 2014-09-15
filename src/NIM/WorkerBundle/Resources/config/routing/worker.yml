@@ -4,7 +4,6 @@ nim_worker_index:
     defaults:
         _controller: nim.controller.worker:indexAction
         _sylius:
-            template: NIMWebBundle:Worker:index.html.twig
             paginate: $limit
             sortable: $sorting
             filterable: $criteria
@@ -15,7 +14,6 @@ nim_worker_create:
     defaults:
         _controller: nim.controller.worker:createAction
         _sylius:
-            template: NIMWebBundle:Worker:create.html.twig
             redirect: nim_worker_update
 
 nim_worker_update:
@@ -24,7 +22,6 @@ nim_worker_update:
     defaults:
         _controller: nim.controller.worker:updateAction
         _sylius:
-            template: NIMWebBundle:Worker:update.html.twig
             redirect: nim_worker_show
 
 nim_worker_show:
@@ -32,8 +29,6 @@ nim_worker_show:
     methods: [GET]
     defaults:
         _controller: nim.controller.worker:showAction
-        _sylius:
-            template: NIMWebBundle:Worker:show.html.twig
 
 nim_worker_delete:
     pattern: /{id}
@@ -42,4 +37,3 @@ nim_worker_delete:
         _controller: nim.controller.worker:deleteAction
         _sylius:
             redirect: nim_worker_index
-            template: NIMWebBundle:Misc:delete.html.twig

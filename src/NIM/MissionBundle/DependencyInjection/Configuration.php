@@ -34,6 +34,7 @@ class Configuration implements ConfigurationInterface
 
         $this->addClassesSection($rootNode);
         $this->addValidationGroupsSection($rootNode);
+        $this->addTemplateSection($rootNode);
 
         return $treeBuilder;
     }
@@ -54,6 +55,25 @@ class Configuration implements ConfigurationInterface
                             ->prototype('scalar')->end()
                             ->defaultValue(array('nim'))
                         ->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
+    }
+
+    /**
+     * Adds `template` section.
+     *
+     * @param ArrayNodeDefinition $node
+     */
+    private function addTemplateSection(ArrayNodeDefinition $node)
+    {
+        $node
+            ->children()
+                ->arrayNode('templates')
+                ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('mission')->defaultValue('NIMMissionBundle:Mission')->end()
                     ->end()
                 ->end()
             ->end()
