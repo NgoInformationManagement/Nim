@@ -87,9 +87,7 @@
                 throw "The container does not exist";
             }
 
-            if (null === config) {
-                config = $container.data()
-            }
+            config = $container.data();
 
             return config;
         }
