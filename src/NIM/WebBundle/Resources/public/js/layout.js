@@ -14,7 +14,18 @@ NIM.Header = {
 
 NIM.Filter = {
     toggle: function() {
-        $('[data-toggle="filter"]').toggle();
+        var $filterContainer = $('[data-toggle="filter"]'),
+            $headerIcon = $('[data-filter="icon"]');
+
+        $filterContainer.toggle().promise().done(function() {
+            if ($filterContainer.is(":hidden")) {
+                $headerIcon.addClass('icon-caret-left');
+                $headerIcon.removeClass('icon-caret-down');
+            } else {
+                $headerIcon.addClass('icon-caret-down');
+                $headerIcon.removeClass('icon-caret-left');
+            }
+        });
     }
 };
 
