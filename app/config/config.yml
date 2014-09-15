@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: @NIMCoreBundle/Resources/config/app/main.yml }
 
 framework:
     #esi:             ~
@@ -81,47 +82,3 @@ swiftmailer:
     password:  %mailer_password%
     spool:     { type: memory }
 
-# Stof doctrine extension configuration
-stof_doctrine_extensions:
-    default_locale: %locale%
-    orm:
-        default:
-            timestampable: true
-            softdeleteable: true
-            translatable: true
-
-# FOS user configuration
-fos_user:
-    db_driver: orm
-    firewall_name: main
-    user_class: NIM\CoreBundle\Model\User
-
-# A2lix Translation Form configuration
-a2lix_translation_form:
-    locales: %nim_locales%
-    templating: NIMWebBundle:I18n:form.html.twig
-
-# NiM mission configuration
-nim_mission:
-    driver: doctrine/orm
-    classes:
-        mission:
-            model: NIM\CoreBundle\Model\Mission
-
-# NiM worker configuration
-nim_worker:
-    driver: doctrine/orm
-    classes:
-        worker:
-            model: NIM\CoreBundle\Model\Worker
-
-# NiM core configuration
-nim_core:
-    driver: doctrine/orm
-
-# NiM vaccine configuration
-nim_vaccine:
-    driver: doctrine/orm
-    classes:
-        vaccine:
-            model: NIM\CoreBundle\Model\Vaccine

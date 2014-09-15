@@ -1,0 +1,25 @@
+
+# NiM mission configuration
+nim_mission:
+    driver: doctrine/orm
+    classes:
+        mission:
+            model: NIM\CoreBundle\Model\Mission
+
+# NiM worker configuration
+nim_worker:
+    driver: doctrine/orm
+    classes:
+        worker:
+            model: NIM\CoreBundle\Model\Worker
+
+# NiM core configuration
+nim_core:
+    driver: doctrine/orm
+
+# NiM vaccine configuration
+nim_vaccine:
+    driver: doctrine/orm
+    classes:
+        vaccine:
+            model: NIM\CoreBundle\Model\Vaccine
