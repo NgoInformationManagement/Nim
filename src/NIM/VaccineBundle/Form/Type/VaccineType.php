@@ -6,8 +6,17 @@ use NIM\FormBundle\Form\Core\ResourceBaseType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class VaccineType extends ResourceBaseType
-
 {
+    /**
+     * @var string
+     */
+    private $vaccineModel;
+
+    public function __construct($vaccineModel)
+    {
+        $this->vaccineModel = $vaccineModel;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -16,7 +25,7 @@ class VaccineType extends ResourceBaseType
         $builder
             ->add('translations', 'a2lix_translations_gedmo', array(
                 'label' => false,
-                'translatable_class' => 'NIM\VaccineBundle\Model\Vaccine',
+                'translatable_class' => $this->vaccineModel,
                 'fields' => array(
                     'title' => array(
                         'label' => 'vaccine.field.title.label',

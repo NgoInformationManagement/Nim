@@ -20,8 +20,9 @@ class MissionTypeSpec extends ObjectBehavior
 {
     public function let()
     {
-        $this->beConstructedWith('\Mission\model');
+        $this->beConstructedWith('MissionBundle\Model\Mission');
     }
+
     public function it_is_initializable()
     {
         $this->shouldHaveType('NIM\MissionBundle\Form\Type\MissionType');

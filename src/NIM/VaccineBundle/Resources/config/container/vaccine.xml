@@ -22,6 +22,7 @@ file that was distributed with this source code.
 
         <!-- Vaccine Form -->
         <service id="nim.form.type.vaccine" class="%nim.form.type.vaccine.class%">
+            <argument type="string">%nim.model.vaccine.class%</argument>
             <call method="setValidationGroups">
                 <argument>%nim.validation_group.vaccine%</argument>
             </call>

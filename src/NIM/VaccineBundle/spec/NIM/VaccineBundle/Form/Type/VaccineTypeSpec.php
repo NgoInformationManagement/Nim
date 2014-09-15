@@ -9,10 +9,16 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class VaccineTypeSpec extends ObjectBehavior
 {
+    public function let()
+    {
+        $this->beConstructedWith('VacineBundle\Model\Vacine');
+    }
+
     public function it_is_initializable()
     {
         $this->shouldHaveType('NIM\VaccineBundle\Form\Type\VaccineType');
     }
+
     public function it_should_build_mission_form(FormBuilderInterface $builder)
     {
         $builder
