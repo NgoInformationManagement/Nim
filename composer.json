@@ -32,7 +32,8 @@
         "sylius/resource-bundle": "~0.11@dev",
         "a2lix/translation-form-bundle": "1.2",
         "white-october/pagerfanta-bundle": "1.0.*@dev",
-        "doctrine/doctrine-fixtures-bundle": "2.2.*"
+        "doctrine/doctrine-fixtures-bundle": "2.2.*",
+        "beelab/bowerphp": "0.1.*@alpha",
         "nim/core-bundle": "0.1.*@dev",
         "nim/worker-bundle": "0.1.*@dev",
         "nim/web-bundle": "0.1.*@dev",

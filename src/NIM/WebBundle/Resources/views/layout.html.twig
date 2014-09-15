@@ -12,11 +12,11 @@
         {# stylesheets #}
         {% block stylesheets %}
             {% stylesheets output='assets/compiled/nim.css' filter='cssrewrite'
-                'bundles/nimweb/css/bootstrap.css'
-                'bundles/nimweb/css/font-awesome.css'
-                'bundles/nimweb/css/bootstrap-datepicker.css'
-                'bundles/nimweb/css/select2/select2.css'
-                'bundles/nimweb/css/select2/select2-bootstrap.css'
+                'assets/vendor/bootstrap/dist/css/bootstrap.css'
+                'assets/vendor/font-awesome/css/font-awesome.css'
+                'assets/vendor/bootstrap-datepicker/css/datepicker3.css'
+                'assets/vendor/select2/select2.css'
+                'assets/vendor/select2/select2-bootstrap.css'
                 'bundles/nimweb/css/nim.css'
             %}
             <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
@@ -26,10 +26,11 @@
         {# javascripts... #}
         {% block javascripts %}
             {% javascripts
-            'bundles/nimweb/js/lib/core/jquery.min.js'
-            'bundles/nimweb/js/lib/core/bootstrap.min.js'
-            'bundles/nimweb/js/lib/core/kortex.js'
-            'bundles/nimweb/js/lib/plugin/*'
+            'assets/vendor/jquery/jquery.min.js'
+            'assets/vendor/bootstrap/dist/js/bootstrap.min.js'
+            'assets/vendor/select2/select2.min.js'
+            'assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js'
+            'bundles/nimweb/js/kortex.js'
             'bundles/nimform/js/core/plugin-options-factory.js'
             'bundles/nimform/js/type/*'
             'bundles/nimweb/js/layout.js'
