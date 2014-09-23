@@ -1,0 +1,42 @@
+{% javascripts
+    'assets/vendor/jquery-ui/ui/minified/jquery.ui.widget.min.js'
+    'assets/vendor/blueimp-tmpl/js/tmpl.js'
+    'assets/vendor/blueimp-load-image/js/load-image.all.min.js'
+    'assets/vendor/blueimp-canvas-to-blob/js/canvas-to-blob.min.js'
+    'assets/vendor/jquery-file-upload/js/jquery.iframe-transport.js'
+    'assets/vendor/jquery-file-upload/js/jquery.fileupload.js'
+    'assets/vendor/jquery-file-upload/js/jquery.fileupload-process.js'
+    'assets/vendor/jquery-file-upload/js/jquery.fileupload-image.js'
+    'assets/vendor/jquery-file-upload/js/jquery.fileupload-validate.js'
+    'assets/vendor/jquery-file-upload/js/jquery.fileupload-ui.js'
+%}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+{{ source('NIMWebBundle:Upload:_template.js.twig') }}
+
+<script type="text/javascript">
+    $(function () {
+        'use strict';
+
+        // Initialize the jQuery File Upload widget:
+        $('[data-uploader="form"]').fileupload({
+            url: '{{ oneup_uploader_endpoint('gallery') }}',
+            formData: {
+                id: {{ resourceId }},
+                type: {{ resourceType }}
+            }
+        });
+
+        $('[data-uploader="form"]').fileupload('option', {
+            url: '{{ oneup_uploader_endpoint('gallery') }}',
+            // Enable image resizing, except for Android and Opera,
+            // which actually support image resizing, but fail to
+            // send Blob objects via XHR requests:
+            disableImageResize: /Android(?!.*Chrome)|Opera/
+                    .test(window.navigator.userAgent),
+            maxFileSize: 5000000,
+            acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
+        });
+    });
+</script>

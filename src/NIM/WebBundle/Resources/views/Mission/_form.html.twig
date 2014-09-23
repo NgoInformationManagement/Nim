@@ -15,6 +15,12 @@
             {{ 'mission.tab.worker'|trans }}
         </a>
     </li>
+    <li>
+        <a href="#galery"
+           data-toggle="tab">
+            {{ 'mission.tab.galery'|trans }}
+        </a>
+    </li>
 </ul>
 
 <div class="tab-content">
@@ -30,6 +36,9 @@
     </div>
     <div class="tab-pane" id="worker">
         {{ form_widget(form.workers) }}
+    </div>
+    <div class="tab-pane" id="galery">
+
     </div>
 </div>
 {{ form_rest(form) }}

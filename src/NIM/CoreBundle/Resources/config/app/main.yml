@@ -20,3 +20,12 @@ fos_user:
 a2lix_translation_form:
     locales: %nim_locales%
     templating: NIMWebBundle:I18n:form.html.twig
+
+# Uploader configuration
+oneup_uploader:
+    mappings:
+        gallery:
+            enable_cancelation: true
+            frontend: blueimp
+            storage:
+                directory: %kernel.root_dir%/../web/media

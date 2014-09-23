@@ -76,3 +76,10 @@
     {{ _self.edit(path(routePrefix ~ '_update', {'id': id}), null, 'tooltip.edit') }}
     {{ _self.delete(path(routePrefix ~ '_delete', {'id': id}), null, 'tooltip.delete') }}
 {% endmacro %}
+
+{% macro upload(message) %}
+    <button class="btn btn-primary" data-toggle="modal" data-target="#uploaderModal">
+        <i class="icon-edit"></i>
+        {{ message|trans }}
+    </button>
+{% endmacro %}

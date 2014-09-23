@@ -19,9 +19,17 @@ file that was distributed with this source code.
         <parameter key="nim.form.subscriber.worker.class">NIM\CoreBundle\Form\EventListener\WorkerSubscriber</parameter>
 
         <parameter key="nim.locale.subscriber.class">NIM\CoreBundle\EventListener\LocaleListener</parameter>
+        <parameter key="nim.uploader.subscriber.class">NIM\CoreBundle\EventListener\UploaderSubscriber</parameter>
     </parameters>
 
     <services>
+        <service id="nim.uploader.subscriber"
+                 class="%nim.uploader.subscriber.class%">
+            <argument type="service" id="nim.repository.mission_asset" />
+            <argument type="service" id="nim.manager.mission_asset" />
+            <tag name="kernel.event_subscriber" />
+        </service>
+
         <service id="nim.form.type.locale"
                  class="%nim.form.type.locale.class%">
             <argument>%nim_locales%</argument>

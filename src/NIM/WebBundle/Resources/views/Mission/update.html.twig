@@ -17,6 +17,7 @@
 
 {% block page_action %}
     {{ buttons.back(path('nim_mission_index'), 'button.backToList') }}
+    {{ buttons.upload('button.upload') }}
     {{ submitFormButton('button.update', 'missionUpdateForm', 'edit') }}
 {% endblock page_action %}
 
@@ -30,4 +31,12 @@
           novalidate>
         {% include 'NIMWebBundle:Mission:_form.html.twig' %}
     </form>
+
+    {% include 'NIMWebBundle:Upload:_modal.html.twig' %}
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    {% include 'NIMWebBundle:Upload:_asset.html.twig' with {'resourceId' : mission.id, 'resourceType' : 'mission'} %}
 {% endblock %}

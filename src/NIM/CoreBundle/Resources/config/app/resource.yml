@@ -30,3 +30,12 @@ nim_vaccine:
             model: NIM\CoreBundle\Model\Vaccine
     templates:
         vaccine: NIMWebBundle:Vaccine
+
+sylius_resource:
+    resources:
+        nim.mission_asset:
+            driver: doctrine/orm
+            classes:
+                model: NIM\CoreBundle\Model\MissionAsset
+                repository: Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository
+                controller: Sylius\Bundle\ResourceBundle\Controller\ResourceController
