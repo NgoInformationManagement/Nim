@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+This file is part of the Nim package.
+
+(c) Langlade Arnaud
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+-->
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+                  xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
+>
+
+    <mapped-superclass name="Nim\Bundle\MissionBundle\Model\Mission" table="nim_mission">
+
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO"/>
+        </id>
+
+        <field name="title">
+            <gedmo:translatable/>
+        </field>
+
+        <field name="description" nullable="true">
+            <gedmo:translatable/>
+        </field>
+
+        <field name="country" />
+
+        <field name="startedAt" type="date" />
+
+        <field name="endedAt" type="date" nullable="true"/>
+
+        <field name="createdAt" column="created_at" type="datetime">
+            <gedmo:timestampable on="create"/>
+        </field>
+
+        <field name="updatedAt" column="updated_at" type="datetime">
+            <gedmo:timestampable on="update"/>
+        </field>
+
+        <field name="deletedAt" type="datetime" column="deleted_at" nullable="true" />
+
+        <gedmo:soft-deleteable field-name="deletedAt" time-aware="false" />
+
+        <one-to-many field="translations" target-entity="Nim\Bundle\MissionBundle\Model\MissionTranslation" mapped-by="object">
+            <cascade>
+                <cascade-all />
+            </cascade>
+        </one-to-many>
+
+        <gedmo:translation entity="Nim\Bundle\MissionBundle\Model\MissionTranslation" locale="locale"/>
+    </mapped-superclass>
+</doctrine-mapping>

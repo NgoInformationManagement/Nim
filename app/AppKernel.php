@@ -9,12 +9,12 @@ class AppKernel extends Kernel
     {
         $bundles = array(
             // Nim Bundle
-            new NIM\VaccineBundle\NIMVaccineBundle(),
-            new NIM\MissionBundle\NIMMissionBundle(),
-            new NIM\WorkerBundle\NIMWorkerBundle(),
-            new NIM\CoreBundle\NIMCoreBundle(),
-            new NIM\FormBundle\NIMFormBundle(),
-            new NIM\WebBundle\NIMWebBundle(),
+            new Nim\Bundle\VaccineBundle\NimVaccineBundle(),
+            new Nim\Bundle\MissionBundle\NimMissionBundle(),
+            new Nim\Bundle\WorkerBundle\NimWorkerBundle(),
+            new Nim\Bundle\CoreBundle\NimCoreBundle(),
+            new Nim\Bundle\FormBundle\NimFormBundle(),
+            new Nim\Bundle\WebBundle\NimWebBundle(),
 
             // Symfony
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),

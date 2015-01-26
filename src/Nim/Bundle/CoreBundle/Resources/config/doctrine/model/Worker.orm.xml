@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+This file is part of the Nim package.
+
+(c) Langlade Arnaud
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+-->
+
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+                  xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
+>
+
+    <mapped-superclass name="Nim\Bundle\CoreBundle\Model\Worker"
+                       table="nim_worker"
+                       repository-class="Nim\Bundle\WorkerBundle\Repository\WorkerRepository">
+        <many-to-many field="missions" inversed-by="workers" target-entity="Nim\Bundle\MissionBundle\Model\MissionInterface">
+            <join-table name="nim_worker_mission">
+                <join-columns>
+                    <join-column name="worker_id" referenced-column-name="id" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="mission_id" referenced-column-name="id" />
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
+
+        <many-to-many field="vaccines" inversed-by="workers" target-entity="Nim\Bundle\VaccineBundle\Model\VaccineInterface">
+            <join-table name="nim_worker_vaccine">
+                <join-columns>
+                    <join-column name="worker_id" referenced-column-name="id" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="vaccine_id" referenced-column-name="id" />
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
+    </mapped-superclass>
+</doctrine-mapping>

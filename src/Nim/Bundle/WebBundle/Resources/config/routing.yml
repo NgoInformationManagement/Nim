@@ -1,0 +1,30 @@
+nim_dashboard:
+    pattern: /
+    defaults: { _controller: NimWebBundle:Dashboard:index }
+    methods: [GET]
+
+nim_locale_index:
+    pattern: /locale
+    methods: [GET]
+    defaults: { _controller: NimWebBundle:Locale:index }
+
+nim_locale_update:
+    pattern: /locale/update
+    methods: [POST]
+    defaults: { _controller: NimWebBundle:Locale:update }
+
+nim_mission:
+    resource: @NimMissionBundle/Resources/config/routing/mission.yml
+    prefix: /mission
+
+nim_agency:
+    resource: @NimWorkerBundle/Resources/config/routing/agency.yml
+    prefix: /agency
+
+nim_worker:
+    resource: @NimWorkerBundle/Resources/config/routing/worker.yml
+    prefix: /worker
+
+nim_vaccine:
+    resource: @NimVaccineBundle/Resources/config/routing/vaccine.yml
+    prefix: /vaccine

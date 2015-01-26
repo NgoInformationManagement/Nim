@@ -1,6 +1,0 @@
-NIM\WorkerBundle\Model\Passport:
-    passport{1..100}:
-        country: <country()>
-        number: <bothify('?#???##??##??')>
-        dateOfIssue: <date()>
-        dateOfExpiry: <date()>

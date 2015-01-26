@@ -1,6 +1,6 @@
 # NiM web bundle routes
 nim_web:
-    resource: "@NIMWebBundle/Resources/config/routing.yml"
+    resource: "@NimWebBundle/Resources/config/routing.yml"
 
 # FOS user routes
 fos_user_security:

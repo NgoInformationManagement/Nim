@@ -1,0 +1,22 @@
+imports:
+    - { resource: @NimCoreBundle/Resources/config/app/resource.yml }
+
+# Stof doctrine extension configuration
+stof_doctrine_extensions:
+    default_locale: %locale%
+    orm:
+        default:
+            timestampable: true
+            softdeleteable: true
+            translatable: true
+
+# FOS user configuration
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Nim\Bundle\CoreBundle\Model\User
+
+# A2lix Translation Form configuration
+a2lix_translation_form:
+    locales: %nim_locales%
+    templating: NimWebBundle:I18n:form.html.twig

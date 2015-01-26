@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+This file is part of the Nim package.
+
+(c) Langlade Arnaud
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+-->
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+                               http://symfony.com/schema/dic/services/services-1.0.xsd"
+        >
+    <parameters>
+        <parameter key="nim.form.type.worker.entity.class">Nim\Bundle\WorkerBundle\Form\Type\WorkerEntityType</parameter>
+        <parameter key="nim.form.type.filter.worker.class">Nim\Bundle\WorkerBundle\Form\Type\Filter\WorkerType</parameter>
+        <parameter key="nim.form.subscriber.worker.class">Nim\Bundle\WorkerBundle\Form\EventListener\WorkerSubscriber</parameter>
+    </parameters>
+
+    <services>
+        <service id="nim.form.subscriber.worker" class="%nim.form.subscriber.worker.class%" />
+
+        <!-- Worker Form -->
+        <service id="nim.form.type.worker" class="%nim.form.type.worker.class%">
+            <argument type="service" id="nim.form.subscriber.worker" />
+            <call method="setValidationGroups">
+                <argument>%nim.validation_group.worker%</argument>
+            </call>
+            <call method="setDataClass">
+                <argument>%nim.model.worker.class%</argument>
+            </call>
+            <tag name="form.type" alias="nim_worker" />
+        </service>
+
+        <!-- Worker Entity Form -->
+        <service id="nim.form.type.entity.worker" class="%nim.form.type.worker.entity.class%">
+            <argument type="string">%nim.model.worker.class%</argument>
+            <call method="setValidationGroups">
+                <argument>%nim.validation_group.worker%</argument>
+            </call>
+            <tag name="form.type" alias="nim_entity_worker"/>
+        </service>
+
+        <!-- Worker Filter Form -->
+        <service id="nim.form.type.filter.worker" class="%nim.form.type.filter.worker.class%">
+            <tag name="form.type" alias="nim_filter_worker"/>
+        </service>
+    </services>
+</container>

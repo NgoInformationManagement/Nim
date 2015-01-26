@@ -1,8 +1,0 @@
-NIM\CoreBundle\Model\User:
-    admin:
-        username: admin
-        password: admin
-        plainPassword: admin
-        enabled: true
-        email: <email()>
-        roles: ['ROLE_SUPER_ADMIN']

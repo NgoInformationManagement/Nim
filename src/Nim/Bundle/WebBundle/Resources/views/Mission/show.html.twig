@@ -1,0 +1,55 @@
+{% extends 'NimWebBundle::layout.html.twig' %}
+
+{% import 'NimFormBundle:Bootstrap3:button.html.twig' as buttons %}
+{% from 'NimFormBundle:Bootstrap3:field.html.twig' import field_row %}
+{% from 'NimFormBundle:Bootstrap3:field.html.twig' import date %}
+{% from 'NimFormBundle:Bootstrap3:field.html.twig' import translatableContant %}
+
+
+{% block title %}
+    {{ 'layout.page.title'|trans({'%page_title%' : 'mission.title.show'|trans}) }}
+{% endblock %}
+
+
+{% block page_name %}
+    <i class="icon-rocket"></i>
+    {{ 'mission.title.show'|trans }}
+{% endblock page_name %}
+
+
+{% block page_action %}
+    {{ buttons.back(path('nim_mission_index'), 'button.backToList') }}
+    {{ buttons.edit(path('nim_mission_update', {'id' : mission.id}), 'button.edit') }}
+    {{ buttons.delete(path('nim_mission_delete', {'id' : mission.id}), 'button.delete') }}
+{% endblock page_action %}
+
+
+{% block content %}
+<div class="form-horizontal translated-form">
+    {{ nim_translation(mission)}}
+    {{ field_row('mission.field.country.label', mission.country|country) }}
+    {{ field_row('mission.field.startedAt.label', date(mission.startedAt)) }}
+    {{ field_row('mission.field.endedAt.label', date(mission.endedAt)) }}
+</div>
+<h3>
+    {{ 'agency.tab.worker'|trans }}
+</h3>
+<div class="row">
+    {% for worker in mission.workers %}
+    <div class="col-lg-3">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <label class="expanded-choice-label">
+                    <p class="title">
+                        {{ worker.getFullName }} ({{ worker.country|country }})
+                    </p>
+                    <p>
+                        {{ worker.function }} ({{ translatableContant('worker', 'type', worker.type) }})
+                    </p>
+                </label>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

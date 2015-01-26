@@ -1,8 +1,0 @@
-NIM\WorkerBundle\Model\Contact:
-    contact{1..200}:
-        firstname: <firstName()>
-        lastname: <lastName()>
-        street: <streetName()>
-        postcode: <postcode()>
-        city: <city()>
-        phones: [@phone.contact<current()>]

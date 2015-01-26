@@ -1,0 +1,33 @@
+{% extends 'NimWebBundle::layout.html.twig' %}
+
+{% import 'NimFormBundle:Bootstrap3:button.html.twig' as buttons %}
+{% from 'NimFormBundle:Bootstrap3:pagination/resource_bundle.html.twig' import pagination %}
+{% from 'NimWebBundle:Vaccine:macro.html.twig' import list %}
+
+
+{% block title %}
+    {{ 'layout.page.title'|trans({'%page_title%' : 'vaccine.title.index'|trans}) }}
+{% endblock %}
+
+
+{% block page_name %}
+    <i class="icon-rocket"></i>
+    {{ 'vaccine.title.index'|trans }}
+{% endblock page_name %}
+
+
+{% block page_action %}
+    {{ buttons.new(path('nim_vaccine_create'), 'vaccine.button.new') }}
+{% endblock page_action %}
+
+
+{% block content %}
+    {% render(controller(
+            'nim.controller.form:filterAction',
+            {'type': 'nim_filter_vaccine', 'path': 'nim_vaccine_index', 'request': app.request})
+        )
+    %}
+    {{ pagination(vaccines) }}
+    {{ list(vaccines) }}
+    {{ pagination(vaccines) }}
+{% endblock %}

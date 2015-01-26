@@ -1,0 +1,5 @@
+Nim\Bundle\WorkerBundle\Model\Visa:
+    visa{1..200}:
+        country: <country()>
+        startedAt: <date()>
+        length: <randomDigitNotNull()>

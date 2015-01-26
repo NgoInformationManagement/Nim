@@ -1,0 +1,33 @@
+{% extends 'NimWebBundle::layout.html.twig' %}
+
+{% import 'NimFormBundle:Bootstrap3:button.html.twig' as buttons %}
+{% from 'NimFormBundle:Bootstrap3:pagination/resource_bundle.html.twig' import pagination %}
+{% from 'NimWebBundle:Mission:macro.html.twig' import list %}
+
+
+{% block title %}
+    {{ 'layout.page.title'|trans({'%page_title%' : 'mission.title.index'|trans}) }}
+{% endblock %}
+
+
+{% block page_name %}
+    <i class="icon-rocket"></i>
+    {{ 'mission.title.index'|trans }}
+{% endblock page_name %}
+
+
+{% block page_action %}
+    {{ buttons.new(path('nim_mission_create'), 'mission.button.new') }}
+{% endblock page_action %}
+
+
+{% block content %}
+    {% render(controller(
+            'nim.controller.form:filterAction',
+            {'type': 'nim_filter_mission', 'path': 'nim_mission_index', 'request': app.request})
+        )
+    %}
+    {{ pagination(missions) }}
+    {{ list(missions) }}
+    {{ pagination(missions) }}
+{% endblock %}

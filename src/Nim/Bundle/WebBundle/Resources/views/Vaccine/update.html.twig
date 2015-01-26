@@ -1,0 +1,33 @@
+{% extends 'NimWebBundle::layout.html.twig' %}
+
+{% import 'NimFormBundle:Bootstrap3:button.html.twig' as buttons %}
+{% from 'NimWebBundle:Misc:button.html.twig' import submitFormButton %}
+
+
+{% block title %}
+    {{ 'layout.page.title'|trans({'%page_title%' : 'vaccine.title.update'|trans}) }}
+{% endblock %}
+
+
+{% block page_name %}
+    <i class="icon-rocket"></i>
+    {{ 'vaccine.title.update'|trans }}
+{% endblock page_name %}
+
+
+{% block page_action %}
+    {{ buttons.back(path('nim_vaccine_index'), 'button.backToList') }}
+    {{ submitFormButton('button.update', 'vaccineUpdateForm', 'edit') }}
+{% endblock page_action %}
+
+
+{% block content %}
+    <form action="{{ path('nim_vaccine_update', {'id': vaccine.id}) }}"
+          method="post"
+          class="form-horizontal translated-form"
+          role="form"
+          id="vaccineUpdateForm"
+          novalidate>
+        {% include 'NimWebBundle:Vaccine:_form.html.twig' %}
+    </form>
+{% endblock %}

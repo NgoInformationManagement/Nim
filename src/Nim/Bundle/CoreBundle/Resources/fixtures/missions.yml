@@ -1,0 +1,7 @@
+Nim\Bundle\MissionBundle\Model\Mission:
+    mission{1..200}:
+        title: <word()>
+        description: <paragraph(1000)>
+        country: <randomElement(['BE', 'FR', 'NI', 'PK', 'PL', 'CH', 'PT', 'MA'])>
+        startedAt: <date()>
+        endedAt: <date()>

@@ -1,0 +1,37 @@
+{% from 'NimFormBundle:Bootstrap3:notification.html.twig' import error %}
+
+{{ error(form.vars.errors) }}
+<div class="row form-horizontal">
+    <fieldset class="col-md-6">
+        <legend>{{ 'worker.fieldset.contactdetails'|trans }}</legend>
+        {{ form_row(form.gender) }}
+        {{ form_row(form.firstname) }}
+        {{ form_row(form.lastname) }}
+        {{ form_row(form.birthday) }}
+        {{ form_row(form.diploma) }}
+        {{ form_row(form.street) }}
+        {{ form_row(form.postcode) }}
+        {{ form_row(form.city) }}
+        {{ form_row(form.country) }}
+    </fieldset>
+
+    <fieldset class="col-md-6">
+        <legend>{{ 'worker.fieldset.organization'|trans }}</legend>
+        {{ form_row(form.basedAt) }}
+        {{ form_row(form.function) }}
+        {{ form_row(form.arrivedAt) }}
+        {{ form_row(form.leftAt) }}
+        {{ form_row(form.type) }}
+    </fieldset>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        {{ form_widget(form.emails) }}
+    </div>
+    <div class="col-md-6 form-inline">
+        {{ form_widget(form.phones) }}
+    </div>
+</div>
+
+{{ form_row(form._token) }}

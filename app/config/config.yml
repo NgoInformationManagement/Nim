@@ -1,7 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-    - { resource: @NIMCoreBundle/Resources/config/app/main.yml }
+    - { resource: @NimCoreBundle/Resources/config/app/main.yml }
 
 framework:
     #esi:             ~
@@ -28,14 +28,14 @@ twig:
     strict_variables: %kernel.debug%
     form:
         resources:
-            - 'NIMFormBundle:Bootstrap3:form.html.twig'
-            - 'NIMWebBundle::form.html.twig'
+            - 'NimFormBundle:Bootstrap3:form.html.twig'
+            - 'NimWebBundle::form.html.twig'
 
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        ['NIMWebBundle', 'FOSUserBundle']
+    bundles:        ['NimWebBundle', 'FOSUserBundle']
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

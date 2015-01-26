@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+This file is part of the Nim package.
+
+(c) Langlade Arnaud
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+-->
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+                               http://symfony.com/schema/dic/services/services-1.0.xsd"
+        >
+    <parameters>
+        <parameter key="nim.form.type.locale.class">Nim\Bundle\CoreBundle\Form\Type\LocaleType</parameter>
+        <parameter key="nim.form.subscriber.worker.class">Nim\Bundle\CoreBundle\Form\EventListener\WorkerSubscriber</parameter>
+
+        <parameter key="nim.locale.subscriber.class">Nim\Bundle\CoreBundle\EventListener\LocaleListener</parameter>
+    </parameters>
+
+    <services>
+        <service id="nim.form.type.locale"
+                 class="%nim.form.type.locale.class%">
+            <argument>%nim_locales%</argument>
+            <argument type="service" id="session" />
+
+            <tag name="form.type" alias="nim_locale" />
+        </service>
+
+        <service id="nim.locale.subscriber"
+                 class="%nim.locale.subscriber.class%">
+            <argument>%kernel.default_locale%</argument>
+
+            <tag name="kernel.event_subscriber" />
+        </service>
+    </services>
+</container>

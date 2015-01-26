@@ -1,0 +1,208 @@
+{% use 'form_div_layout.html.twig' %}
+
+
+{% block form_label %}
+    {% set label_attr = label_attr | merge({'class' :  label_attr.class|default ~ ' col-lg-3 control-label'}) %}
+    {{ parent() }}
+{% endblock form_label %}
+
+
+{% block form_widget_simple %}
+    {% set attr = attr | merge({'class' :  attr.class|default ~ ' form-control'}) %}
+    {{ parent() }}
+{% endblock form_widget_simple %}
+
+
+{% block textarea_widget %}
+    {% set attr = attr | merge({'class' :  attr.class|default ~ ' form-control'}) %}
+    {{ parent() }}
+{% endblock textarea_widget %}
+
+
+{% block choice_widget %}
+    {% if not compound %}
+    {% set attr = attr | merge({'class' :  attr.class|default ~ ' form-control'}) %}
+    {% endif %}
+    {{ parent() }}
+{% endblock choice_widget %}
+
+
+{% block choice_widget_expanded %}
+    {% spaceless %}
+        <div {{ block('widget_container_attributes') }}>
+            {% for child in form %}
+            <div>
+                {{ form_widget(child) }}
+                {{ form_label(child) }}
+            </div>
+            {% endfor %}
+        </div>
+    {% endspaceless %}
+{% endblock choice_widget_expanded %}
+
+
+{% block form_rest %}
+    {% spaceless %}
+        {% for child in form %}
+            {% if not child.rendered %}
+                {% if child.vars.compound %}
+                    {{ form_widget(child) }}
+                {% else %}
+                    {{ form_row(child) }}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    {% endspaceless %}
+{% endblock form_rest %}
+
+
+{% block form_row %}
+    {% spaceless %}
+        <div class="form-group {% if errors|length %}has-error{% endif %}">
+            {{ form_label(form) }}
+            <div {% if label %}class="col-lg-9"{% endif %}>
+                {{ form_widget(form) }}
+
+                {{ form_errors(form) }}
+
+                {% if legend|default %}
+                <ul class="form-type-legend list-unstyled {% if errors|length > 0 %}col-lg-6{% endif %} text-right">
+                    <li>
+                        <p class="text-info">
+                            {{ legend|trans }}
+                        </p>
+                    </li>
+                </ul>
+                {% endif %}
+            </div>
+
+            {% if plugin_rendered|default('none') != 'none' %}
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#{{ id }}').{{ plugin_prototype }}({{ plugin_options|raw }})
+                });
+            </script>
+            {% endif %}
+        </div>
+    {% endspaceless %}
+{% endblock form_row %}
+
+
+{% block form_errors %}
+    {% spaceless %}
+        {% if errors|length > 0 %}
+            <ul class="form-type-errors list-unstyled{% if legend|default %} col-lg-6{% endif %}">
+                {% for error in errors %}
+                    <li>
+                        <p class="text-danger">
+                            {{ error.message|trans(error.messageParameters) }}
+                        </p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endspaceless %}
+{% endblock form_errors %}
+
+
+{% block collection_widget %}
+    {% from 'NimFormBundle:Bootstrap3:notification.html.twig' import error %}
+    {% set attr = attr|merge({'class': attr.class|default ~ ' controls collection-widget'}) %}
+
+    {% spaceless %}
+        <div data-form-type="collection"
+             {{ block('widget_container_attributes') }}
+             {% if prototype is defined %}
+             data-prototype='{{ _self.collectionItem(prototype, item_by_line, allow_delete)|e }}'
+             {% endif %}>
+            <fieldset>
+                <legend>{{ label|trans }}
+                {% if prototype is defined and allow_add %}
+                    <button class="btn btn-success collection-button-add"
+                            data-form-collection="add">
+                        <i class="icon-plus"></i>
+                        {{ 'form.collection.add' | trans }}
+                    </button>
+                {% endif %}
+                </legend>
+                    {{ error(form.vars.errors) }}
+                    <div data-form-collection="list"
+                         class="row collection-list">
+                    {% for child in form %}
+                        {{ _self.collectionItem(child, item_by_line, allow_delete) }}
+                    {% endfor %}
+                    </div>
+            </fieldset>
+        </div>
+    {% endspaceless %}
+{% endblock collection_widget %}
+
+{% macro collectionItem(form, item_by_line, allow_delete) %}
+    {% set boxWidth = (12 / item_by_line)|number_format %}
+
+    {% spaceless %}
+        <div data-form-collection="item"
+             class="col-md-{{ boxWidth }} collection-item">
+                <div class="panel panel-default{% if form|length == 1%} unique-field{% endif %}">
+                    <div class="panel-body">
+                    {% if allow_delete %}
+                        <a href="#" data-form-collection="delete">
+                            <i class="icon-remove collection-button-remove"></i>
+                        </a>
+                    {% endif %}
+
+                    {{ form_rest(form) }}
+                </div>
+            </div>
+        </div>
+    {% endspaceless %}
+{% endmacro %}
+
+
+{% block delete_widget %}
+    {% spaceless %}
+        {% if label is empty %}
+            {% set label = name|humanize %}
+        {% endif %}
+        <button type="{{ type|default('button') }}" {{ block('button_attributes') }}>
+            <i class="icon-trash"></i>
+            {{ label|trans({}, translation_domain) }}
+        </button>
+    {% endspaceless %}
+{% endblock delete_widget %}
+
+
+{% block date_widget %}
+    {% spaceless %}
+        {% if plugin_rendered|default == 'plugin' %}
+            <div class="input-group">
+                {{ block('form_widget_simple') }}
+                <span class="input-group-addon">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                </span>
+            </div>
+        {% else %}
+            {{ parent() }}
+        {% endif %}
+    {% endspaceless %}
+{% endblock date_widget %}
+
+
+{% block colorpicker_widget %}
+    {% spaceless %}
+        <div class="input-group">
+            {{ block('form_widget_simple') }}
+            <span class=" input-group-addon">
+               <i class="glyphicon glyphicon-tint"></i>
+            </span>
+        </div>
+    {% endspaceless %}
+{% endblock colorpicker_widget %}
+
+
+{% block email_widget %}
+    <div class="input-group">
+        <span class="input-group-addon">@</span>
+        {{ form_widget(form) }}
+    </div>
+{% endblock %} %}
