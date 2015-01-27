@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Nim\bundle\MissionBundle\DependencyInjection;
+namespace Nim\Bundle\MissionBundle\DependencyInjection;
 
 use Sylius\Bundle\ResourceBundle\DependencyInjection\AbstractResourceExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
