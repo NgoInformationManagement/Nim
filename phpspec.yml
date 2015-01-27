@@ -1,6 +1,6 @@
 suites:
-    WorkerBundle: { namespace: NIM, spec_path: src/NIM/WorkerBundle }
-    FormBundle: { namespace: NIM, spec_path: src/NIM/FormBundle }
-    VaccineBundle: { namespace: NIM, spec_path: src/NIM/VaccineBundle }
-    MissionBundle: { namespace: NIM, spec_path: src/NIM/MissionBundle }
-    CoreBundle: { namespace: NIM, spec_path: src/NIM/CoreBundle }
+    WorkerBundle: { namespace: Nim\Bundle\WorkerBundle, spec_path: src/Nim/Bundle/WorkerBundle }
+    FormBundle: { namespace: Nim\Bundle\FormBundle, spec_path: src/Nim/Bundle/FormBundle }
+    VaccineBundle: { namespace: Nim\Bundle\VaccineBundle, spec_path: src/Nim/Bundle/VaccineBundle }
+    MissionBundle: { namespace: Nim\Bundle\MissionBundle, spec_path: src/Nim/Bundle/MissionBundle }
+    CoreBundle: { namespace: Nim\Bundle\CoreBundle, spec_path: src/Nim/Bundle/CoreBundle }

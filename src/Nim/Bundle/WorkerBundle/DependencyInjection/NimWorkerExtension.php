@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace NIM\WorkerBundle\DependencyInjection;
+namespace Nim\Bundle\WorkerBundle\DependencyInjection;
 
 use Sylius\Bundle\ResourceBundle\DependencyInjection\AbstractResourceExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class NIMWorkerExtension extends AbstractResourceExtension
+class NimWorkerExtension extends AbstractResourceExtension
 {
     protected $applicationName = 'nim';
     protected $configDirectory = '/../Resources/config/container';
