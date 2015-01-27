@@ -7,6 +7,10 @@ security:
             id: fos_user.user_provider.username
 
     firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|assets)/
+            security: false
+
         main:
             pattern: ^/
             form_login:

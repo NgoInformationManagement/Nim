@@ -15,8 +15,6 @@
                 'assets/vendor/bootstrap/dist/css/bootstrap.css'
                 'assets/vendor/font-awesome/css/font-awesome.css'
                 'assets/vendor/bootstrap-datepicker/css/datepicker3.css'
-                'assets/vendor/select2/select2.css'
-                'assets/vendor/select2/select2-bootstrap.css'
                 'bundles/nimweb/css/nim.css'
             %}
             <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
@@ -25,10 +23,9 @@
 
         {# javascripts... #}
         {% block javascripts %}
-            {% javascripts
+            {% javascripts output='assets/compiled/nim.js'
             'assets/vendor/jquery/dist/jquery.min.js'
             'assets/vendor/bootstrap/dist/js/bootstrap.min.js'
-            'assets/vendor/select2/select2.min.js'
             'assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js'
             'bundles/nimweb/js/kortex.js'
             'bundles/nimform/js/core/plugin-options-factory.js'
