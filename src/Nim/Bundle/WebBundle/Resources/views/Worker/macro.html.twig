@@ -1,8 +1,8 @@
 {% macro list(workers) %}
 
-    {% from 'NimFormBundle:Bootstrap3:button.html.twig' import listActionButton %}
-    {% from 'NimFormBundle:Bootstrap3:notification.html.twig' import info %}
-    {% from 'NimFormBundle:Bootstrap3:field.html.twig' import boolean %}
+    {% from 'NimThemeBundle:Macro:button.html.twig' import listActionButton %}
+    {% from 'NimThemeBundle:Macro:notification.html.twig' import info %}
+    {% from 'NimThemeBundle:Macro:field.html.twig' import boolean %}
 
     {% if workers|length > 0 %}
         <div class="table-responsive row">
@@ -84,8 +84,8 @@
 
 
 {% macro latest(workers) %}
-    {% import 'NimFormBundle:Bootstrap3:button.html.twig' as buttons %}
-    {% from 'NimFormBundle:Bootstrap3:notification.html.twig' import info %}
+    {% import 'NimThemeBundle:Macro:button.html.twig' as buttons %}
+    {% from 'NimThemeBundle:Macro:notification.html.twig' import info %}
 
     {% if workers|length > 0 %}
         <div class="table-responsive">

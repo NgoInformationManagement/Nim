@@ -1,7 +1,7 @@
 {% macro list(agencies) %}
 
-    {% from 'NimFormBundle:Bootstrap3:button.html.twig' import listActionButton %}
-    {% from 'NimFormBundle:Bootstrap3:notification.html.twig' import info %}
+    {% from 'NimThemeBundle:Macro:button.html.twig' import listActionButton %}
+    {% from 'NimThemeBundle:Macro:notification.html.twig' import info %}
 
     {% if agencies|length > 0 %}
         <div class="table-responsive row">

@@ -1,5 +1,5 @@
 {% block nim_entity_mission_widget %}
-    {% from 'NimFormBundle:Bootstrap3:field.html.twig' import date %}
+    {% from 'NimThemeBundle:Macro:field.html.twig' import date %}
     {% spaceless %}
         {% set attr = attr | merge({'class' :  attr.class|default ~ ' tab-content row'}) %}
         <div {{ block('widget_container_attributes') }}>
@@ -29,7 +29,7 @@
 {% endblock  %}
 
 {% block nim_entity_worker_widget %}
-    {% from 'NimFormBundle:Bootstrap3:field.html.twig' import translatableContant %}
+    {% from 'NimThemeBundle:Macro:field.html.twig' import translatableContant %}
     {% spaceless %}
         {% set attr = attr | merge({'class' :  attr.class|default ~ ' tab-content row'}) %}
         <div {{ block('widget_container_attributes') }}>

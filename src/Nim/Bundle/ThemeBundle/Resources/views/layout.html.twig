@@ -131,12 +131,12 @@
 
         <section class="content">
             <div class="container-fluid">
-                {% from "NimFormBundle:Bootstrap3:notification.html.twig" import flashes %}
+                {% from "NimThemeBundle:Macro:notification.html.twig" import flashes %}
                 {{ flashes() }}
                 {% block content %}
                 {% endblock content %}
 
-                {% include 'NimWebBundle:Misc:confirmation-modal.html.twig' %}
+                {% include 'NimThemeBundle:Macro:confirmation-modal.html.twig' %}
             </div>
         </section>
         {% endblock body %}

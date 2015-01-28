@@ -43,7 +43,7 @@ Twig configuration
     twig:
         form:
             resources:
-                - 'NimFormBundle:Bootstrap3:form.html.twig'
+                - 'NimThemeBundle:Macro:form.html.twig'
 
 http://phpspec.net Specifications
 ---------------------------------

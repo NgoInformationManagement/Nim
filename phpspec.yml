@@ -4,3 +4,4 @@ suites:
     VaccineBundle: { namespace: Nim\Bundle\VaccineBundle, spec_path: src/Nim/Bundle/VaccineBundle }
     MissionBundle: { namespace: Nim\Bundle\MissionBundle, spec_path: src/Nim/Bundle/MissionBundle }
     CoreBundle: { namespace: Nim\Bundle\CoreBundle, spec_path: src/Nim/Bundle/CoreBundle }
+    ThemeBundle: { namespace: Nim\Bundle\ThemeBundle, spec_path: src/Nim/Bundle/ThemeBundle }

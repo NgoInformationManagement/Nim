@@ -1,0 +1,48 @@
+{
+    "name": "nim/theme-bundle",
+    "type": "symfony-bundle",
+    "description": "Nim theme bundle : Manage your symfony theme simpler",
+    "keywords": ["nim", "ngo", "humanitarian", "theme", "select2", "datepicker"],
+    "homepage": "https://github.com/NgoInformationManagement/FormBundle",
+    "license": "MIT",
+
+    "authors": [
+        {
+            "name": "aRn0D",
+            "homepage": "https://github.com/aRn0D"
+        }
+    ],
+
+    "minimum-stability": "dev",
+
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1-dev"
+        }
+    },
+
+    "target-dir": "Nim/ThemeBundle",
+
+    "require": {
+        "php": ">=5.4",
+        "symfony/framework-bundle": "~2.3"
+    },
+
+    "require-dev": {
+        "phpspec/phpspec": "2.0.*@dev",
+        "behat/behat": "2.4.*",
+        "behat/mink-extension": "*",
+        "symfony/form": "~2.3",
+        "twig/twig": "1.15.*@dev"
+    },
+
+    "config": {
+        "bin-dir": "bin"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "Nim\\ThemeBundle": ""
+        }
+    }
+}

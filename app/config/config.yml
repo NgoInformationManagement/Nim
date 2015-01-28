@@ -28,14 +28,14 @@ twig:
     strict_variables: %kernel.debug%
     form:
         resources:
-            - 'NimFormBundle:Bootstrap3:form.html.twig'
+            - 'NimThemeBundle::form.html.twig'
             - 'NimWebBundle::form.html.twig'
 
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        ['NimWebBundle', 'FOSUserBundle']
+    bundles:        ['NimThemeBundle', 'FOSUserBundle']
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
