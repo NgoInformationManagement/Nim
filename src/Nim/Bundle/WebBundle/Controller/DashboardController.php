@@ -17,9 +17,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DashboardController extends Controller
 {
-    /**
-     * @Template()
-     */
     public function indexAction()
     {
         /** @var $missionRepository EntityRepository $missionRepository */
@@ -27,9 +24,9 @@ class DashboardController extends Controller
         /** @var $workerRepository EntityRepository $missionRepository */
         $workerRepository = $this->get('nim.repository.worker');
 
-        return array(
-            'missions' => $missionRepository->findBy(array(), array('updatedAt' => 'desc'), 5),
-            'workers' => $workerRepository->findBy(array(), array('updatedAt' => 'desc'), 5),
-        );
+        return $this->render('NimWebBundle:Dashboard:index.html.twig', [
+            'missions' => $missionRepository->findBy([], ['updatedAt' => 'desc'], 5),
+            'workers' => $workerRepository->findBy([], ['updatedAt' => 'desc'], 5),
+        ]);
     }
 }

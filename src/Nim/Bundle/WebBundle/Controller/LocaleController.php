@@ -22,9 +22,9 @@ class LocaleController extends Controller
      */
     public function indexAction()
     {
-        return array(
+        return $this->render('NimWebBundle:Locale:index.html.twig', [
             'form' => $this->createForm('nim_locale')->createView()
-        );
+        ]);
     }
 
     public function updateAction(Request $request)
