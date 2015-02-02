@@ -1,8 +1,9 @@
-{% extends 'NimThemeBundle::layout.html.twig' %}
+{% extends 'NimWebBundle::layout.html.twig' %}
 
 {% import 'NimThemeBundle:Macro:button.html.twig' as buttons %}
 {% from 'NimWebBundle:Misc:button.html.twig' import submitFormButton %}
 {% from 'NimThemeBundle:Macro:notification.html.twig' import errors %}
+{% from 'NimThemeBundle:Macro:button.html.twig' import formAction %}
 
 {#{% form_theme form 'NimWebBundle:Contactable:email_widget.html.twig' %}#}
 {#{% form_theme form 'NimWebBundle:Mission:entity_mission_widget.html.twig' %}#}
@@ -16,12 +17,6 @@
     <i class="icon-male"></i>
     {{ 'worker.title.update'|trans }}
 {% endblock page_name %}
-
-
-{% block page_action %}
-    {{ buttons.back(path('nim_worker_index'), 'button.backToList') }}
-    {{ submitFormButton('button.update', 'workerUpdateForm', 'edit') }}
-{% endblock page_action %}
 
 
 {% block content %}
@@ -101,5 +96,7 @@
                 {{ form_widget(form.vaccines) }}
             </div>
         </div>
+
+        {{ formAction(path('nim_worker_index')) }}
     </form>
 {% endblock %}

@@ -1,4 +1,4 @@
-{% extends 'NimThemeBundle::layout.html.twig' %}
+{% extends 'NimWebBundle::layout.html.twig' %}
 
 {% import 'NimThemeBundle:Macro:button.html.twig' as buttons %}
 {% from 'NimWebBundle:Misc:button.html.twig' import submitFormButton %}
@@ -13,12 +13,6 @@
     <i class="icon-rocket"></i>
     {{ 'mission.title.create'|trans }}
 {% endblock page_name %}
-
-
-{% block page_action %}
-    {{ buttons.back(path('nim_mission_index'), 'button.backToList') }}
-    {{ submitFormButton('button.create', 'missionCreateForm') }}
-{% endblock page_action %}
 
 
 {% block content %}

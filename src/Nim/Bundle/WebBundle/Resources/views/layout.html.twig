@@ -1,0 +1,23 @@
+{% extends 'NimThemeBundle::layout.html.twig' %}
+
+{# stylesheets #}
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets output='assets/compiled/nim.css' filter='cssrewrite'
+    'bundles/nimweb/css/nim.css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% javascripts output='assets/compiled/nim.js'
+        'bundles/nimweb/js/kortex.js'
+        'bundles/nimweb/js/layout.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

@@ -1,6 +1,13 @@
+{% from 'NimThemeBundle:Macro:button.html.twig' import formAction %}
+
+
 <div class="tab-content">
     <div class="tab-pane active" id="vaccine">
         {{ form_row(form.translations) }}
     </div>
 </div>
+
 {{ form_rest(form) }}
+
+
+{{ formAction(path('nim_vaccine_index')) }}

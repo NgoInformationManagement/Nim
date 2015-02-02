@@ -16,6 +16,7 @@ button:
     show: Détails
     back: Retour en Arrière
     backToList: Retour à la liste
+    validate: Valider
 
 tooltip:
     show: Détails

@@ -1,3 +1,6 @@
+{% from 'NimThemeBundle:Macro:button.html.twig' import formAction %}
+
+
 <ul class="nav nav-tabs">
     <li class="active" >
         <a href="#mission"
@@ -32,4 +35,7 @@
         {{ form_widget(form.workers) }}
     </div>
 </div>
+
 {{ form_rest(form) }}
+
+{{ formAction(path('nim_mission_index')) }}
