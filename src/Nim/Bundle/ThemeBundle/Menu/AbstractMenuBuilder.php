@@ -26,7 +26,7 @@ abstract class AbstractMenuBuilder
     /**
      * @var SecurityContextInterface
      */
-    protected $securityContex;
+    protected $securityContext;
 
     /**
      * @var RequestStack
@@ -38,11 +38,11 @@ abstract class AbstractMenuBuilder
      */
     public function __construct(
         FactoryInterface $factory,
-        SecurityContextInterface $securityContex,
+        SecurityContextInterface $securityContext,
         RequestStack $requestStack
     ) {
         $this->factory = $factory;
-        $this->securityContex = $securityContex;
+        $this->securityContext = $securityContext;
         $this->requestStack = $requestStack;
     }
 

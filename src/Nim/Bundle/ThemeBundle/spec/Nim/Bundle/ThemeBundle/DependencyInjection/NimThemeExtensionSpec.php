@@ -30,9 +30,14 @@ class NimThemeExtensionSpec extends ObjectBehavior
 
     function it_sets_up_the_configuration(ContainerBuilder $container)
     {
-        $container->getParameter('kernel.bundles')->willReturn(['TwigBundle', 'AsseticBundle']);
+        $container->getParameter('kernel.bundles')->willReturn([
+            'TwigBundle' => '',
+            'AsseticBundle' => '',
+            'KnpMenuBundle' => ''
+        ]);
 
         $container->prependExtensionConfig('twig', Argument::type('array'))->shouldBeCalled();
+        $container->prependExtensionConfig('knp_menu', Argument::type('array'))->shouldBeCalled();
         $container->prependExtensionConfig('assetic', Argument::type('array'))->shouldBeCalled();
 
         $this->prepend($container);

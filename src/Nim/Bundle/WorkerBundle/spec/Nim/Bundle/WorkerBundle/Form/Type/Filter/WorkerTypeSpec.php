@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\Nim\Bundle\MissionBundle\Form\Type;
+namespace spec\Nim\Bundle\WorkerBundle\Form\Type;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -20,7 +20,7 @@ class WorkerTypeSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Nim\Bundle\MissionBundle\Form\Type\WorkerType');
+        $this->shouldHaveType('Nim\Bundle\WorkerBundle\Form\Type\WorkerType');
     }
 
     public function it_should_build_mission_form(FormBuilderInterface $builder)

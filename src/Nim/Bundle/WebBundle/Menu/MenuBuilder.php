@@ -37,8 +37,8 @@ class MenuBuilder extends AbstractMenuBuilder
      */
     public function createUserMenu()
     {
-        $user = $this->securityContex->getToken()->getUser();
-        $menu = $this->createRootMenu('main_menu', ['class' => 'nav navbar-nav navbar-right',]);
+        $user = $this->securityContext->getToken()->getUser();
+        $menu = $this->createRootMenu('user_menu', ['class' => 'nav navbar-nav navbar-right',]);
 
         $this->addChild($menu, $user, 'fos_user_profile_show', 'icon-wrench');
         $this->addChild($menu, 'menu.logout', 'fos_user_security_logout', 'icon-off');
