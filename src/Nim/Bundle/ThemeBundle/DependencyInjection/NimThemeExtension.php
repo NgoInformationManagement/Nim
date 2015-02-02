@@ -28,6 +28,8 @@ class NimThemeExtension extends Extension implements PrependExtensionInterface
         $processor = new Processor();
         $config = $processor->processConfiguration(new Configuration(), $config);
 
+        $container->setParameter('logo', $config['logo']);
+        $container->setParameter('dashboard_url', $config['dashboard_url']);
         $this->createMenuDefinitions($container, $config['menu_builder']);
     }
 
@@ -40,6 +42,10 @@ class NimThemeExtension extends Extension implements PrependExtensionInterface
 
         if(isset($bundles['TwigBundle'])) {
             $container->prependExtensionConfig('twig', [
+                'globals' => [
+                    'logo' => '%logo%',
+                    'dashboard_url' => '%dashboard_url%',
+                ],
                 'form' => [
                     'resources' => [
                         'NimThemeBundle::form.html.twig'
@@ -51,8 +57,8 @@ class NimThemeExtension extends Extension implements PrependExtensionInterface
         if(isset($bundles['KnpMenuBundle'])) {
             $container->prependExtensionConfig('knp_menu', [
                 'twig' => [
-                    'template' => 'NimThemeBundle::menu.html.twig'
-                ]
+                    'template' => 'NimThemeBundle::menu.html.twig',
+                ],
             ]);
         }
 

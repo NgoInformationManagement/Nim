@@ -32,11 +32,13 @@
         <header class="navbar-fixed-top" data-controller="header">
             <nav role="navigation" class="navbar-inverse">
                 <div class="container-fluid">
+                    {% if logo %}
                     <div class="navbar-header">
-                        <a class="navbar-brand logo" href="{{ path('nim_dashboard') }}">
-                            <img alt="" src="{{ asset('bundles/nimweb/image/logo.png') }}">
+                        <a class="navbar-brand logo" href="{{ path(dashboard_url) }}">
+                            <img alt="" src="{{ asset(logo) }}">
                         </a>
                     </div>
+                    {% endif %}
                     <div class="collapse navbar-collapse">
                         {% block user_menu %}
                             {{ knp_menu_render('user_menu') }}

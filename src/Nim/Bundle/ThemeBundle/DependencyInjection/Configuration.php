@@ -27,6 +27,8 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->addDefaultsIfNotSet()
             ->children()
+                ->scalarNode('logo')->defaultNull()->end()
+                ->scalarNode('dashboard_url')->defaultNull()->end()
                 ->scalarNode('menu_builder')->isRequired()->cannotBeEmpty()->end()
             ->end()
         ;
