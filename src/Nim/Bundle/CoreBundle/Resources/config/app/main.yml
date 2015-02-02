@@ -20,3 +20,7 @@ fos_user:
 a2lix_translation_form:
     locales: %nim_locales%
     templating: NimWebBundle:I18n:form.html.twig
+
+# Theme configuration
+nim_theme:
+    menu_builder: Nim\Bundle\WebBundle\Menu\MenuBuilder

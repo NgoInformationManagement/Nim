@@ -3,9 +3,8 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block stylesheets %}
-    {% stylesheets output='assets/compiled/nim_login.css' filter='cssrewrite'
-        'assets/vendor/bootstrap/dist/css/bootstrap.css'
-        'bundles/nimweb/css/metis-login.css'
+    {% stylesheets output='assets/compiled/login.css' filter='cssrewrite'
+        '@nim_login'
     %}
     <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
     {% endstylesheets %}

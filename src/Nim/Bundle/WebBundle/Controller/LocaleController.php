@@ -17,9 +17,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class LocaleController extends Controller
 {
-    /**
-     * @Template()
-     */
     public function indexAction()
     {
         return $this->render('NimWebBundle:Locale:index.html.twig', [

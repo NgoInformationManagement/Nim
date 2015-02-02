@@ -13,6 +13,7 @@ namespace spec\Nim\Bundle\ThemeBundle\DependencyInjection;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class NimThemeExtensionSpec extends ObjectBehavior
 {
@@ -24,5 +25,16 @@ class NimThemeExtensionSpec extends ObjectBehavior
     function it_is_extension()
     {
         $this->shouldHaveType('Symfony\Component\HttpKernel\DependencyInjection\Extension');
+        $this->shouldImplement('Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface');
+    }
+
+    function it_sets_up_the_configuration(ContainerBuilder $container)
+    {
+        $container->getParameter('kernel.bundles')->willReturn(['TwigBundle', 'AsseticBundle']);
+
+        $container->prependExtensionConfig('twig', Argument::type('array'))->shouldBeCalled();
+        $container->prependExtensionConfig('assetic', Argument::type('array'))->shouldBeCalled();
+
+        $this->prepend($container);
     }
 }

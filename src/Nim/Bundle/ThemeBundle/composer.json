@@ -25,15 +25,12 @@
 
     "require": {
         "php": ">=5.4",
-        "symfony/framework-bundle": "~2.3"
+        "symfony/framework-bundle": "~2.3",
+        "knplabs/knp-menu-bundle": "~2.0"
     },
 
     "require-dev": {
-        "phpspec/phpspec": "2.0.*@dev",
-        "behat/behat": "2.4.*",
-        "behat/mink-extension": "*",
-        "symfony/form": "~2.3",
-        "twig/twig": "1.15.*@dev"
+        "phpspec/phpspec": "2.0.*@dev"
     },
 
     "config": {

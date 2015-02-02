@@ -11,11 +11,8 @@
 
         {# stylesheets #}
         {% block stylesheets %}
-            {% stylesheets output='assets/compiled/nim.css' filter='cssrewrite'
-                'assets/vendor/bootstrap/dist/css/bootstrap.css'
-                'assets/vendor/font-awesome/css/font-awesome.css'
-                'assets/vendor/bootstrap-datepicker/css/datepicker3.css'
-                'bundles/nimweb/css/nim.css'
+            {% stylesheets output='assets/compiled/theme.css' filter='cssrewrite'
+            '@nim_theme_css'
             %}
             <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
             {% endstylesheets %}
@@ -23,14 +20,8 @@
 
         {# javascripts... #}
         {% block javascripts %}
-            {% javascripts output='assets/compiled/nim.js'
-            'assets/vendor/jquery/dist/jquery.min.js'
-            'assets/vendor/bootstrap/dist/js/bootstrap.min.js'
-            'assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js'
-            'bundles/nimweb/js/kortex.js'
-            'bundles/nimform/js/core/plugin-options-factory.js'
-            'bundles/nimform/js/type/*'
-            'bundles/nimweb/js/layout.js'
+            {% javascripts output='assets/compiled/theme.js'
+            '@nim_theme_js'
             %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
             {% endjavascripts %}
@@ -48,67 +39,12 @@
                     </div>
                     <div class="collapse navbar-collapse">
                         {% block user_menu %}
-                        <ul class="nav navbar-nav navbar-right" role="menu">
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    {{ app.user.username }}
-                                    <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a
-                                           href="{{ path('fos_user_profile_show') }}">
-                                            <i class="icon-wrench"></i>
-                                            {{ 'menu.preference'|trans }}
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a
-                                           href="{{ path('fos_user_security_logout') }}">
-                                            <i class="icon-off"></i>
-                                            {{ 'menu.logout'|trans }}
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        {{ render(controller('NimWebBundle:Locale:index')) }}
+                            {{ knp_menu_render('user_menu') }}
                         {% endblock user_menu %}
 
-                        <ul class="nav navbar-nav" role="menu">
-                            {% block main_menu %}
-                                <li>
-                                    <a href="{{ path('nim_dashboard') }}">
-                                        <i class="icon-dashboard"></i>
-                                        {{ 'menu.dashbord' | trans }}
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ path('nim_agency_index') }}">
-                                        <i class="icon-rocket"></i>
-                                        {{ 'menu.agency' | trans }}
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ path('nim_mission_index') }}">
-                                        <i class="icon-rocket"></i>
-                                        {{ 'menu.mission' | trans }}
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ path('nim_worker_index') }}">
-                                        <i class="icon-male"></i>
-                                        {{ 'menu.worker' | trans }}
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ path('nim_vaccine_index') }}">
-                                        <i class="icon-beaker"></i>
-                                        {{ 'menu.vaccine' | trans }}
-                                    </a>
-                                </li>
-                            {% endblock main_menu %}
-                        </ul>
+                        {% block main_menu %}
+                            {{ knp_menu_render('main_menu') }}
+                        {% endblock main_menu %}
                     </div>
                 </div>
             </nav>
@@ -122,7 +58,7 @@
                         {% endblock page_name %}
                     </h1>
 
-                    <nav id="action-menu" class="col-md-4 text-right actionButton">
+                    <nav id="action-menu" class="col-md-4 text-right action-button">
                         {% block page_action %}{% endblock page_action %}
                     </nav>
                 </div>
