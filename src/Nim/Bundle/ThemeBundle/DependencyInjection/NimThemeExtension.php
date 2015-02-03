@@ -12,11 +12,13 @@
 namespace Nim\Bundle\ThemeBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Processor;
+use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
+use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 class NimThemeExtension extends Extension implements PrependExtensionInterface
 {
@@ -27,6 +29,9 @@ class NimThemeExtension extends Extension implements PrependExtensionInterface
     {
         $processor = new Processor();
         $config = $processor->processConfiguration(new Configuration(), $config);
+
+        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('services.xml');
 
         $container->setParameter('logo', $config['logo']);
         $container->setParameter('dashboard_url', $config['dashboard_url']);
