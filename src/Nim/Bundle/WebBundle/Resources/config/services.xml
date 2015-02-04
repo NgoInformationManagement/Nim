@@ -16,7 +16,6 @@ file that was distributed with this source code.
 
     <parameters>
         <parameter key="nim.twig.extension.translation.class">Nim\Bundle\CoreBundle\Twig\TranslationExtension</parameter>
-        <parameter key="nim.twig.extension.country.class">Nim\Bundle\FormBundle\Twig\CountryExtension</parameter>
         <parameter key="nim.form.extension.select2.class">Nim\Bundle\FormBundle\Form\Extension\Plugin\Select2Extension</parameter>
         <parameter key="nim.form.extension.datepicker.class">Nim\Bundle\FormBundle\Form\Extension\Plugin\EternicodeDatepickerExtension</parameter>
         <parameter key="nim.controller.form.class">Nim\Bundle\WebBundle\Controller\FormController</parameter>
@@ -31,9 +30,6 @@ file that was distributed with this source code.
             <tag name="twig.extension" />
         </service>
 
-        <service id="nim.twig.extension.country" class="%nim.twig.extension.country.class%">
-            <tag name="twig.extension" />
-        </service>
 
         <service id="twig.extension.intl" class="Twig_Extensions_Extension_Intl">
             <tag name="twig.extension" />
