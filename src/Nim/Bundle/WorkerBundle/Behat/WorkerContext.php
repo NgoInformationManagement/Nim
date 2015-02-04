@@ -9,16 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Nim\Bundle\WebBundle\Behat\DataContext;
+namespace Nim\Bundle\WorkerBundle\Behat;
 
 use Behat\Gherkin\Node\TableNode;
-use Nim\Bundle\WorkerBundle\Model\Agency;
-use Nim\Bundle\WorkerBundle\Model\Contact;
-use Nim\Bundle\WorkerBundle\Model\Phone;
 use Nim\Bundle\WorkerBundle\Model\Worker;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
-trait WorkerDataContext
+class WorkerContext extends BaseContext
 {
     /**
      * @Given /^There are following workers:$/

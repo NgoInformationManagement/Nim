@@ -13,7 +13,7 @@ class AppKernel extends Kernel
             new Nim\Bundle\MissionBundle\NimMissionBundle(),
             new Nim\Bundle\WorkerBundle\NimWorkerBundle(),
             new Nim\Bundle\CoreBundle\NimCoreBundle(),
-            new Nim\Bundle\FormBundle\NimFormBundle(),
+//            new Nim\Bundle\FormBundle\NimFormBundle(),
             new Nim\Bundle\WebBundle\NimWebBundle(),
             new Nim\Bundle\ThemeBundle\NimThemeBundle(),
 
@@ -24,7 +24,6 @@ class AppKernel extends Kernel
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
-//            new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
             // Doctrine
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),

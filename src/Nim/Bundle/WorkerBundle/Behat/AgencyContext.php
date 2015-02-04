@@ -9,13 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Nim\Bundle\WebBundle\Behat\DataContext;
+namespace Nim\Bundle\WorkerBundle\Behat;
 
+use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\TableNode;
 use Nim\Bundle\WorkerBundle\Model\Agency;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
-trait AgencyDataContext
+class AgencyContext extends BaseContext implements Context
 {
     /**
      * @Given /^There are following agencies:$/
@@ -79,7 +80,8 @@ trait AgencyDataContext
     /**
      * Get agency resource
      *
-     * @param $title
+     * @param $name
+     *
      * @return Agency
      */
     private function getAgencyByName($name)

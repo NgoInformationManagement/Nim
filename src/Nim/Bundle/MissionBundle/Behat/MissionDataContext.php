@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Nim\Bundle\WebBundle\Behat\DataContext;
+namespace Nim\Bundle\MissionBundle\Behat;
 
 use Behat\Gherkin\Node\TableNode;
 use Nim\Bundle\MissionBundle\Model\Mission;
