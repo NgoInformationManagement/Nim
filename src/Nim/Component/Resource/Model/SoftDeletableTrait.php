@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Nim\Bundle\FormBundle\Model\Core;
+namespace Nim\Component\Resource\Model;
 
 trait SoftDeletableTrait
 {

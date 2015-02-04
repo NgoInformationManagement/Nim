@@ -11,9 +11,9 @@
 
 namespace Nim\Bundle\WorkerBundle\Model;
 
-use Nim\Bundle\FormBundle\Model\Core\SoftDeletableTrait;
+use Nim\Component\Resource\Model\SoftDeletableTrait;
 
 class Contact extends AbstractPerson implements ContactInterface
 {
-    use SoftDeletableTrait;
+    use \Nim\Component\Resource\Model\SoftDeletableTrait;
 }

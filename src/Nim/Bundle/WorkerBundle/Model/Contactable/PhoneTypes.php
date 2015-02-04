@@ -11,7 +11,7 @@
 
 namespace Nim\Bundle\WorkerBundle\Model\Contactable;
 
-use Nim\Bundle\FormBundle\Model\Core\ConstantInterface;
+use Nim\Component\Resource\Model\ConstantInterface;
 
 class PhoneTypes implements ConstantInterface
 {

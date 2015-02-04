@@ -27,7 +27,7 @@ class VaccineSpec extends ObjectBehavior
 
     public function it_should_implement_entity_form_type_interface()
     {
-        $this->shouldImplement('Nim\Bundle\FormBundle\Model\Core\EntityFormTypeInterface');
+        $this->shouldImplement('Nim\Component\Resource\Model\EntityFormTypeInterface');
     }
 
     public function it_has_no_id_by_default()

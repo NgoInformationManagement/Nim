@@ -1,5 +1,4 @@
 <?php
-
 /*
  * This file is part of the Nim package.
  *
@@ -9,15 +8,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Nim\Bundle\FormBundle\Model\Core;
+namespace Nim\Component\Resource\Model;
 
-interface ConstantInterface
+interface EntityFormTypeInterface
 {
     /**
-     * Return all the types
+     * Return an array of data for Entity Form Type
      *
-     * @param  null|string $translationDomain
      * @return array
      */
-    public static function getTypes($translationDomain = null);
+    public function getEntityFormTypeData();
 }

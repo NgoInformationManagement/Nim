@@ -11,13 +11,13 @@
 
 namespace Nim\Bundle\WorkerBundle\Model;
 
-use Nim\Bundle\FormBundle\Model\Core\SoftDeletableTrait;
-use Nim\Bundle\FormBundle\Model\Core\TimestampableTrait;
+use Nim\Component\Resource\Model\SoftDeletableTrait;
+use Nim\Component\Resource\Model\TimestampableTrait;
 
 class Visa implements VisaInterface
 {
-    use SoftDeletableTrait,
-        TimestampableTrait;
+    use \Nim\Component\Resource\Model\SoftDeletableTrait,
+        \Nim\Component\Resource\Model\TimestampableTrait;
 
     protected $id;
     protected $country;

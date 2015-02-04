@@ -22,7 +22,7 @@ class WorkerTypesSpec extends ObjectBehavior
 
     public function it_should_implement_constant_interface()
     {
-        $this->shouldImplement('Nim\Bundle\FormBundle\Model\Core\ConstantInterface');
+        $this->shouldImplement('Nim\Component\Resource\Model\ConstantInterface');
     }
 
     public function it_should_return_all_phone_types()

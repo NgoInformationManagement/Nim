@@ -12,12 +12,12 @@
 namespace Nim\Bundle\WorkerBundle\Model;
 
 use \Doctrine\Common\Collections\ArrayCollection;
-use Nim\Bundle\FormBundle\Model\Core\EntityFormTypeInterface;
-use Nim\Bundle\FormBundle\Model\Core\SoftDeletableTrait;
+use Nim\Component\Resource\Model\EntityFormTypeInterface;
+use Nim\Component\Resource\Model\SoftDeletableTrait;
 
 class Worker extends AbstractPerson implements WorkerInterface, EntityFormTypeInterface
 {
-    use SoftDeletableTrait;
+    use \Nim\Component\Resource\Model\SoftDeletableTrait;
 
     protected $id;
     protected $gender;
