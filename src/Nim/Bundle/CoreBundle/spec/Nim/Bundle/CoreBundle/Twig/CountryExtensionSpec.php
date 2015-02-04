@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\Nim\Bundle\FormBundle\Twig;
+namespace spec\Nim\Bundle\CoreBundle\Twig;
 
 use PhpSpec\ObjectBehavior;
 
@@ -17,7 +17,7 @@ class CountryExtensionSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Nim\Bundle\FormBundle\Twig\CountryExtension');
+        $this->shouldHaveType('Nim\Bundle\CoreBundle\Twig\CountryExtension');
     }
 
     public function it_should_define_filter()

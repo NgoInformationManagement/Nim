@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Nim\Bundle\FormBundle\Twig;
+namespace Nim\Bundle\CoreBundle\Twig;
 
-use \Symfony\Component\Intl\Intl;
+use Symfony\Component\Intl\Intl;
 
 class CountryExtension extends \Twig_Extension
 {
@@ -26,9 +26,10 @@ class CountryExtension extends \Twig_Extension
     }
 
     /**
-     * @param $code
-     * @param  string $locale
-     * @return mixed
+     * @param string $code
+     * @param string $locale
+     *
+     * @return string
      */
     public function countryFilter($code, $locale = null)
     {
