@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Nim\Bundle\FormBundle\Form\Type;
+namespace Nim\Bundle\WorkerBundle\Form\Type;
 
-use Nim\Bundle\FormBundle\Model\Gender;
+use Nim\Bundle\WorkerBundle\Model\Gender;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 

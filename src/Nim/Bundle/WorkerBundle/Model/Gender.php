@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Nim\Bundle\FormBundle\Model;
+namespace Nim\Bundle\WorkerBundle\Model;
 
 class Gender
 {

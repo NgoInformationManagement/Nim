@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\Nim\Bundle\FormBundle\Form\Type;
+namespace spec\Nim\Bundle\WorkerBundle\Form\Type;
 
 use PhpSpec\ObjectBehavior;
 
@@ -17,7 +17,7 @@ class GenderTypeSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Nim\Bundle\FormBundle\Form\Type\GenderType');
+        $this->shouldHaveType('Nim\Bundle\WorkerBundle\Form\Type\GenderType');
     }
 
     public function it_should_extends_symfony_extension()

@@ -18,10 +18,16 @@ file that was distributed with this source code.
         <parameter key="nim.form.type.worker.entity.class">Nim\Bundle\WorkerBundle\Form\Type\WorkerEntityType</parameter>
         <parameter key="nim.form.type.filter.worker.class">Nim\Bundle\WorkerBundle\Form\Type\Filter\WorkerType</parameter>
         <parameter key="nim.form.subscriber.worker.class">Nim\Bundle\WorkerBundle\Form\EventListener\WorkerSubscriber</parameter>
+        <parameter key="nim.form.type.gender.class">Nim\Bundle\WorkerBundle\Form\Type\GenderType</parameter>
     </parameters>
 
     <services>
         <service id="nim.form.subscriber.worker" class="%nim.form.subscriber.worker.class%" />
+
+        <service id="nim.form.type.gender"
+                 class="%nim.form.type.gender.class%">
+            <tag name="form.type" alias="gender" />
+        </service>
 
         <!-- Worker Form -->
         <service id="nim.form.type.worker" class="%nim.form.type.worker.class%">

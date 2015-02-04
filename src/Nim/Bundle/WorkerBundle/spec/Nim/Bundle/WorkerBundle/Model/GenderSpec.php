@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\Nim\Bundle\FormBundle\Model;
+namespace spec\Nim\Bundle\WorkerBundle\Model;
 
-use Nim\Bundle\FormBundle\Model\Gender;
+use Nim\Bundle\WorkerBundle\Model\Gender;
 use PhpSpec\ObjectBehavior;
 
 class GenderSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Nim\Bundle\FormBundle\Model\Gender');
+        $this->shouldHaveType('Nim\Bundle\WorkerBundle\Model\Gender');
     }
 
     public function it_should_return_gender_options()
