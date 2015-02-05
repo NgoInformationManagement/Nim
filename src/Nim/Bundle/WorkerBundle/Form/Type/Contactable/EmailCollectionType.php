@@ -11,11 +11,24 @@
 
 namespace Nim\Bundle\WorkerBundle\Form\Type\Contactable;
 
-use Nim\Bundle\FormBundle\Form\Core\ResourceBaseType;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class EmailCollectionType extends ResourceBaseType
+class EmailCollectionType extends AbstractType
 {
+    /**
+     * @var string[]
+     */
+    protected $validationGroups = array();
+
+    /**
+     * @param string[] $validationGroups
+     */
+    public function __construct(array $validationGroups = array())
+    {
+        $this->validationGroups = $validationGroups;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -24,11 +37,12 @@ class EmailCollectionType extends ResourceBaseType
         parent::setDefaultOptions($resolver);
 
         $resolver->setDefaults(array(
-            'type' => 'nim_contactable_email',
+            'type' => 'nim_email',
             'label' => 'worker.field.email.label',
             'allow_add' => true,
             'allow_delete' => true,
             'error_bubbling' => false,
+            'validation_groups' => $this->validationGroups,
         ));
     }
 
@@ -45,6 +59,6 @@ class EmailCollectionType extends ResourceBaseType
      */
     public function getName()
     {
-        return 'nim_contactable_collection_email';
+        return 'nim_email_collection';
     }
 }

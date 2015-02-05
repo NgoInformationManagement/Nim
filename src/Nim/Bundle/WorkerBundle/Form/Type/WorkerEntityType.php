@@ -11,30 +11,18 @@
 
 namespace  Nim\Bundle\WorkerBundle\Form\Type;
 
-use Nim\Bundle\FormBundle\Form\Core\ResourceBaseType;
+use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class WorkerEntityType extends ResourceBaseType
+class WorkerEntityType extends AbstractResourceType
 {
-    /**
-     * @var string
-     */
-    private $workerModel;
-
-    public function __construct($workerModel)
-    {
-        $this->workerModel = $workerModel;
-    }
-
     /**
      * {@inheritdoc}
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        parent::setDefaultOptions($resolver);
-
         $resolver->setDefaults(array(
-            'class' => $this->workerModel,
+            'class' => $this->dataClass,
             'expanded' => true,
             'multiple' => true,
             'property' => 'EntityFormTypeData'
@@ -46,7 +34,7 @@ class WorkerEntityType extends ResourceBaseType
      */
     public function getName()
     {
-        return 'nim_entity_worker';
+        return 'nim_worker_entity';
     }
 
     /**

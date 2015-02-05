@@ -32,7 +32,12 @@ class NimVaccineExtension extends AbstractResourceExtension
             $configs,
             new Configuration(),
             $container,
-            self::CONFIGURE_LOADER | self::CONFIGURE_DATABASE | self::CONFIGURE_PARAMETERS | self::CONFIGURE_VALIDATORS
+            self::CONFIGURE_LOADER | self::CONFIGURE_DATABASE | self::CONFIGURE_PARAMETERS | self::CONFIGURE_VALIDATORS | self::CONFIGURE_FORMS
         );
+
+        if ($container->has('nim.form.type.vaccine')) {
+            $vaccineForm = $container->findDefinition('nim.form.type.vaccine');
+            $vaccineForm->addArgument('%nim.model.vaccine.class%');
+        }
     }
 }

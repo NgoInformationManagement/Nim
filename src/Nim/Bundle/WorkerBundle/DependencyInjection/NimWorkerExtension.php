@@ -13,6 +13,7 @@ namespace Nim\Bundle\WorkerBundle\DependencyInjection;
 
 use Sylius\Bundle\ResourceBundle\DependencyInjection\AbstractResourceExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Reference;
 
 class NimWorkerExtension extends AbstractResourceExtension
 {
@@ -20,12 +21,9 @@ class NimWorkerExtension extends AbstractResourceExtension
     protected $configDirectory = '/../Resources/config/container';
     protected $configFiles = array(
         'services',
-        'contactable',
         'worker',
         'agency',
-        'passport',
-        'visa',
-        'contact'
+        'contactable',
     );
 
     /**
@@ -37,7 +35,12 @@ class NimWorkerExtension extends AbstractResourceExtension
             $configs,
             new Configuration(),
             $container,
-            self::CONFIGURE_LOADER | self::CONFIGURE_DATABASE | self::CONFIGURE_PARAMETERS | self::CONFIGURE_VALIDATORS
+            self::CONFIGURE_LOADER | self::CONFIGURE_DATABASE | self::CONFIGURE_PARAMETERS | self::CONFIGURE_VALIDATORS | self::CONFIGURE_FORMS
         );
+
+        if ($container->has('nim.form.type.worker')) {
+            $workerForm = $container->findDefinition('nim.form.type.worker');
+            $workerForm->addArgument(new Reference('nim.form.subscriber.worker'));
+        }
     }
 }

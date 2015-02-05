@@ -12,11 +12,11 @@
 namespace Nim\Bundle\WorkerBundle\Form\Type;
 
 use Doctrine\ORM\EntityRepository;
-use Nim\Bundle\FormBundle\Form\Core\ResourceBaseType;
+use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Nim\Bundle\WorkerBundle\Repository\WorkerRepository;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class AgencyType extends ResourceBaseType
+class AgencyType extends AbstractResourceType
 {
     /**
      * {@inheritdoc}
@@ -39,13 +39,13 @@ class AgencyType extends ResourceBaseType
             ->add('country', 'country', array(
                 'label' => 'agency.field.country.label',
             ))
-            ->add('emails', 'nim_contactable_collection_email', array(
+            ->add('emails', 'nim_email_collection', array(
                 'label' => 'agency.field.email.label',
             ))
-            ->add('phones', 'nim_contactable_collection_phone', array(
+            ->add('phones', 'nim_phone_collection', array(
                 'label' => 'agency.field.phone.label',
             ))
-            ->add('workers', 'nim_entity_worker', array(
+            ->add('workers', 'nim_worker_entity', array(
                 'query_builder' => function (EntityRepository $e) {
                     /** @var WorkerRepository $e */
 

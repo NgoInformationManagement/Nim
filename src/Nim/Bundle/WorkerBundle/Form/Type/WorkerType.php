@@ -11,26 +11,24 @@
 
 namespace Nim\Bundle\WorkerBundle\Form\Type;
 
-use Nim\Bundle\FormBundle\Form\Core\ResourceBaseType;
+use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Nim\Bundle\WorkerBundle\Form\EventListener\WorkerSubscriber;
 use Nim\Bundle\WorkerBundle\Model\Worker\WorkerTypes;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 
-class WorkerType extends ResourceBaseType
+class WorkerType extends AbstractResourceType
 {
+    /**
+     * @var WorkerSubscriber
+     */
     private $workerSubscriber;
 
-    public function __construct(WorkerSubscriber $workerSubscriber)
+    public function __construct($dataClass, array $validationGroups = array(), WorkerSubscriber $workerSubscriber)
     {
-        $this->workerSubscriber = $workerSubscriber;
-    }
+        parent::__construct($dataClass, $validationGroups);
 
-    /**
-     * {@inheritdoc}
-     */
-    public function setValidationGroups(array $validationGroups)
-    {
+        $this->workerSubscriber = $workerSubscriber;
         $this->validationGroups = function (FormInterface $form) use ($validationGroups) {
             $data = $form->getData();
             if ($data && $data->getId()) {
@@ -75,10 +73,10 @@ class WorkerType extends ResourceBaseType
             ->add('country', 'country', array(
                 'label' => 'worker.field.country.label',
             ))
-            ->add('emails', 'nim_contactable_collection_email', array(
+            ->add('emails', 'nim_email_collection', array(
                 'label' => 'worker.field.email.label',
             ))
-            ->add('phones', 'nim_contactable_collection_phone', array(
+            ->add('phones', 'nim_phone_collection', array(
                 'label' => 'worker.field.phone.label',
             ))
             ->add('birthday', 'birthday', array(

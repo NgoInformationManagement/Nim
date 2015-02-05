@@ -11,20 +11,19 @@
 
 namespace  Nim\Bundle\VaccineBundle\Form\Type;
 
-use Nim\Bundle\FormBundle\Form\Core\ResourceBaseType;
+use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class VaccineEntityType extends ResourceBaseType
+class VaccineEntityType extends AbstractResourceType
 {
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        parent::setDefaultOptions($resolver);
-
         $resolver->setDefaults(array(
-            'class' => 'Nim\Bundle\VaccineBundle\Model\Vaccine',
+            'class' => $this->dataClass,
             'expanded' => true,
             'multiple' => true,
             'property' => 'EntityFormTypeData',
+            'validation_groups' => $this->validationGroups,
         ));
     }
 
@@ -33,7 +32,7 @@ class VaccineEntityType extends ResourceBaseType
      */
     public function getName()
     {
-        return 'nim_entity_vaccine';
+        return 'nim_vaccine_entity';
     }
 
     /**

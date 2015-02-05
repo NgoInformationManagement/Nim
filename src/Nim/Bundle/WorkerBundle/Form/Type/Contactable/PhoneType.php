@@ -11,11 +11,11 @@
 
 namespace Nim\Bundle\WorkerBundle\Form\Type\Contactable;
 
-use Nim\Bundle\FormBundle\Form\Core\ResourceBaseType;
+use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Nim\Bundle\WorkerBundle\Model\Contactable\PhoneTypes;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class PhoneType extends ResourceBaseType
+class PhoneType extends AbstractResourceType
 {
     /**
      * {@inheritdoc}
@@ -24,7 +24,7 @@ class PhoneType extends ResourceBaseType
     {
         $builder
             ->add('type', 'choice', array(
-                'choices' => \Nim\Bundle\WorkerBundle\Model\Contactable\PhoneTypes::getTypes('phone.field.type.option'),
+                'choices' => PhoneTypes::getTypes('phone.field.type.option'),
                 'label' => false,
             ))
             ->add('number', null, array(
@@ -38,6 +38,6 @@ class PhoneType extends ResourceBaseType
      */
     public function getName()
     {
-        return 'nim_contactable_phone';
+        return 'nim_phone';
     }
 }

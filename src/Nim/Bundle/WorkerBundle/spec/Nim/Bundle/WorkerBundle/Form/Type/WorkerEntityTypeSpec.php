@@ -18,7 +18,7 @@ class WorkerEntityTypeSpec extends ObjectBehavior
 {
     public function let()
     {
-        $this->beConstructedWith('\Model\Worker');
+        $this->beConstructedWith('My\Bundle\Model', array('validation_group'));
     }
 
     public function it_is_initializable()
@@ -28,16 +28,8 @@ class WorkerEntityTypeSpec extends ObjectBehavior
 
     public function it_should_define_assigned_data_class(OptionsResolverInterface $resolver)
     {
-        $this->setValidationGroups(array('nim'));
-        $this->setDataClass('worker');
-
         $resolver->setDefaults(array(
-            'data_class' => 'worker',
-            'validation_groups' => array('nim')
-        ))->shouldBeCalled();
-
-        $resolver->setDefaults(array(
-            'class' => '\Model\Worker',
+            'class' => 'My\Bundle\Model',
             'expanded' => true,
             'multiple' => true,
             'property' => 'EntityFormTypeData'
@@ -48,7 +40,7 @@ class WorkerEntityTypeSpec extends ObjectBehavior
 
     public function it_should_have_valid_name()
     {
-        $this->getName()->shouldReturn('nim_entity_worker');
+        $this->getName()->shouldReturn('nim_worker_entity');
     }
 
     public function it_should_have_parent()

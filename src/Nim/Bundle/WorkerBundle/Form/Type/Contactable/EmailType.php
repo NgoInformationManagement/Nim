@@ -11,10 +11,10 @@
 
 namespace Nim\Bundle\WorkerBundle\Form\Type\Contactable;
 
-use Nim\Bundle\FormBundle\Form\Core\ResourceBaseType;
+use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class EmailType extends ResourceBaseType
+class EmailType extends AbstractResourceType
 {
     /**
      * {@inheritdoc}
@@ -33,6 +33,6 @@ class EmailType extends ResourceBaseType
      */
     public function getName()
     {
-        return 'nim_contactable_email';
+        return 'nim_email';
     }
 }

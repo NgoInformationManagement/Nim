@@ -11,10 +11,10 @@
 
 namespace Nim\Bundle\WorkerBundle\Form\Type;
 
-use Nim\Bundle\FormBundle\Form\Core\ResourceBaseType;
+use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class PassportType extends ResourceBaseType
+class PassportType extends AbstractResourceType
 {
     /**
      * {@inheritdoc}

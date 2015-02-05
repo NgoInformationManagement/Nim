@@ -11,10 +11,10 @@
 
 namespace Nim\Bundle\WorkerBundle\Form\Type;
 
-use Nim\Bundle\FormBundle\Form\Core\ResourceBaseType;
+use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class ContactType extends ResourceBaseType
+class ContactType extends AbstractResourceType
 {
     /**
      * {@inheritdoc}
@@ -41,14 +41,14 @@ class ContactType extends ResourceBaseType
                 'label' => 'contact.field.country.label',
             ))
             ->add('emails', 'collection', array(
-                'type' => 'nim_contactable_email',
+                'type' => 'nim_email',
                 'label' => 'contact.field.email.label',
                 'allow_add' => true,
                 'allow_delete' => true,
                 'error_bubbling' => false
             ))
             ->add('phones', 'collection', array(
-                'type' => 'nim_contactable_phone',
+                'type' => 'nim_phone',
                 'attr' => array('class' => 'form-inline'),
                 'label' => 'contact.field.phone.label',
                 'allow_add' => true,

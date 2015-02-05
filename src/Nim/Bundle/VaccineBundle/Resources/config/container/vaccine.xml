@@ -19,27 +19,6 @@ file that was distributed with this source code.
     </parameters>
 
     <services>
-
-        <!-- Vaccine Form -->
-        <service id="nim.form.type.vaccine" class="%nim.form.type.vaccine.class%">
-            <argument type="string">%nim.model.vaccine.class%</argument>
-            <call method="setValidationGroups">
-                <argument>%nim.validation_group.vaccine%</argument>
-            </call>
-            <call method="setDataClass">
-                <argument>%nim.model.vaccine.class%</argument>
-            </call>
-            <tag name="form.type" alias="nim_vaccine"/>
-        </service>
-
-        <!-- Vaccine Entity Form -->
-        <service id="nim.form.type.entity.vaccine" class="%nim.form.type.vaccine.entity.class%">
-            <call method="setValidationGroups">
-                <argument>%nim.validation_group.vaccine%</argument>
-            </call>
-            <tag name="form.type" alias="nim_entity_vaccine"/>
-        </service>
-
         <!-- Vaccine Filter Form -->
         <service id="nim.form.type.filter.vaccine" class="%nim.form.type.filter.vaccine.class%">
             <tag name="form.type" alias="nim_filter_vaccine"/>

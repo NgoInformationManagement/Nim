@@ -16,6 +16,11 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class VaccineEntityTypeSpec extends ObjectBehavior
 {
+    public function let()
+    {
+        $this->beConstructedWith('My\Bundle\Model', array('validation_group'));
+    }
+
     public function it_is_initializable()
     {
         $this->shouldHaveType('Nim\Bundle\VaccineBundle\Form\Type\VaccineEntityType');
@@ -23,19 +28,12 @@ class VaccineEntityTypeSpec extends ObjectBehavior
 
     public function it_should_define_assigned_data_class(OptionsResolverInterface $resolver)
     {
-        $this->setValidationGroups(array('nim'));
-        $this->setDataClass('vaccine');
-
         $resolver->setDefaults(array(
-            'data_class' => 'vaccine',
-            'validation_groups' => array('nim')
-        ))->shouldBeCalled();
-
-        $resolver->setDefaults(array(
-            'class' => 'Nim\Bundle\VaccineBundle\Model\Vaccine',
+            'class' => 'My\Bundle\Model',
             'expanded' => true,
             'multiple' => true,
-            'property' => 'EntityFormTypeData'
+            'property' => 'EntityFormTypeData',
+            'validation_groups' => array('validation_group')
         ))->shouldBeCalled();
 
         $this->setDefaultOptions($resolver);
@@ -43,7 +41,7 @@ class VaccineEntityTypeSpec extends ObjectBehavior
 
     public function it_should_have_valid_name()
     {
-        $this->getName()->shouldReturn('nim_entity_vaccine');
+        $this->getName()->shouldReturn('nim_vaccine_entity');
     }
 
     public function it_should_have_parent()

@@ -55,7 +55,7 @@ class WorkerSubscriberSpec extends ObjectBehavior
         ;
 
         $builder
-            ->add('missions', 'nim_entity_mission',  Argument::any())
+            ->add('missions', 'nim_mission_entity',  Argument::any())
             ->shouldBeCalled()
             ->willReturn($builder)
         ;
@@ -73,7 +73,7 @@ class WorkerSubscriberSpec extends ObjectBehavior
         ;
 
         $builder
-            ->add('vaccines', 'nim_entity_vaccine', Argument::any())
+            ->add('vaccines', 'nim_vaccine_entity', Argument::any())
             ->shouldBeCalled()
             ->willReturn($builder)
         ;

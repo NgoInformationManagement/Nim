@@ -18,7 +18,7 @@ class MissionEntityTypeSpec extends ObjectBehavior
 {
     public function let()
     {
-        $this->beConstructedWith('\Model\Mission');
+        $this->beConstructedWith('My\Bundle\Model', array('validation_group'));
     }
 
     public function it_is_initializable()
@@ -28,19 +28,12 @@ class MissionEntityTypeSpec extends ObjectBehavior
 
     public function it_should_define_assigned_data_class(OptionsResolverInterface $resolver)
     {
-        $this->setValidationGroups(array('nim'));
-        $this->setDataClass('mission');
-
         $resolver->setDefaults(array(
-            'data_class' => 'mission',
-            'validation_groups' => array('nim')
-        ))->shouldBeCalled();
-
-        $resolver->setDefaults(array(
-            'class' => '\Model\Mission',
+            'class' => 'My\Bundle\Model',
             'expanded' => true,
             'multiple' => true,
-            'property' => 'EntityFormTypeData'
+            'property' => 'EntityFormTypeData',
+            'validation_groups' => array('validation_group'),
         ))->shouldBeCalled();
 
         $this->setDefaultOptions($resolver);
@@ -48,7 +41,7 @@ class MissionEntityTypeSpec extends ObjectBehavior
 
     public function it_should_have_valid_name()
     {
-        $this->getName()->shouldReturn('nim_entity_mission');
+        $this->getName()->shouldReturn('nim_mission_entity');
     }
 
     public function it_should_have_parent()

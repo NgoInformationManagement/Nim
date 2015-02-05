@@ -21,7 +21,7 @@ class WorkerTypeSpec extends ObjectBehavior
 {
     public function let(WorkerSubscriber $workerSubscriber)
     {
-        $this->beConstructedWith($workerSubscriber);
+        $this->beConstructedWith('My\Bundle\Model', array('validation_group'), $workerSubscriber);
     }
 
     public function it_is_initializable()
@@ -82,13 +82,13 @@ class WorkerTypeSpec extends ObjectBehavior
         ;
 
         $builder
-            ->add('emails', 'nim_contactable_collection_email', Argument::any())
+            ->add('emails', 'nim_email_collection', Argument::any())
             ->shouldBeCalled()
             ->willReturn($builder)
         ;
 
         $builder
-            ->add('phones', 'nim_contactable_collection_phone', Argument::any())
+            ->add('phones', 'nim_phone_collection', Argument::any())
             ->shouldBeCalled()
             ->willReturn($builder)
         ;
@@ -133,11 +133,6 @@ class WorkerTypeSpec extends ObjectBehavior
             ->shouldBeCalled();
 
         $this->buildForm($builder, array());
-    }
-
-    public function it_should_define_assigned_data_class(OptionsResolverInterface $resolver)
-    {
-        $this->setDefaultOptions($resolver);
     }
 
     public function it_should_have_valid_name()

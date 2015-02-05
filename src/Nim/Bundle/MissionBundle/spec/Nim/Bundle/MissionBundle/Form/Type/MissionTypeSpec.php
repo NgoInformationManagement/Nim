@@ -20,7 +20,7 @@ class MissionTypeSpec extends ObjectBehavior
 {
     public function let()
     {
-        $this->beConstructedWith('MissionBundle\Model\Mission');
+        $this->beConstructedWith('My\Bundle\Model', array('validation_group'));
     }
 
     public function it_is_initializable()
@@ -54,7 +54,7 @@ class MissionTypeSpec extends ObjectBehavior
         ;
 
         $builder
-            ->add('workers', 'nim_entity_worker')
+            ->add('workers', 'nim_worker_entity')
             ->shouldBeCalled()
             ->willReturn($builder)
         ;
@@ -64,12 +64,9 @@ class MissionTypeSpec extends ObjectBehavior
 
     public function it_should_define_assigned_data_class(OptionsResolverInterface $resolver)
     {
-        $this->setValidationGroups(array('nim'));
-        $this->setDataClass('mission');
-
         $resolver->setDefaults(array(
-            'data_class' => 'mission',
-            'validation_groups' => array('nim')
+            'data_class' => 'My\Bundle\Model',
+            'validation_groups' => array('validation_group')
         ))->shouldBeCalled();
 
         $this->setDefaultOptions($resolver);

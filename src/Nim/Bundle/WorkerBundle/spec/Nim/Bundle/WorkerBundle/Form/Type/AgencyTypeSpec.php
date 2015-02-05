@@ -18,6 +18,11 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class AgencyTypeSpec extends ObjectBehavior
 {
+    public function let()
+    {
+        $this->beConstructedWith('My\Bundle\Model', array('validation_group'));
+    }
+
     public function it_is_initializable()
     {
         $this->shouldHaveType('Nim\Bundle\WorkerBundle\Form\Type\AgencyType');
@@ -56,18 +61,18 @@ class AgencyTypeSpec extends ObjectBehavior
         ;
 
         $builder
-            ->add('emails', 'nim_contactable_collection_email', Argument::any())
+            ->add('emails', 'nim_email_collection', Argument::any())
             ->shouldBeCalled()
             ->willReturn($builder)
         ;
 
         $builder
-            ->add('phones', 'nim_contactable_collection_phone', Argument::any())
+            ->add('phones', 'nim_phone_collection', Argument::any())
             ->shouldBeCalled()
             ->willReturn($builder)
         ;
         $builder
-            ->add('workers', 'nim_entity_worker', Argument::any())
+            ->add('workers', 'nim_worker_entity', Argument::any())
             ->shouldBeCalled()
             ->willReturn($builder)
         ;
@@ -77,12 +82,9 @@ class AgencyTypeSpec extends ObjectBehavior
 
     public function it_should_define_assigned_data_class(OptionsResolverInterface $resolver)
     {
-        $this->setValidationGroups(array('nim'));
-        $this->setDataClass('agency');
-
         $resolver->setDefaults(array(
-            'data_class' => 'agency',
-            'validation_groups' => array('nim')
+            'data_class' => 'My\Bundle\Model',
+            'validation_groups' => array('validation_group')
         ))->shouldBeCalled();
 
         $this->setDefaultOptions($resolver);

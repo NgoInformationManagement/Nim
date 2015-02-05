@@ -19,25 +19,13 @@ http://symfony.com/schema/dic/services/services-1.0.xsd">
     </parameters>
 
     <services>
-        <!-- Mission Form -->
-        <service id="nim.form.type.mission" class="%nim.form.type.mission.class%">
-            <argument type="string">%nim.model.mission.class%</argument>
-            <call method="setValidationGroups">
-                <argument>%nim.validation_group.mission%</argument>
-            </call>
-            <call method="setDataClass">
-                <argument>%nim.model.mission.class%</argument>
-            </call>
-            <tag name="form.type" alias="nim_mission"/>
-        </service>
-
         <!-- Mission Entity Form -->
         <service id="nim.form.type.entity.mission" class="%nim.form.type.mission.entity.class%">
             <argument type="string">%nim.model.mission.class%</argument>
             <call method="setValidationGroups">
                 <argument>%nim.validation_group.mission%</argument>
             </call>
-            <tag name="form.type" alias="nim_entity_mission"/>
+            <tag name="form.type" alias="nim_mission_entity"/>
         </service>
 
         <!-- Mission Filter Form -->

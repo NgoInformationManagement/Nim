@@ -14,7 +14,7 @@ namespace Nim\Bundle\FormBundle\Form\Core;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-abstract class ResourceBaseType extends AbstractType
+abstract class AbstractResourceType extends AbstractType
 {
     /**
      * @var string

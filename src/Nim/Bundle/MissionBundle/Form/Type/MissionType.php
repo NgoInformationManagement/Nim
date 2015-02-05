@@ -11,21 +11,11 @@
 
 namespace  Nim\Bundle\MissionBundle\Form\Type;
 
-use Nim\Bundle\FormBundle\Form\Core\ResourceBaseType;
+use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class MissionType extends ResourceBaseType
+class MissionType extends AbstractResourceType
 {
-    /**
-     * @var string
-     */
-    private $missionModel;
-
-    public function __construct($missionModel)
-    {
-        $this->missionModel = $missionModel;
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -34,7 +24,7 @@ class MissionType extends ResourceBaseType
         $builder
             ->add('translations', 'a2lix_translations_gedmo', array(
                 'label' => false,
-                'translatable_class' => $this->missionModel,
+                'translatable_class' => $this->dataClass,
                 'fields' => array(
                     'title' => array(
                         'label' => 'mission.field.title.label',
@@ -59,7 +49,7 @@ class MissionType extends ResourceBaseType
                 'label' => 'mission.field.endedAt.label',
                 'leading_zero' => true,
             ))
-            ->add('workers', 'nim_entity_worker')
+            ->add('workers', 'nim_worker_entity')
         ;
     }
 

@@ -16,41 +16,25 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class PhoneCollectionTypeSpec extends ObjectBehavior
 {
+    public function let()
+    {
+        $this->beConstructedWith(array('validation_group'));
+    }
+
     public function it_is_initializable()
     {
         $this->shouldHaveType('Nim\Bundle\WorkerBundle\Form\Type\Contactable\PhoneCollectionType');
     }
 
-    public function it_should_configure_the_form(OptionsResolverInterface $resolver)
-    {
-        $resolver->setDefaults(array())->shouldBeCalled();
-
-        $resolver->setDefaults(array(
-            'type' => 'nim_contactable_phone',
-            'label' => 'worker.field.phone.label',
-            'allow_add' => true,
-            'allow_delete' => true,
-            'error_bubbling' => false,
-            'attr' => array(
-                'class' => 'form-inline'
-            )
-        ))->shouldBeCalled();
-
-        $this->setDefaultOptions($resolver);
-    }
-
     public function it_sould_configure_validation_groups(OptionsResolverInterface $resolver)
     {
-        $this->setValidationGroups(array('nim'));
-
-        $resolver->setDefaults(array('validation_groups' => array('nim')))->shouldBeCalled();
-
         $resolver->setDefaults(array(
-            'type' => 'nim_contactable_phone',
+            'type' => 'nim_phone',
             'label' => 'worker.field.phone.label',
             'allow_add' => true,
             'allow_delete' => true,
             'error_bubbling' => false,
+            'validation_groups' => array('validation_group'),
             'attr' => array(
                 'class' => 'form-inline'
             )
@@ -61,7 +45,7 @@ class PhoneCollectionTypeSpec extends ObjectBehavior
 
     public function it_should_have_valid_name()
     {
-        $this->getName()->shouldReturn('nim_contactable_collection_phone');
+        $this->getName()->shouldReturn('nim_phone_collection');
     }
 
     public function it_should_a_parent()

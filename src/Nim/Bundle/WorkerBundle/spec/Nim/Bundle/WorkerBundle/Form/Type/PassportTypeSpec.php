@@ -18,6 +18,11 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class PassportTypeSpec extends ObjectBehavior
 {
+    public function let()
+    {
+        $this->beConstructedWith('My\Bundle\Model', array('validation_group'));
+    }
+
     public function it_is_initializable()
     {
         $this->shouldHaveType('Nim\Bundle\WorkerBundle\Form\Type\PassportType');
@@ -53,12 +58,9 @@ class PassportTypeSpec extends ObjectBehavior
 
     public function it_should_define_assigned_data_class(OptionsResolverInterface $resolver)
     {
-        $this->setValidationGroups(array('nim'));
-        $this->setDataClass('passport');
-
         $resolver->setDefaults(array(
-            'data_class' => 'passport',
-            'validation_groups' => array('nim')
+            'data_class' => 'My\Bundle\Model',
+            'validation_groups' => array('validation_group')
         ))->shouldBeCalled();
 
         $this->setDefaultOptions($resolver);

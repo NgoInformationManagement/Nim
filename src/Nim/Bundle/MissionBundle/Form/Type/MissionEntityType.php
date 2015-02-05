@@ -11,30 +11,19 @@
 
 namespace  Nim\Bundle\MissionBundle\Form\Type;
 
-use Nim\Bundle\FormBundle\Form\Core\ResourceBaseType;
+use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class MissionEntityType extends ResourceBaseType
+class MissionEntityType extends AbstractResourceType
 {
-    /**
-     * @var string
-     */
-    private $missionModel;
-
-    public function __construct($missionModel)
-    {
-        $this->missionModel = $missionModel;
-    }
-
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        parent::setDefaultOptions($resolver);
-
         $resolver->setDefaults(array(
-            'class' => $this->missionModel,
+            'class' => $this->dataClass,
             'expanded' => true,
             'multiple' => true,
             'property' => 'EntityFormTypeData',
+            'validation_groups' => $this->validationGroups,
         ));
     }
 
@@ -43,7 +32,7 @@ class MissionEntityType extends ResourceBaseType
      */
     public function getName()
     {
-        return 'nim_entity_mission';
+        return 'nim_mission_entity';
     }
 
     /**

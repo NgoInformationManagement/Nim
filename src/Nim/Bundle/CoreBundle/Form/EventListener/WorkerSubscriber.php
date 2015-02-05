@@ -27,7 +27,7 @@ class WorkerSubscriber extends BaseSubscriber
         $form = $event->getForm();
 
         if ($data && $data->getId()) {
-            $form->add('missions', 'nim_entity_mission', array(
+            $form->add('missions', 'nim_mission_entity', array(
                 'label' => 'worker.field.mission.label',
             ))
             ->add('passports', 'collection', array(
@@ -46,7 +46,7 @@ class WorkerSubscriber extends BaseSubscriber
                 'error_bubbling' => false,
                 'item_by_line' => 2
             ))
-            ->add('vaccines', 'nim_entity_vaccine', array(
+            ->add('vaccines', 'nim_vaccine_entity', array(
                 'label' => 'worker.field.vaccine.label',
             ));
         }

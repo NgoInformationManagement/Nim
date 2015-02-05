@@ -5,7 +5,7 @@ namespace Nim\Bundle\WorkerBundle\EventListener;
 use Doctrine\ORM\EntityManager;
 use Nim\Bundle\WorkerBundle\Model\Agency;
 use Nim\Bundle\WorkerBundle\Model\Worker;
-use Sylius\Bundle\ResourceBundle\Event\ResourceEvent;
+use Sylius\Component\Resource\Event\ResourceEvent;
 
 class SoftDeletableListener
 {

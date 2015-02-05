@@ -11,24 +11,36 @@
 
 namespace Nim\Bundle\WorkerBundle\Form\Type\Contactable;
 
-use Nim\Bundle\FormBundle\Form\Core\ResourceBaseType;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class PhoneCollectionType extends ResourceBaseType
+class PhoneCollectionType extends AbstractType
 {
+    /**
+     * @var string[]
+     */
+    protected $validationGroups = array();
+
+    /**
+     * @param string[] $validationGroups
+     */
+    public function __construct(array $validationGroups = array())
+    {
+        $this->validationGroups = $validationGroups;
+    }
+
     /**
      * {@inheritdoc}
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        parent::setDefaultOptions($resolver);
-
         $resolver->setDefaults(array(
-            'type' => 'nim_contactable_phone',
+            'type' => 'nim_phone',
             'label' => 'worker.field.phone.label',
             'allow_add' => true,
             'allow_delete' => true,
             'error_bubbling' => false,
+            'validation_groups' => $this->validationGroups,
             'attr' => array(
                 'class' => 'form-inline'
             )
@@ -48,6 +60,6 @@ class PhoneCollectionType extends ResourceBaseType
      */
     public function getName()
     {
-        return 'nim_contactable_collection_phone';
+        return 'nim_phone_collection';
     }
 }
