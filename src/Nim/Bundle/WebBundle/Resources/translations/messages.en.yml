@@ -22,6 +22,7 @@ button:
     back: Back
     filter: Filter
     backToList: Back to the list
+    validate: valider
 
 tooltip:
     show: Details
