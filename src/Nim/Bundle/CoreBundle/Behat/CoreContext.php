@@ -31,7 +31,7 @@ class CoreContext extends BaseContext implements Context
      * @param $role
      * @return User
      */
-    private function thereIsUser($username, $password, $role)
+    protected function thereIsUser($username, $password, $role)
     {
         if (null === $user = $this->getService('fos_user.user_manager')->findUserBy(array('username' => $username))) {
             $user = new User();
@@ -51,7 +51,7 @@ class CoreContext extends BaseContext implements Context
         return $user;
     }
 
-    private function getLocale($language)
+    protected function getLocale($language)
     {
         $languages = array(
             'French' => "fr",
@@ -69,7 +69,7 @@ class CoreContext extends BaseContext implements Context
      *
      * @param string $role
      */
-    private function iAmLoggedInAsRole($role)
+    protected function iAmLoggedInAsRole($role)
     {
         $this->thereIsUser('admin', 'php', $role);
         $this->getSession()->visit($this->generateUrl('fos_user_security_login'));

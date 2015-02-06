@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace Nim\Bundle\WebBundle\Behat\UserContext;
+namespace Nim\Bundle\WebBundle\Behat;
 
-use Nim\Bundle\FormBundle\Behat\CollectionContext as BaseContext;
+use Sylius\Bundle\ResourceBundle\Behat\FormContext;
 
-class CollectionContext extends BaseContext
+class CollectionContext extends FormContext
 {
     /**
      * @When /^I add a new phone to worker$/
      */
     public function iaddPhoneToWorker()
     {
-        $this->addItem('*[@id="nim_worker_phones"]');
+        $this->addCollectionItem('*[@id="nim_worker_phones"]');
     }
 
     /**
@@ -28,7 +28,7 @@ class CollectionContext extends BaseContext
      */
     public function iaddEmailToWorker()
     {
-        $this->addItem('*[@id="nim_worker_emails"]');
+        $this->addCollectionItem('*[@id="nim_worker_emails"]');
     }
 
     /**
@@ -36,7 +36,7 @@ class CollectionContext extends BaseContext
      */
     public function iaddContactToWorker()
     {
-        $this->addItem('*[@id="nim_worker_contacts"]');
+        $this->addCollectionItem('*[@id="nim_worker_contacts"]');
     }
 
     /**
@@ -44,7 +44,7 @@ class CollectionContext extends BaseContext
      */
     public function iaddEmailToContact($position)
     {
-        $this->addItem('*[@id="nim_worker_contacts_' . ($position - 1) . '_emails"]');
+        $this->addCollectionItem('*[@id="nim_worker_contacts_' . ($position - 1) . '_emails"]');
     }
 
     /**
@@ -52,7 +52,7 @@ class CollectionContext extends BaseContext
      */
     public function iaddPhoneToContact($position)
     {
-        $this->addItem('*[@id="nim_worker_contacts_' . ($position - 1) . '_phones"]');
+        $this->addCollectionItem('*[@id="nim_worker_contacts_' . ($position - 1) . '_phones"]');
     }
 
     /**
@@ -60,7 +60,7 @@ class CollectionContext extends BaseContext
      */
     public function iFillContactEmail($position, $value)
     {
-        $this->fillField(
+        $this->fillCollectionField(
             '*[@id="nim_worker_contacts_' . ($position - 1) . '_emails"]',
             $position,
             'address',
@@ -73,14 +73,14 @@ class CollectionContext extends BaseContext
      */
     public function iFillContactPhone($position, $type, $number)
     {
-        $this->fillField(
+        $this->fillCollectionField(
             '*[@id="nim_worker_contacts_' . ($position - 1) . '_phones"]',
             $position,
             'type',
             $type
         );
 
-        $this->fillField(
+        $this->fillCollectionField(
             '*[@id="nim_worker_contacts_' . ($position - 1) . '_phones"]',
             $position,
             'number',
@@ -93,7 +93,7 @@ class CollectionContext extends BaseContext
      */
     public function iShouldSeeFieldErrorInTheItemOfTheContactCollection($field, $position)
     {
-        $this->isInvalidField(
+        $this->isInvalidCollectionField(
             '*[@id="nim_worker_contacts"]',
             $position,
             $field
@@ -105,7 +105,7 @@ class CollectionContext extends BaseContext
      */
     public function iFillInInTheItemOfTheContactCollectionWith($field, $position, $value)
     {
-        $this->fillField(
+        $this->fillCollectionField(
             '*[@id="nim_worker_contacts"]',
             $position,
             $field,
@@ -118,7 +118,7 @@ class CollectionContext extends BaseContext
      */
     public function iAddAPassportToWorker()
     {
-        $this->addItem('*[@id="nim_worker_passports"]');
+        $this->addCollectionItem('*[@id="nim_worker_passports"]');
     }
 
     /**
@@ -126,7 +126,7 @@ class CollectionContext extends BaseContext
      */
     public function iAddAVisaToWorker()
     {
-        $this->addItem('*[@id="nim_worker_visas"]');
+        $this->addCollectionItem('*[@id="nim_worker_visas"]');
     }
 
     /**
@@ -134,7 +134,7 @@ class CollectionContext extends BaseContext
      */
     public function iFillInInTheItemOfThePassportsCollectionWith($field, $position, $value)
     {
-        $this->fillField(
+        $this->fillCollectionField(
             '*[@id="nim_worker_passports"]',
             $position,
             $field,
@@ -147,7 +147,7 @@ class CollectionContext extends BaseContext
      */
     public function iFillInInTheItemOfTheVisaCollectionWith($field, $position, $value)
     {
-        $this->fillField(
+        $this->fillCollectionField(
             '*[@id="nim_worker_visas"]',
             $position,
             $field,
@@ -160,7 +160,7 @@ class CollectionContext extends BaseContext
      */
     public function iShouldSeeFieldErrorInTheItemOfThePassportCollection($field, $position)
     {
-        $this->isInvalidField(
+        $this->isInvalidCollectionField(
             '*[@id="nim_worker_passports"]',
             $position,
             $field
@@ -172,7 +172,7 @@ class CollectionContext extends BaseContext
      */
     public function iShouldSeeFieldErrorInTheItemOfTheVisaCollection($field, $position)
     {
-        $this->isInvalidField(
+        $this->isInvalidCollectionField(
             '*[@id="nim_worker_visas"]',
             $position,
             $field

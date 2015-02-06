@@ -20,8 +20,6 @@ use Nim\Component\Behat\BaseContext;
 
 class WebContext extends BaseContext
 {
-
-
     /**
      * @Given /^I am on the dashboard page$/
      */
@@ -307,11 +305,35 @@ class WebContext extends BaseContext
     }
 
     /**
+     * @Given /^I am on my account profile edition page$/
+     */
+    public function iAmOnMyAccountProfileEditionPage()
+    {
+        $this->iAmOnPage('fos_user_profile_show');
+    }
+
+    /**
+     * @Then /^I should still be on my account profile edition page$/
+     */
+    public function iShouldStillBeOnMyAccountProfileEditionPage()
+    {
+        $this->iShouldBeOnPage('fos_user_profile_edit');
+    }
+
+    /**
+     * @Then /^I should be on my account profile page$/
+     */
+    public function iShouldBeOnMyAccountProfilePage()
+    {
+        $this->iShouldBeOnPage('fos_user_profile_show');
+    }
+
+    /**
      * Assert that given code equals the current one.
      *
      * @param integer $code
      */
-    private function assertStatusCodeEquals($code)
+    protected function assertStatusCodeEquals($code)
     {
         if (!$this->isSeleniumTest()) {
             $this->assertSession()->statusCodeEquals($code);
@@ -324,7 +346,7 @@ class WebContext extends BaseContext
      * @param $page
      * @param array $parameters
      */
-    private function iAmOnPage($page, array $parameters = array())
+    protected function iAmOnPage($page, array $parameters = array())
     {
         $this->getSession()->visit($this->generateUrl($page, $parameters));
     }
@@ -335,7 +357,7 @@ class WebContext extends BaseContext
      * @param $page
      * @param array $parameters
      */
-    private function iShouldBeOnPage($page, array $parameters = array())
+    protected function iShouldBeOnPage($page, array $parameters = array())
     {
         $this->assertSession()->addressEquals($this->generateUrl($page, $parameters));
         $this->assertStatusCodeEquals(200);
@@ -347,7 +369,7 @@ class WebContext extends BaseContext
      * @param $resource
      * @param $action
      */
-    private function iAmOnResourcePage($resource, $action)
+    protected function iAmOnResourcePage($resource, $action)
     {
         $resourceName = $this->getResourceName($resource);
 
@@ -363,7 +385,7 @@ class WebContext extends BaseContext
      * @param $resource
      * @param $action
      */
-    private function iShouldBeOnResourcePage($resource, $action)
+    protected function iShouldBeOnResourcePage($resource, $action)
     {
         $resourceName = $this->getResourceName($resource);
 
@@ -378,7 +400,7 @@ class WebContext extends BaseContext
      *
      * @return string
      */
-    private function isSeleniumTest()
+    protected function isSeleniumTest()
     {
         return strstr(get_class($this->getSession()->getDriver()), 'Selenium2Driver');
     }
@@ -386,10 +408,11 @@ class WebContext extends BaseContext
     /**
      * Get the resource name.
      *
-     * @param $resource
+     * @param string $resource
+     *
      * @return string
      */
-    private function getResourceName($resource)
+    protected function getResourceName($resource)
     {
         $class = new \ReflectionClass($resource);
 
@@ -400,9 +423,10 @@ class WebContext extends BaseContext
      * Get the active tab
      *
      * @return mixed
-     * @throws \Behat\Mink\Exception\ExpectationException
+     *
+     * @throws ExpectationException
      */
-    private function getActiveTab()
+    protected function getActiveTab()
     {
         $tabContainer = $this->getSession()->getPage()->find(
             'xpath',
@@ -420,11 +444,12 @@ class WebContext extends BaseContext
     }
 
     /**
-     * @param $locator
+     * @param string $locator
      * @return mixed
-     * @throws \Behat\Mink\Exception\ExpectationException
+     * 
+     * @throws ExpectationException
      */
-    private function findAllField($locator)
+    protected function findAllField($locator)
     {
         $fields = $this->getSession()->getPage()->findAll('named', array(
             'field', $this->getSession()->getSelectorsHandler()->xpathLiteral($locator)

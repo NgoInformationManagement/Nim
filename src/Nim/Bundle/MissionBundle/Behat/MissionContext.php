@@ -13,9 +13,10 @@ namespace Nim\Bundle\MissionBundle\Behat;
 
 use Behat\Gherkin\Node\TableNode;
 use Nim\Bundle\MissionBundle\Model\Mission;
+use Nim\Component\Behat\BaseContext;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
-trait MissionDataContext
+class MissionContext extends BaseContext
 {
     /**
      * @Given /^There are following mission:$/
@@ -101,10 +102,11 @@ trait MissionDataContext
     /**
      * Get mission resource
      *
-     * @param $title
+     * @param string $title
+     *
      * @return Mission
      */
-    private function getMissionByTitle($title)
+    protected function getMissionByTitle($title)
     {
         return $this->getMissionRepository()->findOneBy(array('title' => $title));
     }
@@ -112,8 +114,23 @@ trait MissionDataContext
     /**
      * @return EntityRepository
      */
-    private function getMissionRepository()
+    protected function getMissionRepository()
     {
         return $this->getRepository('mission');
+    }
+
+    /**
+     * @param string $language
+     *
+     * @return string|null
+     */
+    protected function getLocale($language)
+    {
+        $locale = [
+            'French' => 'fr',
+            'Englis' => 'en'
+        ];
+
+        return isset($locale[$language]) ? $locale[$language] : null;
     }
 }

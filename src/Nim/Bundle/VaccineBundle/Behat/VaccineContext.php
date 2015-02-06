@@ -13,9 +13,10 @@ namespace Nim\Bundle\VaccineBundle\Behat;
 
 use Behat\Gherkin\Node\TableNode;
 use Nim\Bundle\VaccineBundle\Model\Vaccine;
+use Nim\Component\Behat\BaseContext;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
-trait VaccineDataContext
+class VaccineContext extends BaseContext
 {
     /**
      * @Given /^There are following vaccine:$/
@@ -84,10 +85,11 @@ trait VaccineDataContext
     /**
      * Get vaccine resource
      *
-     * @param $title
+     * @param string $title
+     *
      * @return Vaccine
      */
-    private function getVaccineByTitle($title)
+    protected function getVaccineByTitle($title)
     {
         return $this->getVaccineRepository()->findOneBy(array('title' => $title));
     }
@@ -95,8 +97,23 @@ trait VaccineDataContext
     /**
      * @return EntityRepository
      */
-    private function getVaccineRepository()
+    protected function getVaccineRepository()
     {
         return $this->getRepository('vaccine');
+    }
+
+    /**
+     * @param string $language
+     *
+     * @return string|null
+     */
+    protected function getLocale($language)
+    {
+        $locale = [
+            'French' => 'fr',
+            'Englis' => 'en'
+        ];
+
+        return isset($locale[$language]) ? $locale[$language] : null;
     }
 }

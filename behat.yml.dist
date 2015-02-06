@@ -19,8 +19,60 @@ default:
                 - Behat\MinkExtension\Context\MinkContext
                 - Nim\Component\Behat\FixtureContext
                 - Nim\Bundle\WorkerBundle\Behat\WorkerContext
-                - Nim\Bundle\WorkerBundle\Behat\AgencyContext
-                - Nim\Bundle\WebBundle\Behat\WebContext
+                - Nim\Bundle\WebBundle\Behat\CollectionContext
                 - Nim\Bundle\CoreBundle\Behat\CoreContext
+                - Nim\Bundle\WebBundle\Behat\WebContext
             filters:
                 tags: "@agency"
+        worker:
+            contexts:
+                - Behat\MinkExtension\Context\MinkContext
+                - Nim\Component\Behat\FixtureContext
+                - Nim\Bundle\WorkerBundle\Behat\WorkerContext
+                - Nim\Bundle\MissionBundle\Behat\MissionContext
+                - Nim\Bundle\VaccineBundle\Behat\VaccineContext
+                - Nim\Bundle\WebBundle\Behat\CollectionContext
+                - Nim\Bundle\CoreBundle\Behat\CoreContext
+                - Nim\Bundle\WebBundle\Behat\WebContext
+            filters:
+                tags: "@worker"
+        vaccine:
+            contexts:
+                - Behat\MinkExtension\Context\MinkContext
+                - Nim\Component\Behat\FixtureContext
+                - Nim\Bundle\VaccineBundle\Behat\VaccineContext
+                - Nim\Bundle\WebBundle\Behat\WebContext
+                - Nim\Bundle\CoreBundle\Behat\CoreContext
+                - Nim\Bundle\WebBundle\Behat\WebContext
+            filters:
+                tags: "@vaccine"
+        mission:
+            contexts:
+                - Behat\MinkExtension\Context\MinkContext
+                - Nim\Component\Behat\FixtureContext
+                - Nim\Bundle\MissionBundle\Behat\MissionContext
+                - Nim\Bundle\WorkerBundle\Behat\WorkerContext
+                - Nim\Bundle\WebBundle\Behat\CollectionContext
+                - Nim\Bundle\WebBundle\Behat\WebContext
+                - Nim\Bundle\CoreBundle\Behat\CoreContext
+                - Nim\Bundle\WebBundle\Behat\WebContext
+            filters:
+                tags: "@mission"
+        dashboard:
+            contexts:
+                - Behat\MinkExtension\Context\MinkContext
+                - Nim\Component\Behat\FixtureContext
+                - Nim\Bundle\CoreBundle\Behat\CoreContext
+                - Nim\Bundle\WorkerBundle\Behat\WorkerContext
+                - Nim\Bundle\MissionBundle\Behat\MissionContext
+                - Nim\Bundle\WebBundle\Behat\WebContext
+            filters:
+                tags: "@dashboard"
+        account:
+            contexts:
+                - Behat\MinkExtension\Context\MinkContext
+                - Nim\Component\Behat\FixtureContext
+                - Nim\Bundle\CoreBundle\Behat\CoreContext
+                - Nim\Bundle\WebBundle\Behat\WebContext
+            filters:
+                tags: "@account"
