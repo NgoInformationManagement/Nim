@@ -170,7 +170,7 @@ class Mission implements Translatable, MissionInterface, EntityFormTypeInterface
     }
 
     /**
-     * @return array
+     * {@inheritdoc}
      */
     public function getEntityFormTypeData()
     {
@@ -182,6 +182,9 @@ class Mission implements Translatable, MissionInterface, EntityFormTypeInterface
         );
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return $this->getTitle();

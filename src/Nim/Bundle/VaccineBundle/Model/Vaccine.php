@@ -98,28 +98,28 @@ class Vaccine implements Translatable, VaccineInterface, EntityFormTypeInterface
     }
 
     /**
-     * @param VaccineTranslation $t
+     * @param VaccineTranslation $translation
      */
-    public function addTranslation(VaccineTranslation $t)
+    public function addTranslation(VaccineTranslation $translation)
     {
-        if (!$this->translations->contains($t)) {
-            $this->translations[] = $t;
-            $t->setObject($this);
+        if (!$this->translations->contains($translation)) {
+            $this->translations[] = $translation;
+            $translation->setObject($this);
         }
     }
 
     /**
-     * @param VaccineTranslation $t
+     * @param VaccineTranslation $translation
      */
-    public function removeTranslation(VaccineTranslation $t)
+    public function removeTranslation(VaccineTranslation $translation)
     {
-        if ($this->translations->contains($t)) {
-            $this->translations->removeElement($t);
+        if ($this->translations->contains($translation)) {
+            $this->translations->removeElement($translation);
         }
     }
 
     /**
-     * @return array
+     * {@inheritdoc}
      */
     public function getEntityFormTypeData()
     {
@@ -129,6 +129,9 @@ class Vaccine implements Translatable, VaccineInterface, EntityFormTypeInterface
         );
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return $this->getTitle();

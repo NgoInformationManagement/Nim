@@ -14,19 +14,11 @@ namespace Nim\Bundle\CoreBundle\DataFixtures\ORM;
 use Faker\Factory as FakerFactory;
 use Faker\Generator;
 use Nelmio\Alice\Fixtures;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Hautelook\AliceBundle\Alice\DataFixtureLoader;
 
 class FixturesLoader extends DataFixtureLoader
 {
     protected $fixtureDir = '../../Resources/fixtures';
-
-    /**
-     * Container.
-     *
-     * @var ContainerInterface
-     */
-    protected $container;
 
     /**
      * Faker.
