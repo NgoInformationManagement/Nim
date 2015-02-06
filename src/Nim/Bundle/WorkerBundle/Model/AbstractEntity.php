@@ -20,7 +20,7 @@ abstract class AbstractEntity
 {
     use Contactable\ContactableTrait,
         Addressing\AddressingTrait,
-        \Nim\Component\Resource\Model\TimestampableTrait;
+        TimestampableTrait;
 
     protected $id;
 
