@@ -29,7 +29,7 @@ class NimMissionBundleSpec extends ObjectBehavior
     public function it_support_driver()
     {
         $this::getSupportedDrivers()->shouldReturn(array(
-            SyliusResourceBundle::DRIVER_DOCTRINE_ORM
+            SyliusResourceBundle::DRIVER_DOCTRINE_ORM,
         ));
     }
 }

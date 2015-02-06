@@ -15,7 +15,6 @@ use Nim\Bundle\WorkerBundle\Form\EventListener\WorkerSubscriber;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class WorkerTypeSpec extends ObjectBehavior
 {

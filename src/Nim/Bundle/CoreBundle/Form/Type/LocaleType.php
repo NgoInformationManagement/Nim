@@ -43,7 +43,7 @@ class LocaleType extends AbstractType
         $builder
             ->add('locale', 'choice',  array(
                 'choices' => array_combine($this->locales, $this->locales),
-                'label' => false
+                'label' => false,
             ))
             ->addEventListener(FormEvents::POST_SET_DATA, function (FormEvent $event) {
                 $locale = $this->session->get('_locale');
@@ -59,5 +59,4 @@ class LocaleType extends AbstractType
     {
         return 'nim_locale';
     }
-
 }

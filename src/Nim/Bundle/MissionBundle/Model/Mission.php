@@ -12,15 +12,15 @@
 namespace Nim\Bundle\MissionBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use \Gedmo\Translatable\Translatable;
+use Gedmo\Translatable\Translatable;
 use Nim\Component\Resource\Model\EntityFormTypeInterface;
 use Nim\Component\Resource\Model\SoftDeletableTrait;
 use Nim\Component\Resource\Model\TimestampableTrait;
 
 class Mission implements Translatable, MissionInterface, EntityFormTypeInterface
 {
-    use \Nim\Component\Resource\Model\SoftDeletableTrait,
-        \Nim\Component\Resource\Model\TimestampableTrait;
+    use SoftDeletableTrait,
+        TimestampableTrait;
 
     protected $id;
     protected $title;
@@ -178,7 +178,7 @@ class Mission implements Translatable, MissionInterface, EntityFormTypeInterface
             'title' => $this->getTitle(),
             'country' => $this->getCountry(),
             'started_at' => $this->getStartedAt(),
-            'ended_at' => $this->getEndedAt()
+            'ended_at' => $this->getEndedAt(),
         );
     }
 

@@ -18,7 +18,7 @@ class WorkerRepository extends EntityRepository
     public function getBasedNoWhereQuery()
     {
         $builder = $this->getCollectionQueryBuilder();
-        $builder->where($builder->expr()->isNull($this->getAlias() .'.basedAt'));
+        $builder->where($builder->expr()->isNull($this->getAlias().'.basedAt'));
 
         return $builder;
     }

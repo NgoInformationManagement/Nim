@@ -3,11 +3,10 @@
 namespace spec\Nim\Bundle\ThemeBundle\Form\Extension;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class CollectionExtensionSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('Nim\Bundle\ThemeBundle\Form\Extension\CollectionExtension');
     }

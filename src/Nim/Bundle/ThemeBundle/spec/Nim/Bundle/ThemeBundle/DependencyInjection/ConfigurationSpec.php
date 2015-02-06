@@ -12,11 +12,10 @@
 namespace spec\Nim\Bundle\ThemeBundle\DependencyInjection;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class ConfigurationSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('Nim\Bundle\ThemeBundle\DependencyInjection\Configuration');
     }

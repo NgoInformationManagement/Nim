@@ -24,7 +24,7 @@ use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 class WorkerContext extends BaseContext
 {
     /**
-     * @param  array $phones
+     * @param array  $phones
      * @param object $entity
      *
      * @return object
@@ -50,15 +50,15 @@ class WorkerContext extends BaseContext
         $phone = new Phone();
         $this->setDataToObject($phone, array(
             'type' => $type,
-            'number' => $number
+            'number' => $number,
         ));
 
         return $this->persistAndFlush($phone);
     }
 
     /**
-     * @param  array $emails
-     * @param  string $entity
+     * @param array  $emails
+     * @param string $entity
      *
      * @return object
      */
@@ -81,7 +81,7 @@ class WorkerContext extends BaseContext
     {
         $email = new Email();
         $this->setDataToObject($email, array(
-            'address' => $address
+            'address' => $address,
         ));
 
         return $this->persistAndFlush($email);
@@ -238,7 +238,7 @@ class WorkerContext extends BaseContext
             && array_key_exists('phone number', $additionalData)) {
             $data = array(
                 'type' => $additionalData['phone type'],
-                'number' => $additionalData['phone number']
+                'number' => $additionalData['phone number'],
             );
 
             $this->entityHasPhones($data, $contact);
@@ -251,7 +251,7 @@ class WorkerContext extends BaseContext
             && array_key_exists('email address', $additionalData)) {
             $data = array(
                 'label' => $additionalData['email label'],
-                'address' => $additionalData['email address']
+                'address' => $additionalData['email address'],
             );
 
             $this->entityHasEmails($data, $contact);
@@ -342,7 +342,7 @@ class WorkerContext extends BaseContext
             'street' => 'street',
             'city' => 'city',
             'postcode' => 'postcode',
-            'country' => 'country'
+            'country' => 'country',
         ));
     }
 
@@ -358,10 +358,9 @@ class WorkerContext extends BaseContext
     {
         return $this->getContactRepository()->findOneBy(array(
             'firstname' => $firstname,
-            'lastname'=> $lastname
+            'lastname' => $lastname,
         ));
     }
-
 
     /**
      * Get worker resource
@@ -375,10 +374,9 @@ class WorkerContext extends BaseContext
     {
         return $this->getWorkerRepository()->findOneBy(array(
             'firstname' => $firstname,
-            'lastname'=> $lastname
+            'lastname' => $lastname,
         ));
     }
-
 
     /**
      * Get agency resource

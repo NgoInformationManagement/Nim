@@ -20,11 +20,10 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Translation\TranslatorInterface;
 
 class MenuBuilderSpec extends ObjectBehavior
 {
-    function let(
+    public function let(
         FactoryInterface $factory,
         SecurityContextInterface $securityContext,
         RequestStack $requestStack,
@@ -36,12 +35,12 @@ class MenuBuilderSpec extends ObjectBehavior
         $this->beConstructedWith($factory, $securityContext, $requestStack);
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('Nim\Bundle\WebBundle\Menu\MenuBuilder');
     }
 
-    function it_build_main_menu($factory, ItemInterface $itemMenu)
+    public function it_build_main_menu($factory, ItemInterface $itemMenu)
     {
         $factory->createItem('main_menu', Argument::type('array'))->willReturn($itemMenu);
         $itemMenu->setCurrent('my/uri')->shouldBeCalled();
@@ -55,7 +54,7 @@ class MenuBuilderSpec extends ObjectBehavior
         $this->createMainMenu()->shouldReturn($itemMenu);
     }
 
-    function it_build_user_menu(
+    public function it_build_user_menu(
         $factory,
         $securityContext,
         ItemInterface $itemMenu,

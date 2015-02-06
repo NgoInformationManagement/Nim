@@ -25,15 +25,15 @@ class CollectionExtension extends AbstractTypeExtension
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setOptional(array(
-            'item_by_line'
+            'item_by_line',
         ));
 
         $resolver->setAllowedTypes(array(
-            'item_by_line' => array('integer')
+            'item_by_line' => array('integer'),
         ));
 
         $resolver->setDefaults(array(
-            'item_by_line' => 1
+            'item_by_line' => 1,
         ));
     }
 

@@ -24,10 +24,10 @@ class WorkerTypes implements ConstantInterface
      */
     public static function getTypes($translationDomain = null)
     {
-        return array (
-            self::EMPLOYEE => $translationDomain . '.' . self::EMPLOYEE,
-            self::VOLUNTEER => $translationDomain . '.' . self::VOLUNTEER,
-            self::INTERN => $translationDomain . '.' . self::INTERN,
+        return array(
+            self::EMPLOYEE => $translationDomain.'.'.self::EMPLOYEE,
+            self::VOLUNTEER => $translationDomain.'.'.self::VOLUNTEER,
+            self::INTERN => $translationDomain.'.'.self::INTERN,
         );
     }
 }

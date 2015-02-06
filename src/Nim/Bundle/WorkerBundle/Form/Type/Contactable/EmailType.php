@@ -23,7 +23,7 @@ class EmailType extends AbstractResourceType
     {
         $builder
             ->add('address', 'email', array(
-                'label' => false
+                'label' => false,
             ))
         ;
     }

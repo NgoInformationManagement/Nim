@@ -11,7 +11,7 @@
 
 namespace Nim\Bundle\WorkerBundle\Model;
 
-use \Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Nim\Component\Resource\Model\EntityFormTypeInterface;
 use Nim\Component\Resource\Model\SoftDeletableTrait;
 
@@ -323,7 +323,7 @@ class Worker extends AbstractPerson implements WorkerInterface, EntityFormTypeIn
             'name' => $this->getFullName(),
             'country' => $this->getCountry(),
             'function' => $this->getFunction(),
-            'type' => $this->getType()
+            'type' => $this->getType(),
         );
     }
 }

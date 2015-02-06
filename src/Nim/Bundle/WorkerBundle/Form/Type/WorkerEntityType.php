@@ -25,7 +25,7 @@ class WorkerEntityType extends AbstractResourceType
             'class' => $this->dataClass,
             'expanded' => true,
             'multiple' => true,
-            'property' => 'EntityFormTypeData'
+            'property' => 'EntityFormTypeData',
         ));
     }
 

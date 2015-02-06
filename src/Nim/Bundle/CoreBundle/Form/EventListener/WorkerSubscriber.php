@@ -36,7 +36,7 @@ class WorkerSubscriber extends BaseSubscriber
                 'allow_add' => true,
                 'allow_delete' => true,
                 'error_bubbling' => false,
-                'item_by_line' => 2
+                'item_by_line' => 2,
             ))
             ->add('visas', 'collection', array(
                 'type' => 'nim_visa',
@@ -44,7 +44,7 @@ class WorkerSubscriber extends BaseSubscriber
                 'allow_add' => true,
                 'allow_delete' => true,
                 'error_bubbling' => false,
-                'item_by_line' => 2
+                'item_by_line' => 2,
             ))
             ->add('vaccines', 'nim_vaccine_entity', array(
                 'label' => 'worker.field.vaccine.label',

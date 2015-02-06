@@ -53,6 +53,6 @@ abstract class AbstractPerson extends AbstractEntity
      */
     public function getFullName()
     {
-        return $this->getFirstname() . ' ' . $this->getLastname();
+        return $this->getFirstname().' '.$this->getLastname();
     }
 }

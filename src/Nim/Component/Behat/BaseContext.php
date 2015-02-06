@@ -56,8 +56,6 @@ class BaseContext extends RawMinkContext implements Context, KernelAwareContext
         $em->getConnection()->executeQuery('SET FOREIGN_KEY_CHECKS=1;');
     }
 
-
-
     /**
      * Find one resource by name.
      *
@@ -106,7 +104,7 @@ class BaseContext extends RawMinkContext implements Context, KernelAwareContext
      */
     protected function getRepository($resource)
     {
-        return $this->getService($this->appName.'.repository.' . $resource);
+        return $this->getService($this->appName.'.repository.'.$resource);
     }
 
     /**
@@ -215,7 +213,6 @@ class BaseContext extends RawMinkContext implements Context, KernelAwareContext
         $this->getSession()->getPage()->selectFieldOption($this->fixStepArgument($select), $this->fixStepArgument($option));
     }
 
-
     /**
      * Returns fixed step argument (with \\" replaced back to ").
      *
@@ -252,7 +249,7 @@ class BaseContext extends RawMinkContext implements Context, KernelAwareContext
      * Set data to an object
      *
      * @param object $object
-     * @param array $data
+     * @param array  $data
      */
     protected function setDataToObject($object, array $data)
     {
@@ -301,7 +298,7 @@ class BaseContext extends RawMinkContext implements Context, KernelAwareContext
      * Find single resource
      *
      * @param string $resourceName
-     * @param array $criteria
+     * @param array  $criteria
      *
      * @return object
      */

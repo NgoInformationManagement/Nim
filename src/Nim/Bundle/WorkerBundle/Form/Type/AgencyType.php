@@ -50,7 +50,7 @@ class AgencyType extends AbstractResourceType
                     /** @var WorkerRepository $e */
 
                     return $e->getBasedNoWhereQuery();
-                }
+                },
             ))
         ;
     }

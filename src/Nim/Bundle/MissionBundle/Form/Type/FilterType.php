@@ -24,16 +24,16 @@ class FilterType extends AbstractType
     {
         $builder
             ->add('title', null, array(
-                'label' => 'mission.field.title.label'
+                'label' => 'mission.field.title.label',
             ))
             ->add('country', 'country', array(
-                'label' => 'mission.field.country.label'
+                'label' => 'mission.field.country.label',
             ))
             ->add('startedAt', 'date', array(
-                'label' => 'mission.field.startedAt.label'
+                'label' => 'mission.field.startedAt.label',
             ))
             ->add('endedAt', 'date', array(
-                'label' => 'mission.field.country.label'
+                'label' => 'mission.field.country.label',
             ));
     }
 

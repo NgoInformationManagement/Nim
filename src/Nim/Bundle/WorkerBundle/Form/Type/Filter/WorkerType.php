@@ -25,14 +25,14 @@ class WorkerType extends AbstractType
     {
         $builder
             ->add('lastname', null, array(
-                'label' => 'worker.field.name.label'
+                'label' => 'worker.field.name.label',
             ))
             ->add('type', 'choice', array(
                 'label' => 'worker.field.type.label',
-                'choices' => WorkerTypes::getTypes('worker.field.type.option')
+                'choices' => WorkerTypes::getTypes('worker.field.type.option'),
             ))
             ->add('arrivedAt', 'date', array(
-                'label' => 'worker.field.arrivedAt.label'
+                'label' => 'worker.field.arrivedAt.label',
             ))
             ->add('basedAt', 'entity', array(
                 'label' => 'worker.field.basedAt.label',

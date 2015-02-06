@@ -45,7 +45,7 @@ class NimThemeExtension extends Extension implements PrependExtensionInterface
     {
         $bundles = $container->getParameter('kernel.bundles');
 
-        if(isset($bundles['TwigBundle'])) {
+        if (isset($bundles['TwigBundle'])) {
             $container->prependExtensionConfig('twig', [
                 'globals' => [
                     'logo' => '%logo%',
@@ -53,13 +53,13 @@ class NimThemeExtension extends Extension implements PrependExtensionInterface
                 ],
                 'form' => [
                     'resources' => [
-                        'NimThemeBundle::form.html.twig'
-                    ]
+                        'NimThemeBundle::form.html.twig',
+                    ],
                 ]
             ]);
         }
 
-        if(isset($bundles['KnpMenuBundle'])) {
+        if (isset($bundles['KnpMenuBundle'])) {
             $container->prependExtensionConfig('knp_menu', [
                 'twig' => [
                     'template' => 'NimThemeBundle::menu.html.twig',
@@ -67,10 +67,10 @@ class NimThemeExtension extends Extension implements PrependExtensionInterface
             ]);
         }
 
-        if(isset($bundles['AsseticBundle'])) {
+        if (isset($bundles['AsseticBundle'])) {
             $container->prependExtensionConfig('assetic', [
                 'bundles' => [
-                    'NimThemeBundle'
+                    'NimThemeBundle',
                 ],
                 'assets' => [
                     'nim_login' => [
@@ -85,15 +85,15 @@ class NimThemeExtension extends Extension implements PrependExtensionInterface
                             'assets/vendor/bootstrap-datepicker/css/datepicker3.css',
                             'assets/vendor/font-awesome/css/font-awesome.css',
                             'bundles/nimtheme/css/theme.css',
-                        ]
+                        ],
                     ],
                     'nim_theme_js' => [
                         'inputs' => [
                             'assets/vendor/jquery/dist/jquery.min.js',
                             'assets/vendor/bootstrap/dist/js/bootstrap.min.js',
                             'assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js',
-                        ]
-                    ]
+                        ],
+                    ],
                 ]
             ]);
         }

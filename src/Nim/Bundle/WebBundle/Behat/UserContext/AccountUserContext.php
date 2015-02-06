@@ -36,5 +36,4 @@ trait AccountUserContext
     {
         $this->iShouldBeOnPage('fos_user_profile_show');
     }
-
 }

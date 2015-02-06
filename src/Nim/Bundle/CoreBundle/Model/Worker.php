@@ -12,7 +12,7 @@
 namespace Nim\Bundle\CoreBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use \Nim\Bundle\WorkerBundle\Model\Worker as BaseWorker;
+use Nim\Bundle\WorkerBundle\Model\Worker as BaseWorker;
 
 class Worker extends BaseWorker implements WorkerInterface
 {

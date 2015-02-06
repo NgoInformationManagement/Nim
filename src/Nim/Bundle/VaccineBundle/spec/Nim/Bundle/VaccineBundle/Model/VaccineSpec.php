@@ -56,5 +56,4 @@ class VaccineSpec extends ObjectBehavior
         $this->setDescription('desciption');
         $this->getDescription()->shouldReturn('desciption');
     }
-
 }

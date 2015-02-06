@@ -29,8 +29,8 @@ class WorkerTypesSpec extends ObjectBehavior
     {
         $this::getTypes('translationDomain')->shouldReturn(array(
             'employee' => 'translationDomain.employee',
-            'volunteer' => 'translationDomain.volunteer' ,
-            'intern' => 'translationDomain.intern'
+            'volunteer' => 'translationDomain.volunteer',
+            'intern' => 'translationDomain.intern',
         ));
     }
 }

@@ -33,11 +33,11 @@ class WorkerSubcriberSpec extends ObjectBehavior
     public function it_should_subscribe_to_pre_set_event()
     {
         $this->getSubscribedEvents()->shouldReturn(array(
-            FormEvents::PRE_SET_DATA => 'preSetData'
+            FormEvents::PRE_SET_DATA => 'preSetData',
         ));
     }
 
-    public function it_should_add_fields_to_worker_form(FormBuilderInterface $builder,FormEvent $event, Worker $worker)
+    public function it_should_add_fields_to_worker_form(FormBuilderInterface $builder, FormEvent $event, Worker $worker)
     {
         $worker->getId()->willReturn(1);
         $event->getData()->willReturn($worker);

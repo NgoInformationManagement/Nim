@@ -45,7 +45,7 @@ class ContactType extends AbstractResourceType
                 'label' => 'contact.field.email.label',
                 'allow_add' => true,
                 'allow_delete' => true,
-                'error_bubbling' => false
+                'error_bubbling' => false,
             ))
             ->add('phones', 'collection', array(
                 'type' => 'nim_phone',
@@ -53,7 +53,7 @@ class ContactType extends AbstractResourceType
                 'label' => 'contact.field.phone.label',
                 'allow_add' => true,
                 'allow_delete' => true,
-                'error_bubbling' => false
+                'error_bubbling' => false,
             ))
         ;
     }

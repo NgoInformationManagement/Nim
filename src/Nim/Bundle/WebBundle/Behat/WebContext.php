@@ -12,10 +12,6 @@
 namespace Nim\Bundle\WebBundle\Behat;
 
 use Behat\Mink\Exception\ExpectationException;
-use Behat\Behat\Context\BehatContext;
-use Behat\MinkExtension\Context\MinkDictionary;
-use Nim\Bundle\CoreBundle\Behat\DataContext;
-use Nim\Bundle\MissionBundle\Behat\WorkerDataContext;
 use Nim\Component\Behat\BaseContext;
 
 class WebContext extends BaseContext
@@ -103,7 +99,7 @@ class WebContext extends BaseContext
 
         $tabContainerLocator = $tabHedear->getAttribute('href');
         if ($this->isSeleniumTest()) {
-            if (preg_match('/(.*)(\.a2lix_translationsFields-(.*))/',$tabContainerLocator, $matches)) {
+            if (preg_match('/(.*)(\.a2lix_translationsFields-(.*))/', $tabContainerLocator, $matches)) {
                 $tabContainerLocator = $matches['2'];
             }
         }
@@ -291,7 +287,7 @@ class WebContext extends BaseContext
         $this->assertSession()->elementExists('css', '#confirmationModal');
 
         $modalContainer = $this->getSession()->getPage()->find('css', '#confirmationModal');
-        $primaryButton = $modalContainer->find('css', sprintf('a:contains("%s")' ,$button));
+        $primaryButton = $modalContainer->find('css', sprintf('a:contains("%s")', $button));
 
         $this->getSession()->wait(100);
 
@@ -444,15 +440,15 @@ class WebContext extends BaseContext
     }
 
     /**
-     * @param string $locator
+     * @param  string $locator
      * @return mixed
-     * 
+     *
      * @throws ExpectationException
      */
     protected function findAllField($locator)
     {
         $fields = $this->getSession()->getPage()->findAll('named', array(
-            'field', $this->getSession()->getSelectorsHandler()->xpathLiteral($locator)
+            'field', $this->getSession()->getSelectorsHandler()->xpathLiteral($locator),
         ));
 
         if (!is_array($fields)) {

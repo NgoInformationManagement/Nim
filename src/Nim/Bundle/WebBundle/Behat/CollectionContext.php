@@ -44,7 +44,7 @@ class CollectionContext extends FormContext
      */
     public function iaddEmailToContact($position)
     {
-        $this->addCollectionItem('*[@id="nim_worker_contacts_' . ($position - 1) . '_emails"]');
+        $this->addCollectionItem('*[@id="nim_worker_contacts_'.($position - 1).'_emails"]');
     }
 
     /**
@@ -52,7 +52,7 @@ class CollectionContext extends FormContext
      */
     public function iaddPhoneToContact($position)
     {
-        $this->addCollectionItem('*[@id="nim_worker_contacts_' . ($position - 1) . '_phones"]');
+        $this->addCollectionItem('*[@id="nim_worker_contacts_'.($position - 1).'_phones"]');
     }
 
     /**
@@ -61,7 +61,7 @@ class CollectionContext extends FormContext
     public function iFillContactEmail($position, $value)
     {
         $this->fillCollectionField(
-            '*[@id="nim_worker_contacts_' . ($position - 1) . '_emails"]',
+            '*[@id="nim_worker_contacts_'.($position - 1).'_emails"]',
             $position,
             'address',
             $value
@@ -74,14 +74,14 @@ class CollectionContext extends FormContext
     public function iFillContactPhone($position, $type, $number)
     {
         $this->fillCollectionField(
-            '*[@id="nim_worker_contacts_' . ($position - 1) . '_phones"]',
+            '*[@id="nim_worker_contacts_'.($position - 1).'_phones"]',
             $position,
             'type',
             $type
         );
 
         $this->fillCollectionField(
-            '*[@id="nim_worker_contacts_' . ($position - 1) . '_phones"]',
+            '*[@id="nim_worker_contacts_'.($position - 1).'_phones"]',
             $position,
             'number',
             $number

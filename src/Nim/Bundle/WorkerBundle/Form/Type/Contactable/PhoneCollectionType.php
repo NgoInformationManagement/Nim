@@ -42,8 +42,8 @@ class PhoneCollectionType extends AbstractType
             'error_bubbling' => false,
             'validation_groups' => $this->validationGroups,
             'attr' => array(
-                'class' => 'form-inline'
-            )
+                'class' => 'form-inline',
+            ),
         ));
     }
 

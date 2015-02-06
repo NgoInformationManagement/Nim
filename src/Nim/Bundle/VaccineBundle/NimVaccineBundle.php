@@ -21,7 +21,7 @@ class NimVaccineBundle extends AbstractResourceBundle
     public static function getSupportedDrivers()
     {
         return array(
-            SyliusResourceBundle::DRIVER_DOCTRINE_ORM
+            SyliusResourceBundle::DRIVER_DOCTRINE_ORM,
         );
     }
 
@@ -31,7 +31,7 @@ class NimVaccineBundle extends AbstractResourceBundle
     protected function getModelInterfaces()
     {
         return array(
-            'Nim\Bundle\VaccineBundle\Model\VaccineInterface' => 'nim.model.vaccine.class'
+            'Nim\Bundle\VaccineBundle\Model\VaccineInterface' => 'nim.model.vaccine.class',
         );
     }
 

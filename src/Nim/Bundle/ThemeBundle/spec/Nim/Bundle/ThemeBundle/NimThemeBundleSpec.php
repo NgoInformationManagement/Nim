@@ -12,17 +12,15 @@
 namespace spec\Nim\Bundle\ThemeBundle;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
-use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
 
 class NimThemeBundleSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('Nim\Bundle\ThemeBundle\NimThemeBundle');
     }
 
-    function it_is_bundle()
+    public function it_is_bundle()
     {
         $this->shouldHaveType('Symfony\Component\HttpKernel\Bundle\Bundle');
     }

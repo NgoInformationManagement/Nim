@@ -29,8 +29,8 @@ class PhoneTypesSpec extends ObjectBehavior
     {
         $this::getTypes('translationDomain')->shouldReturn(array(
             'phone' => 'translationDomain.phone',
-            'cellphone' => 'translationDomain.cellphone' ,
-            'fax' => 'translationDomain.fax'
+            'cellphone' => 'translationDomain.cellphone',
+            'fax' => 'translationDomain.fax',
         ));
     }
 }

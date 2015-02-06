@@ -34,7 +34,7 @@ class LocaleTypeSpec extends ObjectBehavior
         $builder
             ->add('locale', 'choice',  array(
                 'choices' => array('en' => 'en', 'fr' => 'fr'),
-                'label' => false
+                'label' => false,
             ))
             ->shouldBeCalled()
             ->willReturn($builder)

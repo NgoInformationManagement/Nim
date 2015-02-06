@@ -60,7 +60,7 @@ class PassportTypeSpec extends ObjectBehavior
     {
         $resolver->setDefaults(array(
             'data_class' => 'My\Bundle\Model',
-            'validation_groups' => array('validation_group')
+            'validation_groups' => array('validation_group'),
         ))->shouldBeCalled();
 
         $this->setDefaultOptions($resolver);

@@ -33,7 +33,7 @@ class VaccineEntityTypeSpec extends ObjectBehavior
             'expanded' => true,
             'multiple' => true,
             'property' => 'EntityFormTypeData',
-            'validation_groups' => array('validation_group')
+            'validation_groups' => array('validation_group'),
         ))->shouldBeCalled();
 
         $this->setDefaultOptions($resolver);

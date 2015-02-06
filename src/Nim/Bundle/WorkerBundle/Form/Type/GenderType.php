@@ -23,7 +23,7 @@ class GenderType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'choices' => Gender::getOptions('gender')
+            'choices' => Gender::getOptions('gender'),
         ));
     }
 

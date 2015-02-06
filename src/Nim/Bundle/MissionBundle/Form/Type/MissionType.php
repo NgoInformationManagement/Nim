@@ -33,7 +33,7 @@ class MissionType extends AbstractResourceType
                         'label' => 'mission.field.description.label',
                         'field_type' => 'textarea',
                     ),
-                )
+                ),
             ))
             ->add('country', 'country', array(
                 'label' => 'mission.field.country.label',

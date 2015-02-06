@@ -24,7 +24,7 @@ class FilterType extends AbstractType
     {
         $builder
             ->add('title', null, array(
-                'label' => 'vaccine.field.title.label'
+                'label' => 'vaccine.field.title.label',
             ));
     }
 

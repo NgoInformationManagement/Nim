@@ -33,7 +33,7 @@ class VaccineType extends AbstractResourceType
                         'label' => 'vaccine.field.description.label',
                         'field_type' => 'textarea',
                     ),
-                )
+                ),
             ))
         ;
     }

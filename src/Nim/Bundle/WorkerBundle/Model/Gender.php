@@ -19,8 +19,8 @@ class Gender
     public static function getOptions($transDomain = 'gender')
     {
         return array(
-            self::MALE => $transDomain .'.'. self::MALE,
-            self::FEMALE => $transDomain .'.'. self::FEMALE,
+            self::MALE => $transDomain.'.'.self::MALE,
+            self::FEMALE => $transDomain.'.'.self::FEMALE,
         );
     }
 }

@@ -56,7 +56,7 @@ class CoreContext extends BaseContext implements Context
         $languages = array(
             'French' => "fr",
             'Spanish' => "es",
-            'English' => "es"
+            'English' => "es",
         );
 
         if (array_key_exists($language, $languages)) {

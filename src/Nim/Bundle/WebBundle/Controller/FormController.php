@@ -43,7 +43,7 @@ class FormController extends Controller
             'form' => $this->get('form.factory')
                 ->createNamed('criteria', $type)
                 ->submit($request)
-                ->createView()
+                ->createView(),
         ));
     }
 }

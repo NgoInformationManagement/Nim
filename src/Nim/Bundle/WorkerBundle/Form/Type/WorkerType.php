@@ -33,7 +33,7 @@ class WorkerType extends AbstractResourceType
             $data = $form->getData();
             if ($data && $data->getId()) {
                 return array_map(function ($value) {
-                    return $value. '-update';
+                    return $value.'-update';
                 }, $validationGroups);
             } else {
                 return $validationGroups;
@@ -99,11 +99,10 @@ class WorkerType extends AbstractResourceType
             ))
             ->add('type', 'choice', array(
                 'label' => 'worker.field.type.label',
-                'choices' => WorkerTypes::getTypes('worker.field.type.option')
+                'choices' => WorkerTypes::getTypes('worker.field.type.option'),
             ));
 
-            $builder->addEventSubscriber($this->workerSubscriber);
-        ;
+        $builder->addEventSubscriber($this->workerSubscriber);
     }
 
     /**

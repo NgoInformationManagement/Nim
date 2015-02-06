@@ -177,5 +177,4 @@ class AgencySpec extends ObjectBehavior
         $this->setUpdatedAt($dateTime);
         $this->getUpdatedAt()->shouldReturn($dateTime);
     }
-
 }

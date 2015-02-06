@@ -32,7 +32,7 @@ class WorkerEntityTypeSpec extends ObjectBehavior
             'class' => 'My\Bundle\Model',
             'expanded' => true,
             'multiple' => true,
-            'property' => 'EntityFormTypeData'
+            'property' => 'EntityFormTypeData',
         ))->shouldBeCalled();
 
         $this->setDefaultOptions($resolver);

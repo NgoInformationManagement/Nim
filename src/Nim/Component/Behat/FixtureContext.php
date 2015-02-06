@@ -9,7 +9,6 @@
  * file that was distributed with this source code.
  */
 
-
 namespace Nim\Component\Behat;
 
 use Behat\Gherkin\Node\TableNode;
@@ -50,7 +49,7 @@ class FixtureContext extends BaseContext
      */
     public function thereAreNoResources($type)
     {
-//        if ($type == 'vaccines') {
+        //        if ($type == 'vaccines') {
 //            $type = 'vaccine';
 //        } else {
             $type = str_replace(' ', '_', StringUtil::singularify($type));
@@ -60,7 +59,7 @@ class FixtureContext extends BaseContext
         $manager = $this->getEntityManager();
 
         foreach ($this->getRepository($type)->findAll() as $resource) {
-//            if ($resource instanceof AbstractEntity) {
+            //            if ($resource instanceof AbstractEntity) {
 //                $resource->setEmails(null);
 //                $resource->setPhones(null);
 //
@@ -72,6 +71,4 @@ class FixtureContext extends BaseContext
 
         $manager->flush();
     }
-
-
 }

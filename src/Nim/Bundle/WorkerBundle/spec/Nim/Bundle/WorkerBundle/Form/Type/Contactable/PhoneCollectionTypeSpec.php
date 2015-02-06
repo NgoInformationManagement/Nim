@@ -36,8 +36,8 @@ class PhoneCollectionTypeSpec extends ObjectBehavior
             'error_bubbling' => false,
             'validation_groups' => array('validation_group'),
             'attr' => array(
-                'class' => 'form-inline'
-            )
+                'class' => 'form-inline',
+            ),
         ))->shouldBeCalled();
 
         $this->setDefaultOptions($resolver);

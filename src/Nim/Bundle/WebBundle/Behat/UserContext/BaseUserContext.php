@@ -108,7 +108,7 @@ trait BaseUserContext
 
         $tabContainerLocator = $tabHedear->getAttribute('href');
         if ($this->isSeleniumTest()) {
-            if (preg_match('/(.*)(\.a2lix_translationsFields-(.*))/',$tabContainerLocator, $matches)) {
+            if (preg_match('/(.*)(\.a2lix_translationsFields-(.*))/', $tabContainerLocator, $matches)) {
                 $tabContainerLocator = $matches['2'];
             }
         }
@@ -296,7 +296,7 @@ trait BaseUserContext
         $this->assertSession()->elementExists('css', '#confirmationModal');
 
         $modalContainer = $this->getSession()->getPage()->find('css', '#confirmationModal');
-        $primaryButton = $modalContainer->find('css', sprintf('a:contains("%s")' ,$button));
+        $primaryButton = $modalContainer->find('css', sprintf('a:contains("%s")', $button));
 
         $this->getSession()->wait(100);
 
@@ -465,7 +465,7 @@ trait BaseUserContext
     private function findAllField($locator)
     {
         $fields = $this->getSession()->getPage()->findAll('named', array(
-            'field', $this->getSession()->getSelectorsHandler()->xpathLiteral($locator)
+            'field', $this->getSession()->getSelectorsHandler()->xpathLiteral($locator),
         ));
 
         if (!is_array($fields)) {

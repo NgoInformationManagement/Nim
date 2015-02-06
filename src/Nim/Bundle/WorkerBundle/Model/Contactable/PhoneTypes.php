@@ -24,10 +24,10 @@ class PhoneTypes implements ConstantInterface
      */
     public static function getTypes($translationDomain = null)
     {
-        return array (
-            self::PHONE => $translationDomain . '.' . self::PHONE,
-            self::CELLPHONE => $translationDomain . '.' . self::CELLPHONE,
-            self::FAX => $translationDomain . '.' . self::FAX,
+        return array(
+            self::PHONE => $translationDomain.'.'.self::PHONE,
+            self::CELLPHONE => $translationDomain.'.'.self::CELLPHONE,
+            self::FAX => $translationDomain.'.'.self::FAX,
         );
     }
 }

@@ -11,9 +11,8 @@
 
 namespace Nim\Bundle\CoreBundle\Twig;
 
-use \Gedmo\Translatable\Translatable;
-use \Doctrine\Common\Util\ClassUtils;
-use Symfony\Component\DependencyInjection\Container;
+use Gedmo\Translatable\Translatable;
+use Doctrine\Common\Util\ClassUtils;
 use Twig_Extension;
 
 class TranslationExtension extends Twig_Extension
@@ -74,7 +73,7 @@ class TranslationExtension extends Twig_Extension
                 'translations' => $translations,
                 'locales' => array_keys($translations),
                 'defaultLocale' => $this->getDefaultLocale(),
-                'transNamespace' => $transNamespace
+                'transNamespace' => $transNamespace,
             )
         );
     }
@@ -117,7 +116,7 @@ class TranslationExtension extends Twig_Extension
         }
 
         return array(
-            $this->getDefaultLocale() => $translations
+            $this->getDefaultLocale() => $translations,
         );
     }
 

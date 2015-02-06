@@ -12,15 +12,15 @@
 namespace Nim\Bundle\VaccineBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use \Gedmo\Translatable\Translatable;
+use Gedmo\Translatable\Translatable;
 use Nim\Component\Resource\Model\EntityFormTypeInterface;
 use Nim\Component\Resource\Model\SoftDeletableTrait;
 use Nim\Component\Resource\Model\TimestampableTrait;
 
 class Vaccine implements Translatable, VaccineInterface, EntityFormTypeInterface
 {
-    use \Nim\Component\Resource\Model\SoftDeletableTrait,
-        \Nim\Component\Resource\Model\TimestampableTrait;
+    use SoftDeletableTrait,
+        TimestampableTrait;
 
     protected $id;
     protected $title;

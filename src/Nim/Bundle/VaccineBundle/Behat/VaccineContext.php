@@ -111,7 +111,7 @@ class VaccineContext extends BaseContext
     {
         $locale = [
             'French' => 'fr',
-            'Englis' => 'en'
+            'Englis' => 'en',
         ];
 
         return isset($locale[$language]) ? $locale[$language] : null;

@@ -24,13 +24,13 @@ class AgencyType extends AbstractType
     {
         $builder
             ->add('name', null, array(
-                'label' => 'worker.field.name.label'
+                'label' => 'worker.field.name.label',
             ))
             ->add('city', null, array(
-                'label' => 'worker.field.city.label'
+                'label' => 'worker.field.city.label',
             ))
             ->add('country', 'country', array(
-                'label' => 'worker.field.country.label'
+                'label' => 'worker.field.country.label',
             ));
     }
 

@@ -82,7 +82,7 @@ class MissionContext extends BaseContext
         $this->thereIsMission($title, array(
             'description' => 'description',
             'country' => 'NI',
-            'startedAt' => '2006-03-06'
+            'startedAt' => '2006-03-06',
         ));
     }
 
@@ -128,7 +128,7 @@ class MissionContext extends BaseContext
     {
         $locale = [
             'French' => 'fr',
-            'Englis' => 'en'
+            'Englis' => 'en',
         ];
 
         return isset($locale[$language]) ? $locale[$language] : null;

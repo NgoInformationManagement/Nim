@@ -40,7 +40,7 @@ class WorkerSubscriber implements EventSubscriberInterface
                 'allow_add' => true,
                 'allow_delete' => true,
                 'error_bubbling' => false,
-                'item_by_line' => 2
+                'item_by_line' => 2,
             ));
         }
     }

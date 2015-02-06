@@ -58,7 +58,7 @@ abstract class AbstractMenuBuilder
 
     /**
      * @param string $code
-     * @param array $option
+     * @param array  $option
      *
      * @return ItemInterface
      */
@@ -66,7 +66,7 @@ abstract class AbstractMenuBuilder
     {
         $options = array_merge([
             'class' => 'nav navbar-nav',
-            'role' => 'menu'
+            'role' => 'menu',
         ], $option);
 
         $menu = $this->factory->createItem($code, [
@@ -80,9 +80,9 @@ abstract class AbstractMenuBuilder
 
     /**
      * @param ItemInterface $menu
-     * @param string $name
-     * @param string $route
-     * @param string $icon
+     * @param string        $name
+     * @param string        $route
+     * @param string        $icon
      *
      * @return ItemInterface
      */
@@ -91,7 +91,7 @@ abstract class AbstractMenuBuilder
         return $menu->addChild($name, [
             'route' => $route,
             'extras' => [
-                'icon' => $icon
+                'icon' => $icon,
             ]
         ]);
     }
